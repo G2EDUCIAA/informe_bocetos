@@ -101,12 +101,15 @@ Sobre el puerto P1, se ubican los siguientes módulos:
 \item 1 puerto Ethernet
 \item 1 puerto SPI
 \item 1 puerto para Display LCD con 4 bits de datos, Enable y RS.
-\9 pines genéricos de I/0.
+\item pines genéricos de I/0.
 \end{enumerate}
 
 \section{Instalacion de Software}
 \subsection{Conceptos previos}
-El desarrollo de codigos para sistemas embebidos tiene ciertas semejanzas con el desarrollo de aplicaciones en las PC, en nuestro caso particular se utiliza un compilador llamado \textit{GCC} con soporte para la compilación de proyectos sobre los procesadores basados en la arquitectura ARM, en este caso particular, el compilador utilizado para el procesador de la EDU CIAA (el cual es el LPC4337) se lo denomina \textit{arm-none-eabi-gcc}
+El desarrollo de codigos para sistemas embebidos tiene ciertas semejanzas con el desarrollo de aplicaciones en las PC, en nuestro caso particular se utiliza un compilador llamado \textit{GCC} con soporte para la compilación de proyectos sobre los procesadores basados en la arquitectura ARM, en este caso particular, el compilador utilizado para el procesador de la EDU CIAA (el cual es el LPC4337) se lo denomina \textit{arm-none-eabi-gcc}.\\
+Para la ejecución de la depuración de algun programa previamente compilado, el hardware de la CIAA viene provisto con el chip \textit{FT2232H}, que se encarga de hacer un puente entre la interfase JTAG del microcontrolador, y el USB que conecta a la PC en el puerto USB dedicado al debug. Mediante la herramienta de código abierto \textit{OpenOCD (On Chip Debugger)} se controla el chip \textit{FT2232H} por el USB y ademas todo lo referido al JTAG. Luego la herramienta de depuración \textit{GDB} utilizado en el IDE-Eclipse que se instala, se comunica sobre el puerto 3333 (TCP) que el \textit{Open OCD} tiene en escucha esperando la conexión.\\
+Debe tenerse en cuenta que el chip \textit{FT2232H} posee 2 canales de comunicación independientes (A y B), sin embargo, ambos salen por el mismo USB, de modo que la PC detecta 2 dispositivos distintos (en realidad es uno compuesto). Uno de ellos, se conecta al JTAG manejado por \textit{OpenOCD} como fue mencionado, mientras que el otro se ve como un puerto virtual COM. Este último sirve principalmente para la depuración.\\
+Dado que al fun
 
 \begin{figure}[!t]
 \centering

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.8.29)  21 SEP 2016 17:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.8.29)  21 SEP 2016 22:23
 entering extended mode
 **./BOCETO.tex
 (BOCETO.tex
@@ -524,42 +524,33 @@ File: figuras/FIGURA_2.jpg Graphic file (type jpg)
 <use figuras/FIGURA_2.jpg>
 Package pdftex.def Info: figuras/FIGURA_2.jpg used on input line 85.
 (pdftex.def)             Requested size: 227.62204pt x 163.06657pt.
-
-! Undefined control sequence.
-l.104 \9
-         pines genéricos de I/0.
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<figuras/CurvasMotorInduc.jpeg, id=4, 411.78844pt x 435.87843pt>
-File: figuras/CurvasMotorInduc.jpeg Graphic file (type jpg)
-
-<use figuras/CurvasMotorInduc.jpeg>
-Package pdftex.def Info: figuras/CurvasMotorInduc.jpeg used on input line 112.
-(pdftex.def)             Requested size: 227.62204pt x 240.9377pt.
  [1{C:/Users/Facundo/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
  <./figuras/diagramaenbloques.jpg>]
-<figuras/figura_09.jpeg, id=16, 577.40718pt x 338.76563pt>
+<figuras/CurvasMotorInduc.jpeg, id=15, 411.78844pt x 435.87843pt>
+File: figuras/CurvasMotorInduc.jpeg Graphic file (type jpg)
+
+<use figuras/CurvasMotorInduc.jpeg>
+Package pdftex.def Info: figuras/CurvasMotorInduc.jpeg used on input line 116.
+(pdftex.def)             Requested size: 227.62204pt x 240.9377pt.
+ [2 <./figuras/FIGURA_1.jpg> <./figuras/FIGURA_2.jpg> <./figuras/CurvasMotorInd
+uc.jpeg>]
+<figuras/figura_09.jpeg, id=22, 577.40718pt x 338.76563pt>
 File: figuras/figura_09.jpeg Graphic file (type jpg)
 
 <use figuras/figura_09.jpeg>
-Package pdftex.def Info: figuras/figura_09.jpeg used on input line 144.
+Package pdftex.def Info: figuras/figura_09.jpeg used on input line 148.
 (pdftex.def)             Requested size: 227.62204pt x 133.54474pt.
- [2 <./figuras/FIGURA_1.jpg> <./figuras/FIGURA_2.jpg> <./figuras/CurvasMotorInd
-uc.jpeg>]
+
 <figuras/figura_06.jpeg, id=23, 664.73344pt x 423.83344pt>
 File: figuras/figura_06.jpeg Graphic file (type jpg)
 
 <use figuras/figura_06.jpeg>
-Package pdftex.def Info: figuras/figura_06.jpeg used on input line 155.
+Package pdftex.def Info: figuras/figura_06.jpeg used on input line 159.
 (pdftex.def)             Requested size: 227.62204pt x 145.12973pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 171--172
+Underfull \hbox (badness 10000) in paragraph at lines 175--176
 
  []
 
@@ -567,71 +558,67 @@ Underfull \hbox (badness 10000) in paragraph at lines 171--172
 File: figuras/figura_08.jpeg Graphic file (type jpg)
 
 <use figuras/figura_08.jpeg>
-Package pdftex.def Info: figuras/figura_08.jpeg used on input line 205.
+Package pdftex.def Info: figuras/figura_08.jpeg used on input line 209.
 (pdftex.def)             Requested size: 227.62204pt x 104.07335pt.
- [3 <./figuras/figura_09.jpeg> <./figuras/figura_06.jpeg> <./figuras/figura_08.
-jpeg>]
-<figuras/figura_10.jpeg, id=29, 444.91219pt x 396.7322pt>
+ [3 <./figuras/figura_09.jpeg> <./figuras/figura_06.jpeg>] <figuras/figura_10.j
+peg, id=29, 444.91219pt x 396.7322pt>
 File: figuras/figura_10.jpeg Graphic file (type jpg)
 
 <use figuras/figura_10.jpeg>
-Package pdftex.def Info: figuras/figura_10.jpeg used on input line 223.
+Package pdftex.def Info: figuras/figura_10.jpeg used on input line 227.
 (pdftex.def)             Requested size: 227.62204pt x 202.97241pt.
 
 <figuras/figura_11.jpeg, id=30, 306.39468pt x 186.6975pt>
 File: figuras/figura_11.jpeg Graphic file (type jpg)
 
 <use figuras/figura_11.jpeg>
-Package pdftex.def Info: figuras/figura_11.jpeg used on input line 232.
+Package pdftex.def Info: figuras/figura_11.jpeg used on input line 236.
 (pdftex.def)             Requested size: 227.62204pt x 138.69809pt.
-
-Underfull \vbox (badness 2495) has occurred while \output is active []
-
 
 <figuras/figura_17.jpeg, id=31, 2601.72pt x 1951.29pt>
 File: figuras/figura_17.jpeg Graphic file (type jpg)
 
 <use figuras/figura_17.jpeg>
-Package pdftex.def Info: figuras/figura_17.jpeg used on input line 255.
+Package pdftex.def Info: figuras/figura_17.jpeg used on input line 259.
 (pdftex.def)             Requested size: 170.71652pt x 128.02927pt.
-
-<figuras/figura_19.jpeg, id=32, 811.53188pt x 429.85594pt>
+ [4 <./figuras/figura_08.jpeg> <./figuras/figura_10.jpeg> <./figuras/figura_11.
+jpeg> <./figuras/figura_17.jpeg>]
+<figuras/figura_19.jpeg, id=35, 811.53188pt x 429.85594pt>
 File: figuras/figura_19.jpeg Graphic file (type jpg)
 
 <use figuras/figura_19.jpeg>
-Package pdftex.def Info: figuras/figura_19.jpeg used on input line 270.
+Package pdftex.def Info: figuras/figura_19.jpeg used on input line 274.
 (pdftex.def)             Requested size: 227.62204pt x 120.56873pt.
 
-<figuras/figura_20.jpeg, id=33, 856.70062pt x 422.32782pt>
+<figuras/figura_20.jpeg, id=36, 856.70062pt x 422.32782pt>
 File: figuras/figura_20.jpeg Graphic file (type jpg)
 
 <use figuras/figura_20.jpeg>
-Package pdftex.def Info: figuras/figura_20.jpeg used on input line 279.
+Package pdftex.def Info: figuras/figura_20.jpeg used on input line 283.
 (pdftex.def)             Requested size: 227.62204pt x 112.20631pt.
- [4 <./figuras/figura_10.jpeg> <./figuras/figura_11.jpeg> <./figuras/figura_17.
-jpeg>]
+
 <figuras/figura_21.jpeg, id=37, 797.98125pt x 409.53pt>
 File: figuras/figura_21.jpeg Graphic file (type jpg)
 
 <use figuras/figura_21.jpeg>
-Package pdftex.def Info: figuras/figura_21.jpeg used on input line 317.
+Package pdftex.def Info: figuras/figura_21.jpeg used on input line 321.
 (pdftex.def)             Requested size: 227.62204pt x 116.81723pt.
 
 <figuras/figura_22.jpeg, id=38, 644.4075pt x 423.83344pt>
 File: figuras/figura_22.jpeg Graphic file (type jpg)
 
 <use figuras/figura_22.jpeg>
-Package pdftex.def Info: figuras/figura_22.jpeg used on input line 325.
+Package pdftex.def Info: figuras/figura_22.jpeg used on input line 329.
 (pdftex.def)             Requested size: 227.62204pt x 149.70848pt.
 
 <figuras/figura_23.jpeg, id=39, 830.35219pt x 424.58624pt>
 File: figuras/figura_23.jpeg Graphic file (type jpg)
 
 <use figuras/figura_23.jpeg>
-Package pdftex.def Info: figuras/figura_23.jpeg used on input line 333.
+Package pdftex.def Info: figuras/figura_23.jpeg used on input line 337.
 (pdftex.def)             Requested size: 227.62204pt x 116.38905pt.
  [5 <./figuras/figura_19.jpeg> <./figuras/figura_20.jpeg> <./figuras/figura_21.
-jpeg> <./figuras/figura_22.jpeg> <./figuras/figura_23.jpeg>]
+jpeg> <./figuras/figura_22.jpeg>]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -645,7 +632,8 @@ Before submitting the final camera ready copy, remember to:
 
 [6
 
-] (D:\PROC2estudio\EDU_CIAA_MATERIAL\Informe_preliminares\build\BOCETO.aux)
+ <./figuras/figura_23.jpeg>]
+(D:\PROC2estudio\EDU_CIAA_MATERIAL\Informe_preliminares\build\BOCETO.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -660,7 +648,7 @@ Here is how much of TeX's memory you used:
  6248 multiletter control sequences out of 15000+200000
  36800 words of font info for 67 fonts, out of 3000000 for 9000
  1028 hyphenation exceptions out of 8191
- 27i,7n,20p,755b,241s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,7n,20p,683b,241s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Facundo/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/fontname/
 8r.enc}<C:/Users/Facundo/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
 msfonts/cm/cmex10.pfb><C:/Users/Facundo/AppData/Local/Programs/MiKTeX 2.9/fonts
@@ -676,7 +664,7 @@ eX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/Facundo/AppData/Local/Progra
 ms/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Users/Facundo/AppData/Local/
 Programs/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
 Output written on D:/PROC2estudio/EDU_CIAA_MATERIAL/Informe_preliminares/build/
-BOCETO.pdf (6 pages, 2710480 bytes).
+BOCETO.pdf (6 pages, 2712901 bytes).
 PDF statistics:
  81 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
