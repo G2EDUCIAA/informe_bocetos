@@ -116,7 +116,46 @@ Debe tenerse en cuenta que el chip \textit{FT2232H} posee 2 canales de comunicac
 Dado que al funcionará como dos dispositivos distintos, para cada uno de ellos debe realizarse la instalación de un driver adecuado, en principio debe optarse por realizar la instalación de los drivers por defecto del fabricante FTDI para puerto virtual.\\ %Considerar%
 
 \subsection{Firmware de la EDU CIAA}
-Considerando que el usuario previamente ha trabajado sobre placas de desarrollo tales como la MCE Debug, etc, y sobre microcontroladores PIC. Es necesario destacar un concepto teórico que nos brinda la posibilidad de fundamentar el trabajo sobre la placa EDU CIAA. Al trabajar sobre los otros dispositivos, es común la utilización de programas tales como \textit{MPLABX}, o \textit{PICC} a través del compilador \textit{CCS Compiler}, 
+Considerando que el usuario previamente ha trabajado sobre placas de desarrollo tales como la MCE Debug, etc, y sobre microcontroladores PIC. Es necesario destacar un concepto teórico que nos brinda la posibilidad de fundamentar el trabajo sobre la placa EDU CIAA. Al trabajar sobre los otros dispositivos, es común la utilización de programas tales como \textit{MPLABX}, o \textit{PICC} a través del compilador \textit{CCS Compiler}; puntualmente; cuando se inicia un nuevo proyecto a traves de la herramienta de creación de la misma, es usual configurar este proyecto de manera que el software IDE genera un archivo \textit{makefile} para la compilación del proyecto.\\
+En este caso particular, el software IDE de la EDU CIAA trabaja de forma ligeramente distinta, el usuario debe crear un archivo \textit{makefile} (basándose en un archivo proporcionado previamente, denominado \textit{Makefile.config}) para poder efectuar la compilación del archivo y lograr la correcta configuración del programa, sobre la placa EDU CIAA. Dentro de dicho archivo se establece la configuracion para la arquitectura del procesador utilizado.
+%%CONSIDERAR POSICION DEL SIGUIENTE PARRAFO%%
+Cuando se desea realizar el primer proyecto sobre la placa, el usuario debe crear su propio archivo \textit{Makefile.mine}, de manera que ésta se encuentra basada en el archivo \textit{Makefile.config} brindado previamente al momento de establecer un nuevo proyecto añadiendo un Firmware que previamente ha sido diseñado por los creadores de la placa.\\
+Debe tenerse en cuenta que la dinámica de trabajo sobre la placa se encuentra pensada para trabajar sobre la plataforma de versionado \textit{Git}; en este caso en particular, el archivo \textit{Makefile.mine} se encuentra diseñado de forma tal que dicho archivo sea ignorado al sincronizar su repositorio local, con su repositorio remoto (ubicado sobre \textit{Github}).\\
+En el Makefile.mine se pueden editar y configurar los siguientes parámetros:
+\begin{enumerate}
+\item \textbf{ARCH}  indica la arquitectura del hardware para la cual se desea compilar. Ej: x86, cortexM4.
+\item \textbf{CPUTYPE} indica el tipo de CPU. Ej: none, ia32, ia64, lpc43xx.
+\item \textbf{CPU} indica la CPU para la que se desea compilar. Ej: none, lpc4337.
+\item \textbf{COMPILER }es el compilador a utilizar. Ej: gcc.
+\item \textbf{BOARD }es la placa sobre la cual se trabajaca (CIAA-NXP, EDU-CIAA-NXP, etc.)
+\item \textbf{PROJECT }es el Path al proyecto a compilar. Ej: examples$\$(DS)blinking_base$.
+\end{enumerate}
+Se utiliza la variable \$(DS) para indicar el separador de directorios (de manera automática se usa '/' para linux y '\' para windows).\\
+
+En el mismo Makefile aparecen al comienzo comentarios donde se indican los valores que pueden tomar estos parámetros.\\
+
+Otro concepto importante sobre el cual se tiene en cuenta cuando se desarrollan proyectos propios, es que cada proyecto tiene también su propio archivo \textit{Makefile}.El mismo se encuentra bajo el directorio\textbf{mak} en el directorio principal del proyecto o ejemplo. En el ejemplo \textbf{examples/blinking} el makefile del ejemplo se encuentra en \textbf{examples/blinking/mak} y se llama \textbf{Makefile}.\\
+
+Sobre este \textit{Makefile} contiene las siguientes definiciones:
+
+\begin{enumerate}
+\item \textbf{project} el nombre del proyecto y por ende nombre del ejecutable.
+\item \textbf{\$(project)\_PATH} es el directorio del proyecto.
+\item \textbf{INCLUDE} los paths a indicar al compilador para buscar includes files.
+\item \textbf{SRC\_ FILES} archivos a compilar ya sean archivos c como c++.
+\item \textbf{OIL\_ FILES} configuración del sistema operativo (si es utilizado).
+\end{enumerate}
+
+Cada proyecto incluye en su Makefile los módulos (aca digo que son los módulos) a compilar en una variable llamada MODS, por ejemplo:\\
+------------------------decidir si poner como imagen o como texto
+MODS += modules$\$(DS)posix$ \
+        modules$\$(DS)ciaak $\
+        modules$\$(DS)config$ \
+        modules$\$(DS)bsp $\
+        modules$\$(DS)platforms$\\
+
+Es recomendable utilizar \$(DS) en vez de / o \ para mantener la compatibilidad entre sistemas operativos (Linux, Windows, MAC OS).
+
 %Un informe debe dividirse en partes para la correcta explicación del proyecto que se quiera divulgar. Estas partes son:
 %\begin{enumerate}
  %\item \textbf{Portada o carátula}: esta es la primera página y en ella debe estar:

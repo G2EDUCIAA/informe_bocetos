@@ -5,6 +5,7 @@
 \contentsline {subsection}{\numberline {2.2}Descripci\IeC {\'o}n de la placa}{2}
 \contentsline {section}{\numberline {3}Instalacion de Software}{4}
 \contentsline {subsection}{\numberline {3.1}Conceptos previos}{4}
-\contentsline {subsection}{\numberline {3.2}Software para realizar informes}{4}
-\contentsline {section}{\numberline {4}Recomendaciones}{4}
-\contentsline {section}{\numberline {5}Conclusiones}{4}
+\contentsline {subsection}{\numberline {3.2}Firmware de la EDU CIAA}{4}
+\contentsline {subsection}{\numberline {3.3}Software para realizar informes}{6}
+\contentsline {section}{\numberline {4}Recomendaciones}{6}
+\contentsline {section}{\numberline {5}Conclusiones}{6}
