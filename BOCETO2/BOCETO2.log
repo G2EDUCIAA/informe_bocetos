@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  27 SEP 2016 16:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  27 SEP 2016 17:07
 entering extended mode
 **./BOCETO2.tex
 (BOCETO2.tex
@@ -496,6 +496,10 @@ fg")
 ) (BOCETO2.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
+
+
+LaTeX Warning: Label `Fig4' multiply defined.
+
 )
 \openout1 = `BOCETO2.aux'.
 
@@ -513,8 +517,8 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
 LaTeX Font Info:    ... okay on input line 14.
 LaTeX Info: Redefining \. on input line 14.
 LaTeX Info: Redefining \% on input line 14.
-
-("C:\Users\hp\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+ ("C:\Users\hp\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.mkii
+"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count113
 \scratchdimen=\dimen129
@@ -693,22 +697,40 @@ File: figuras/instalacion2.png Graphic file (type png)
 Package pdftex.def Info: figuras/instalacion2.png used on input line 232.
 (pdftex.def)             Requested size: 227.62204pt x 176.58115pt.
 
+<figuras/instalacion3.png, id=35, 399.74344pt x 310.15875pt>
+File: figuras/instalacion3.png Graphic file (type png)
 
-LaTeX Warning: Empty `thebibliography' environment on input line 286.
+<use figuras/instalacion3.png>
+Package pdftex.def Info: figuras/instalacion3.png used on input line 243.
+(pdftex.def)             Requested size: 227.62204pt x 176.61247pt.
 
-[8 <./figuras/instalacion1.png> <./figuras/instalacion2.png>] (BOCETO2.aux
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[8 <./figuras/instalacion1.png> <./figuras/instalacion2.png>]
+<figuras/instalacion4.png, id=39, 392.21532pt x 305.64188pt>
+File: figuras/instalacion4.png Graphic file (type png)
+
+<use figuras/instalacion4.png>
+Package pdftex.def Info: figuras/instalacion4.png used on input line 254.
+(pdftex.def)             Requested size: 227.62204pt x 177.37967pt.
+
+
+LaTeX Warning: Empty `thebibliography' environment on input line 307.
+
+[9 <./figuras/instalacion3.png> <./figuras/instalacion4.png>] (BOCETO2.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 )
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5030 strings out of 493634
- 67636 string characters out of 3136463
- 148562 words of memory out of 3000000
- 8322 multiletter control sequences out of 15000+200000
+ 5042 strings out of 493634
+ 67910 string characters out of 3136463
+ 148617 words of memory out of 3000000
+ 8332 multiletter control sequences out of 15000+200000
  10851 words of font info for 40 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  37i,9n,39p,921b,384s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -719,9 +741,9 @@ msfonts/cm/cmmi12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type
 onts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/hp/AppData/Local/Programs/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/hp/AppData/Local/Prog
 rams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on BOCETO2.pdf (8 pages, 587513 bytes).
+Output written on BOCETO2.pdf (9 pages, 706641 bytes).
 PDF statistics:
- 58 PDF objects out of 1000 (max. 8388607)
+ 63 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
