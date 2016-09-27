@@ -362,7 +362,49 @@ Por lo general, aparecerán 2 con el mismo nombre, excepto que uno es Interface 
 \end{figure}
 \end{center}
 
+Para configurar el driver:
 
+\begin{enumerate}
+\item[1]seleccionar la \textbf{Interfase 0}
+\item[2]elegir el \textbf{“WinUSB v6.1”}
+\item[2]hacer click en el botón \textbf{“Replace Driver”}.
+\end{enumerate}
+
+La Figura \ref{Fig17} muestra la ventana ya configurada:
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/instalacion15.png}\\
+\caption{Configuración del Zadig para el reemplazo del driver}
+\label{Fig17}
+\end{figure}
+\end{center}
+
+\section{Desinstalación}
+Si se instaló el Software de CIAA-IDE y luego se desea desinstalarlo, se debe tener especial
+cuidado en quitar cualquier contenido que se quiera conservar de la carpeta $C:\_\ CIAA$, o el
+directorio de instalación elegido. Esto se debe a que el desinstalador del Software CIAA-IDE
+elimina el directorio y todo su contenido.
+
+\section{Configuración del entorno CIAA-IDE}
+Cuando se realiza la inicialización del entorno \textit{CIAA-IDE}, dicho programa solicita al usuario que seleccione una carpeta de trabajo, la cual contendrá al Workspace, particularmente, es posible elegir que dicha carpeta se encuentre dentro del directorio de instalación del software.\\
+La Figura \ref{config1} ilustra dicho concepto:
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/configuracion1.png}\\
+\caption{Selección de carpeta de trabajo}
+\label{config1}
+\end{figure}
+\end{center}
+
+Debe notarse que todo lo relativo al trabajo que se esta realizando (como las configuraciones, variables globales, del entorno y demás) se guarda en esa carpeta. Si siempre se va a utilizar la misma ubicación, se
+puede tildar la opción \textit{“Use this as the default and do not ask again”}; en otro caso, el programa siempre pide por esta ubicación, particularmente, este directorio de trabajo puede elegirse dentro del directorio de instalación del IDE.
+
+\subsection{Compilación de primer proyecto: "Blinking"}
+Cuando un usuario que desea cerciorarse si ha realizado una correcta configuración del software que realiza la carga de un código sobre un microcontrolador, microprocesador, etc; es común trabajar sobre un ejemplo (usualmente provisto por el programa, o por los diseñadores de la placa, entre otros) el cual se lo suele llamar \textit{blinking}. El objetivo de este programa es establecer una luz intermitente a través de un LED, cuyos intervalos de tiempo de encendido y apagado se encuentren temporizados a un cierto tiempo.
 %Un informe debe dividirse en partes para la correcta explicación del proyecto que se quiera divulgar. Estas partes son:
 %\begin{enumerate}
  %\item \textbf{Portada o carátula}: esta es la primera página y en ella debe estar:
