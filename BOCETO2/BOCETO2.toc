@@ -7,6 +7,6 @@
 \contentsline {subsection}{\numberline {3.1}Conceptos previos}{4}
 \contentsline {subsection}{\numberline {3.2}Firmware de la EDU CIAA}{5}
 \contentsline {subsection}{\numberline {3.3}Estructura de Directorios de Firmware de EDU CIAA}{6}
-\contentsline {subsection}{\numberline {3.4}Software para realizar informes}{7}
-\contentsline {section}{\numberline {4}Recomendaciones}{7}
-\contentsline {section}{\numberline {5}Conclusiones}{7}
+\contentsline {subsection}{\numberline {3.4}Iniciaci\IeC {\'o}n a trav\IeC {\'e}s de ejemplos}{7}
+\contentsline {subsection}{\numberline {3.5}Software para realizar informes}{7}
+\contentsline {section}{\numberline {4}Conclusiones}{7}

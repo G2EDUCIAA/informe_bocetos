@@ -149,7 +149,7 @@ Sobre este \textit{Makefile} contiene las siguientes definiciones:
 \end{enumerate}
 
 Cada proyecto incluye en su Makefile los módulos (aca digo que son los módulos) a compilar en una variable llamada MODS, por ejemplo:\\
-------------------------decidir si poner como imagen o como texto
+------------------------decidir si poner como imagen o como texto\\
 MODS += modules$\$(DS)posix$ \
         modules$\$(DS)ciaak $\
         modules$\$(DS)config$ \
@@ -203,6 +203,10 @@ obj & Todos los archivos fuentes son compilados a object files y almacenados en 
 \end{table}
 
 }
+\subsection{Iniciación a través de ejemplos}
+Sobre el Firmware de la placa se distribuyen varios ejemplos los cuales se encuentran en la carpeta \textbf{examples} y pueden ser utilizados como base para iniciar cualquier proyecto.
+Cualquiera de los ejemplos puede ser copiado y utilizado de base para nuevos proyectos. Por ejemplo con el siguiente comando:	\textit{cp -r $examples/blinking projects/my\_proyect$}\\
+Y adaptando el Makefile.mine indicado: $PROJECT_PATH = projects/my\_project$.
 %Un informe debe dividirse en partes para la correcta explicación del proyecto que se quiera divulgar. Estas partes son:
 %\begin{enumerate}
  %\item \textbf{Portada o carátula}: esta es la primera página y en ella debe estar:
@@ -234,7 +238,7 @@ obj & Todos los archivos fuentes son compilados a object files y almacenados en 
 %	\item \textbf{Microsoft Word \cite{office}}: es una aplicación informática orientada al procesamiento de textos. Fue creado por la empresa Microsoft, y viene integrado en el paquete ofimático denominado Microsoft Office. Originalmente fue desarrollado por Richard Brodie para el computador de IBM bajo sistema operativo DOS en 1983. Versiones subsecuentes fueron programadas para muchas otras plataformas, incluyendo, las computadoras IBM que corrían en sistema MS-DOS (1983). Es un componente de la suite ofimática Microsoft Office; también es vendido de forma independiente e incluido en la Suite de Microsoft Works. Las versiones actuales son Microsoft Office Word 2013 para Windows y Microsoft Office Word 2011 para Mac. Actualmente es el procesador de texto más popular del mundo. No está orientado a la edición de textos científicos por lo que a la larga se hace más complicado su uso.
 %\end{itemize}
 
-\section{Recomendaciones}
+%\section{Recomendaciones}
 %Es necesario tener claro que es lo que se desea comunicar y ordenarlo antes de comenzar a escribir. Para esto sirve ir escribiendo en un borrador los pasos que se van cumpliendo mientras se va realizando el proyecto. Una vez terminado el proyecto, es decir, que está funcionando de acuerdo a los requerimientos planteado, se hacen las capturas de pantalla de la PC y del osciloscopio necesarias. 
 
 %Luego se definen las secciones que formarán parte del informe; es aconsejable que el nombre haga referencia a lo que la sección trata, como así también el nombre de las subsecciones. Hay nombres de secciones que no se pueden cambiar como por ejemplo \textbf{Introducción}, \textbf{Resultados}, \textbf{Conclusiones}. Si es necesario agregar nuevas secciones o cambiarles el título en función de cómo se vaya desarrollando el trabajo \cite{Informe}.
