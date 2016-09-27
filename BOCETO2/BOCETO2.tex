@@ -170,7 +170,7 @@ En el directorio principal luego de hacer un git clone o al bajar una release of
 \end{figure}
 
 \textbf{Directorio $"externals"$(Software y Tools Externos)}\\
-Este directorio contiene el Software y Tools externos al CIAA-Firmware, que son necesarios para compilar, testear, etc. el Firmware. Tenga en cuenta que el Software y Tools en esta carpeta no son parte de CIAA-Firmware y pueden contener otras licencias.	
+Este directorio contiene el Software y Tools externos al CIAA-Firmware, que son necesarios para compilar, testear, etc. el Firmware. Tenga en cuenta que el Software y Tools en esta carpeta no son parte de CIAA-Firmware y pueden contener otras licencias. Sobre la \ref{Tab1} se ilustra los contenidos del directorio y su descripción.
 
 \begin{table}
 \begin{center}
@@ -180,12 +180,27 @@ ceedling & Tool utilizada para los Unit Tests o Pruebas Unitarias\\ \hline
 base & Fuentes, headers y linker scripts necesarios para poder compilar y linkear el código en la plataforma\\ \hline
 drivers & Drivers provistos por el proveedor del chip, los cuales son luego adaptados al formato de la CIAA.\\ \hline
 \end{tabular}
-\caption{Tabla}
-\label{tabla}
+\caption{Tabla1}
+\label{Tab1}
 \end{center}
 \end{table}
 
+\textbf{modules (out (Archivos de salida)}\\
+La \ref{Tab2} contiene todos los archivos generados por el CIAA-Firmware:\\
 
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline\hline
+bin & Contiene el binario del proyecto, es el archivo que se va a correr en la PC o a cargar en el CIAA-Firmware\\ \hline
+gen & Archivos generados de OSEK RTOS\\ \hline
+lib & Por cada Módulo el make genera un archivo .a, osea una libreria\\ \hline
+obj & Todos los archivos fuentes son compilados a object files y almacenados en este directorio\\ \hline
+\end{tabular}
+\caption{Tabla 2}
+\label{Tab2}
+\end{center}
+\end{table}
 
 }
 %Un informe debe dividirse en partes para la correcta explicación del proyecto que se quiera divulgar. Estas partes son:
