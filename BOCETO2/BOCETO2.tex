@@ -110,7 +110,9 @@ Sobre el puerto P1, se ubican los siguientes módulos:
 
 \subsection{Conceptos previos}
 El desarrollo de codigos para sistemas embebidos tiene ciertas semejanzas con el desarrollo de aplicaciones en las PC, en nuestro caso particular se utiliza un compilador llamado \textit{GCC} con soporte para la compilación de proyectos sobre los procesadores basados en la arquitectura ARM, en este caso particular, el compilador utilizado para el procesador de la EDU CIAA (el cual es el LPC4337) se lo denomina \textit{arm-none-eabi-gcc}.\\
+
 Para la ejecución de la depuración de algun programa previamente compilado, el hardware de la CIAA viene provisto con el chip \textit{FT2232H}, que se encarga de hacer un puente entre la interfase JTAG del microcontrolador, y el USB que conecta a la PC en el puerto USB dedicado al debug. Mediante la herramienta de código abierto \textit{OpenOCD (On Chip Debugger)} se controla el chip \textit{FT2232H} por el USB y ademas todo lo referido al JTAG. Luego la herramienta de depuración \textit{GDB} utilizado en el IDE-Eclipse que se instala, se comunica sobre el puerto 3333 (TCP) que el \textit{Open OCD} tiene en escucha esperando la conexión.\\
+
 Debe tenerse en cuenta que el chip \textit{FT2232H} posee 2 canales de comunicación independientes (A y B), sin embargo, ambos salen por el mismo USB, de modo que la PC detecta 2 dispositivos distintos (en realidad es uno compuesto). Uno de ellos, se conecta al JTAG manejado por \textit{OpenOCD} como fue mencionado, mientras que el otro se ve como un puerto virtual COM. Este último sirve principalmente para la depuración.\\
 %%CONSIDERAR SI CIERTA PARTE VA A IR A SECCION INSTALACION
 Dado que al funcionará como dos dispositivos distintos, para cada uno de ellos debe realizarse la instalación de un driver adecuado, en principio debe optarse por realizar la instalación de los drivers por defecto del fabricante FTDI para puerto virtual.\\ %Considerar%
@@ -155,7 +157,37 @@ MODS += modules$\$(DS)posix$ \
         modules$\$(DS)platforms$\\
 
 Es recomendable utilizar \$(DS) en vez de / o \ para mantener la compatibilidad entre sistemas operativos (Linux, Windows, MAC OS).
+{
+\subsection{Estructura de Directorios de Firmware de EDU CIAA}
+En el directorio principal luego de hacer un git clone o al bajar una release oficial se pueden encontrar los siguientes Directorios y Archivos:
 
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/est_directorios_ciaa.png}\\
+\caption{Estructura de directorios del Firmware}
+\label{Fig3}
+\end{figure}
+
+\textbf{Directorio $"externals"$(Software y Tools Externos)}\\
+Este directorio contiene el Software y Tools externos al CIAA-Firmware, que son necesarios para compilar, testear, etc. el Firmware. Tenga en cuenta que el Software y Tools en esta carpeta no son parte de CIAA-Firmware y pueden contener otras licencias.	
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline\hline
+ceedling & Tool utilizada para los Unit Tests o Pruebas Unitarias\\ \hline
+base & Fuentes, headers y linker scripts necesarios para poder compilar y linkear el código en la plataforma\\ \hline
+drivers & Drivers provistos por el proveedor del chip, los cuales son luego adaptados al formato de la CIAA.\\ \hline
+\end{tabular}
+\caption{Tabla}
+\label{tabla}
+\end{center}
+\end{table}
+
+
+
+}
 %Un informe debe dividirse en partes para la correcta explicación del proyecto que se quiera divulgar. Estas partes son:
 %\begin{enumerate}
  %\item \textbf{Portada o carátula}: esta es la primera página y en ella debe estar:

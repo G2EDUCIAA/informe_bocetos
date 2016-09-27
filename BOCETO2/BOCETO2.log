@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  27 SEP 2016 11:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  27 SEP 2016 12:10
 entering extended mode
 **./BOCETO2.tex
 (BOCETO2.tex
@@ -622,20 +622,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 81--82
 
  []
 
-
-LaTeX Warning: Reference `Fig3' on page 3 undefined on input line 85.
-
 [3 <./figuras/FIGURA_1.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 112--117
+Underfull \hbox (badness 10000) in paragraph at lines 112--113
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 114--115
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 116--119
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 133--134
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 135--136
 
  []
@@ -646,40 +648,52 @@ Underfull \hbox (badness 10000) in paragraph at lines 137--138
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 149--156
+Underfull \hbox (badness 10000) in paragraph at lines 139--140
 
  []
 
 [5]
+Underfull \hbox (badness 10000) in paragraph at lines 151--158
 
-LaTeX Warning: Empty `thebibliography' environment on input line 207.
+ []
 
-[6] (BOCETO2.aux
+<figuras/est_directorios_ciaa.png, id=25, 511.15968pt x 612.78937pt>
+File: figuras/est_directorios_ciaa.png Graphic file (type png)
+
+<use figuras/est_directorios_ciaa.png>
+Package pdftex.def Info: figuras/est_directorios_ciaa.png used on input line 16
+7.
+(pdftex.def)             Requested size: 227.62204pt x 272.87274pt.
+
+Overfull \hbox (78.92416pt too wide) in paragraph at lines 177--183
+ [] 
+ []
+
+
+LaTeX Warning: Empty `thebibliography' environment on input line 237.
+
+[6 <./figuras/est_directorios_ciaa.png>] [7] (BOCETO2.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
-)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+) ) 
 Here is how much of TeX's memory you used:
- 5007 strings out of 493634
- 67143 string characters out of 3136463
- 148530 words of memory out of 3000000
- 8305 multiletter control sequences out of 15000+200000
+ 5014 strings out of 493634
+ 67325 string characters out of 3136463
+ 148546 words of memory out of 3000000
+ 8310 multiletter control sequences out of 15000+200000
  10150 words of font info for 38 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 37i,6n,39p,921b,384s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmbx12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmmi12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type
-1/public/amsfonts/cm/cmmi8.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/hp/AppData/Local/Programs/MiK
-TeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/hp/AppData/Local/Prog
-rams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on BOCETO2.pdf (6 pages, 219448 bytes).
+ 37i,9n,39p,921b,384s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmbx12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmmi12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmmi8.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/hp/AppData/Local/Programs/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/hp/AppData/Local/Pro
+grams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on BOCETO2.pdf (7 pages, 330811 bytes).
 PDF statistics:
- 47 PDF objects out of 1000 (max. 8388607)
+ 53 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
