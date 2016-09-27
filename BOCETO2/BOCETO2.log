@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  27 SEP 2016 16:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  27 SEP 2016 16:44
 entering extended mode
 **./BOCETO2.tex
 (BOCETO2.tex
@@ -606,30 +606,23 @@ File: figuras/diagramaenbloques.jpg Graphic file (type jpg)
 Package pdftex.def Info: figuras/diagramaenbloques.jpg used on input line 65.
 (pdftex.def)             Requested size: 227.62204pt x 189.4456pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 72--73
 
  []
 
-<figuras/FIGURA_1.jpg, id=9, 269.50688pt x 376.40625pt>
+[2 <./figuras/diagramaenbloques.jpg>]
+<figuras/FIGURA_1.jpg, id=12, 269.50688pt x 376.40625pt>
 File: figuras/FIGURA_1.jpg Graphic file (type jpg)
 
 <use figuras/FIGURA_1.jpg>
 Package pdftex.def Info: figuras/FIGURA_1.jpg used on input line 76.
 (pdftex.def)             Requested size: 227.62204pt x 317.91362pt.
 
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 81--82
 
  []
 
-[2] [3 <./figuras/diagramaenbloques.jpg> <./figuras/FIGURA_1.jpg>]
+[3 <./figuras/FIGURA_1.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 112--113
 
  []
@@ -686,18 +679,25 @@ Overfull \hbox (89.5824pt too wide) in paragraph at lines 193--200
  [] 
  []
 
+[7] <figuras/instalacion1.png, id=33, 496.85625pt x 385.44pt>
+File: figuras/instalacion1.png Graphic file (type png)
 
-LaTeX Warning: Empty `thebibliography' environment on input line 258.
+<use figuras/instalacion1.png>
+Package pdftex.def Info: figuras/instalacion1.png used on input line 223.
+(pdftex.def)             Requested size: 227.62204pt x 176.58115pt.
 
-[7] (BOCETO2.aux
+
+LaTeX Warning: Empty `thebibliography' environment on input line 277.
+
+[8 <./figuras/instalacion1.png>] (BOCETO2.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 ) ) 
 Here is how much of TeX's memory you used:
- 5019 strings out of 493634
- 67368 string characters out of 3136463
- 149554 words of memory out of 3000000
- 8313 multiletter control sequences out of 15000+200000
+ 5025 strings out of 493634
+ 67505 string characters out of 3136463
+ 148562 words of memory out of 3000000
+ 8318 multiletter control sequences out of 15000+200000
  10851 words of font info for 40 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  37i,9n,39p,921b,384s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -708,9 +708,9 @@ e1/public/amsfonts/cm/cmmi8.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/
 fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/hp/AppData/Local/Programs/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/hp/AppData/Local/Pro
 grams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on BOCETO2.pdf (7 pages, 334965 bytes).
+Output written on BOCETO2.pdf (8 pages, 469674 bytes).
 PDF statistics:
- 53 PDF objects out of 1000 (max. 8388607)
+ 57 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 16 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

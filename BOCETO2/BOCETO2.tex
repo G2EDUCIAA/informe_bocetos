@@ -21,7 +21,7 @@
 
 \section{Introducci\'on}
 En este trabajo se pretende desarrollar un tutorial que permita al usuario neófito poder iniciar sus primeros proyectos usando RTOS y comprender la arquitectura de los procesadores Cortex.\\
-Este estudio aborda en primer lugar, las características principales de la placa y la correcta instalación del software que permite el desarrollo de códigos sobre ella; además se incluyen posibles problemas que puedan suceder en el proceso junto con sus soluciones.\\
+Este estudio aborda en primer lugar, las características principales de la placa y la correcta instalación del software sobre Windows para permitir el desarrollo de códigos sobre ella; además se incluyen posibles problemas que puedan suceder en el proceso junto con sus soluciones.\\
 Sobre el final de dicha sección se desarrolla una guía para la correcta configuración de el entorno gráfico, para poder ejecutar la compilación del primer ejemplo que nos indica que hemos finalizado satisfactoriamente la instalación del software de la EDU CIAA.\\
 La siguiente sección comienza introduciendo al usuario en el uso de la placa a través de la biblioteca \textit{sAPI} (realizada por Eric Pernia) la cual nos permite el desarrollo de programas utilizando lenguaje C, nuestro propósito es brindar una explicación simple de la arquitectura de los procesadores Cortex y a su vez brindar una base para la siguiente sección del informe.\\
 Sobre el inicio del siguiente apartado, se introduce al usuario sobre la programación a través de el sistema operativo \textit{OSEK OS}, el cual es el método de programación en el que se proyectó cuando se realizó el diseño de la placa. Nuestra meta es fijar las bases conceptuales principales de los sistemas operativos en tiempo real, e introducir al usuario a la programación de códigos simples y alentar al usuario a profundizar sobre este estudio.
@@ -207,6 +207,25 @@ obj & Todos los archivos fuentes son compilados a object files y almacenados en 
 Sobre el Firmware de la placa se distribuyen varios ejemplos los cuales se encuentran en la carpeta \textbf{examples} y pueden ser utilizados como base para iniciar cualquier proyecto.
 Cualquiera de los ejemplos puede ser copiado y utilizado de base para nuevos proyectos. Por ejemplo con el siguiente comando:	\textit{cp -r $examples/blinking projects/my\_proyect$}\\
 Y adaptando el Makefile.mine indicado: $PROJECT_PATH = projects/my\_project$.
+\subsection{Instalación de IDE}
+El entorno de desarrollo integrado (IDE) posibilita el trabajo en un ambiente ameno, tambien provee las herramientas necesarias para el desarrollo de aplicaciones en el Firmware de forma automatica. La CIAA utiliza una version modificada de la plataforma de software (IDE)  \textit{Eclipse},denominada \textit{CIAA-Software-IDE} ,la cual contiene herramientas de programación tales como editor de texto, compilador,plataforma para depuración, etc.
+Sobre la página web del proyecto, se provee un instalador llamado \textit{CIAA-IDE-SUITE}, desde donde se puede configurar automáticamente todas las herramientas necesarias para trabajar con la placa. Este instalador solamente es para los usuarios que poseen Windows XP o superior.\\
+El paquete de instalación incluye:
+\begin{enumerate}
+\item \textbf{Eclipse}
+\item\textbf{PHP (Hypertext Pre-processor )} es un lenguaje de programación de uso general de código desde el lado del servidor, originalmente diseñado para el desarrollo de contenido dinámico. En este caso, se utiliza solamente en forma de scripts para poder generar algunos archivos del \textbf{Sistema Operativo OSEK}
+\item \textbf{Cygwin} es una consola que se ejecuta en Windows, de modo de emular la consola de comandos de Linux. Cuenta con todos los comandos, y el compilador GCC, propio del sistema operativo libre.
+\end{enumerate}
+Una vez realizada la descarga del instalador, se ejecuta dicha aplicación, la figura \ref{Fig4} muestra el arranque del instalador, sobre ella, debe seleccionarse \textit{Siguiente} 
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/instalacion1.png}\\
+\caption{Arranque del instalador del software IDE}
+\label{Fig4}
+\end{figure}
+
+
 %Un informe debe dividirse en partes para la correcta explicación del proyecto que se quiera divulgar. Estas partes son:
 %\begin{enumerate}
  %\item \textbf{Portada o carátula}: esta es la primera página y en ella debe estar:
@@ -227,7 +246,7 @@ Y adaptando el Makefile.mine indicado: $PROJECT_PATH = projects/my\_project$.
  %	\item \textbf{Apéndices}: Pueden ser útiles en el caso de que la descripción detallada de un material pueda distraer del texto de trabajo. Aquí se puede incluir el código de un programa o la descripción del uso de una herramienta.
 %\end{enumerate}
 
-\subsection{Software para realizar informes}
+%\subsection{Software para realizar informes}
 
 %En la actualidad existen muchos programas para realizar un informe que ayudan a que la tarea sea más sencilla, en el especial en la numeración de tablas, fórmulas y figuras, como así también en la numeración de capítulos, secciones, subsecciones, etc.
 
