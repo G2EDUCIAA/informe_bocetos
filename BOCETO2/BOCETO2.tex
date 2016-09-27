@@ -307,6 +307,62 @@ Una vez finalizada esta etapa, se procede a la instalación de los drivers por d
 \end{figure}
 \end{center}
 
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/instalacion10.png}\\
+\caption{Instalador de drivers FTDI parte 4}
+\label{Fig12}
+\end{figure}
+\end{center}
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/instalacion11.png}\\
+\caption{Instalador de drivers FTDI parte 4}
+\label{Fig13}
+\end{figure}
+\end{center}
+
+Una de las posibles fallas que pueden surgir a través de este proceso, se presenta al producirse una falla en la comunicación a través del puerto virtual FTDI, que impide la correcta comunicación entre la placa y el entorno IDE. Su corrección debe efectuarse manualmente, fuera del instalador, y es posible la aparición de una ventana de error emergente como la que se muestra en la figura \ref{Fig13}.
+
+El instalador incluye en la carpeta donde se instaló el software (Por defecto, $ C:/CIAA $ ) un programa que configura el driver del controlador serie,emulado por la placa, para que uno de ellos pueda ser utilizado como interfaz JTAG. Dicho programa se llama $ Zadig\_Win\_7\_2\_1\_1.exe $, la figura \ref{Fig14} nos muestra una ilustración de la ubicación del programa.
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/instalacion12.png}\\
+\caption{Instalador de drivers FTDI parte 4}
+\label{Fig14}
+\end{figure}
+\end{center}
+
+Al abrir la aplicación, se presenta la Figura \ref{Fig15}. Antes de proceder, el usuario debe conectar la placa, posteriormente, debe abrir el menú contextual \textit{Options} y presionar sobre \textit{List all devices}\\
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/instalacion13.png}\\
+\caption{Entorno del software corrector Zadig para Windows}
+\label{Fig15}
+\end{figure}
+\end{center}
+
+Aparecerá una lista de dispositivos de comunicación relacionados al USB. Tenemos que buscar aquellos cuyos nombres tengan relación con el puerto serie (puede aparecer Dual RS232-HS, USB Serial Converter, o algo similar).\\
+
+Por lo general, aparecerán 2 con el mismo nombre, excepto que uno es Interface 0 y el otro Interface 1, como se muestra en la Figura \ref{Fig16} (la lista de drivers que se muestra puede diferir, dependiendo de la computadora que se utilice).
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/instalacion14.png}\\
+\caption{Lista de dispositivos vinculados a USB}
+\label{Fig16}
+\end{figure}
+\end{center}
+
+
 %Un informe debe dividirse en partes para la correcta explicación del proyecto que se quiera divulgar. Estas partes son:
 %\begin{enumerate}
  %\item \textbf{Portada o carátula}: esta es la primera página y en ella debe estar:
