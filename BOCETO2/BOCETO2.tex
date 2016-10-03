@@ -519,7 +519,11 @@ La ventana superior sobre la Figura \ref{primer_proy5} ilustra como quedan los i
 \end{center}
 
 \subsubsection{Configuración del Makefile}
-
+El \textit{makefile} es un fichero de texto plano que define una serie de reglas con el objetivo de automatizar la compilación del código de forma simple y organizada, a través de la aplicación \textit{Make}; la cual es una herramienta de gestión de dependencias, para dirigir su recompilación o "generación" automáticamente.
+Téngase en cuenta que si bien su función básica consiste en determinar automáticamente que partes de un programa necesitan ser recompilados, y ejecutar los comandos necesarios para hacerlo, también se encarga de actualizar automáticamente un conjunto de archivos a partir de otro, cada vez que éste cambie.\\
+Los archivos \textbf{Makefile} son archivos de texto escritos con una sintaxis predeterminada. Junto con la utilidad \textbf{'Make'}, permiten construir el software desde sus archivos-fuente, en el sentido de organizar el código, su compilación y enlace (link) correcto.\\
+El Proyecto CIAA tiene su propio Makefile, por lo que se debe indicarle al IDE cómo manejarse con él: de lo contrario generaría un Makefile automáticamente (lo cuál no es conveniente debido a que se tendría que formular sistematicamente las reglas para la compilación del código).\\
+La primera vez que se compila el proyecto, es necesario hacer un \textit{Clean Project}. Esto ejecutará el comando \textit{Clean$_$generate} del make, creando todos los archivos necesarios para la compilación con el RTOS.
 
 %Un informe debe dividirse en partes para la correcta explicación del proyecto que se quiera divulgar. Estas partes son:
 %\begin{enumerate}
