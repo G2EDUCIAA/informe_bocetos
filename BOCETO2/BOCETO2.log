@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  1 OCT 2016 14:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  2 OCT 2016 21:32
 entering extended mode
 **./BOCETO2.tex
 (BOCETO2.tex
@@ -892,7 +892,23 @@ Underfull \hbox (badness 10000) in paragraph at lines 492--493
  []
 
 
-LaTeX Warning: Empty `thebibliography' environment on input line 544.
+Underfull \hbox (badness 10000) in paragraph at lines 494--495
+
+ []
+
+
+Overfull \hbox (77.57101pt too wide) in paragraph at lines 498--500
+[]$\OML/cmm/m/it/12 < dIDE >$\OT1/cmr/m/n/12 /cygwin/lib/gcc/i686-pc-cygwin/4.9
+.2/include (por de-fec-to: \OT1/cmr/bx/n/12 C:/CIAA/cygwin/lib/gcc/i686-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 502--503
+
+ []
+
+
+LaTeX Warning: Empty `thebibliography' environment on input line 561.
 
 [18 <./figuras/primer_proy5.png>] (BOCETO2.aux
 LaTeX Info: Redefining \. on input line 6.
@@ -918,7 +934,7 @@ onts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/hp/AppData/Local/Programs/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/hp/AppData/Local/Prog
 rams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/hp/AppData/
 Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on BOCETO2.pdf (18 pages, 2888915 bytes).
+Output written on BOCETO2.pdf (18 pages, 2890219 bytes).
 PDF statistics:
  113 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

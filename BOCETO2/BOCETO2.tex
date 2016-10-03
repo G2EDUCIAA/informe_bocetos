@@ -491,7 +491,24 @@ En esta ventana se debe seleccionar \textbf{'GNU C'} o \textbf{'GNU C++'} según
 
 Los \textbf{Includes} que deben configurarse, según el lenguaje (Language) elegido, son los siguientes:\\
 
-\underline{\textbf{Language = 'GNU C'}}
+\underline{\textbf{Language = 'GNU C'}}\\
+\begin{enumerate}
+\item[$\bullet$] $<dIDE>$/cygwin/lib/gcc/usr/include Si se aplican los directorios por defecto, éste quedaría
+\textbf{C:/CIAA/cygwin/usr/include}
+\item[$\bullet$] $<dIDE>$/cygwin/lib/gcc/i686-pc-cygwin/4.9.2/include (por defecto: \textbf{C:/CIAA/cygwin/lib/gcc/i686-pc-cygwin/4.9.2/include})\\
+ (dIDE = directorio de instalación del software-IDE: por defecto es \textbf{C:/CIAA})
+\end{enumerate}
+
+\underline{\textbf{Language = 'GNU C++'}}\\
+\begin{enumerate}
+\item[$\bullet$] $<dIDE>$ /cygwin/usr/include\\
+(por defecto: \textbf{C:/CIAA/cygwin/usr/include})
+\item[$\bullet$] $<dIDE>$  /cygwin/lib/gcc/i686-pc-cygwin/4.9.2/include/c++\\
+(por defecto: \textbf{C:/CIAA/cygwin/lib/gcc/i686-pc-cygwin/4.9.2/include/c++})\\
+ (dIDE = directorio de instalación del software-IDE: por defecto es \textbf{C:/CIAA})
+\end{enumerate}
+
+
 
 %Un informe debe dividirse en partes para la correcta explicación del proyecto que se quiera divulgar. Estas partes son:
 %\begin{enumerate}
