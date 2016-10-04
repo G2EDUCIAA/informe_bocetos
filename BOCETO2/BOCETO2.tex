@@ -738,6 +738,35 @@ A continuación,coloque los valores que se muestran en las Figuras \ref{dep1} y 
 \end{figure}
 \end{center}
 
+Para hacer Debug, es necesario que se abra un puerto a través del OpenOCD. Hay muchas formasde hacerlo. En este tutorial, lo haremos usando la consola CygWin, que viene incluida con el instalador del CIAA-IDE.\\
+Al abrir la consola. Aparece una ventana como la que se muestra en la Figura \ref{dep3}
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=5 cm]{figuras/dep3.png}\\
+\caption{Consola CygWin}
+\label{dep3}
+\end{figure}
+\end{center}
+
+Entonces, se escriben los siguientes comandos:
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline\hline
+Comando & Descripción \\ \hline
+cd C:/CIAA/Firmware & Nos posiciona en la carpeta Firmware (si usamos los Path por defecto)\\ \hline
+make openocd & Comienza a correr el servicio del OpenOCD\\ \hline
+%obj & Todos los archivos fuentes son compilados a object files y almacenados en este directorio\\ \hline
+\end{tabular}
+\caption{Tabla 2}
+\label{Tab2}
+\end{center}
+\end{table}
+%tecnicamente se describe que pasa con la placa virgen pero este tema se ha tratado debido a que la explicacion se baso en el documento PRIMEROS PASOS CON EL HARDWARE
+Luego de iniciado el servicio del OpenOCD, se mantiene la ventana abierta, al volver al entorno IDE,se oprime el botón Debug de la ventana que dejamos abierta previamente.
 
 
 \section{Conclusiones}
