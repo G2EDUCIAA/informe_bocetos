@@ -540,13 +540,6 @@ Para efectuar esta configuración, el usuario debe ubicarse sobre la ventana de 
 Dentro de la rama 'C/C++ Build', configurar la pestaña 'Behaviour' como muestra la Figura \ref{primer_proy8}.\\
 Las configuraciones importantes son las siguientes:
 
-\begin{enumerate}
-\item[$\bullet$] Tildar la opción \textit{‘Stop on first build error’} y destildar \textit{‘Enable parallel build’}.
-\item[$\bullet$]Destildar el casillero \textit{‘Build on resource save’} y tildar \textit{‘Build (Incremental Build)’} y \textit{‘Clean’}. En el campo Clean, escribir: \textit{clean\_$generate$}
-\item[$\bullet$]Borrar el contenido del campo Build y dejarlo en blanco.
-\end{enumerate}
-La Figura \ref{primer_proy8} ilustra la ventana resultante de la configuración
-
 \begin{center}
 \begin{figure}[!h]
 \centering
@@ -556,9 +549,25 @@ La Figura \ref{primer_proy8} ilustra la ventana resultante de la configuración
 \end{figure}
 \end{center}
 
-Al finalizar, debe presionarse en Ok, y luego dirigirse sobre el proyecto Firmware,debe oprimirse clic derecho, y buscar la opción \textit{Clean Project}. Por último, se debe ejecutar \textit{Build Project}. Dichos opciones se muestran en la Figura 32, y si todo sale correctamente, en la consola del IDE debería mostrar una ventana como la que se muestra en la Figura \ref{Fig10}. Particularmente, vamos a ver una línea que nos dice que se ha creado un archivo \textit{$Blinking.axf$}.
+
+\begin{enumerate}
+\item[$\bullet$] Tildar la opción \textit{‘Stop on first build error’} y destildar \textit{‘Enable parallel build’}.
+\item[$\bullet$]Destildar el casillero \textit{‘Build on resource save’} y tildar \textit{‘Build (Incremental Build)’} y \textit{‘Clean’}. En el campo Clean, escribir: \textit{clean\_$generate$}
+\item[$\bullet$]Borrar el contenido del campo Build y dejarlo en blanco.
+\end{enumerate}
+La Figura \ref{primer_proy8} ilustra la ventana resultante de la configuración
 
 
+Al finalizar, debe presionarse en Ok, y luego dirigirse sobre el proyecto Firmware,debe oprimirse clic derecho, y buscar la opción \textit{Clean Project}. Por último, se debe ejecutar \textit{Build Project}. Dichos opciones se muestran en la Figura 32, y si todo sale correctamente, en la consola del IDE debería mostrar una ventana como la que se muestra en la Figura \ref{primer_proy9}. Particularmente, vamos a ver una línea que nos dice que se ha creado un archivo \textit{$Blinking.axf$}.
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=10 cm]{figuras/primer_proy9.png}\\
+\caption{Menú de opciones del proyecto para hacer clean y build Project}
+\label{primer_proy9}
+\end{figure}
+\end{center}
 
 %Un informe debe dividirse en partes para la correcta explicación del proyecto que se quiera divulgar. Estas partes son:
 %\begin{enumerate}
