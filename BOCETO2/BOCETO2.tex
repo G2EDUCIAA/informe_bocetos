@@ -682,8 +682,12 @@ A continuación aparece un nuevo recuadro, como el de la Figura \ref{primer_proy
 
 Con todas estas configuraciones es posible depurar el ejemplo Blinking, emulando las respuestas a través de la consola.\\
 
-\fbox{\parbox[b]{\linewidth}{\textbf{\underline{\emph{IMPORTANTE:}}} Si bien la creación de un Path Mapping nos ayuda a emular el comportamiento del
-titileo de LEDs, nos genera conflictos cuando hacemos Debug con la propia placa,pues bloquea el uso de breakpoints.\\Si contamos con la placa y deseamos hacer Debug con la misma, debemos borrar el \textit{Path Mapping} creado. }}
+\fbox{\parbox[b]{\linewidth}{\textbf{\underline{\emph{IMPORTANTE:}}} Si bien la creación de un Path Mapping nos permite emular el comportamiento del
+titileo de LEDs, se producen conflictos cuando se depura con la propia placa,pues bloquea el uso de breakpoints.\\Si se cuenta con la placa y se desea hacer Debug con la misma, debe borrar el \textit{Path Mapping} creado. }}
+
+\subsection{Depuración en la placa}
+Durante la instalación del CIAA-IDE, además de los drivers para la conexión de la placa se
+instalan las herramientas para Debug. Se utiliza OpenOCD (una herramienta OpenSource creada para estos propósitos) para hacer el nexo JTAG-GDB mediante la conexión USB. Para configurar esta herramienta, desde el menú $Run \longrightarrow Debug Configurations… $ se debe crear un módulo nuevo de \textbf{'Debug configuration'} del tipo \textbf{'GDB OpenOCD Debugging'}.
 
 %Un informe debe dividirse en partes para la correcta explicación del proyecto que se quiera divulgar. Estas partes son:
 %\begin{enumerate}

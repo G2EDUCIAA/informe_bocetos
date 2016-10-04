@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  4 OCT 2016 09:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  4 OCT 2016 09:21
 entering extended mode
 **./BOCETO2.tex
 (BOCETO2.tex
@@ -1027,7 +1027,10 @@ Overfull \hbox (24.4248pt too wide) in paragraph at lines 686--687
  []
 
 
-LaTeX Warning: Empty `thebibliography' environment on input line 736.
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 690.
+
+
+LaTeX Warning: Empty `thebibliography' environment on input line 740.
 
 [25 <./figuras/primer_proy17.png>] (BOCETO2.aux
 LaTeX Info: Redefining \. on input line 6.
@@ -1038,10 +1041,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5234 strings out of 493634
- 72403 string characters out of 3136463
- 149915 words of memory out of 3000000
- 8491 multiletter control sequences out of 15000+200000
+ 5236 strings out of 493634
+ 72438 string characters out of 3136463
+ 149916 words of memory out of 3000000
+ 8493 multiletter control sequences out of 15000+200000
  11831 words of font info for 43 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  37i,9n,39p,921b,384s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1056,7 +1059,7 @@ a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users
 /hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
 <C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 mti12.pfb>
-Output written on BOCETO2.pdf (25 pages, 4292844 bytes).
+Output written on BOCETO2.pdf (25 pages, 4293593 bytes).
 PDF statistics:
  156 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
