@@ -768,7 +768,21 @@ make openocd & Comienza a correr el servicio del OpenOCD\\ \hline
 %tecnicamente se describe que pasa con la placa virgen pero este tema se ha tratado debido a que la explicacion se baso en el documento PRIMEROS PASOS CON EL HARDWARE
 Luego de iniciado el servicio del OpenOCD, se mantiene la ventana abierta, al volver al entorno IDE,se oprime el botón Debug de la ventana que dejamos abierta previamente.
 
+\subsubsection{Posible Problema: No reconocimiento}
 
+Si se desconecta la placa de la PC y se la vuelve a conectar en un puerto USB distinto al anterior, Windows detectará el nuevo Hardware
+encontrado, instalará los drivers y la placa se encenderá; pero al intentar hacer Debug, en la consola CygWin es posible que emerja un mensaje de error como la de la Figura \ref{dep4}.
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/dep4.png}\\
+\caption{Consola CygWin}
+\label{dep4}
+\end{figure}
+\end{center}
+
+Si se hiciera un par de pruebas, este error también corresponde al que se daría si la placa no estuviera conectada. La causa es que el driver que se acaba de instalar no es el corregido por elprograma Zadig, sino es el instalado por el instalador del Software-IDE. Para solucionar este inconveniente simplemente hay que repetir los pasos que se destacan sobre el tutorial,  y con ello, la placa vuelve a funcionar correctamente.
 \section{Conclusiones}
 
 \begin{thebibliography}{99}
