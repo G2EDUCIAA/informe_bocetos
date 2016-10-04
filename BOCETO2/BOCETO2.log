@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  2 OCT 2016 21:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  4 OCT 2016 07:11
 entering extended mode
 **./BOCETO2.tex
 (BOCETO2.tex
@@ -907,22 +907,52 @@ Underfull \hbox (badness 10000) in paragraph at lines 502--503
 
  []
 
+<figuras/primer_proy6.png, id=87, 439.6425pt x 596.2275pt>
+File: figuras/primer_proy6.png Graphic file (type png)
 
-LaTeX Warning: Empty `thebibliography' environment on input line 561.
+<use figuras/primer_proy6.png>
+Package pdftex.def Info: figuras/primer_proy6.png used on input line 515.
+(pdftex.def)             Requested size: 227.62204pt x 308.68452pt.
 
-[18 <./figuras/primer_proy5.png>] (BOCETO2.aux
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 522--528
+
+ []
+
+[18 <./figuras/primer_proy5.png>] [19 <./figuras/primer_proy6.png>]
+<figuras/primer_proy7.png, id=95, 462.22687pt x 313.9228pt>
+File: figuras/primer_proy7.png Graphic file (type png)
+
+<use figuras/primer_proy7.png>
+Package pdftex.def Info: figuras/primer_proy7.png used on input line 534.
+(pdftex.def)             Requested size: 227.62204pt x 154.58992pt.
+
+
+LaTeX Warning: Reference `primer_proy8' on page 20 undefined on input line 540.
+
+
+
+LaTeX Warning: Empty `thebibliography' environment on input line 596.
+
+[20 <./figuras/primer_proy7.png>] (BOCETO2.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 )
+
+LaTeX Warning: There were undefined references.
+
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5154 strings out of 493634
- 70523 string characters out of 3136463
- 149796 words of memory out of 3000000
- 8426 multiletter control sequences out of 15000+200000
+ 5168 strings out of 493634
+ 70842 string characters out of 3136463
+ 149816 words of memory out of 3000000
+ 8438 multiletter control sequences out of 15000+200000
  10851 words of font info for 40 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  37i,9n,39p,921b,384s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -934,9 +964,9 @@ onts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/hp/AppData/Local/Programs/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/hp/AppData/Local/Prog
 rams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/hp/AppData/
 Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on BOCETO2.pdf (18 pages, 2890219 bytes).
+Output written on BOCETO2.pdf (20 pages, 3086020 bytes).
 PDF statistics:
- 113 PDF objects out of 1000 (max. 8388607)
+ 122 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 126 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 136 words of extra memory for PDF output out of 10000 (max. 10000000)
 
