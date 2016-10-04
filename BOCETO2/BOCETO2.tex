@@ -687,48 +687,46 @@ titileo de LEDs, se producen conflictos cuando se depura con la propia placa,pue
 
 \subsection{Depuración en la placa}
 Durante la instalación del CIAA-IDE, además de los drivers para la conexión de la placa se
-instalan las herramientas para Debug. Se utiliza OpenOCD (una herramienta OpenSource creada para estos propósitos) para hacer el nexo JTAG-GDB mediante la conexión USB. Para configurar esta herramienta, desde el menú $Run \longrightarrow Debug Configurations… $ se debe crear un módulo nuevo de \textbf{'Debug configuration'} del tipo \textbf{'GDB OpenOCD Debugging'}.
+instalan las herramientas para Debug. Se utiliza OpenOCD (una herramienta OpenSource creada para estos propósitos) para hacer el nexo JTAG-GDB mediante la conexión USB. Para configurar esta herramienta, desde el menú $Run \longrightarrow Debug Configurations… $ se debe crear un módulo nuevo de \textbf{'Debug configuration'} del tipo \textbf{'GDB OpenOCD Debugging'}. A continuación,coloque los valores que se muestran en las Figura \ref{dep1} y \ref{dep2}. Las mismas se listan a
+continuación:
 
-%Un informe debe dividirse en partes para la correcta explicación del proyecto que se quiera divulgar. Estas partes son:
-%\begin{enumerate}
- %\item \textbf{Portada o carátula}: esta es la primera página y en ella debe estar:
- %\begin{itemize}
- %	\item Escudos de la institución en donde se realiza la actividad
- %	\item Nombre de la materia.
- %	\item Si es un trabajo final de materia o si es un proyeto de laboratorio.
- %	\item Título del trabajo que resuma en forma clara y concisa la idea principal del proyecto.
- %	\item Nombre y apellido de los autores.
- %	\item Año
- %\end{itemize}
-% El diseño de la carátula es libre, pero es recomendable que sea agradable y armoniosa.
-% 	\item \textbf{Introducción}. Describe en qué consiste el proyecto que se ha desarrollado, las partes que lo componen y si se ha logrado el objetivo. Se comenta, además, sobre la bibliografía que se utilizó para su desarrollo y cómo está organizado el informe.
-% 	\item \textbf{Desarrollo}: Esta etapa describe el diseño en sí del proyecto, comentando cada parte en forma detallada. Esta sección puede tener varias subsecciones para que sea más claro y ordenado el informe, como por ejemplo, el desarrollo del software, el desarrollo del hardware, el acondicionamiento de una señal de un sensor, el funcionamiento de un sensor en particular, etc.
-% 	\item \textbf{Resultados}: En esta sección se muestran los datos o resultados obtenidos, capturas de osciloscopios. Se comenta sobre los datos obtenidos y si se ha logrado el objetivo buscado en el proyecto.
-% 	\item \textbf{Conclusiones}: Presenta la evaluación e interpretación de los resultados obtenidos, los inconvenientes que se han encontrado durante el desarrollo del proyecto y posibles propuestas de mejoras en el caso de que los resultados pudieran ser obtenidos u optimizados con otros métodos a los aplicados.
-% 	\item \textbf{Referencias}: En esta parte van todas la fuentes de información que se han utilizado en el proyecto, como por ejemplo, bibliografía, páginas web, apuntes de la cátedra o apuntes de otras universidades. La forma de referenciar es como se detalla en este instructivo.
- %	\item \textbf{Apéndices}: Pueden ser útiles en el caso de que la descripción detallada de un material pueda distraer del texto de trabajo. Aquí se puede incluir el código de un programa o la descripción del uso de una herramienta.
-%\end{enumerate}
+\begin{enumerate}
+\item[$\bullet$]Pestaña Main:
+\begin{enumerate}
+\item[1] Name:\textbf{Blinking OpenOCD}
+\item[2] Project:\textbf{blinking}
+\item[3] C/C++ Application:\textbf{C:/CIAA/Firmware/out/bin/blinking.axf}
+\item[4] Tildar \textbf{Disable auto build}
+\item[5] Build configuration: Default
+\end{enumerate}
+\item[$\bullet$]Pestaña Debugger:
+\begin{enumerate}
+\item[1] OpenOCD Setup: Destildar la opción \textit{Start OpenOCD locally}
+\item[2]
+\begin{enumerate}
 
-%\subsection{Software para realizar informes}
+\item[a]Executable: \textbf{C:/CIAA/cygwin/usr/arm-none-eabi/bin/arm-none-eabigdb.exe}
+\item[b]\textit{Other options} y \textit{Commands}: dejarlo como está
+\item[c]Destildar \textit{‘Force thread list update on suspend’}
 
-%En la actualidad existen muchos programas para realizar un informe que ayudan a que la tarea sea más sencilla, en el especial en la numeración de tablas, fórmulas y figuras, como así también en la numeración de capítulos, secciones, subsecciones, etc.
+\end{enumerate}
 
-%Entre estas herramientas de software se puede encontrar:
-%\begin{itemize}
-%	\item \textbf{TexMaker\cite{texmaker}}: es un editor gratuito multiplataforma distribuido bajo la licencia GPL para escribir documentos de texto, que integra muchas herramientas necesarias para desarrollar documentos con LaTeX en una sola aplicación. Texmaker incluye soporte Unicode, corrección ortográfica, auto-completado, plegado de código y un visor incorporado en pdf con soporte de synctex y el modo de visualización continua.
-%	\item \textbf{Lyxs\cite{Lyx}}: es un programa gráfico multiplataforma creado por Matthias Ettrich que permite la edición de texto usando LaTeX, por lo que «hereda» todas sus capacidades (notación científica, edición de ecuaciones, creación de índices, etcétera). Se trata de un procesador de textos en el que el usuario no necesita pensar en el formato final de su trabajo, sino sólo en el contenido y su estructura (WYSIWYM) (Lo Que Ves Es Lo Que Quieres Decir, por sus siglas en Inglés), por lo que puede ser utilizado para editar documentos grandes (libros) o con formato riguroso (tesis, artículos para revistas científicas), con facilidad.
-%	\item \textbf{Microsoft Word \cite{office}}: es una aplicación informática orientada al procesamiento de textos. Fue creado por la empresa Microsoft, y viene integrado en el paquete ofimático denominado Microsoft Office. Originalmente fue desarrollado por Richard Brodie para el computador de IBM bajo sistema operativo DOS en 1983. Versiones subsecuentes fueron programadas para muchas otras plataformas, incluyendo, las computadoras IBM que corrían en sistema MS-DOS (1983). Es un componente de la suite ofimática Microsoft Office; también es vendido de forma independiente e incluido en la Suite de Microsoft Works. Las versiones actuales son Microsoft Office Word 2013 para Windows y Microsoft Office Word 2011 para Mac. Actualmente es el procesador de texto más popular del mundo. No está orientado a la edición de textos científicos por lo que a la larga se hace más complicado su uso.
-%\end{itemize}
+ 
+\end{enumerate}
 
-%\section{Recomendaciones}
-%Es necesario tener claro que es lo que se desea comunicar y ordenarlo antes de comenzar a escribir. Para esto sirve ir escribiendo en un borrador los pasos que se van cumpliendo mientras se va realizando el proyecto. Una vez terminado el proyecto, es decir, que está funcionando de acuerdo a los requerimientos planteado, se hacen las capturas de pantalla de la PC y del osciloscopio necesarias. 
+\end{enumerate}
 
-%Luego se definen las secciones que formarán parte del informe; es aconsejable que el nombre haga referencia a lo que la sección trata, como así también el nombre de las subsecciones. Hay nombres de secciones que no se pueden cambiar como por ejemplo \textbf{Introducción}, \textbf{Resultados}, \textbf{Conclusiones}. Si es necesario agregar nuevas secciones o cambiarles el título en función de cómo se vaya desarrollando el trabajo \cite{Informe}.
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/dep1.png}\\
+\caption{Configuración para poder hacer Debug sobre la placa: pestaña Main}
+\label{dep1}
+\end{figure}
+\end{center}
 
-%Es conveniete tener una librería de distintos formatos de informes y usarlos como plantillas. Esto permite tener siempre una estructura base y solamente dedicarse a escribir.
 
 \section{Conclusiones}
-%Es importante tener práctica en el desarrollo de informes y presentación de trabajos de desarrollo e investigación. Agiliza la creación de informes, ayuda a ordenar las ideas que se desean explicar, y permite hacer llegar de forma clara el trabajo desarrollado a muchas personas.
 
 \begin{thebibliography}{99}
 %\bibitem{A4_IEEE} http://www.ieee.org/conferences\_events/conferences/publishing/templates.html
