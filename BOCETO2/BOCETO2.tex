@@ -581,8 +581,30 @@ Al finalizar, debe presionarse en Ok, y luego dirigirse sobre el proyecto Firmwa
 \subsection{Depuración con Windows}
 Es posible que el usuario desee probar este ejemplo  para ver de qué manera interactúa el software creado con
 el hardware de la EDU-CIAA, o verificar que no hay errores en nuestra lógica de programación.\\
-Para ello, debe compilarse el proyecto, y luego efectuar una depuración del codigo. Sin embargo, si no se cuenta con el hardware, no es posible realizar ésta acción, no obstante, se ha desarrollado para esos casos una aplicación para el ejemplo \textit{Blinking} que hace funcionar la aplicación del Firmware sobre la PC del usuario, brindando respuestas similares a la que proporciona la placa. En este caso, se pretende que aparezca un mensaje sobre la consola del software IDE, de manera que aparezca un cartel que indique que se "enciende" el Led.
+Para ello, debe compilarse el proyecto, y luego efectuar una depuración del codigo. Sin embargo, si no se cuenta con el hardware, no es posible realizar ésta acción, no obstante, se ha desarrollado para esos casos una aplicación para el ejemplo \textit{Blinking} que hace funcionar la aplicación del Firmware sobre la PC del usuario, brindando respuestas similares a la que proporciona la placa. En este caso, se pretende que aparezca un mensaje sobre la consola del software IDE, de manera que aparezca un cartel que indique que se $"enciende"$ el Led.\\
 
+Dado que el código se encuentra configurado para brindar un archivo \textit{$.exe$}, el usuario debe realizar ciertas configuraciones previas; en primer lugar debe especificarse al IDE la ruta donde se encuentra el ejecutable que ha generado el \textit{Makefile}; para ello, debe oprimir clic derecho sobre el proyecto, seleccionar \textbf{'Debug as'}, y a continuación \textbf{'Debug Configurations'}, la Figura \ref{primer_proy11} ilustra lo expresado anteriormente.
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=5 cm]{figuras/primer_proy11.png}\\
+\caption{Acceso a Debug Configurations}
+\label{primer_proy11}
+\end{figure}
+\end{center}
+
+Una vez hecho esto, se oprime doble click en la opción \textbf{'C/C++ Application'}, lo cual  creará un módulo donde es posible configurar un programa para que emule el comportamiento de la placa.
+El resultado se muestra en la Figura \ref{primer_proy12}.
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=5 cm]{figuras/primer_proy12.png}\\
+\caption{Creación de una opción de depuración por medio de un emulador}
+\label{primer_proy12}
+\end{figure}
+\end{center}
 
 
 %Un informe debe dividirse en partes para la correcta explicación del proyecto que se quiera divulgar. Estas partes son:
