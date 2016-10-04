@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  4 OCT 2016 09:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  4 OCT 2016 10:08
 entering extended mode
 **./BOCETO2.tex
 (BOCETO2.tex
@@ -1015,7 +1015,7 @@ File: figuras/primer_proy17.png Graphic file (type png)
 
 <use figuras/primer_proy17.png>
 Package pdftex.def Info: figuras/primer_proy17.png used on input line 677.
-(pdftex.def)             Requested size: 227.62204pt x 148.67188pt.
+(pdftex.def)             Requested size: 142.26378pt x 92.91922pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 683--684
 
@@ -1026,13 +1026,31 @@ Overfull \hbox (24.4248pt too wide) in paragraph at lines 686--687
 [][] 
  []
 
+<figuras/dep1.png, id=122, 579.66562pt x 412.54124pt>
+File: figuras/dep1.png Graphic file (type png)
+ <use figuras/dep1.png>
+Package pdftex.def Info: figuras/dep1.png used on input line 694.
+(pdftex.def)             Requested size: 284.52756pt x 202.4932pt.
 
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 690.
+
+LaTeX Warning: Command \textellipsis invalid in math mode on input line 700.
+
+[25 <./figuras/primer_proy17.png> <./figuras/dep1.png>]
+Overfull \hbox (19.70892pt too wide) in paragraph at lines 723--724
+[]\OT1/cmr/m/n/12 Executable: \OT1/cmr/bx/n/12 C:/CIAA/cygwin/usr/arm-none-eabi
+/bin/arm-none-eabigdb.exe 
+ []
+
+<figuras/dep2.png, id=128, 626.34pt x 443.40656pt>
+File: figuras/dep2.png Graphic file (type png)
+ <use figuras/dep2.png>
+Package pdftex.def Info: figuras/dep2.png used on input line 735.
+(pdftex.def)             Requested size: 284.52756pt x 201.4323pt.
 
 
-LaTeX Warning: Empty `thebibliography' environment on input line 740.
+LaTeX Warning: Empty `thebibliography' environment on input line 752.
 
-[25 <./figuras/primer_proy17.png>] (BOCETO2.aux
+[26 <./figuras/dep2.png>] (BOCETO2.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 )
@@ -1041,13 +1059,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5236 strings out of 493634
- 72438 string characters out of 3136463
- 149916 words of memory out of 3000000
- 8493 multiletter control sequences out of 15000+200000
+ 5248 strings out of 493634
+ 72632 string characters out of 3136463
+ 149936 words of memory out of 3000000
+ 8503 multiletter control sequences out of 15000+200000
  11831 words of font info for 43 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 37i,9n,39p,921b,384s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 37i,9n,39p,745b,384s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
 /cmbx12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
 msfonts/cm/cmbxti10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
@@ -1059,9 +1077,9 @@ a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users
 /hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
 <C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 mti12.pfb>
-Output written on BOCETO2.pdf (25 pages, 4293593 bytes).
+Output written on BOCETO2.pdf (26 pages, 4481564 bytes).
 PDF statistics:
- 156 PDF objects out of 1000 (max. 8388607)
+ 161 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 186 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 196 words of extra memory for PDF output out of 10000 (max. 10000000)
 

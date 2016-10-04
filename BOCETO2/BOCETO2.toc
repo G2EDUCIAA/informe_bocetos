@@ -15,4 +15,4 @@
 \contentsline {subsubsection}{\numberline {5.1.1}Configuraci\IeC {\'o}n del Makefile}{19}
 \contentsline {subsection}{\numberline {5.2}Depuraci\IeC {\'o}n con Windows}{22}
 \contentsline {subsection}{\numberline {5.3}Depuraci\IeC {\'o}n en la placa}{25}
-\contentsline {section}{\numberline {6}Conclusiones}{25}
+\contentsline {section}{\numberline {6}Conclusiones}{26}
