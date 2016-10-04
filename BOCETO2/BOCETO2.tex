@@ -594,17 +594,92 @@ Dado que el código se encuentra configurado para brindar un archivo \textit{$.e
 \end{figure}
 \end{center}
 
-Una vez hecho esto, se oprime doble click en la opción \textbf{'C/C++ Application'}, lo cual  creará un módulo donde es posible configurar un programa para que emule el comportamiento de la placa.
-El resultado se muestra en la Figura \ref{primer_proy12}.
 
 \begin{center}
 \begin{figure}[!h]
 \centering
-\includegraphics[width=5 cm]{figuras/primer_proy12.png}\\
+\includegraphics[width=8 cm]{figuras/primer_proy12.png}\\
 \caption{Creación de una opción de depuración por medio de un emulador}
 \label{primer_proy12}
 \end{figure}
 \end{center}
+
+
+Una vez hecho esto, se oprime doble click en la opción \textbf{'C/C++Application'}, lo cual  creará un módulo donde es posible configurar un programa para que emule el comportamiento de la placa.
+El resultado se muestra en la Figura \ref{primer_proy12}.
+
+El ejecutable que genera el Makefile se almacena en la carpeta $<$ Carpeta de instalación del software-IDE $>$ \textbf{/Firmware/out/bin/} bajo el nombre de $\textit{'blinking.exe'}$. La configuración final se muestra en la Figura \ref{primer_proy10}, y si se usan las rutas por defecto, los valores son los siguientes:
+
+\begin{enumerate}
+\item[$\bullet$]C/C++ Application: $\textbf{C:/CIAA/Firmware/out/bin/blinking.exe}$
+\item[$\bullet$]Project: \textbf{blinking}
+\item[$\bullet$]Tildar la opción \textbf{‘Use Workspace settings’}
+\item[$\bullet$]Tildar la opción \textbf{‘Select configuration using ‘C/C++ Application’}
+\end{enumerate}
+
+Es posible que el IDE informe que no puede encontrar el Código Fuente cuando se intenta hacer Debug sobre este proyecto. Aparecerá una leyenda en el medio de la consola que se parece
+a la de la Figura \ref{primer_proy14}. Para solucionarlo se debe crear un Path Mapping que convierta el estilo de ruta de CygWin al formato Windows. El usuario debe abrir la ventana de configuración del software IDE
+haciendo click en $'Windows \longrightarrow Preferences'$. Seleccione la rama \textbf{'C/C++'}, luego la rama \textbf{'Debug'} y ubique la opción \textbf{'Source Lookup Path'}.\\
+Finalmente, en el lado derecho debe oprimirse el botón \textbf{'Add'}: Luego aparece una ventana como la que se muestra en la Figura \ref{primer_proy15}.
+
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/primer_proy13.png}\\
+\caption{Configuración del emulador para el proyecto Blinking}
+\label{primer_proy13}
+\end{figure}
+\end{center}
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=10 cm]{figuras/primer_proy14.png}\\
+\caption{Error de IDE. No se encuentra el código fuente}
+\label{primer_proy14}
+\end{figure}
+\end{center}
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=5 cm]{figuras/primer_proy15.png}\\
+\caption{Configuración de mapeo de rutas para el entorno Windows}
+\label{primer_proy15}
+\end{figure}
+\end{center}
+
+Si el usuario desea agregar una fuente (Source), se muestra el recuadro de la Figura \ref{primer_proy16}, donde puede elegirse el tipo \textbf{'Path Mapping'}.
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=5 cm]{figuras/primer_proy16.png}\\
+\caption{Agregando un Path Mapping}
+\label{primer_proy16}
+\end{figure}
+\end{center}
+
+A continuación aparece un nuevo recuadro, como el de la Figura \ref{primer_proy17}, donde se debe elegir la opción
+\textbf{'Add'}, y rellenar con los siguientes datos:
+
+\begin{enumerate}
+\item[$\bullet$]Name: \textbf{Firmware}
+\item[$\bullet$]Compilation Path: \textbf{$/cygdrive/c/CIAA/Firmware$}
+
+\item[$\bullet$]Local file system path: \textbf{$C:/CIAA/Firmware$} (si usamos los directorios por defecto)
+\end{enumerate}
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/primer_proy17.png}\\
+\caption{Configuración para crear un Path Mapping en Windows}
+\label{primer_proy17}
+\end{figure}
+\end{center}
+
 
 
 %Un informe debe dividirse en partes para la correcta explicación del proyecto que se quiera divulgar. Estas partes son:
