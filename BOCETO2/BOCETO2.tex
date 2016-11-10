@@ -794,7 +794,25 @@ Algunos de estos pines, soportan la multiplexación entre funciones digitales y 
 Otra funcionalidad que utiliza este ejemplo es el \textit{RIT (Repetitive Interrupt Timer)}, el cual provee una forma versátil de generar interrupciones repetitivas en intervalos de tiempo específicos, y puede utilizarse como alternativa al \textit{Systick Timer}.Dicho timer consta de un contador de 32 bits que puede incrementarse de forma libre, o puede reiniciarse mediante una interrupción generada. El funcionamiento de este Timer puede describirse de la siguiente forma:\\
 A partir del reinicio, el contador empieza a incrementar desde $0x0000 0000$. Cuando el valor del contador iguala el valor programado en el registro \textit{COMPVAL}, se establece en alto el flag que corresponde a la interrupción del Timer. Cualquier combinación de bits del registro \textit{COMPVAL} pueden ser enmascarada a través de un registro \textit{MASK}. Si el bit \textit{$enable_clr$} se encuentra en bajo (estado por defecto), una comparación válida solamente causa que el flag de interrupción se establezca; mientras que si el bit \textit{$enable_clr$} se encuentra en alto, se establece el reinicio del conteo.\\
 Este ejemplo utiliza la librería LPCOpen correspondiente a la placa LPC4337, con el objetivo de permitir la configuración correspondiente de los pines digitales y de la configuración del timer, independizándose de el hardware utilizado, esto implica que el usuario no necesita conocer en profundidad la arquitectura del procesador.\\
-
+Las siguientes instrucciones permiten la configuración del pin digital que corresponde al Led 1 de la placa; teniendo en cuenta que el diagrama de distribución de pines de la misma indica que el pin 10 del puerto 2 corresponde al puerto 0 y el pin 14 del registro de GPIO del SCU. 
+\begin{verbatim}
+	Chip_GPIO_Init(LPC_GPIO_PORT);
+	Chip_SCU_PinMux(
+			2,
+			10,
+			SCU_MODE_INACT | SCU_MODE_ZIF_DIS,
+			SCU_MODE_FUNC0
+	 	);
+	Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, ( 1 << 14 ), 1 );
+	Chip_GPIO_SetPinState( LPC_GPIO_PORT, 0, 14, 0);
+\end{verbatim}
+La funcion que corresponde a la subrutina de atención de la interrupción provocada por el Timer RIT, se la especifica como \textit{$RIT\_IRQHandler$}. Mientras que las siguientes instrucciones realizan la inicialización y la configuración del mismo:
+\begin{verbatim}
+	Chip_RIT_Init(LPC_RITIMER);
+	Chip_RIT_SetTimerInterval(LPC_RITIMER,250);
+	NVIC_EnableIRQ(RITIMER_IRQ);
+\end{verbatim}
+Al establecer el decrecimiento de un contador sobre la subrutina de atención de la interrupción, se provoca una temporización determinada por el usuario, a través de la configuración del intervalo mediante la instruccion $Chip\_RIT\_SetTimerInterval$
 \begin{thebibliography}{99}
 %\bibitem{A4_IEEE} http://www.ieee.org/conferences\_events/conferences/publishing/templates.html
 %\bibitem{texmaker} http://www.xm1math.net/texmaker/
