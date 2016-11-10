@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  4 OCT 2016 10:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  9 NOV 2016 21:26
 entering extended mode
 **./BOCETO2.tex
 (BOCETO2.tex
@@ -1067,9 +1067,6 @@ Overfull \hbox (5.793pt too wide) in paragraph at lines 757--764
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-
-LaTeX Warning: Reference `dep4' on page 26 undefined on input line 774.
-
 [26 <./figuras/dep2.png>] <figuras/dep4.png, id=133, 569.87906pt x 313.9228pt>
 File: figuras/dep4.png Graphic file (type png)
 
@@ -1077,16 +1074,18 @@ File: figuras/dep4.png Graphic file (type png)
 Package pdftex.def Info: figuras/dep4.png used on input line 779.
 (pdftex.def)             Requested size: 227.62204pt x 125.38486pt.
 
+Underfull \hbox (badness 10000) in paragraph at lines 788--797
 
-LaTeX Warning: Empty `thebibliography' environment on input line 795.
+ []
 
-[27 <./figuras/dep3.png> <./figuras/dep4.png>] (BOCETO2.aux
+[27 <./figuras/dep3.png> <./figuras/dep4.png>]
+
+LaTeX Warning: Empty `thebibliography' environment on input line 805.
+
+[28] (BOCETO2.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 )
-
-LaTeX Warning: There were undefined references.
-
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -1094,7 +1093,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  5260 strings out of 493634
  72826 string characters out of 3136463
- 149946 words of memory out of 3000000
+ 150957 words of memory out of 3000000
  8513 multiletter control sequences out of 15000+200000
  11831 words of font info for 43 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
@@ -1110,9 +1109,9 @@ a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users
 /hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
 <C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 mti12.pfb>
-Output written on BOCETO2.pdf (27 pages, 4646585 bytes).
+Output written on BOCETO2.pdf (28 pages, 4650344 bytes).
 PDF statistics:
- 166 PDF objects out of 1000 (max. 8388607)
+ 169 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  206 words of extra memory for PDF output out of 10000 (max. 10000000)
 
