@@ -408,381 +408,6 @@ cuidado en quitar cualquier contenido que se quiera conservar de la carpeta $C:\
 directorio de instalación elegido. Esto se debe a que el desinstalador del Software CIAA-IDE
 elimina el directorio y todo su contenido.
 
-\section{Configuración del entorno CIAA-IDE}
-Cuando se realiza la inicialización del entorno \textit{CIAA-IDE}, dicho programa solicita al usuario que seleccione una carpeta de trabajo, la cual contendrá al Workspace, particularmente, es posible elegir que dicha carpeta se encuentre dentro del directorio de instalación del software.\\
-La Figura \ref{config1} ilustra dicho concepto:
-
-\begin{center}
-\begin{figure}[!h]
-\centering
-\includegraphics[width=8 cm]{figuras/configuracion1.png}\\
-\caption{Selección de carpeta de trabajo}
-\label{config1}
-\end{figure}
-\end{center}
-
-Debe notarse que todo lo relativo al trabajo que se esta realizando (como las configuraciones, variables globales, del entorno y demás) se guarda en esa carpeta. Si siempre se va a utilizar la misma ubicación, se
-puede tildar la opción \textit{“Use this as the default and do not ask again”}; en otro caso, el programa siempre pide por esta ubicación, particularmente, este directorio de trabajo puede elegirse dentro del directorio de instalación del IDE.
-
-\subsection{Compilación de primer proyecto }
-Cuando un usuario que desea cerciorarse si ha realizado una correcta configuración del software que realiza la carga de un código sobre un microcontrolador, microprocesador, etc; es común trabajar sobre un ejemplo (usualmente provisto por el programa, o por los diseñadores de la placa, entre otros) el cual se lo suele llamar \textit{blinking}. El objetivo de este programa es establecer una luz intermitente a través de un LED, cuyos intervalos de tiempo de encendido y apagado se encuentren temporizados a un cierto tiempo.\\
-Sin más preambulo, para iniciar este proyecto debe seleccionarse sobre el menú contextual$ \textit{File}\rightarrow \textit{New}\rightarrow \textit{Makefile Project with Existing Code} $, como muestra la Figura \ref{primer_proy1}.
-
-\begin{center}
-\begin{figure}[!h]
-\centering
-\includegraphics[width=8 cm]{figuras/primer_proy1.png}\\
-\caption{Carga de proyecto con codigo existente}
-\label{primer_proy1}
-\end{figure}
-\end{center}
-
-En el caso que el usuario no haya instalado el Firmware, junto con el entorno CIAA-IDE, existen 2 opciones:
-\begin{enumerate}
-\item Puede descargar el repositorio del Firmware desde la web mediante la ejecución de la sentencia \textit{git clone}.
-\item Volver a ejecutar el instalador del software IDE de la CIAA, y sobre la ventana de componentes, selecionar únicamente el item Firmware.
-\end{enumerate}
-
-A continuación, se presenta la ventana ilustrada en la figura \ref{primer_proy2}, la cuál solicita donde se encuentra el proyecto que se va a cargar, en este caso se elige la carpeta \textit{Firmware}; la cual se encuentra por defecto sobre la ubicación \begin{center}
-\emph{$C:/CIAA/Firmware$}
-\end{center}
-\begin{center}
-\begin{figure}[!h]
-\centering
-\includegraphics[width=8 cm]{figuras/primer_proy2.png}\\
-\caption{Carga de proyecto con codigo existente}
-\label{primer_proy2}
-\end{figure}
-\end{center}
-Sobre la ventana \textit{Toolchain for Indexer Settings} seleccionaremos la opción \textit{none}, lo cual deja las opciones por defecto, configuradas en el Makefile.\\
-Luego de oprimir \textit{Finish}, se finaliza la creación del proyecto, al cerrar la ventana de bienvenida que nos muestra \textit{Eclipse} nos encontramos con un entorno creado similar al de la figura \ref{primer_proy3}
-\begin{center}
-\begin{figure}[!h]
-\centering
-\includegraphics[width=13 cm]{figuras/primer_proy3.png}\\
-\caption{Carga de proyecto con codigo existente}
-\label{primer_proy3}
-\end{figure}
-\end{center}
-
-Una vez creado el proyecto, la siguiente tarea consiste en realizar la indexación de las cabeceras del estándar \textbf{POSIX}.
-\textbf{POSIX} es un conjunto de interfaces estándar para sistemas operativos basados en \textit{UNIX}, la cual fue necesaria para que los distintos fabricantes de computadoras o desarrolladores de programas pudieran desarrollar sus aplicaciones independientemente de la plataforma sobre la cual iba a correr.\\
-Para efectuar dichas indexaciones deben agregarse los archivos \textit{Includes}del \textit{GCC}. Esto se realiza configurando el proyecto creado y oprimiendo sobre la pestaña \textit{C/C++ General},luego se selecciona la opción \textit{Paths and Symbols}, para indicar las rutas que proporcionarán las inclusiones de las cabeceras. La Figura \ref{primer_proy4} nos ilustra la ventana y las configuraciones descriptas anteriormente.
-
-\begin{center}
-\begin{figure}[!h]
-\centering
-\includegraphics[width=8 cm]{figuras/primer_proy4.png}\\
-\caption{Indexación de las definiciones POSIX}
-\label{primer_proy4}
-\end{figure}
-\end{center}
-
-En esta ventana se debe seleccionar \textbf{'GNU C'} o \textbf{'GNU C++'} según las POSIX que se desea agregar; luego se presiona el botón \textit{Add}. Una vez oprimido dicho botón, emerge una ventana como la mostrada en la Figura \ref{primer_proy5}, en la cual se debe hacer click sobre la opción \textit{File System ...}, luego buscar la carpeta correspondiente a agregar.
-
-\begin{center}
-\begin{figure}[!h]
-\centering
-\includegraphics[width=8 cm]{figuras/primer_proy5.png}\\
-\caption{Indexación de POSIX}
-\label{primer_proy5}
-\end{figure}
-\end{center}
-
-Los \textbf{Includes} que deben configurarse, según el lenguaje (Language) elegido, son los siguientes:\\
-
-\underline{\textbf{Language = 'GNU C'}}\\
-\begin{enumerate}
-\item[$\bullet$] $<dIDE>$/cygwin/lib/gcc/usr/include Si se aplican los directorios por defecto, éste quedaría
-\textbf{C:/CIAA/cygwin/usr/include}
-\item[$\bullet$] $<dIDE>$/cygwin/lib/gcc/i686-pc-cygwin/4.9.2/include (por defecto: \textbf{C:/CIAA/cygwin/lib/gcc/i686-pc-cygwin/4.9.2/include})\\
- (dIDE = directorio de instalación del software-IDE: por defecto es \textbf{C:/CIAA})
-\end{enumerate}
-
-\underline{\textbf{Language = 'GNU C++'}}\\
-\begin{enumerate}
-\item[$\bullet$] $<dIDE>$ /cygwin/usr/include\\
-(por defecto: \textbf{C:/CIAA/cygwin/usr/include})
-\item[$\bullet$] $<dIDE>$  /cygwin/lib/gcc/i686-pc-cygwin/4.9.2/include/c++\\
-(por defecto: \textbf{C:/CIAA/cygwin/lib/gcc/i686-pc-cygwin/4.9.2/include/c++})\\
- (dIDE = directorio de instalación del software-IDE: por defecto es \textbf{C:/CIAA})
-\end{enumerate}
-La ventana superior sobre la Figura \ref{primer_proy5} ilustra como quedan los includes en caso de seleccionar Lenguaje C, mientras que la ventana inferior ilustra como quedan los includes en caso de seleccionar Lenguaje C++.
-
-\begin{center}
-\begin{figure}[!h]
-\centering
-\includegraphics[width=8 cm]{figuras/primer_proy6.png}\\
-\caption{Configuración de includes}
-\label{primer_proy6}
-\end{figure}
-\end{center}
-
-\subsubsection{Configuración del Makefile}
-El \textit{makefile} es un fichero de texto plano que define una serie de reglas con el objetivo de automatizar la compilación del código de forma simple y organizada, a través de la aplicación \textit{Make}; la cual es una herramienta de gestión de dependencias, para dirigir su recompilación o "generación" automáticamente.
-Téngase en cuenta que si bien su función básica consiste en determinar automáticamente que partes de un programa necesitan ser recompilados, y ejecutar los comandos necesarios para hacerlo, también se encarga de actualizar automáticamente un conjunto de archivos a partir de otro, cada vez que éste cambie.\\
-Los archivos \textbf{Makefile} son archivos de texto escritos con una sintaxis predeterminada. Junto con la utilidad \textbf{'Make'}, permiten construir el software desde sus archivos-fuente, en el sentido de organizar el código, su compilación y enlace (link) correcto.\\
-El Proyecto CIAA tiene su propio Makefile, por lo que se debe indicarle al IDE cómo manejarse con él: de lo contrario generaría un Makefile automáticamente (lo cuál no es conveniente debido a que se tendría que formular sistematicamente las reglas para la compilación del código).\\
-La primera vez que se compila el proyecto, es necesario que el usuario aplique \textit{Clean Project}. Esto ejecuta el comando \textit{Clean\_$generate$} del make, creando todos los archivos necesarios para la compilación con el RTOS.\\
-El motivo por el cuál se ejecuta dicho comando, reside en el hecho de que al borrar los archivos objeto generados previamente,debe actualizarse el código PHP correspondiente al sistema operativos \emph{RTOS OSEK}. El comando \textit{Clean\_$generate$} realiza ambas operaciones de forma consecutiva y automática. Si se trabaja sin RTOS-OSEK, sólo hace falta usar el comando \textbf{clean}.\\
-
-Para efectuar esta configuración, el usuario debe ubicarse sobre la ventana de propiedades del proyecto \textbf{Firmware} y seleccionar la rama \textbf{C/C++ Build}; la Figura \ref{primer_proy7} ilustra la ventana que se presenta.
-
-\begin{center}
-\begin{figure}[!h]
-\centering
-\includegraphics[width=8 cm]{figuras/primer_proy7.png}\\
-\caption{Configuración de makefile}
-\label{primer_proy7}
-\end{figure}
-\end{center}
-
-Dentro de la rama 'C/C++ Build', configurar la pestaña 'Behaviour' como muestra la Figura \ref{primer_proy8}.\\
-Las configuraciones importantes son las siguientes:
-
-\begin{center}
-\begin{figure}[!h]
-\centering
-\includegraphics[width=10 cm]{figuras/primer_proy8.png}\\
-\caption{Configuración de comportamiento del IDE con el MakeFile}
-\label{primer_proy8}
-\end{figure}
-\end{center}
-
-
-\begin{enumerate}
-\item[$\bullet$] Tildar la opción \textit{‘Stop on first build error’} y destildar \textit{‘Enable parallel build’}.
-\item[$\bullet$]Destildar el casillero \textit{‘Build on resource save’} y tildar \textit{‘Build (Incremental Build)’} y \textit{‘Clean’}. En el campo Clean, escribir: \textit{clean\_$generate$}
-\item[$\bullet$]Borrar el contenido del campo Build y dejarlo en blanco.
-\end{enumerate}
-La Figura \ref{primer_proy8} ilustra la ventana resultante de la configuración
-
-
-Al finalizar, debe presionarse en Ok, y luego dirigirse sobre el proyecto Firmware,debe oprimirse clic derecho, y buscar la opción \textit{Clean Project}. Por último, se debe ejecutar \textit{Build Project}. Dichos opciones se muestran en la Figura  \ref{primer_proy9}, y si todo sale correctamente, en la consola del IDE debería mostrar una ventana como la que se muestra en la Figura \ref{primer_proy10}. Particularmente, vamos a ver una línea que nos dice que se ha creado un archivo \textit{$Blinking.axf$}.
-
-\begin{center}
-\begin{figure}[!h]
-\centering
-\includegraphics[width=5 cm]{figuras/primer_proy9.png}\\
-\caption{Menú de opciones del proyecto para hacer clean y build Project}
-\label{primer_proy9}
-\end{figure}
-\end{center}
-
-\begin{center}
-\begin{figure}[!h]
-\centering
-\includegraphics[width=15 cm]{figuras/primer_proy10.png}\\
-\caption{Consola del software IDE luego de una compilación exitosa}
-\label{primer_proy10}
-\end{figure}
-\end{center}
-
-\subsection{Depuración con Windows}
-Es posible que el usuario desee probar este ejemplo  para ver de qué manera interactúa el software creado con
-el hardware de la EDU-CIAA, o verificar que no hay errores en nuestra lógica de programación.\\
-Para ello, debe compilarse el proyecto, y luego efectuar una depuración del codigo. Sin embargo, si no se cuenta con el hardware, no es posible realizar ésta acción, no obstante, se ha desarrollado para esos casos una aplicación para el ejemplo \textit{Blinking} que hace funcionar la aplicación del Firmware sobre la PC del usuario, brindando respuestas similares a la que proporciona la placa. En este caso, se pretende que aparezca un mensaje sobre la consola del software IDE, de manera que aparezca un cartel que indique que se $"enciende"$ el Led.\\
-
-Dado que el código se encuentra configurado para brindar un archivo \textit{$.exe$}, el usuario debe realizar ciertas configuraciones previas; en primer lugar debe especificarse al IDE la ruta donde se encuentra el ejecutable que ha generado el \textit{Makefile}; para ello, debe oprimir clic derecho sobre el proyecto, seleccionar \textbf{'Debug as'}, y a continuación \textbf{'Debug Configurations'}, la Figura \ref{primer_proy11} ilustra lo expresado anteriormente.
-
-\begin{center}
-\begin{figure}[!h]
-\centering
-\includegraphics[width=5 cm]{figuras/primer_proy11.png}\\
-\caption{Acceso a Debug Configurations}
-\label{primer_proy11}
-\end{figure}
-\end{center}
-
-
-\begin{center}
-\begin{figure}[!h]
-\centering
-\includegraphics[width=8 cm]{figuras/primer_proy12.png}\\
-\caption{Creación de una opción de depuración por medio de un emulador}
-\label{primer_proy12}
-\end{figure}
-\end{center}
-
-
-Una vez hecho esto, se oprime doble click en la opción \textbf{'C/C++Application'}, lo cual  creará un módulo donde es posible configurar un programa para que emule el comportamiento de la placa.
-El resultado se muestra en la Figura \ref{primer_proy12}.
-
-El ejecutable que genera el Makefile se almacena en la carpeta $<$ Carpeta de instalación del software-IDE $>$ \textbf{/Firmware/out/bin/} bajo el nombre de $\textit{'blinking.exe'}$. La configuración final se muestra en la Figura \ref{primer_proy10}, y si se usan las rutas por defecto, los valores son los siguientes:
-
-\begin{enumerate}
-\item[$\bullet$]C/C++ Application: $\textbf{C:/CIAA/Firmware/out/bin/blinking.exe}$
-\item[$\bullet$]Project: \textbf{blinking}
-\item[$\bullet$]Tildar la opción \textbf{‘Use Workspace settings’}
-\item[$\bullet$]Tildar la opción \textbf{‘Select configuration using ‘C/C++ Application’}
-\end{enumerate}
-
-Es posible que el IDE informe que no puede encontrar el Código Fuente cuando se intenta hacer Debug sobre este proyecto. Aparecerá una leyenda en el medio de la consola que se parece
-a la de la Figura \ref{primer_proy14}. Para solucionarlo se debe crear un Path Mapping que convierta el estilo de ruta de CygWin al formato Windows. El usuario debe abrir la ventana de configuración del software IDE
-haciendo click en $'Windows \longrightarrow Preferences'$. Seleccione la rama \textbf{'C/C++'}, luego la rama \textbf{'Debug'} y ubique la opción \textbf{'Source Lookup Path'}.\\
-Finalmente, en el lado derecho debe oprimirse el botón \textbf{'Add'}: Luego aparece una ventana como la que se muestra en la Figura \ref{primer_proy15}.
-
-
-\begin{center}
-\begin{figure}[!h]
-\centering
-\includegraphics[width=8 cm]{figuras/primer_proy13.png}\\
-\caption{Configuración del emulador para el proyecto Blinking}
-\label{primer_proy13}
-\end{figure}
-\end{center}
-
-\begin{center}
-\begin{figure}[!h]
-\centering
-\includegraphics[width=10 cm]{figuras/primer_proy14.png}\\
-\caption{Error de IDE. No se encuentra el código fuente}
-\label{primer_proy14}
-\end{figure}
-\end{center}
-
-\begin{center}
-\begin{figure}[!h]
-\centering
-\includegraphics[width=5 cm]{figuras/primer_proy15.png}\\
-\caption{Configuración de mapeo de rutas para el entorno Windows}
-\label{primer_proy15}
-\end{figure}
-\end{center}
-
-Si el usuario desea agregar una fuente (Source), se muestra el recuadro de la Figura \ref{primer_proy16}, donde puede elegirse el tipo \textbf{'Path Mapping'}.
-
-\begin{center}
-\begin{figure}[!h]
-\centering
-\includegraphics[width=5 cm]{figuras/primer_proy16.png}\\
-\caption{Agregando un Path Mapping}
-\label{primer_proy16}
-\end{figure}
-\end{center}
-
-A continuación aparece un nuevo recuadro, como el de la Figura \ref{primer_proy17}, donde se debe elegir la opción
-\textbf{'Add'}, y rellenar con los siguientes datos:
-
-\begin{enumerate}
-\item[$\bullet$]Name: \textbf{Firmware}
-\item[$\bullet$]Compilation Path: \textbf{$/cygdrive/c/CIAA/Firmware$}
-
-\item[$\bullet$]Local file system path: \textbf{$C:/CIAA/Firmware$} (si usamos los directorios por defecto)
-\end{enumerate}
-
-\begin{center}
-\begin{figure}[!h]
-\centering
-\includegraphics[width=5 cm]{figuras/primer_proy17.png}\\
-\caption{Configuración para crear un Path Mapping en Windows}
-\label{primer_proy17}
-\end{figure}
-\end{center}
-
-Con todas estas configuraciones es posible depurar el ejemplo Blinking, emulando las respuestas a través de la consola.\\
-
-\fbox{\parbox[b]{\linewidth}{\textbf{\underline{\emph{IMPORTANTE:}}} Si bien la creación de un Path Mapping nos permite emular el comportamiento del
-titileo de LEDs, se producen conflictos cuando se depura con la propia placa,pues bloquea el uso de breakpoints.\\Si se cuenta con la placa y se desea hacer Debug con la misma, debe borrar el \textit{Path Mapping} creado. }}
-
-\subsection{Depuración en la placa}
-
-Durante la instalación del CIAA-IDE, además de los drivers para la conexión de la placa se instalan las herramientas para Debug.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=10 cm]{figuras/dep1.png}\\
-\caption{Configuración para poder hacer Debug sobre la placa: pestaña Main}
-\label{dep1}
-\end{figure}
-
-Se utiliza OpenOCD (una herramienta OpenSource creada para estos propósitos) para hacer el nexo JTAG-GDB mediante la conexión USB.
-Para configurar esta herramienta, desde el menú $Run \longrightarrow Debug Configurations… $ se debe crear un módulo nuevo de \textbf{'Debug configuration'} del tipo \textbf{'GDB OpenOCD Debugging'}.
-A continuación,coloque los valores que se muestran en las Figuras \ref{dep1} y \ref{dep2}. Las mismas se listan a continuación:
-
-\begin{enumerate}
-
-\item[$\bullet$]Pestaña Main:
-
-\begin{enumerate}
-\item[1] Name:\textbf{Blinking OpenOCD}
-\item[2] Project:\textbf{blinking}
-\item[3] C/C++ Application:\textbf{C:/CIAA/Firmware/out/bin/blinking.axf}
-\item[4] Tildar \textbf{Disable auto build}
-\item[5] Build configuration: Default
-\end{enumerate}
-
-\item[$\bullet$]Pestaña Debugger:
-
-\begin{enumerate}
-
-\item[1] OpenOCD Setup: Destildar la opción \textit{Start OpenOCD locally}
-\item[2]
-\begin{enumerate}
-
-\item[a]Executable: \textbf{C:/CIAA/cygwin/usr/arm-none-eabi/bin/arm-none-eabigdb.exe}
-\item[b]\textit{Other options} y \textit{Commands}: dejarlo como está
-\item[c]Destildar \textit{‘Force thread list update on suspend’}
-\end{enumerate}
- 
-\end{enumerate}
-
-\end{enumerate}
-
-\begin{center}
-\begin{figure}[!h]
-\centering
-\includegraphics[width=10 cm]{figuras/dep2.png}\\
-\caption{Configuración para poder hacer Debug sobre la placa: pestaña Debugger}
-\label{dep2}
-\end{figure}
-\end{center}
-
-Para hacer Debug, es necesario que se abra un puerto a través del OpenOCD. Hay muchas formasde hacerlo. En este tutorial, lo haremos usando la consola CygWin, que viene incluida con el instalador del CIAA-IDE.\\
-Al abrir la consola. Aparece una ventana como la que se muestra en la Figura \ref{dep3}
-
-\begin{center}
-\begin{figure}[!h]
-\centering
-\includegraphics[width=5 cm]{figuras/dep3.png}\\
-\caption{Consola CygWin}
-\label{dep3}
-\end{figure}
-\end{center}
-
-Entonces, se escriben los siguientes comandos:
-
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{|l|l|}
-\hline\hline
-Comando & Descripción \\ \hline
-cd C:/CIAA/Firmware & Nos posiciona en la carpeta Firmware (si usamos los Path por defecto)\\ \hline
-make openocd & Comienza a correr el servicio del OpenOCD\\ \hline
-%obj & Todos los archivos fuentes son compilados a object files y almacenados en este directorio\\ \hline
-\end{tabular}
-\caption{Tabla 2}
-\label{Tab2}
-\end{center}
-\end{table}
-%tecnicamente se describe que pasa con la placa virgen pero este tema se ha tratado debido a que la explicacion se baso en el documento PRIMEROS PASOS CON EL HARDWARE
-Luego de iniciado el servicio del OpenOCD, se mantiene la ventana abierta, al volver al entorno IDE,se oprime el botón Debug de la ventana que dejamos abierta previamente.
-
-\subsubsection{Posible Problema: No reconocimiento}
-
-Si se desconecta la placa de la PC y se la vuelve a conectar en un puerto USB distinto al anterior, Windows detectará el nuevo Hardware
-encontrado, instalará los drivers y la placa se encenderá; pero al intentar hacer Debug, en la consola CygWin es posible que emerja un mensaje de error como la de la Figura \ref{dep4}.
-
-\begin{center}
-\begin{figure}[!h]
-\centering
-\includegraphics[width=8 cm]{figuras/dep4.png}\\
-\caption{Consola CygWin}
-\label{dep4}
-\end{figure}
-\end{center}
-
-Si se hiciera un par de pruebas, este error también corresponde al que se daría si la placa no estuviera conectada. La causa es que el driver que se acaba de instalar no es el corregido por el programa Zadig, sino es el instalado por el instalador del Software-IDE. Para solucionar este inconveniente simplemente hay que repetir los pasos que se destacan sobre el tutorial,  y con ello, la placa vuelve a funcionar correctamente.
 \section{Primeros Pasos con la EDU-CIAA}
 \subsection{Programación en Baremetal}
 Si bien el objetivo de este tutorial es introducir al usuario en la programación mediante \textit{RTOS OSEK}, es conveniente comenzar a explicar previamente como implementar proyectos en Baremetal, éste método de programacion se destaca por no utilizar SO alguno; de modo que permite una transición mas natural hacia los temas posteriores.\\
@@ -813,6 +438,37 @@ La funcion que corresponde a la subrutina de atención de la interrupción provo
 	NVIC_EnableIRQ(RITIMER_IRQ);
 \end{verbatim}
 Al establecer el decrecimiento de un contador sobre la subrutina de atención de la interrupción, se provoca una temporización determinada por el usuario, a través de la configuración del intervalo mediante la instruccion $Chip\_RIT\_SetTimerInterval$
+\subsection{Programacion en baremetal utilizando libreria sAPI}
+Debido a que la programación de la placa en Baremetal puede tornarse un tanto engorrosa en principio, es posible utilizar una libreria diseñada para la implementación de proyectos en Baremetal con la placa EDU CIAA, dicha librería se la denomina \textit{sAPI}. Esta biblioteca implementa una API simple para la programación de dicha placa, es necesario comentar que una API es una interfaz de programación de aplicaciones, y consta de un conjunto de subrutinas, funciones y procedimientos (o métodos, en la programación orientada a objetos) que ofrece cierta biblioteca; para permitir ser utilizada por otro software como una capa de abstracción en la programación (aunque no necesariamente) entre los niveles o capas inferiores y las superiores del software.\\
+La motivación para el desarrollo de la biblioteca sAPI surge de la necesidad de manejar los periféricos directamente desde una máquina virtual de Java para el desarrollo de Java sobre la CIAA y corresponde a la parte de bajo nivel de las clases de periféricos en Java que básicamente bindea a funciones escritas en C.
+Luego se extendió la misma para facilitar el uso de la EDU-CIAA-NXP a personas no expertas en la arquitectura del LPC4337 facilitando el uso de esta plataforma.\\
+La idea es tener periféricos abstractos y lo más genéricos posibles. Que sea bien independiente de la arquitectura y en lo posible que las funciones sean todas del tipo:
+\begin{enumerate}
+\item[$\bullet$]	moduloConfig();
+\item[$\bullet$]  moduloRead();
+\item[$\bullet$]  moduloWrite();
+\end{enumerate}
+Los siguientes módulos estan incluidos:
+\begin{enumerate}
+\item[$\bullet$]Tipos de datos.
+\item[$\bullet$]Mapa de periféricos.
+\item[$\bullet$]Plataforma.
+\item[$\bullet$]Tick.
+\item[$\bullet$]Retardo.
+\item[$\bullet$]E/S Digital.
+\item[$\bullet$]E/S Analógica.
+\item[$\bullet$]Uart.
+\end{enumerate}
+ Es necesario destacar que actualmente se encuentra disponible para las plataformas EDU CIAA NXP (microcontrolador NXP LPC4337) y para la plataforma CIAA NXP (microcontrolador NXP LPC4337). La figura \ref{Fig18} ilustra gráficamente como son las distintas capas de software y la correspondiente ubicación de la \textit{sAPI}.
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/primer_proy18.png}\\
+\caption{Capas de abstracción de software}
+\label{Fig18}
+\end{figure}
+\end{center} 
+ 
 \begin{thebibliography}{99}
 %\bibitem{A4_IEEE} http://www.ieee.org/conferences\_events/conferences/publishing/templates.html
 %\bibitem{texmaker} http://www.xm1math.net/texmaker/
