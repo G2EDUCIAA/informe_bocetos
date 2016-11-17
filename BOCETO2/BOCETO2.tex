@@ -5,12 +5,19 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
-\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2.5cm]{geometry}
 \usepackage{pdfpages}
 \usepackage{subfigure}
 \author{}
 \date{}
-
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RO,LE]{\includegraphics[width=0.8cm]{figuras/unsl.png}}
+\fancyhead[CO,RE]{Universidad Nacional de San Luis\\Facultad de Ciencias Fisico Matemáticas y Naturales}
+\fancyfoot[CO,RE]{\emph{Tutorial de manejo de placa EDU CIAA con RTOS OSEK}}
+\pagenumbering{arabic}
+\fancyfoot[RO,RE]{\thepage}
 \begin{document}
 %insertar portada
 %\includepdf{figuras/Caratula}
@@ -71,9 +78,9 @@ Desde la concepción del proyecto, el diseño de la placa se encuentra pensada p
 La CIAA es una plaqueta electrónica provista de un microcontrolador y puertos de entrada y salida, cuyo diseño se encuentra disponible en Internet, dicha placa fue concebida para ser utilizada para sistemas de control de procesos productivos, agroindustria, automatización, entre otras; es notable destacar que gracias a la posibilidad del acceso a la información de dicha plataforma, cualquier empresa que desee utilizarla para la elaboración de sus productos puede rediseñarla; de modo que esto fomenta el diseño y la fabricación nacional de sistemas electrónicos.\\
 
 
-La placa EDU CIAA es la versión educativa de esta,la cual se encuentra diseñada con el propósito de conseguir una plataforma base para el desarrollo de proyectos educativos, en este caso, se busca proporcionar las bases del desarrollo de códigos utilizando RTOS.\\
+La placa EDU CIAA es la versión educativa de esta,la cual se encuentra diseñada con el propósito de conseguir una plataforma base para el desarrollo de proyectos educativos, en este caso, se busca proporcionar las bases del desarrollo de códigos utilizando RTOS.
 
-\begin{center}
+
 \begin{figure}[!h]
 \centering
 \includegraphics[width=8 cm]{figuras/diagramaenbloques.jpg}
@@ -81,12 +88,12 @@ La placa EDU CIAA es la versión educativa de esta,la cual se encuentra diseñad
 \label{Fig1}
 \end{figure}
 
-\end{center}
 
+El procesador sobre que utiliza es el LPC4337, basado en el procesador ARM Cortex M4, utilizado para aplicaciones sobre sistemas embebidos, dicho sistemas incluyen el procesador Cortex M0. Utiliza una memoria flash de 1Mb, memoria de 264 kB de SRAM, memoria ROM de 64 kB, E2PROM de 16kB, y una memoria OTP de 64 bit.
 
-El procesador sobre que utiliza es el LPC4337, basado en el procesador ARM Cortex M4, utilizado para aplicaciones sobre sistemas embebidos, dicho sistemas incluyen el procesador Cortex M0. Utiliza una memoria flash de 1Mb, memoria de 264 kB de SRAM, memoria ROM de 64 kB, E2PROM de 16kB, y una memoria OTP de 64 bit.\\
-La frecuencia de trabajo del procesador alcanza los 204 Mhz, una característica vital del procesador, es que provee soporte para la depuración en JTAG, con posibilidad de incluir hasta 8 breakpoints, y 4 watchpoints.\\
-Dicho procesador nos brinda una interface que nos posibilita extender hasta 164 pines de entrada-salida de propósito general (GPIO), provee una interface USB Host/Device 2.0 de alta velocidad con soporte para acceso directo de memoria, una interface UART 550 con soporte DMA , tres USART 550 con soporte para DMA.\\
+La frecuencia de trabajo del procesador alcanza los 204 Mhz, una característica vital del procesador, es que provee soporte para la depuración en JTAG, con posibilidad de incluir hasta 8 breakpoints, y 4 watchpoints.
+
+Dicho procesador nos brinda una interface que nos posibilita extender hasta 164 pines de entrada-salida de propósito general (GPIO), provee una interface USB Host/Device 2.0 de alta velocidad con soporte para acceso directo de memoria, una interface UART 550 con soporte DMA , tres USART 550 con soporte para DMA.
 
 
 \begin{figure}[!h]
@@ -130,20 +137,24 @@ Sobre el puerto P1, se ubican los siguientes módulos:
 \section{Instalacion de Software}
 
 \subsection{Conceptos previos}
-El desarrollo de codigos para sistemas embebidos tiene ciertas semejanzas con el desarrollo de aplicaciones en las PC, en nuestro caso particular se utiliza un compilador llamado \textit{GCC} con soporte para la compilación de proyectos sobre los procesadores basados en la arquitectura ARM, en este caso particular, el compilador utilizado para el procesador de la EDU CIAA (el cual es el LPC4337) se lo denomina \textit{arm-none-eabi-gcc}.\\
+El desarrollo de codigos para sistemas embebidos tiene ciertas semejanzas con el desarrollo de aplicaciones en las PC, en nuestro caso particular se utiliza un compilador llamado \textit{GCC} con soporte para la compilación de proyectos sobre los procesadores basados en la arquitectura ARM, en este caso particular, el compilador utilizado para el procesador de la EDU CIAA (el cual es el LPC4337) se lo denomina \textit{arm-none-eabi-gcc}.
 
-Para la ejecución de la depuración de algun programa previamente compilado, el hardware de la CIAA viene provisto con el chip \textit{FT2232H}, que se encarga de hacer un puente entre la interfase JTAG del microcontrolador, y el USB que conecta a la PC en el puerto USB dedicado al debug. Mediante la herramienta de código abierto \textit{OpenOCD (On Chip Debugger)} se controla el chip \textit{FT2232H} por el USB y ademas todo lo referido al JTAG. Luego la herramienta de depuración \textit{GDB} utilizado en el IDE-Eclipse que se instala, se comunica sobre el puerto 3333 (TCP) que el \textit{Open OCD} tiene en escucha esperando la conexión.\\
+Para la ejecución de la depuración de algun programa previamente compilado, el hardware de la CIAA viene provisto con el chip \textit{FT2232H}, que se encarga de hacer un puente entre la interfase JTAG del microcontrolador, y el USB que conecta a la PC en el puerto USB dedicado al debug. Mediante la herramienta de código abierto \textit{OpenOCD (On Chip Debugger)} se controla el chip \textit{FT2232H} por el USB y ademas todo lo referido al JTAG. Luego la herramienta de depuración \textit{GDB} utilizado en el IDE-Eclipse que se instala, se comunica sobre el puerto 3333 (TCP) que el \textit{Open OCD} tiene en escucha esperando la conexión.
 
-Debe tenerse en cuenta que el chip \textit{FT2232H} posee 2 canales de comunicación independientes (A y B), sin embargo, ambos salen por el mismo USB, de modo que la PC detecta 2 dispositivos distintos (en realidad es uno compuesto). Uno de ellos, se conecta al JTAG manejado por \textit{OpenOCD} como fue mencionado, mientras que el otro se ve como un puerto virtual COM. Este último sirve principalmente para la depuración.\\
+Debe tenerse en cuenta que el chip \textit{FT2232H} posee 2 canales de comunicación independientes (A y B), sin embargo, ambos salen por el mismo USB, de modo que la PC detecta 2 dispositivos distintos (en realidad es uno compuesto). Uno de ellos, se conecta al JTAG manejado por \textit{OpenOCD} como fue mencionado, mientras que el otro se ve como un puerto virtual COM. Este último sirve principalmente para la depuración.
 %%CONSIDERAR SI CIERTA PARTE VA A IR A SECCION INSTALACION
-Dado que al funcionará como dos dispositivos distintos, para cada uno de ellos debe realizarse la instalación de un driver adecuado, en principio debe optarse por realizar la instalación de los drivers por defecto del fabricante FTDI para puerto virtual.\\ %Considerar%
+
+Dado que al funcionar como dos dispositivos distintos, para cada uno de ellos debe realizarse la instalación de un driver adecuado, en principio debe optarse por realizar la instalación de los drivers por defecto del fabricante FTDI para puerto virtual.\\ %Considerar%
 
 \subsection{Firmware de la EDU CIAA}
-Considerando que el usuario previamente ha trabajado sobre placas de desarrollo tales como la MCE Debug, etc, y sobre microcontroladores PIC. Es necesario destacar un concepto teórico que nos brinda la posibilidad de fundamentar el trabajo sobre la placa EDU CIAA. Al trabajar sobre los otros dispositivos, es común la utilización de programas tales como \textit{MPLABX}, o \textit{PICC} a través del compilador \textit{CCS Compiler}; puntualmente; cuando se inicia un nuevo proyecto a traves de la herramienta de creación de la misma, es usual configurar este proyecto de manera que el software IDE genera un archivo \textit{makefile} para la compilación del proyecto.\\
+Considerando que el usuario previamente ha trabajado sobre placas de desarrollo tales como la MCE Debug, etc, y sobre microcontroladores PIC. Es necesario destacar un concepto teórico que nos brinda la posibilidad de fundamentar el trabajo sobre la placa EDU CIAA. Al trabajar sobre los otros dispositivos, es común la utilización de programas tales como \textit{MPLABX}, o \textit{PICC} a través del compilador \textit{CCS Compiler}; puntualmente; cuando se inicia un nuevo proyecto a traves de la herramienta de creación de la misma, es usual configurar este proyecto de manera que el software IDE genera un archivo \textit{makefile} para la compilación del proyecto.
+
 En este caso particular, el software IDE de la EDU CIAA trabaja de forma ligeramente distinta, el usuario debe crear un archivo \textit{makefile} (basándose en un archivo proporcionado previamente, denominado \textit{Makefile.config}) para poder efectuar la compilación del archivo y lograr la correcta configuración del programa, sobre la placa EDU CIAA. Dentro de dicho archivo se establece la configuracion para la arquitectura del procesador utilizado.
 %%CONSIDERAR POSICION DEL SIGUIENTE PARRAFO%%
-Cuando se desea realizar el primer proyecto sobre la placa, el usuario debe crear su propio archivo \textit{Makefile.mine}, de manera que ésta se encuentra basada en el archivo \textit{Makefile.config} brindado previamente al momento de establecer un nuevo proyecto añadiendo un Firmware que previamente ha sido diseñado por los creadores de la placa.\\
-Debe tenerse en cuenta que la dinámica de trabajo sobre la placa se encuentra pensada para trabajar sobre la plataforma de versionado \textit{Git}; en este caso en particular, el archivo \textit{Makefile.mine} se encuentra diseñado de forma tal que dicho archivo sea ignorado al sincronizar su repositorio local, con su repositorio remoto (ubicado sobre \textit{Github}).\\
+Cuando se desea realizar el primer proyecto sobre la placa, el usuario debe crear su propio archivo \textit{Makefile.mine}, de manera que ésta se encuentra basada en el archivo \textit{Makefile.config} brindado previamente al momento de establecer un nuevo proyecto añadiendo un Firmware que previamente ha sido diseñado por los creadores de la placa.
+
+Debe tenerse en cuenta que la dinámica de trabajo sobre la placa se encuentra pensada para trabajar sobre la plataforma de versionado \textit{Git}; en este caso en particular, el archivo \textit{Makefile.mine} se encuentra diseñado de forma tal que dicho archivo sea ignorado al sincronizar su repositorio local, con su repositorio remoto (ubicado sobre \textit{Github}).
+
 En el Makefile.mine se pueden editar y configurar los siguientes parámetros:
 \begin{enumerate}
 \item \textbf{ARCH}  indica la arquitectura del hardware para la cual se desea compilar. Ej: x86, cortexM4.
@@ -195,12 +206,14 @@ Este directorio contiene el Software y Tools externos al CIAA-Firmware, que son 
 
 \begin{table}
 \begin{center}
+\resizebox{18cm}{!}{
 \begin{tabular}{|l|l|}
 \hline\hline
 ceedling & Tool utilizada para los Unit Tests o Pruebas Unitarias\\ \hline
 base & Fuentes, headers y linker scripts necesarios para poder compilar y linkear el código en la plataforma\\ \hline
 drivers & Drivers provistos por el proveedor del chip, los cuales son luego adaptados al formato de la CIAA.\\ \hline
 \end{tabular}
+}
 \caption{Tabla1}
 \label{Tab1}
 \end{center}
@@ -211,6 +224,7 @@ La \ref{Tab2} contiene todos los archivos generados por el CIAA-Firmware:\\
 
 \begin{table}[h]
 \begin{center}
+\resizebox{18cm}{!}{
 \begin{tabular}{|l|l|}
 \hline\hline
 bin & Contiene el binario del proyecto, es el archivo que se va a correr en la PC o a cargar en el CIAA-Firmware\\ \hline
@@ -218,6 +232,7 @@ gen & Archivos generados de OSEK RTOS\\ \hline
 lib & Por cada Módulo el make genera un archivo .a, osea una libreria\\ \hline
 obj & Todos los archivos fuentes son compilados a object files y almacenados en este directorio\\ \hline
 \end{tabular}
+}
 \caption{Tabla 2}
 \label{Tab2}
 \end{center}
@@ -252,41 +267,37 @@ A continuación se presenta la siguiente ventana, sobre ella deben aceptarse los
 \centering
 \includegraphics[width=8 cm]{figuras/instalacion2.png}\\
 \caption{Arranque del instalador del software IDE}
-\label{Fig4}
+\label{Fig5}
 \end{figure}
 
 
 Sobre la ventana siguiente deben elegirse cuáles componentes se desea instalar, en el caso que el usuario no posea  la placa disponible, no es necesario instalar los drivers, si se adquiere dicha placa en un momento posterior,dado que los drivers se instalan junto con el IDE, los mismos quedarán en la carpeta de destino para su instalación en forma manual; otra forma de instalar los  los controladores es ejecutar el instalador del CIAA-IDE Suite y tildar únicamente la opción \textbf{drivers} al momento de seleccionar los componentes a instalar.La figura \ref{Fig5} ilustra lo explicado anteriormente.
 
-\begin{center}
 \begin{figure}[!h]
 \centering
 \includegraphics[width=8 cm]{figuras/instalacion3.png}\\
 \caption{Selección de componentes del instalador}
-\label{Fig5}
+\label{Fig6}
 \end{figure}
-\end{center}
 
-A continuación debe  establecerse la dirección en donde se desea instalar el entorno. La ventana que corresponde a este proceso se ilusta en la figura \ref{Fig6}. En caso de que se desee cambiar dicha dirección,debe tenerse la precaución de no elegir una dirección donde los directorios posean espacios en sus nombres. Es recomendable no cambiar la unidad de instalación, pues en los siguientes pasos del documento se utilizarán direcciones que harán referencia a esta carpeta de instalación, y si se cambia, se deberán cambiar consecuentemente dichas direcciones.
-
-\begin{center}
 \begin{figure}[!h]
 \centering
 \includegraphics[width=8 cm]{figuras/instalacion4.png}\\
 \caption{Elección de la ruta de instalación}
-\label{Fig6}
+\label{Fig7}
 \end{figure}
-\end{center}
+
+A continuación debe  establecerse la dirección en donde se desea instalar el entorno. La ventana que corresponde a este proceso se ilustra en la Figura \ref{Fig7}. En caso de que se desee cambiar dicha dirección,debe tenerse la precaución de no elegir una dirección donde los directorios posean espacios en sus nombres. Es recomendable no cambiar la unidad de instalación, pues en los siguientes pasos del documento se utilizarán direcciones que harán referencia a esta carpeta de instalación, y si se cambia, se deberán cambiar consecuentemente dichas direcciones.
 
 Luego de dicha configuración, se inicia automáticamente el proceso de instalación.En un momento aparecerá una
-ventana emergente, similar a la que se muestra en la Figura \ref{Fig6} en donde el programa pregunta si disponemos del hardware, pues para la instalación del driver es necesario conectar la placa. De no  ser así, aún puede continuar la instalación haciendo click en 'No'. Por el contrario, si disponemos de la EDU-CIAA, hacemos click en 'Yes', y emergerá otra ventana, como se muestra en la Figura \ref{Fig7}
+ventana emergente, similar a la que se muestra en la Figura \ref{Fig8} en donde el programa pregunta si disponemos del hardware, pues para la instalación del driver es necesario conectar la placa. De no  ser así, aún puede continuar la instalación haciendo click en 'No'. Por el contrario, si disponemos de la EDU-CIAA, hacemos click en 'Yes', y emergerá otra ventana, como se muestra en la Figura \ref{Fig9}
 
 \begin{center}
 \begin{figure}[!h]
 \centering
 \includegraphics[width=8 cm]{figuras/instalacion5.png}\\
 \caption{Instalación de los drivers: primera instancia}
-\label{Fig7}
+\label{Fig8}
 \end{figure}
 \end{center}
 
@@ -295,12 +306,11 @@ ventana emergente, similar a la que se muestra en la Figura \ref{Fig6} en donde 
 \centering
 \includegraphics[width=8 cm]{figuras/instalacion6.png}\\
 \caption{Instalación de drivers si se dispone del hardware}
-\label{Fig8}
+\label{Fig9}
 \end{figure}
 \end{center}
 
-Una vez finalizada esta etapa, se procede a la instalación de los drivers por defecto del fabricante FTDI para puerto virtual. Este proceso se ilustra en las figuras \ref{Fig9} ,\ref{Fig10},\ref{Fig11}
-
+Una vez finalizada esta etapa, se procede a la instalación de los drivers por defecto del fabricante FTDI para puerto virtual. Este proceso se ilustra en las figuras \ref{Fig9} ,\ref{Fig10},\ref{Fig11}.
 \begin{center}
 \begin{figure}[!h]
 \centering
@@ -309,7 +319,6 @@ Una vez finalizada esta etapa, se procede a la instalación de los drivers por d
 \label{Fig9}
 \end{figure}
 \end{center}
-
 \begin{center}
 \begin{figure}[!h]
 \centering
@@ -318,7 +327,6 @@ Una vez finalizada esta etapa, se procede a la instalación de los drivers por d
 \label{Fig10}
 \end{figure}
 \end{center}
-
 \begin{center}
 \begin{figure}[!h]
 \centering
@@ -327,7 +335,6 @@ Una vez finalizada esta etapa, se procede a la instalación de los drivers por d
 \label{Fig11}
 \end{figure}
 \end{center}
-
 \begin{center}
 \begin{figure}[!h]
 \centering
@@ -336,7 +343,6 @@ Una vez finalizada esta etapa, se procede a la instalación de los drivers por d
 \label{Fig12}
 \end{figure}
 \end{center}
-
 \begin{center}
 \begin{figure}[!h]
 \centering
@@ -345,7 +351,6 @@ Una vez finalizada esta etapa, se procede a la instalación de los drivers por d
 \label{Fig13}
 \end{figure}
 \end{center}
-
 Una de las posibles fallas que pueden surgir a través de este proceso, se presenta al producirse una falla en la comunicación a través del puerto virtual FTDI, que impide la correcta comunicación entre la placa y el entorno IDE. Su corrección debe efectuarse manualmente, fuera del instalador, y es posible la aparición de una ventana de error emergente como la que se muestra en la figura \ref{Fig13}.
 
 El instalador incluye en la carpeta donde se instaló el software (Por defecto, $ C:/CIAA $ ) un programa que configura el driver del controlador serie,emulado por la placa, para que uno de ellos pueda ser utilizado como interfaz JTAG. Dicho programa se llama $ Zadig\_Win\_7\_2\_1\_1.exe $, la figura \ref{Fig14} nos muestra una ilustración de la ubicación del programa.
