@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  4 OCT 2016 10:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  3 DEC 2016 12:58
 entering extended mode
 **./BOCETO2.tex
 (BOCETO2.tex
@@ -493,33 +493,60 @@ Package: subfigure 2002/07/30 v2.1.4 subfigure package
 fg")
 \subfig@top=\skip53
 \subfig@bottom=\skip54
-) (BOCETO2.aux
+)
+("C:\Users\hp\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty
+"
+Package: fancyhdr 2016/09/06 3.8 Extensive control of page headers and footers
+\fancy@headwidth=\skip55
+\f@ncyO@elh=\skip56
+\f@ncyO@erh=\skip57
+\f@ncyO@olh=\skip58
+\f@ncyO@orh=\skip59
+\f@ncyO@elf=\skip60
+\f@ncyO@erf=\skip61
+\f@ncyO@olf=\skip62
+\f@ncyO@orf=\skip63
+)
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 16.
+
+
+Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 17.
+
+
+Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
+less on input line 18.
+
+
+Package Fancyhdr Warning: \fancyfoot's `E' option without twoside option is use
+less on input line 20.
+
+(BOCETO2.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 
 
-LaTeX Warning: Label `Fig4' multiply defined.
-
-
-LaTeX Warning: Label `Tab2' multiply defined.
+LaTeX Warning: Label `Fig9' multiply defined.
 
 )
 \openout1 = `BOCETO2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Info: Redefining \. on input line 14.
-LaTeX Info: Redefining \% on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Info: Redefining \. on input line 21.
+LaTeX Info: Redefining \% on input line 21.
  ("C:\Users\hp\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.mkii
 "
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -544,11 +571,11 @@ LaTeX Info: Redefining \% on input line 14.
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
 * h-part:(L,W,R)=(56.9055pt, 500.484pt, 56.9055pt)
-* v-part:(T,H,B)=(56.9055pt, 681.15898pt, 56.9055pt)
+* v-part:(T,H,B)=(56.9055pt, 666.9326pt, 71.13188pt)
 * \paperwidth=614.295pt
 * \paperheight=794.96999pt
 * \textwidth=500.484pt
-* \textheight=681.15898pt
+* \textheight=666.9326pt
 * \oddsidemargin=-15.36449pt
 * \evensidemargin=-15.36449pt
 * \topmargin=-52.36449pt
@@ -595,524 +622,26 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \openout3 = `BOCETO2.toc'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--39
+Underfull \hbox (badness 10000) in paragraph at lines 45--46
 
  []
 
-[1
-
-{C:/Users/hp/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 40--41
-
- []
-
-<figuras/descripcion1.png, id=8, 703.87968pt x 318.43968pt>
-File: figuras/descripcion1.png Graphic file (type png)
-
-<use figuras/descripcion1.png>
-Package pdftex.def Info: figuras/descripcion1.png used on input line 65.
-(pdftex.def)             Requested size: 426.79134pt x 193.08176pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 71--72
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
-
- []
-
-[2] <figuras/diagramaenbloques.jpg, id=12, 475.7775pt x 395.97937pt>
-File: figuras/diagramaenbloques.jpg Graphic file (type jpg)
-
-<use figuras/diagramaenbloques.jpg>
-Package pdftex.def Info: figuras/diagramaenbloques.jpg used on input line 79.
-(pdftex.def)             Requested size: 227.62204pt x 189.4456pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 87--90
-
- []
-
-[3 <./figuras/descripcion1.png> <./figuras/diagramaenbloques.jpg>]
-<figuras/FIGURA_1.jpg, id=16, 269.50688pt x 376.40625pt>
-File: figuras/FIGURA_1.jpg Graphic file (type jpg)
-
-<use figuras/FIGURA_1.jpg>
-Package pdftex.def Info: figuras/FIGURA_1.jpg used on input line 94.
-(pdftex.def)             Requested size: 227.62204pt x 317.91362pt.
- [4 <./figuras/FIGURA_1.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 133--134
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 135--136
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 137--140
-
- []
-
-[5]
-Underfull \hbox (badness 10000) in paragraph at lines 156--157
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 158--159
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 160--161
-
- []
-
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 172--179
-
- []
-
-<figuras/est_directorios_ciaa.png, id=29, 511.15968pt x 612.78937pt>
-File: figuras/est_directorios_ciaa.png Graphic file (type png)
-
-<use figuras/est_directorios_ciaa.png>
-Package pdftex.def Info: figuras/est_directorios_ciaa.png used on input line 18
-8.
-(pdftex.def)             Requested size: 227.62204pt x 272.87274pt.
-
-Overfull \hbox (78.92416pt too wide) in paragraph at lines 198--204
- [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 209--211
-
- []
-
-[7 <./figuras/est_directorios_ciaa.png>]
-Overfull \hbox (89.5824pt too wide) in paragraph at lines 214--221
- [] 
- []
-
-[8] <figuras/instalacion1.png, id=37, 496.85625pt x 385.44pt>
-File: figuras/instalacion1.png Graphic file (type png)
-
-<use figuras/instalacion1.png>
-Package pdftex.def Info: figuras/instalacion1.png used on input line 244.
-(pdftex.def)             Requested size: 227.62204pt x 176.58115pt.
-
-<figuras/instalacion2.png, id=38, 496.85625pt x 385.44pt>
-File: figuras/instalacion2.png Graphic file (type png)
-
-<use figuras/instalacion2.png>
-Package pdftex.def Info: figuras/instalacion2.png used on input line 253.
-(pdftex.def)             Requested size: 227.62204pt x 176.58115pt.
-
-<figuras/instalacion3.png, id=39, 399.74344pt x 310.15875pt>
-File: figuras/instalacion3.png Graphic file (type png)
-
-<use figuras/instalacion3.png>
-Package pdftex.def Info: figuras/instalacion3.png used on input line 264.
-(pdftex.def)             Requested size: 227.62204pt x 176.61247pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[9 <./figuras/instalacion1.png> <./figuras/instalacion2.png>]
-<figuras/instalacion4.png, id=43, 392.21532pt x 305.64188pt>
-File: figuras/instalacion4.png Graphic file (type png)
-
-<use figuras/instalacion4.png>
-Package pdftex.def Info: figuras/instalacion4.png used on input line 275.
-(pdftex.def)             Requested size: 227.62204pt x 177.37967pt.
-
-<figuras/instalacion5.png, id=44, 374.90062pt x 167.87718pt>
-File: figuras/instalacion5.png Graphic file (type png)
-
-<use figuras/instalacion5.png>
-Package pdftex.def Info: figuras/instalacion5.png used on input line 287.
-(pdftex.def)             Requested size: 227.62204pt x 101.92847pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<figuras/instalacion6.png, id=45, 406.51875pt x 141.52875pt>
-File: figuras/instalacion6.png Graphic file (type png)
-
-<use figuras/instalacion6.png>
-Package pdftex.def Info: figuras/instalacion6.png used on input line 296.
-(pdftex.def)             Requested size: 227.62204pt x 79.24475pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[10 <./figuras/instalacion3.png> <./figuras/instalacion4.png>]
-<figuras/instalacion7.png, id=49, 376.40625pt x 291.33844pt>
-File: figuras/instalacion7.png Graphic file (type png)
-
-<use figuras/instalacion7.png>
-Package pdftex.def Info: figuras/instalacion7.png used on input line 307.
-(pdftex.def)             Requested size: 227.62204pt x 176.1825pt.
-
-<figuras/instalacion8.png, id=50, 361.35pt x 279.29344pt>
-File: figuras/instalacion8.png Graphic file (type png)
-
-<use figuras/instalacion8.png>
-Package pdftex.def Info: figuras/instalacion8.png used on input line 316.
-(pdftex.def)             Requested size: 227.62204pt x 175.93448pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<figuras/instalacion9.png, id=51, 362.85562pt x 279.29344pt>
-File: figuras/instalacion9.png Graphic file (type png)
-
-<use figuras/instalacion9.png>
-Package pdftex.def Info: figuras/instalacion9.png used on input line 325.
-(pdftex.def)             Requested size: 227.62204pt x 175.20573pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<figuras/instalacion10.png, id=52, 362.85562pt x 279.29344pt>
-File: figuras/instalacion10.png Graphic file (type png)
-
-<use figuras/instalacion10.png>
-Package pdftex.def Info: figuras/instalacion10.png used on input line 334.
-(pdftex.def)             Requested size: 227.62204pt x 175.20573pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<figuras/instalacion11.png, id=53, 417.81094pt x 164.11313pt>
-File: figuras/instalacion11.png Graphic file (type png)
-
-<use figuras/instalacion11.png>
-Package pdftex.def Info: figuras/instalacion11.png used on input line 343.
-(pdftex.def)             Requested size: 227.62204pt x 89.41107pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[11 <./figuras/instalacion5.png> <./figuras/instalacion6.png> <./figuras/instal
-acion7.png>] [12 <./figuras/instalacion8.png> <./figuras/instalacion9.png> <./f
-iguras/instalacion10.png>]
-<figuras/instalacion12.png, id=60, 449.42906pt x 204.765pt>
-File: figuras/instalacion12.png Graphic file (type png)
-
-<use figuras/instalacion12.png>
-Package pdftex.def Info: figuras/instalacion12.png used on input line 356.
-(pdftex.def)             Requested size: 227.62204pt x 103.707pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 362--363
-
- []
-
-<figuras/instalacion13.png, id=61, 543.53062pt x 240.9pt>
-File: figuras/instalacion13.png Graphic file (type png)
-
-<use figuras/instalacion13.png>
-Package pdftex.def Info: figuras/instalacion13.png used on input line 367.
-(pdftex.def)             Requested size: 227.62204pt x 100.8869pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 373--374
-
- []
-
-[13 <./figuras/instalacion11.png> <./figuras/instalacion12.png> <./figuras/inst
-alacion13.png>] <figuras/instalacion14.png, id=66, 545.03625pt x 241.65282pt>
-File: figuras/instalacion14.png Graphic file (type png)
-
-<use figuras/instalacion14.png>
-Package pdftex.def Info: figuras/instalacion14.png used on input line 380.
-(pdftex.def)             Requested size: 227.62204pt x 100.91826pt.
-
-<figuras/instalacion15.png, id=67, 547.2947pt x 243.91125pt>
-File: figuras/instalacion15.png Graphic file (type png)
-
-<use figuras/instalacion15.png>
-Package pdftex.def Info: figuras/instalacion15.png used on input line 399.
-(pdftex.def)             Requested size: 227.62204pt x 101.44458pt.
- [14 <./figuras/instalacion14.png> <./figuras/instalacion15.png>]
-<figuras/configuracion1.png, id=71, 468.24937pt x 210.7875pt>
-File: figuras/configuracion1.png Graphic file (type png)
-
-<use figuras/configuracion1.png>
-Package pdftex.def Info: figuras/configuracion1.png used on input line 418.
-(pdftex.def)             Requested size: 227.62204pt x 102.4666pt.
-
-<figuras/primer_proy1.png, id=72, 701.62125pt x 383.18156pt>
-File: figuras/primer_proy1.png Graphic file (type png)
-
-<use figuras/primer_proy1.png>
-Package pdftex.def Info: figuras/primer_proy1.png used on input line 434.
-(pdftex.def)             Requested size: 227.62204pt x 124.31035pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<figuras/primer_proy2.png, id=73, 447.92343pt x 441.90094pt>
-File: figuras/primer_proy2.png Graphic file (type png)
-
-<use figuras/primer_proy2.png>
-Package pdftex.def Info: figuras/primer_proy2.png used on input line 452.
-(pdftex.def)             Requested size: 227.62204pt x 224.55734pt.
- [15 <./figuras/configuracion1.png>]
-<figuras/primer_proy3.png, id=78, 1027.84pt x 770.88pt>
-File: figuras/primer_proy3.png Graphic file (type png)
-
-<use figuras/primer_proy3.png>
-Package pdftex.def Info: figuras/primer_proy3.png used on input line 462.
-(pdftex.def)             Requested size: 369.88582pt x 277.41072pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[16 <./figuras/primer_proy1.png> <./figuras/primer_proy2.png>]
-<figuras/primer_proy4.png, id=82, 586.44093pt x 395.97937pt>
-File: figuras/primer_proy4.png Graphic file (type png)
-
-<use figuras/primer_proy4.png>
-Package pdftex.def Info: figuras/primer_proy4.png used on input line 475.
-(pdftex.def)             Requested size: 227.62204pt x 153.69418pt.
- [17 <./figuras/primer_proy3.png> <./figuras/primer_proy4.png>] <figuras/primer
-_proy5.png, id=86, 397.485pt x 237.13594pt>
-File: figuras/primer_proy5.png Graphic file (type png)
-
-<use figuras/primer_proy5.png>
-Package pdftex.def Info: figuras/primer_proy5.png used on input line 486.
-(pdftex.def)             Requested size: 227.62204pt x 135.8021pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 492--493
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 494--495
-
- []
-
-
-Overfull \hbox (77.57101pt too wide) in paragraph at lines 498--500
-[]$\OML/cmm/m/it/12 < dIDE >$\OT1/cmr/m/n/12 /cygwin/lib/gcc/i686-pc-cygwin/4.9
-.2/include (por de-fec-to: \OT1/cmr/bx/n/12 C:/CIAA/cygwin/lib/gcc/i686-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 502--503
-
- []
-
-<figuras/primer_proy6.png, id=87, 439.6425pt x 596.2275pt>
-File: figuras/primer_proy6.png Graphic file (type png)
-
-<use figuras/primer_proy6.png>
-Package pdftex.def Info: figuras/primer_proy6.png used on input line 515.
-(pdftex.def)             Requested size: 227.62204pt x 308.68452pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 522--528
-
- []
-
-[18 <./figuras/primer_proy5.png>] [19 <./figuras/primer_proy6.png>]
-<figuras/primer_proy7.png, id=95, 462.22687pt x 313.9228pt>
-File: figuras/primer_proy7.png Graphic file (type png)
-
-<use figuras/primer_proy7.png>
-Package pdftex.def Info: figuras/primer_proy7.png used on input line 534.
-(pdftex.def)             Requested size: 227.62204pt x 154.58992pt.
-
-<figuras/primer_proy8.png, id=96, 565.36218pt x 487.8225pt>
-File: figuras/primer_proy8.png Graphic file (type png)
-
-<use figuras/primer_proy8.png>
-Package pdftex.def Info: figuras/primer_proy8.png used on input line 546.
-(pdftex.def)             Requested size: 284.52756pt x 245.51102pt.
- [20 <./figuras/primer_proy7.png> <./figuras/primer_proy8.png>] <figuras/primer
-_proy9.png, id=100, 375.65344pt x 608.2725pt>
-File: figuras/primer_proy9.png Graphic file (type png)
-
-<use figuras/primer_proy9.png>
-Package pdftex.def Info: figuras/primer_proy9.png used on input line 566.
-(pdftex.def)             Requested size: 142.26378pt x 230.35703pt.
-
-<figuras/primer_proy10.png, id=101, 974.13937pt x 304.13625pt>
-File: figuras/primer_proy10.png Graphic file (type png)
-
-<use figuras/primer_proy10.png>
-Package pdftex.def Info: figuras/primer_proy10.png used on input line 575.
-(pdftex.def)             Requested size: 426.79134pt x 133.24954pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 582--585
-
- []
-
-[21 <./figuras/primer_proy9.png> <./figuras/primer_proy10.png>]
-<figuras/primer_proy11.png, id=105, 488.57532pt x 548.80031pt>
-File: figuras/primer_proy11.png Graphic file (type png)
-
-<use figuras/primer_proy11.png>
-Package pdftex.def Info: figuras/primer_proy11.png used on input line 591.
-(pdftex.def)             Requested size: 142.26378pt x 159.80118pt.
-
-<figuras/primer_proy12.png, id=106, 532.23843pt x 426.09187pt>
-File: figuras/primer_proy12.png Graphic file (type png)
-
-<use figuras/primer_proy12.png>
-Package pdftex.def Info: figuras/primer_proy12.png used on input line 601.
-(pdftex.def)             Requested size: 227.62204pt x 182.22118pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[22 <./figuras/primer_proy11.png>]
-<figuras/primer_proy13.png, id=110, 581.17125pt x 466.74374pt>
-File: figuras/primer_proy13.png Graphic file (type png)
-
-<use figuras/primer_proy13.png>
-Package pdftex.def Info: figuras/primer_proy13.png used on input line 629.
-(pdftex.def)             Requested size: 227.62204pt x 182.80562pt.
-
-<figuras/primer_proy14.png, id=111, 528.47438pt x 318.43968pt>
-File: figuras/primer_proy14.png Graphic file (type png)
-
-<use figuras/primer_proy14.png>
-Package pdftex.def Info: figuras/primer_proy14.png used on input line 638.
-(pdftex.def)             Requested size: 284.52756pt x 171.44467pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-<figuras/primer_proy15.png, id=112, 496.10344pt x 536.75531pt>
-File: figuras/primer_proy15.png Graphic file (type png)
-
-<use figuras/primer_proy15.png>
-Package pdftex.def Info: figuras/primer_proy15.png used on input line 647.
-(pdftex.def)             Requested size: 142.26378pt x 153.91872pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[23 <./figuras/primer_proy12.png> <./figuras/primer_proy13.png>]
-<figuras/primer_proy16.png, id=117, 484.05844pt x 326.72063pt>
-File: figuras/primer_proy16.png Graphic file (type png)
-
-<use figuras/primer_proy16.png>
-Package pdftex.def Info: figuras/primer_proy16.png used on input line 658.
-(pdftex.def)             Requested size: 142.26378pt x 96.0228pt.
- [24 <./figuras/primer_proy14.png> <./figuras/primer_proy15.png> <./figuras/pri
-mer_proy16.png>]
-<figuras/primer_proy17.png, id=121, 557.83406pt x 364.36125pt>
-File: figuras/primer_proy17.png Graphic file (type png)
-
-<use figuras/primer_proy17.png>
-Package pdftex.def Info: figuras/primer_proy17.png used on input line 677.
-(pdftex.def)             Requested size: 142.26378pt x 92.91922pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 683--684
-
- []
-
-
-Overfull \hbox (24.4248pt too wide) in paragraph at lines 686--687
-[][] 
- []
-
-<figuras/dep1.png, id=122, 579.66562pt x 412.54124pt>
-File: figuras/dep1.png Graphic file (type png)
- <use figuras/dep1.png>
-Package pdftex.def Info: figuras/dep1.png used on input line 694.
-(pdftex.def)             Requested size: 284.52756pt x 202.4932pt.
-
-
-LaTeX Warning: Command \textellipsis invalid in math mode on input line 700.
-
-[25 <./figuras/primer_proy17.png> <./figuras/dep1.png>]
-Overfull \hbox (19.70892pt too wide) in paragraph at lines 723--724
-[]\OT1/cmr/m/n/12 Executable: \OT1/cmr/bx/n/12 C:/CIAA/cygwin/usr/arm-none-eabi
-/bin/arm-none-eabigdb.exe 
- []
-
-<figuras/dep2.png, id=128, 626.34pt x 443.40656pt>
-File: figuras/dep2.png Graphic file (type png)
- <use figuras/dep2.png>
-Package pdftex.def Info: figuras/dep2.png used on input line 735.
-(pdftex.def)             Requested size: 284.52756pt x 201.4323pt.
-
-<figuras/dep3.png, id=129, 448.67625pt x 247.67531pt>
-File: figuras/dep3.png Graphic file (type png)
- <use figuras/dep3.png>
-Package pdftex.def Info: figuras/dep3.png used on input line 747.
-(pdftex.def)             Requested size: 142.26378pt x 78.52832pt.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Overfull \hbox (5.793pt too wide) in paragraph at lines 757--764
- [] 
- []
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: Reference `dep4' on page 26 undefined on input line 774.
-
-[26 <./figuras/dep2.png>] <figuras/dep4.png, id=133, 569.87906pt x 313.9228pt>
-File: figuras/dep4.png Graphic file (type png)
-
-<use figuras/dep4.png>
-Package pdftex.def Info: figuras/dep4.png used on input line 779.
-(pdftex.def)             Requested size: 227.62204pt x 125.38486pt.
-
-
-LaTeX Warning: Empty `thebibliography' environment on input line 795.
-
-[27 <./figuras/dep3.png> <./figuras/dep4.png>] (BOCETO2.aux
-LaTeX Info: Redefining \. on input line 6.
-LaTeX Info: Redefining \% on input line 6.
-)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+! I can't write on file `BOCETO2.pdf'.
+Please type another file name for output
+! Emergency stop.
+<argument> ...stobj \GPT@objref }}}\fi \pdfximage 
+                                                  \GPT@RuleAttr \ifx \GPT@pa...
+l.46 
+     
+*** (job aborted, file error in nonstop mode)
+
+ 
 Here is how much of TeX's memory you used:
- 5260 strings out of 493634
- 72826 string characters out of 3136463
- 149946 words of memory out of 3000000
- 8513 multiletter control sequences out of 15000+200000
- 11831 words of font info for 43 fonts, out of 3000000 for 9000
+ 5136 strings out of 493634
+ 68366 string characters out of 3136463
+ 150782 words of memory out of 3000000
+ 8435 multiletter control sequences out of 15000+200000
+ 10150 words of font info for 38 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 37i,9n,39p,745b,384s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmbx12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
-msfonts/cm/cmbxti10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmmi12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/hp/AppData/Local/Programs/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/hp/AppData/Local/
-Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/hp/AppDat
-a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users
-/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-<C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mti12.pfb>
-Output written on BOCETO2.pdf (27 pages, 4646585 bytes).
-PDF statistics:
- 166 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
- 206 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 37i,11n,43p,644b,384s stack positions out of 5000i,500n,10000p,200000b,50000s
+!  ==> Fatal error occurred, no output PDF file produced!

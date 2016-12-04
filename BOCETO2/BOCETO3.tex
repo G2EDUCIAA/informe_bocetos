@@ -144,14 +144,14 @@ Para la ejecución de la depuración de algun programa previamente compilado, el
 Debe tenerse en cuenta que el chip \textit{FT2232H} posee 2 canales de comunicación independientes (A y B), sin embargo, ambos salen por el mismo USB, de modo que la PC detecta 2 dispositivos distintos (en realidad es uno compuesto). Uno de ellos, se conecta al JTAG manejado por \textit{OpenOCD} como fue mencionado, mientras que el otro se ve como un puerto virtual COM. Este último sirve principalmente para la depuración.
 %%CONSIDERAR SI CIERTA PARTE VA A IR A SECCION INSTALACION
 
-Dado que al funcionar como dos dispositivos distintos, para cada uno de ellos debe realizarse la instalación de un driver adecuado, en principio debe optarse por realizar la instalación de los drivers por defecto del fabricante FTDI para puerto virtual.\\ %Considerar%
+Dado que al funcionar como dos dispositivos distintos, para cada uno de ellos debe realizarse la instalación de un driver adecuado, en principio debe optarse por realizar la instalación de los drivers por defecto del fabricante FTDI para puerto virtual. %Considerar%
 
 \subsection{Firmware de la EDU CIAA}
 Considerando que el usuario previamente ha trabajado sobre placas de desarrollo tales como la MCE Debug, etc, y sobre microcontroladores PIC. Es necesario destacar un concepto teórico que nos brinda la posibilidad de fundamentar el trabajo sobre la placa EDU CIAA. Al trabajar sobre los otros dispositivos, es común la utilización de programas tales como \textit{MPLABX}, o \textit{PICC} a través del compilador \textit{CCS Compiler}; puntualmente; cuando se inicia un nuevo proyecto a traves de la herramienta de creación de la misma, es usual configurar este proyecto de manera que el software IDE genera un archivo \textit{makefile} para la compilación del proyecto.
 
-En este caso particular, el software IDE de la EDU CIAA trabaja de forma ligeramente distinta, el usuario debe crear un archivo \textit{makefile} (basándose en un archivo proporcionado previamente, denominado \textit{Makefile.config}) para poder efectuar la compilación del archivo y lograr la correcta configuración del programa, sobre la placa EDU CIAA. Dentro de dicho archivo se establece la configuracion para la arquitectura del procesador utilizado.
+En este caso particular, el software IDE de la EDU CIAA trabaja de forma ligeramente distinta, el usuario debe modificar un archivo \textit{makefile} (basándose en un archivo proporcionado previamente, denominado \textit{Makefile.config}) para poder efectuar la compilación del archivo y lograr la correcta configuración del programa, sobre la placa EDU CIAA. Dentro de él se establece la configuracion para la arquitectura del procesador utilizado.
 %%CONSIDERAR POSICION DEL SIGUIENTE PARRAFO%%
-Cuando se desea realizar el primer proyecto sobre la placa, el usuario debe crear su propio archivo \textit{Makefile.mine}, de manera que ésta se encuentra basada en el archivo \textit{Makefile.config} brindado previamente al momento de establecer un nuevo proyecto añadiendo un Firmware que previamente ha sido diseñado por los creadores de la placa.
+Cuando se desea realizar el primer proyecto sobre la placa, el usuario debe crear su propio archivo \textit{Makefile.mine}, de manera que ésta se encuentra basada en \textit{Makefile.config} brindado previamente al momento de establecer un nuevo proyecto añadiendo un Firmware que ha sido diseñado para el funcionamiento de la placa.
 
 Debe tenerse en cuenta que la dinámica de trabajo sobre la placa se encuentra pensada para trabajar sobre la plataforma de versionado \textit{Git}; en este caso en particular, el archivo \textit{Makefile.mine} se encuentra diseñado de forma tal que dicho archivo sea ignorado al sincronizar su repositorio local, con su repositorio remoto (ubicado sobre \textit{Github}).
 
@@ -182,10 +182,10 @@ Sobre este \textit{Makefile} contiene las siguientes definiciones:
 
 Cada proyecto incluye en su Makefile los módulos (aca digo que son los módulos) a compilar en una variable llamada MODS, por ejemplo:\\
 ------------------------decidir si poner como imagen o como texto\\
-MODS += modules$\$(DS)posix$ \
-        modules$\$(DS)ciaak $\
-        modules$\$(DS)config$ \
-        modules$\$(DS)bsp $\
+MODS += modules$\$(DS)posix$ \  \\
+        modules$\$(DS)ciaak $\  \\
+        modules$\$(DS)config$ \  \\
+        modules$\$(DS)bsp $\	\\
         modules$\$(DS)platforms$\\
 
 Es recomendable utilizar \$(DS) en vez de / o \ para mantener la compatibilidad entre sistemas operativos (Linux, Windows, MAC OS).
@@ -202,7 +202,7 @@ En el directorio principal luego de hacer un git clone o al bajar una release of
 \end{figure}
 
 \textbf{Directorio $"externals"$(Software y Tools Externos)}\\
-Este directorio contiene el Software y Tools externos al CIAA-Firmware, que son necesarios para compilar, testear, etc. el Firmware. Tenga en cuenta que el Software y Tools en esta carpeta no son parte de CIAA-Firmware y pueden contener otras licencias. Sobre la \ref{Tab1} se ilustra los contenidos del directorio y su descripción.
+Este directorio contiene el Software y Tools externos al CIAA-Firmware, que son necesarios para compilar, testear, etc. el Firmware. Tenga en cuenta que el Software y Tools en esta carpeta no son parte de CIAA-Firmware y pueden contener otras licencias. Sobre el Cuadro \ref{Tab1} se ilustra los contenidos del directorio y su descripción.
 
 \begin{table}
 \begin{center}
@@ -214,13 +214,12 @@ base & Fuentes, headers y linker scripts necesarios para poder compilar y linkea
 drivers & Drivers provistos por el proveedor del chip, los cuales son luego adaptados al formato de la CIAA.\\ \hline
 \end{tabular}
 }
-\caption{Tabla1}
+\caption{Utilidades,archivos,y drivers para la placa}
 \label{Tab1}
 \end{center}
 \end{table}
 
-\textbf{modules (out (Archivos de salida)}\\
-La \ref{Tab2} contiene todos los archivos generados por el CIAA-Firmware:\\
+El Cuadro \ref{Tab2} contiene todos los archivos generados por el CIAA-Firmware:
 
 \begin{table}[h]
 \begin{center}
@@ -233,7 +232,7 @@ lib & Por cada Módulo el make genera un archivo .a, osea una libreria\\ \hline
 obj & Todos los archivos fuentes son compilados a object files y almacenados en este directorio\\ \hline
 \end{tabular}
 }
-\caption{Tabla 2}
+\caption{Descripción de archivos generados en un proyecto en RTOS.}
 \label{Tab2}
 \end{center}
 \end{table}
@@ -241,17 +240,19 @@ obj & Todos los archivos fuentes son compilados a object files y almacenados en 
 }
 \subsection{Iniciación a través de ejemplos}
 Sobre el Firmware de la placa se distribuyen varios ejemplos los cuales se encuentran en la carpeta \textbf{examples} y pueden ser utilizados como base para iniciar cualquier proyecto.
-Cualquiera de los ejemplos puede ser copiado y utilizado de base para nuevos proyectos. Por ejemplo con el siguiente comando:	\textit{cp -r $examples/blinking projects/my\_proyect$}\\
-Y adaptando el Makefile.mine indicado: $PROJECT_PATH = projects/my\_project$.
+
+Cualquiera de los ejemplos puede ser copiado y utilizado de base para nuevos proyectos. Por ejemplo con el siguiente comando:	\textit{cp -r $examples/blinking projects/my$\_$proyect$} y adaptando el Makefile.mine indicado: $PROJECT$\_$PATH = projects/my$\_$project$.
 \subsection{Instalación de IDE}
 El entorno de desarrollo integrado (IDE) posibilita el trabajo en un ambiente ameno, tambien provee las herramientas necesarias para el desarrollo de aplicaciones en el Firmware de forma automatica. La CIAA utiliza una version modificada de la plataforma de software (IDE)  \textit{Eclipse},denominada \textit{CIAA-Software-IDE} ,la cual contiene herramientas de programación tales como editor de texto, compilador,plataforma para depuración, etc.
 Sobre la página web del proyecto, se provee un instalador llamado \textit{CIAA-IDE-SUITE}, desde donde se puede configurar automáticamente todas las herramientas necesarias para trabajar con la placa. Este instalador solamente es para los usuarios que poseen Windows XP o superior.\\
+
 El paquete de instalación incluye:
 \begin{enumerate}
 \item \textbf{Eclipse}
 \item\textbf{PHP (Hypertext Pre-processor )} es un lenguaje de programación de uso general de código desde el lado del servidor, originalmente diseñado para el desarrollo de contenido dinámico. En este caso, se utiliza solamente en forma de scripts para poder generar algunos archivos del \textbf{Sistema Operativo OSEK}
 \item \textbf{Cygwin} es una consola que se ejecuta en Windows, de modo de emular la consola de comandos de Linux. Cuenta con todos los comandos, y el compilador GCC, propio del sistema operativo libre.
 \end{enumerate}
+
 Una vez realizada la descarga del instalador, se ejecuta dicha aplicación, la figura \ref{Fig4} muestra el arranque del instalador, sobre ella, debe seleccionarse \textit{Siguiente} 
 
 \begin{figure}[!h]
@@ -443,7 +444,7 @@ La funcion que corresponde a la subrutina de atención de la interrupción provo
 	NVIC_EnableIRQ(RITIMER_IRQ);
 \end{verbatim}
 Al establecer el decrecimiento de un contador sobre la subrutina de atención de la interrupción, se provoca una temporización determinada por el usuario, a través de la configuración del intervalo mediante la instruccion $Chip\_RIT\_SetTimerInterval$
-\subsection{Programacion en baremetal utilizando libreria sAPI}
+\subsection{Programacion en Baremetal a través de libreria sAPI}
 Debido a que la programación de la placa en Baremetal puede tornarse un tanto engorrosa en principio, es posible utilizar una libreria diseñada para la implementación de proyectos en Baremetal con la placa EDU CIAA, dicha librería se la denomina \textit{sAPI}. Esta biblioteca implementa una API simple para la programación de dicha placa, es necesario comentar que una API es una interfaz de programación de aplicaciones, y consta de un conjunto de subrutinas, funciones y procedimientos (o métodos, en la programación orientada a objetos) que ofrece cierta biblioteca; para permitir ser utilizada por otro software como una capa de abstracción en la programación (aunque no necesariamente) entre los niveles o capas inferiores y las superiores del software.\\
 La motivación para el desarrollo de la biblioteca sAPI surge de la necesidad de manejar los periféricos directamente desde una máquina virtual de Java para el desarrollo de Java sobre la CIAA y corresponde a la parte de bajo nivel de las clases de periféricos en Java que básicamente bindea a funciones escritas en C.
 Luego se extendió la misma para facilitar el uso de la EDU-CIAA-NXP a personas no expertas en la arquitectura del LPC4337 facilitando el uso de esta plataforma.\\
@@ -473,8 +474,336 @@ Los siguientes módulos estan incluidos:
 \label{Fig18}
 \end{figure}
 \end{center} 
- 
-\begin{thebibliography}{99}
+\underline{Breve descripcion de los modulos de la biblioteca}:
+
+\textbf{sAPI$\_$Config}: Contiene configuraciones de la biblioteca.
+
+\textbf{sAPI$\_$DataTypes}:Define las siguientes constantes:
+\begin{enumerate}
+\item[•]Estados lógicos, \textit{TRUE} y \textit{FALSE}.
+\item[•]Estados funcionales \textit{ON} y \textit{OFF}
+\item[•]Estados electricos \textit{HIGH} y \textit{LOW}
+\item[•]Tipos de datos: Booleanos (\textit{bool$\_$t}), enteros sin signo(\textit{uint8$\_$t, uint16$\_$t, uint32$\_$t, uint64$\_$t}), enteros con signo (\textit{int8$\_$t, int16$\_$t, int32$\_$t, int64$\_$t}).
+\end{enumerate}
+
+\textbf{sAPI$\_$IsrVector}:Contiene la tabla de vectores de interrupción.
+
+\textbf{sAPI$\_$Board}:Contiene la función de configuración para inicialización de la plataforma de hardware.
+
+\textbf{sAPI$\_$PeripheralMap}:Contiene el mapa de periféricos, para la interpretación de éste, el usuario debe utilizar el diagrama esquemático de la placa y el archivo \textit{PeripheralMap$.txt$} ubicado sobre el directorio \textit{sapi-bm}.
+
+\textbf{sAPI$\_$DigitalIO}: Utilizada para el manejo de entradas y salidas digitales.
+
+\underline{Utilización de librería sAPI}:
+
+Es posible descargar la version más reciente de dicha biblioteca, a traves del repositorio de la misma, ubicado en la pagina web (especificar la referencia a la pagina web del repositorio).
+
+Luego de haber descargado la versión actual de  sAPI se procede a copiar la carpeta \textit{sapi$\_$bm} y pegarla en \textit{C$:/$CIAA$/$Firmware$/$modules}.
+
+A continuación, el usuario debe crear un directorio el cual contiene al proyecto, y sobre el mismo, deben realizarse los directorios que contengan las cabeceras, el \textit{Makefile}, y los archivos fuentes.
+
+Al utilizar la biblioteca \textit{sAPI} para un proyecto en Baremetal, se debe modificar el makefile del mismo dentro de la carpeta mak y cambiar la última línea de: \textbf{MODS += externals \$(DS)drivers}, y reemplazarla por:  \textbf{MODS += modules \$ (DS)sapi$\_$bm}.
+
+Luego, sobre cada archivo fuente en la que se ejecuten instrucciones que contenga esta librería, se debe realizar la inclusión del mismo mediante la instruccion: \textbf{\# include “sAPI.h”}. Debe aclararse que en la versión 0.3.0 no es necesario incluir el archivo \textit{chip.h} dado que la propia biblioteca lo incluye, además, esta librería maneja el vector de interrupción, por lo tanto, para el usuario que haya trabajado anteriormente con proyectos escritos en instrucciones de \textit{LPCOpen}, debe tenerse en cuenta que ya no se necesita realizar el archivo que contenga las direcciones de las subrutinas para la atención de las interrupciones. El ejemplo \textit{"baremetal"} del Firmware en el que se realiza este tutorial, trae consigo dicho archivo.
+
+Es importante tener en cuenta que para la compilación y depuración del programa mediante el IDE del Firmware, se debe colocar sobre la carpeta Firmware y mediante click derecho, el usuario debe ubicarse en \textit{Propiedades}$\rightarrow$\textit{C/C++ Build}$\rightarrow$\textit{Behaviour}. A continuación debe modificar sobre la rama \textit{Clean}, y reemplazar la palabra \textit{Clean\_ generate} por la palabra \textit{clean}, como puede apreciarse en la Figura \ref{Fig19}.
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/f1.png}\\
+\caption{Cambio de “clean\_ generate” a “clean”.}
+\label{Fig19}
+\end{figure}
+\end{center} 
+\subsubsection{Implementacion de ejemplo N$^{\circ}$1}
+El primer ejemplo aborda las salidas digitales, sobre las cuales se implementan sobre los leds instalados sobre la placa EDU-CIAA.
+
+Este programa realiza la ejecución de una secuencia de luces de forma que formen un patrón de izquierda a derecha sobre la cual se encienden y apagan los leds cada 500[ms]. Luego de realizar el patron desde izquierda a derecha se realiza la acción opuesta.
+
+Debe destacarse que sobre el inicio del programa fuente se realizan las inclusiones de el archivo cabecera del proyecto y la biblioteca \textit{sAPI}.
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=6 cm]{figuras/f2.png}\\
+\caption{Inclusión de archivo cabecera y libreria}
+\label{Fig20}
+\end{figure}
+\end{center}
+	
+Sobre el código del programa, es importante destacar algunas funciones utilizadas:
+
+\begin{enumerate}
+\item[•]\textbf{Boardconfig()}: Esta función se encarga de la configuración para inicializar la plataforma del hardware.
+\item[•]\textbf{Tickconfig()}:Configura una interrupción periódica de temporizador cada tickRateMSvalue milisegundos para utilizar de base de tiempo del sistema.El primer parámetro es el tiempo en milisegundos cada cuanto quiero que interrumpa el perifèrico Systick y me aumente un contador que se usa para
+el mòdulo delay o para lo que se requiera. Y el segundo parámetro en este caso se pone en 0 ya no se necesita que realice nada.
+\item[•]\textbf{Digitalconfig()}: Configuración inicial y modo de una entrada o salida.
+\item[•]\textbf{DigitalWrite()}:Esta función se encarga de la escritura de salida digital, en este caso, en este caso enciende los leds.
+\item[•]\textbf{Delay()}:Esta función se utiliza para realizar los retardos (con excepción del retardo inexacto) siempre y cuando se haya configurado el tick previamente en el codigo.
+\end{enumerate}
+Para la compilación de dicho proyecto, debe tenerse en cuenta lo mencionado sobre la seccion 5.1, mientras que para implementar la depuración sobre la placa, el usuario debe seleccionar el archivo \textit{axf} que resulta de la compilación del proyecto.La \ref{Fig21} ilustra la ventana resultante para la carga del programa.
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=6 cm]{figuras/f3.png}\\
+\caption{Inclusión de archivo cabecera y libreria}
+\label{Fig21}
+\end{figure}
+\end{center}
+\subsubsection{Implementacion de ejemplo N$^{\circ}$2}
+El siguiente ejemplo tiene como objetivo mostrar como se realiza el trabajo sobre entradas y salidas digitales, dicho programa enciende los leds instalados sobre la placa, de acuerdo con la cantidad de veces que se oprime la tecla \textit{TEC1}, sobre dicho ejemplo se implemento una maquina de estado, a través del programa \textit{uModel Factory} para poder establecer un orden sobre los eventos y las acciones que debe ejecutar el procesador. Debe tenerse en cuenta que se implementan multiples archivos fuentes y cabeceras, en particular, el archivo fuente \textit{FUNC$\_$EJ2$\_$BM.c} define las acciones y la evaluación de los eventos y \textit{FUNC$\_$EJ2$\_$BM.h} establece la declaración de dichas funciones y de los estados.
+A continuación se realiza una breve descripción de los estados, eventos y acciones que contiene este programa.
+\begin{enumerate}
+\item[•]\underline{Estados}:
+\begin{enumerate}
+\item[•]Estado \textit{\textbf{INICIAL}}: Estado inicial en el cual, si se oprime la tecla \textit{TEC1}, se ejecuta la acción \textit{LED$\_$R}.
+\item[•]Estado \textit{\textbf{ROJO}}: El codigo establece que al oprimir la tecla \textit{TEC1}, se ejecuta la acción \textit{P$\_$LED1}. 
+\item[•]Estado \textit{\textbf{LED$\_$1}}: El codigo establece que al oprimir la tecla \textit{TEC1}, se ejecuta la acción \textit{P$\_$LED2}.
+\item[•]Estado \textit{\textbf{LED$\_$2}}: El codigo establece que al oprimir la tecla \textit{TEC1}, se ejecuta la acción \textit{P$\_$LED3}.
+\item[•]Estado \textit{\textbf{LED$\_$3}}: El codigo establece que al oprimir la tecla \textit{TEC1}, se ejecuta la acción \textit{P$\_$LED3}.  
+\end{enumerate}
+\item[•]\underline{Eventos}:
+\begin{enumerate}
+\item[•]Evento \textit{\textbf{PRESIONO}}: Identifica si se oprime la tecla \textit{TEC1}.
+\item[•]Evento \textit{\textbf{PRESIONO$\_$4}}: Identifica si se oprime la tecla \textit{TEC1} en la primer secuencia.
+\item[•]Evento \textit{\textbf{PRESIONO$\_$7}}: Identifica si se oprime la tecla \textit{TEC1} en la segunda secuencia.
+\item[•]Evento \textit{\textbf{PRESIONO$\_$10}}: Identifica si se oprime la tecla \textit{TEC1} en la tercer y ultima secuencia.
+\end{enumerate}
+\item[•]\underline{Acciones}:
+\begin{enumerate}
+\item[•]Accion \textit{\textbf{LED$\_$R}}: Encendido de \textit{LEDR},\textit{LEDB},\textit{LEDG} según corresponda.
+\item[•]Accion \textit{\textbf{P$\_$LED$\_$1}}: Encendido de \textit{LED1}.
+\item[•]Accion \textit{\textbf{P$\_$LED$\_$2}}: Encendido de \textit{LED2}.
+\item[•]Accion \textit{\textbf{P$\_$LED$\_$3}}: Encendido de \textit{LED3}.
+\end{enumerate}
+\end{enumerate}
+
+La Figura \ref{Fig22} especifica el diagrama de estados del ejemplo:
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=7 cm]{figuras/f4.png}\\
+\caption{Diagrama de estados de ejemplo N$^{\circ}$2}
+\label{Fig22}
+\end{figure}
+\end{center}
+\subsubsection{Implementacion de ejemplo N$^{\circ}$3}
+El siguiente ejemplo busca ilustrar al usuario el manejo de entradas y salidas digitales, en particular este programa establece dos tareas distintas, en el caso que se oprima la tecla \textit{TEC1},o la tecla \textit{TEC2}. La primer tarea ejecuta una secuencia de luces y la muestra de digitos decimales a través de un display 7 segmentos.
+
+Se implementa una maquina de estados en donde se establecen los prototipos de funciones que corresponden a los eventos y las acciones que acontecen. 
+
+Para el manejo del display, se realiza la creación de un biblioteca para su manejo. Para ello, deben generarse dos archivos los cuales pertenecen a la cabecera y a la fuente de dicha biblioteca. Sobre la cabecera deben establecerse las inclusiones de la biblioteca \textit{sAPI} y las declaraciones de las funciones que corresponden con el manejo del dispositivo. En este tutorial se realiza el manejo de un display de 7 segmentos del tipo cátodo común, de manera que para provocar el encendido de un led perteneciente al arreglo, se debe establecer en alto la salida de el pin conectado a dicho led. La biblioteca que provee este tutorial determina el conexionado de los pines del display, sobre los correspondientes terminales GPIO ubicados en la placa EDU CIAA. La Figura \ref{Fig23} ilustra los terminales de la placa utilizados para la conexión del dispositivo.
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=10 cm]{figuras/f5.png}\\
+\caption{Diagrama de conexión display 7 segmentos.}
+\label{Fig23}
+\end{figure}
+\end{center}
+
+A continuación se realiza una breve descripción de los estados, eventos y acciones que contiene este programa.
+\begin{enumerate}
+\item[•]\underline{Estados}:
+\begin{enumerate}
+\item[•]Estado \textit{\textbf{INICIAL}}: Estado inicial en el cual, en el caso de la ocurrencia del evento \textit{NO$\_$APRETO}, el programa se establece en el mismo estado;mientras que para el caso en el caso de la ocurrencia del evento \textit{APRETO1}, el programa se establece en el estado \textit{ESTADO1}; en el caso de la ocurrencia del evento \textit{APRETO2}, el programa se establece en el estado \textit{ESTADO2}. 
+\item[•]Estado \textit{\textbf{ESTADO1}}: Sobre dicho estado se realiza la secuencia de luces y la muestra de los digitos decimales sobre el display.
+\item[•]Estado \textit{\textbf{ESTADO2}}: Sobre dicho estado se muestra de un digito decimal en caso de que se oprima la tecla \textit{TEC2}.
+\end{enumerate}
+\item[•]\underline{Eventos}:
+\begin{enumerate}
+\item[•]Evento \textit{\textbf{NO$\_$APRETO}}: Identifica si no se ha oprimido la tecla \textit{TEC1} o la tecla \textit{TEC2}.
+\item[•]Evento \textit{\textbf{APRETO1}}: Identifica si se oprime la tecla \textit{TEC1}.
+\item[•]Evento \textit{\textbf{APRETO2}}: Identifica si se oprime la tecla \textit{TEC2}.
+\end{enumerate}
+\end{enumerate}
+
+La Figura \ref{Fig27}, ilustra el diagrama de estados del ejemplo:
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=6 cm]{figuras/f9.png}\\
+\caption{Diagrama de estados de ejemplo N$^{\circ}$3.}
+\label{Fig27}
+\end{figure}
+\end{center}
+
+\subsubsection{Implementacion de ejemplo N$^{\circ}$4}
+
+El siguiente ejemplo busca ilustrar al usuario como realizar el uso del módulo ADC de la placa, para realizar la lectura de una entrada analógica. Este programa en particular implementa el encendido de los leds instalados en la placa, en función de la magnitud de la tensión; de forma tal que el número de leds encendidos corresponda con la magnitud de la tensión leída. Por ejemplo, si la tensión leída es 2[V], entonces se encienden dos leds.
+
+Para la implementación del ejemplo, es posible realizar la lectura del terminal medio de un potenciómetro, la Figura \ref{Fig24} ilustra la conexión realizada.Debe tenerse en cuenta que es posible realizar la conexión del potenciómetro a partir de la terminal de 5[V] y la terminal GNDA que ofrece la placa.
+
+Este ejemplo utiliza maquinas de estado para poder establecer un orden sobre los eventos y las acciones que debe ejecutar el procesador.La Figura \ref{Fig25} especifica el diagrama de estados del ejemplo.A continuación se realiza una breve descripción de los estados, eventos y acciones que contiene este programa.
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=6 cm]{figuras/f6.png}\\
+\caption{Diagrama de conexión potenciómetro para lectura analógica.}
+\label{Fig24}
+\end{figure}
+\end{center}
+\begin{enumerate}
+\item[•]\underline{Estados}:
+\begin{enumerate}
+\item[•]Estado \textit{\textbf{UN$\_$VOLT}}: Estado en el cual, la tensión leída es igual a 1[V].
+\item[•]Estado \textit{\textbf{DOS$\_$VOLT}}: Estado en el cual, la tensión leída es igual a 2[V].
+\item[•]Estado \textit{\textbf{TRES$\_$VOLT}}: Estado en el cual, la tensión leída es igual a 3[V].
+\item[•]Estado \textit{\textbf{CUATRO$\_$VOLT}}: Estado en el cual, la tensión leída es igual a 4[V].
+\item[•]Estado \textit{\textbf{INTERMEDIO}}: Estado inicial en el cual, la tensión leída no es igual a 1[V],2[V],3[V],4[V],o 5[V].
+\end{enumerate}
+\item[•]\underline{Eventos}:
+\begin{enumerate}
+\item[•]Evento \textit{\textbf{LEYO$\_$1}}: Identifica si la lectura realizada sobre el ADC corresponde a 1[V].
+\item[•]Evento \textit{\textbf{LEYO$\_$2}}: Identifica si la lectura realizada sobre el ADC corresponde a 2[V].
+\item[•]Evento \textit{\textbf{LEYO$\_$3}}: Identifica si la lectura realizada sobre el ADC corresponde a 3[V].
+\item[•]Evento \textit{\textbf{LEYO$\_$4}}: Identifica si la lectura realizada sobre el ADC corresponde a 4[V].
+\item[•]Evento \textit{\textbf{LEYO$\_$5}}: Identifica si la lectura realizada sobre el ADC corresponde a 5[V].
+\item[•]Evento \textit{\textbf{NOES1}}: Identifica si la lectura realizada sobre el ADC es distinto a 1[V].
+\item[•]Evento \textit{\textbf{NOES2}}: Identifica si la lectura realizada sobre el ADC es distinto a 2[V].
+\item[•]Evento \textit{\textbf{NOES3}}: Identifica si la lectura realizada sobre el ADC es distinto a 3[V].
+\item[•]Evento \textit{\textbf{NOES4}}: Identifica si la lectura realizada sobre el ADC es distinto a 4[V].
+\item[•]Evento \textit{\textbf{NOES5}}: Identifica si la lectura realizada sobre el ADC es distinto a 5[V].
+\item[•]Evento \textit{\textbf{NOESNINGUNO}}: Identifica si la lectura realizada sobre el ADC no corresponde a 1[V],2[V],3[V],4[V] y 5[V].
+\end{enumerate}
+\end{enumerate}
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=6 cm]{figuras/f7.png}\\
+\caption{Diagrama de estados de ejemplo N$^{\circ}$4.}
+\label{Fig25}
+\end{figure}
+\end{center}
+
+\subsubsection{Implementacion de ejemplo N$^{\circ}$5}
+Sobre este código se utiliza el modulo conversor analógico digital de la placa, para efectuar la lectura de una entrada analógica sobre esta. En el caso que dicha medición sea superior a 2[V], se establece una salida analógica de 2[V] utilizando el módulo conversor digital analógico. De forma similar, si la tensión de entrada resulta mayor a 4[V], se define una salida analógica de 3[V].
+Es necesario destacar que la placa ya integra internamente el conversor digital analógico, de modo que no es necesario realizar una interfaz para la ejecución de dicha salida, además, es necesario destacar que la tensión de referencia interna se encuentra establecida, y adquiere un valor igual a 3.3[V]. La Figura \ref{Fig26} ilustra el diagrama esquemático que ilustra dicho concepto.
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=6 cm]{figuras/f8.png}\\
+\caption{Ilustración de tensión de referencia de DAC.}
+\label{Fig26}
+\end{figure}
+\end{center}
+
+La instrucción \textit{analogRead()}, permite realizar la lectura de la tensión aplicada sobre el canal 1 del modulo ADC0 de la placa. A partir de la conversión a tensión, el programa aplica la tensión de salida correspondiente.
+
+Este ejemplo también utiliza maquina de estado para establecer un orden sobre los eventos y las acciones que debe ejecutar el procesador.A continuación se realiza una breve descripción de los estados, eventos y acciones que contiene este programa.
+
+\begin{enumerate}
+\item[•]\underline{Estados}:
+\begin{enumerate}
+\item[•]Estado \textit{\textbf{LEO$\_$POTENCIOMETRO}}: Estado inicial, en el cual se determina la lectura analógica.
+\item[•]Estado \textit{\textbf{SALIDA$\_$2}}: Estado en el cual se realiza una salida analógica igual a 2[V], en el caso que la lectura realizada sea superior a 2[V].
+\item[•]Estado \textit{\textbf{SALIDA$\_$3}}: Estado en el cual se realiza una salida analógica igual a 3[V], en el caso que la lectura realizada sea superior a 4[V].
+\end{enumerate}
+\item[•]\underline{Eventos}:
+\begin{enumerate}
+\item[•]Evento \textit{\textbf{MAYOR$\_$2}}: Identifica si la lectura realizada sobre el ADC es superior a 2[V].
+\item[•]Evento \textit{\textbf{MAYOR$\_$4}}: Identifica si la lectura realizada sobre el ADC es superior a 4[V].
+\item[•]Evento \textit{\textbf{MENOR$\_$4}}: Identifica si la lectura realizada sobre el ADC es inferior a 4[V].
+\item[•]Evento \textit{\textbf{NINGUNO}}: Identifica si la lectura realizada sobre el ADC es inferior a 2[V].
+\end{enumerate}
+\item[•]\underline{Acciones}
+\begin{enumerate}
+\item[•]Accion \textit{\textbf{APAGAR$\_$DAC}}: Establece una salida de 0 [V] sobre el terminal del DAC.
+\item[•]Accion \textit{\textbf{DAC$\_$2}}: Establece una salida de 2 [V] sobre el terminal del DAC.
+\item[•]Accion \textit{\textbf{DAC$\_$3}}: Establece una salida de 3 [V] sobre el terminal del DAC.
+\end{enumerate}
+\end{enumerate}
+
+La Figura \ref{Fig28} ilustra el diagrama de estados que corresponde al ejemplo
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=6 cm]{figuras/f10.png}\\
+\caption{Diagrama de estados de ejemplo N$^{\circ}$5}
+\label{Fig28}
+\end{figure}
+\end{center}
+
+\subsubsection{Implementacion de ejemplo N$^{\circ}$6}
+El siguiente ejemplo introduce al usuario a la utilización de comunicación serial, es necesario destacar que para la implementación del ejemplo se utiliza el programa \textit{Octoplus Terminal} para la visualización y simulación del envío y transmisión de datos a través del terminal conectado sobre el puerto USB.
+
+El programa se encuentra disponible de forma gratuita en la dirección web \textit{http://octoplus-terminal.software.informer.com/download/}. La instalación de dicho programa es simple, sin embargo, es necesario destacar que durante dicho proceso, el usuario debe obviar la instalación de los drivers que provee dicho programa.
+
+Si bien ofrece distintas herramientas para la programación de sistemas embebidos, este tutorial se centra en la utilización de dicho programa para el envío y la recepción de datos sobre el terminal perteneciente a la placa. Para ello, a continuación se realizará una serie de pasos para la utilización de \textit{Octoplus} junto con la placa:
+
+\begin{enumerate}
+\item[•]Suponiendo que el usuario ya ha instalado los drivers para la placa, y las herramientas de depuración para la misma, luego de realizar la conexión entre la placa y la computadora a través de \textit{OpenOCD} (sobre la consola \textit{cygwin}), el usuario debe iniciar \textit{Octoplus}.
+\item[•]A continuación se presenta una pantalla similar a la Figura \ref{Fig29}
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=6 cm]{figuras/f11.png}
+\caption{Panel principal de \textit{Octoplus}}
+\label{Fig29}
+\end{figure}
+\end{center}
+
+\item[•]Sobre la sección \textit{Puerto Serial} debe identificarse sobre el menú desplegable \textit{Nombre}, el puerto COM asociado a la placa. La figura \ref{Fig30} ilustra dicho concepto
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=4 cm]{figuras/f12.png}
+\caption{Seleccion de puerto COM asociado a la placa}
+\label{Fig30}
+\end{figure}
+\end{center}
+\item[•]Debe tenerse en cuenta sobre la instrucción \textit{uartConfig()}, perteneciente a la librería \textit{sAPI}, deben asignarse dos parámetros de entrada, uno de ellos indica el módulo de la UART sobre la cual se desea trabajar, en este caso el parámetro es \textit{UART$\_$USB}. El segundo parámetro que debe asignarse a dicha instrucción es la velocidad de transmisión en baudios. El valor de la velocidad previamente configurada sobre el programa debe ser configurado sobre el menú desplegable \textit{BaudRate}, ubicado sobre el costado derecho del menú desplegable \textit{Nombre}.Por ejemplo, si la velocidad configurada es igual a 9600 baudios, entonces sobre dicho menú debe seleccionarse 9600, como lo ilustra la Figura \ref{Fig30}.
+\item[•]Al realizar la depuración, el usuario debe seleccionar el boton \textit{Abrir/Cerrar puerto COM}, el cual se encuentra sobre la derecha del menú desplegable \textit{BaudRate},como lo ilustra la \ref{Fig29}.
+\item[•]Para efectuar transmisiones sobre el puerto COM seleccionado, el usuario debe ingresar el dato sobre el cuadro de texto asociado al mismo y apretar el boton asociado a dicho cuadro.
+\end{enumerate}
+
+Es destacable mencionar que si existe un programa ya cargado previamente, también es posible utilizar \textit{Octoplus} de forma similar.
+
+El programa ejecuta una secuencia de leds incorporados en la placa, correspondientes al valor que se ingresa a traves del puerto serie. Por ejemplo, en caso de enviar el caracter '3', entonces el programa realiza una secuencia determinada. Además, el código realiza la transmisión del caracter recibido.
+
+\subsubsection{Implementacion de ejemplo N$^{\circ}$7}
+El siguiente ejemplo realiza el encendido de los leds incorporados, de forma tal que el numero de leds encendidos corresponda al caracter enviado, por ejemplo, si se envía el caracter '3', entonces se encienden 3 leds.
+
+En este ejemplo también se utiliza un display LCD 16x2 para efectuar mensajes al usuario. Para el manejo del mismo fue necesario utilizar una libreria, la cual fue diseñada por Matias Ferraro.
+
+Para la implementación de la misma, se procede de forma similar a la realizada para el display de 7 segmentos, explicado anteriormente sobre la seccion 5.2.2 .
+
+Sobre la Figura \ref{Fig31} se ilustra el diagrama esquemático para el conexionado.
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/f13.png}
+\caption{Diagrama esquematico de conexion display LCD 16x2}
+\label{Fig31}
+\end{figure}
+\end{center}
+
+\section{Sistemas Operativos en Tiempo Real}
+Un Sistema Operativo es un conjunto de programas que ayuda al programador de aplicaciones a gestionar recursos de hardware disponible, entre ellos el tiempo del procesador y la memoria (citar).
+Una parte del OS se encarga de asignar el tiempo de ejecución a todos los programas que tiene cargados en base a un juego de reglas conocido de antemano. A dichos subprogramas se los denomina Tareas.
+
+Con esto se logra aparentar que múltiples programas se están ejecutando simultaneamente, sin embargo solo pueden hacerlo de uno a la vez.
+
+El encargado de realizar esta gestión es un componente del sistema operativo denominado Scheduler o Programador de Tareas. La función de éste es determinar que tarea debe estar en ejecución a cada momento.
+
+Ante la ocurrencia de ciertos eventos el Scheduler revisa si la tarea en ejecución debe reemplazarse por alguna otra tarea. A este reemplazo se lo denomina cambio de contexto de ejecución.
+
+Debido a que el OS debe guardar el contexto completo de la tarea actual, y reemplazarlo por la tarea reentrante, debe reservarse un bloque de la memoria de datos para cada tarea. Lo cual limita el número de tareas que pueden ejecutarse de forma simultánea.Los cambios de contexto que se realizan cuando se reemplaza una tarea por otra no agregan trabajo al programador, de modo que al retornar a dicha tarea, el programador no observa ningún sintoma de haberla pausado alguna vez.
+
+Un RTOS (sigla de \textit{Real Time Operating System} realiza la misma función que un OS común, sin embargo agrega herramientas para que los programas de aplicación puedan cumplir compromisos temporales definidos por el programador. De modo que se encuentran diseñados para la administración de varias tareas simultáneas con plazos de tiempo estrictos.
+
+El RTOS ofrece funcionalidad para asegurar que una vez ocurrido un evento, la respuesta ocurra en un tiempo determinado.
+\begin{thebibliography}{}
 %\bibitem{A4_IEEE} http://www.ieee.org/conferences\_events/conferences/publishing/templates.html
 %\bibitem{texmaker} http://www.xm1math.net/texmaker/
 %\bibitem{Lyx} http://www.lyx.org/
