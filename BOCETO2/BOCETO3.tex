@@ -421,7 +421,7 @@ elimina el directorio y todo su contenido.
 
 \section{Primeros Pasos con la EDU-CIAA}
 
-\subsection{Programacion en Baremetal a través de libreria sAPI}
+\subsection{Programacion en Baremetal a través de libreria sAPI}\label{programacionbaremetal}
 Debido a que la programación de la placa en Baremetal puede tornarse un tanto engorrosa en principio, es posible utilizar una libreria diseñada para la implementación de proyectos en Baremetal con la placa EDU CIAA, dicha librería se la denomina \textit{sAPI}. Esta biblioteca implementa una API simple para la programación de dicha placa, es necesario comentar que una API es una interfaz de programación de aplicaciones, y consta de un conjunto de subrutinas, funciones y procedimientos (o métodos, en la programación orientada a objetos) que ofrece cierta biblioteca; para permitir ser utilizada por otro software como una capa de abstracción en la programación (aunque no necesariamente) entre los niveles o capas inferiores y las superiores del software\cite{sapi}.
 
 La motivación para el desarrollo de la biblioteca sAPI surge de la necesidad de manejar los periféricos directamente desde una máquina virtual de Java para el desarrollo de Java sobre la CIAA y corresponde a la parte de bajo nivel de las clases de periféricos en Java que básicamente bindea a funciones escritas en C.
@@ -494,10 +494,10 @@ Es importante tener en cuenta que para la compilación y depuración del program
 \label{Fig19}
 \end{figure}
 \end{center} 
-\subsubsection{Implementacion de ejemplo N$^{\circ}$1}
-El primer ejemplo aborda las salidas digitales, sobre las cuales se implementan sobre los leds instalados sobre la placa EDU-CIAA.
+\subsubsection{Implementacion de ejemplo N$^{\circ}$1: Salidas Digitales}
+El primer ejemplo aborda las salidas digitales, a través de los leds que provee la placa EDU-CIAA.
 
-Este programa realiza la ejecución de una secuencia de luces de forma que formen un patrón de izquierda a derecha sobre la cual se encienden y apagan los leds cada 500[ms]. Luego de realizar el patron desde izquierda a derecha se realiza la acción opuesta.
+Este programa enciende los leds de la placa en forma secuencial, de izquierda a la derecha. Luego de finalizar esta secuencia, se apagan desde derecha hacia izquierda.
 
 Debe destacarse que sobre el inicio del programa fuente se realizan las inclusiones de el archivo cabecera del proyecto y la biblioteca \textit{sAPI}.
 
@@ -514,13 +514,13 @@ Sobre el código del programa, es importante destacar algunas funciones utilizad
 
 \begin{enumerate}
 \item[•]\textbf{Boardconfig()}: Esta función se encarga de la configuración para inicializar la plataforma del hardware.
-\item[•]\textbf{Tickconfig()}:Configura una interrupción periódica de temporizador cada tickRateMSvalue milisegundos para utilizar de base de tiempo del sistema.El primer parámetro es el tiempo en milisegundos cada cuanto quiero que interrumpa el perifèrico Systick y me aumente un contador que se usa para
-el mòdulo delay o para lo que se requiera. Y el segundo parámetro en este caso se pone en 0 ya no se necesita que realice nada.
+\item[•]\textbf{Tickconfig()}:Configura una interrupción periódica de temporizador cada tickRateMSvalue milisegundos para utilizar de base de tiempo del sistema.El primer parámetro es el tiempo en milisegundos en el que se desee interrumpir el perifèrico Systick y aumente un contador que se usa para
+el mòdulo delay o para lo que se requiera. 
 \item[•]\textbf{Digitalconfig()}: Configuración inicial y modo de una entrada o salida.
-\item[•]\textbf{DigitalWrite()}:Esta función se encarga de la escritura de salida digital, en este caso, en este caso enciende los leds.
-\item[•]\textbf{Delay()}:Esta función se utiliza para realizar los retardos (con excepción del retardo inexacto) siempre y cuando se haya configurado el tick previamente en el codigo.
+\item[•]\textbf{DigitalWrite()}:Esta función se encarga de la escritura de salida digital, en este caso encienden los leds.
+\item[•]\textbf{Delay()}:Esta función  realiza los retardos (con excepción del retardo inexacto) siempre y cuando peviamente se haya configurado el tick en el codigo.
 \end{enumerate}
-Para la compilación de dicho proyecto, debe tenerse en cuenta lo mencionado sobre la seccion 5.1, mientras que para implementar la depuración sobre la placa, el usuario debe seleccionar el archivo \textit{axf} que resulta de la compilación del proyecto.La \ref{Fig21} ilustra la ventana resultante para la carga del programa.
+Para la compilación de dicho proyecto, debe tenerse en cuenta lo mencionado sobre la seccion \ref{sec:programacionbaremetal}, mientras que para implementar la depuración sobre la placa, el usuario debe seleccionar el archivo \textit{axf} que resulta de la compilación del proyecto.La Figura \ref{Fig21} ilustra la ventana resultante para la carga del programa.Este procedimiento, se repite para la implementación de todos los ejemplos. 
 
 \begin{center}
 \begin{figure}[!h]
@@ -530,8 +530,12 @@ Para la compilación de dicho proyecto, debe tenerse en cuenta lo mencionado sob
 \label{Fig21}
 \end{figure}
 \end{center}
-\subsubsection{Implementacion de ejemplo N$^{\circ}$2}\label{sec:ej2BM}
-El siguiente ejemplo tiene como objetivo mostrar como se realiza el trabajo sobre entradas y salidas digitales, dicho programa enciende los leds instalados sobre la placa, de acuerdo con la cantidad de veces que se oprime la tecla \textit{TEC1}, sobre dicho ejemplo se implemento una maquina de estado, a través del programa \textit{uModel Factory} para poder establecer un orden sobre los eventos y las acciones que debe ejecutar el procesador. Debe tenerse en cuenta que se implementan multiples archivos fuentes y cabeceras, en particular, el archivo fuente \textit{FUNC$\_$EJ2$\_$BM.c} define las acciones y la evaluación de los eventos y \textit{FUNC$\_$EJ2$\_$BM.h} establece la declaración de dichas funciones y de los estados.
+\subsubsection{Implementacion de ejemplo N$^{\circ}$2: Entradas y Salidas Digitales}\label{sec:ej2BM}
+
+El siguiente ejemplo tiene como objetivo el manejo de las entradas y salidas digitales, dicho programa enciende los leds instalados sobre la placa, de acuerdo con la cantidad de veces que se oprime la tecla \textit{TEC1}, sobre dicho ejemplo se implemento una maquina de estado, a través del programa \textit{uModel Factory} para poder establecer un orden sobre los eventos y las acciones que debe ejecutar el procesador. Debe tenerse en cuenta que se implementan multiples archivos fuentes y cabeceras, en particular, el archivo fuente \textit{FUNC$\_$EJ2$\_$BM.c} define las acciones y la evaluación de los eventos y \textit{FUNC$\_$EJ2$\_$BM.h} establece la declaración de dichas funciones y de los estados.
+
+La funcion \textit{digitalRead} se encarga de las entradas digitales. En este caso se pregunta  si se ha oprimido la tecla 1, como se puede notar esta misma se activa por bajo, por eso se pregunta si la lectura es igual a OFF.
+
 A continuación se realiza una breve descripción de los estados, eventos y acciones que contiene este programa.
 \begin{enumerate}
 \item[•]\underline{Estados}:
@@ -567,12 +571,14 @@ La Figura \ref{Fig22} especifica el diagrama de estados del ejemplo:
 \label{Fig22}
 \end{figure}
 \end{center}
-\subsubsection{Implementacion de ejemplo N$^{\circ}$3}
-El siguiente ejemplo busca ilustrar al usuario el manejo de entradas y salidas digitales, en particular este programa establece dos tareas distintas, en el caso que se oprima la tecla \textit{TEC1},o la tecla \textit{TEC2}. La primer tarea ejecuta una secuencia de luces y la muestra de digitos decimales a través de un display 7 segmentos.
+\subsubsection{Implementacion de ejemplo N$^{\circ}$3: Entradas Analógicas y Uso de Display 7 segmentos}
+En este ejemplo se realizan dos tareas distintas, dependiendo de la tecla pulsada (\textit{TEC1} y \textit{TEC2}).
+
+Si se pulsa la tecla \textit{TEC1}, se encienden los Leds en una secuencia determinada. Mientras que si se pulsa la tecla \textit{TEC2}, se realiza una muestra de los dígitos desde 1 hasta 9 a través del display 7 segmentos. 
 
 Se implementa una maquina de estados en donde se establecen los prototipos de funciones que corresponden a los eventos y las acciones que acontecen. 
 
-Para el manejo del display, se realiza la creación de un biblioteca para su manejo. Para ello, deben generarse dos archivos los cuales pertenecen a la cabecera y a la fuente de dicha biblioteca. Sobre la cabecera deben establecerse las inclusiones de la biblioteca \textit{sAPI} y las declaraciones de las funciones que corresponden con el manejo del dispositivo. En este tutorial se realiza el manejo de un display de 7 segmentos del tipo cátodo común, de manera que para provocar el encendido de un led perteneciente al arreglo, se debe establecer en alto la salida de el pin conectado a dicho led. La biblioteca que provee este tutorial determina el conexionado de los pines del display, sobre los correspondientes terminales GPIO ubicados en la placa EDU CIAA. La Figura \ref{Fig23} ilustra los terminales de la placa utilizados para la conexión del dispositivo.
+Para el manejo del display se utiliza una biblioteca. Para ello, deben generarse dos archivos los cuales pertenecen a la cabecera y a la fuente de dicha biblioteca. Sobre la cabecera deben establecerse las inclusiones de la biblioteca \textit{sAPI} y las declaraciones de las funciones que corresponden con el manejo del dispositivo. En este tutorial se realiza el manejo de un display de 7 segmentos del tipo cátodo común, de manera que para provocar el encendido de un led perteneciente al arreglo, se debe establecer en alto la salida de el pin conectado a dicho led. La biblioteca que provee este tutorial determina el conexionado de los pines del display, sobre los correspondientes terminales GPIO ubicados en la placa EDU CIAA. La Figura \ref{Fig23} ilustra los terminales de la placa utilizados para la conexión del dispositivo.
 
 \begin{center}
 \begin{figure}[!h]
@@ -587,7 +593,7 @@ A continuación se realiza una breve descripción de los estados, eventos y acci
 \begin{enumerate}
 \item[•]\underline{Estados}:
 \begin{enumerate}
-\item[•]Estado \textit{\textbf{INICIAL}}: Estado inicial en el cual, en el caso de la ocurrencia del evento \textit{NO$\_$APRETO}, el programa se establece en el mismo estado;mientras que para el caso en el caso de la ocurrencia del evento \textit{APRETO1}, el programa se establece en el estado \textit{ESTADO1}; en el caso de la ocurrencia del evento \textit{APRETO2}, el programa se establece en el estado \textit{ESTADO2}. 
+\item[•]Estado \textit{\textbf{INICIAL}}: Estado inicial en el cual, en presencia del evento \textit{NO$\_$APRETO}, el programa se establece en el mismo estado;mientras que para el caso que suceda evento \textit{APRETO1}, el programa se establece en el estado \textit{ESTADO1}; en el caso de la ocurrencia del evento \textit{APRETO2}, el programa se establece en el estado \textit{ESTADO2}. 
 \item[•]Estado \textit{\textbf{ESTADO1}}: Sobre dicho estado se realiza la secuencia de luces y la muestra de los digitos decimales sobre el display.
 \item[•]Estado \textit{\textbf{ESTADO2}}: Sobre dicho estado se muestra de un digito decimal en caso de que se oprima la tecla \textit{TEC2}.
 \end{enumerate}
@@ -599,7 +605,7 @@ A continuación se realiza una breve descripción de los estados, eventos y acci
 \end{enumerate}
 \end{enumerate}
 
-La Figura \ref{Fig27}, ilustra el diagrama de estados del ejemplo:
+La Figura \ref{Fig27}, ilustra el diagrama de estados de este ejemplo:
 
 \begin{center}
 \begin{figure}[!h]
@@ -610,13 +616,24 @@ La Figura \ref{Fig27}, ilustra el diagrama de estados del ejemplo:
 \end{figure}
 \end{center}
 
-\subsubsection{Implementacion de ejemplo N$^{\circ}$4}
+\underline{Uso de Entradas Analógicas}:
 
-El siguiente ejemplo busca ilustrar al usuario como realizar el uso del módulo ADC de la placa, para realizar la lectura de una entrada analógica. Este programa en particular implementa el encendido de los leds instalados en la placa, en función de la magnitud de la tensión; de forma tal que el número de leds encendidos corresponda con la magnitud de la tensión leída. Por ejemplo, si la tensión leída es 2[V], entonces se encienden dos leds.
+En este código se hará uso del conversor analógico digital que posee esta placa. La idea es introducir una tensión analógica mediante la entrada CH1 y luego convertirla en un valor digital, para que posteriormente dentro del código, mediante operaciones matemáticas, poder mostrar dicho valor por el display.
+En la figura 5.4 se muestra un extracto del código principal donde se hace uso del ADC. Como se ver en esta figura, se utiliza la función analogRead (AIO), la cual se encarga de tomar el valor de tensión ingresado por la entrada analógica y convertirla a un valor digital. 
+
+\subsubsection{Implementacion de ejemplo N$^{\circ}$4: Conversor Digital/Analógico (DAC)}
+
+Un convertidor Digital/Analógico (DAC), es un dispositivo electrónico que recibe como dato de entrada un valor digital (en forma de una palabra de "n" bits) y lo transforma a una señal analógica. Cada una de las combinaciones binarias de entrada es convertida en niveles lógicos de tensión de salida. Un DAC transfiere información expresada en forma digital a una forma analógica. Para ubicar la función de este dispositivo conviene recordar que un sistema combina y relaciona diversos subsistemas que trabajan diferentes tipos de información analógica, como son; magnitudes eléctricas, mecánicas, etc.
+
+El siguiente ejemplo muestra al usuario como realizar el uso del módulo ADC de la placa, para realizar la lectura de una entrada analógica. Este programa enciende algunos de los leds de la placa, en función a la magnitud de la tensión leída. Por ejemplo, si la tensión leída es 2[V], entonces se encienden dos leds.
+
+La placa EDU-CIAA posee un DAC de 10 bits de resolución por lo tanto El número de niveles de voltaje de salida analógico que es capaz de generar es de $2^{n}=2^{10}=1024$.
 
 Para la implementación del ejemplo, es posible realizar la lectura del terminal medio de un potenciómetro, la Figura \ref{Fig24} ilustra la conexión realizada.Debe tenerse en cuenta que es posible realizar la conexión del potenciómetro a partir de la terminal de 5[V] y la terminal GNDA que ofrece la placa.
 
 Este ejemplo utiliza maquinas de estado para poder establecer un orden sobre los eventos y las acciones que debe ejecutar el procesador.La Figura \ref{Fig25} especifica el diagrama de estados del ejemplo.A continuación se realiza una breve descripción de los estados, eventos y acciones que contiene este programa.
+
+La instrucción \textit{analogConfig( ENABLE$\_$ANALOG$\_$INPUTS )} se encarga de habilitar las entradas analógicas. Mientras que \textit{analogConfig( ENABLE$\_$ANALOG$\_$OUTPUTS )} se encarga de habilitar las salidas analógicas, con las que trabajara el DAC.
 
 \begin{center}
 \begin{figure}[!h]
@@ -654,13 +671,13 @@ Este ejemplo utiliza maquinas de estado para poder establecer un orden sobre los
 \begin{center}
 \begin{figure}[!h]
 \centering
-\includegraphics[width=6 cm]{figuras/f7.png}\\
+\includegraphics[width=8 cm]{figuras/f7.png}\\
 \caption{Diagrama de estados de ejemplo N$^{\circ}$4.}
 \label{Fig25}
 \end{figure}
 \end{center}
 
-\subsubsection{Implementacion de ejemplo N$^{\circ}$5}
+\subsubsection{Implementacion de ejemplo N$^{\circ}$5: Uso de UART y Display LCD 16x2}
 
 \begin{center}
 \begin{figure}[!h]
@@ -672,7 +689,7 @@ Este ejemplo utiliza maquinas de estado para poder establecer un orden sobre los
 \end{center}
 
 Sobre este código se utiliza el modulo conversor analógico digital de la placa, para efectuar la lectura de una entrada analógica sobre esta. En el caso que dicha medición sea superior a 2[V], se establece una salida analógica de 2[V] utilizando el módulo conversor digital analógico. De forma similar, si la tensión de entrada resulta mayor a 4[V], se define una salida analógica de 3[V].
-Es necesario destacar que la placa ya integra internamente el conversor digital analógico, de modo que no es necesario realizar una interfaz para la ejecución de dicha salida, además, es necesario destacar que la tensión de referencia interna se encuentra establecida, y adquiere un valor igual a 3.3[V]. La Figura \ref{Fig26} ilustra el diagrama esquemático que ilustra dicho concepto.
+Es necesario destacar que la placa ya integra internamente el conversor digital analógico, de modo que no es necesario realizar una interfaz para la ejecución de dicha salida, además, es necesario destacar que la tensión de referencia interna se encuentra establecida, y adquiere un valor igual a 3.3[V]. La Figura \ref{Fig26} ilustra el esquemático que muestra dicho concepto.
 La instrucción \textit{analogRead()}, permite realizar la lectura de la tensión aplicada sobre el canal 1 del modulo ADC0 de la placa. A partir de la conversión a tensión, el programa aplica la tensión de salida correspondiente.
 
 Este ejemplo también utiliza maquina de estado para establecer un orden sobre los eventos y las acciones que debe ejecutar el procesador.A continuación se realiza una breve descripción de los estados, eventos y acciones que contiene este programa.
@@ -709,6 +726,8 @@ La Figura \ref{Fig28} ilustra el diagrama de estados que corresponde al ejemplo
 \label{Fig28}
 \end{figure}
 \end{center}
+
+
 
 \subsubsection{Implementacion de ejemplo N$^{\circ}$6}
 El siguiente ejemplo introduce al usuario a la utilización de comunicación serial, es necesario destacar que para la implementación del ejemplo se utiliza el programa \textit{Octoplus Terminal} para la visualización y simulación del envío y transmisión de datos a través del terminal conectado sobre el puerto USB.
@@ -747,12 +766,21 @@ Si bien ofrece distintas herramientas para la programación de sistemas embebido
 
 Es destacable mencionar que si existe un programa ya cargado previamente, también es posible utilizar \textit{Octoplus} de forma similar.
 
-El programa ejecuta una secuencia de leds incorporados en la placa, correspondientes al valor que se ingresa a traves del puerto serie. Por ejemplo, en caso de enviar el caracter '3', entonces el programa realiza una secuencia determinada. Además, el código realiza la transmisión del caracter recibido.
+En este apartado se verá un código base para utilizar la UART del LPC4337 mediante las funciones que incluye la librería sAPI. Las funciones provistas por esta biblioteca son las encargadas de realizar los siguientes pasos básicos para poder utilizar la UART0 \cite{manuallpcuart}.
+
+\begin{enumerate}
+\item[•]Habilitar la alimentación del periférico.
+\item[•]Habilitar el clock al periférico.
+\item[•]Configurar la velocidad de transmisión.
+\item[•]Habilitar las FIFO del transmisor y el receptor.
+\item[•]Configurar la función de los pines para utilizarlo con la UART0.
+\item[•]Habilitar la interrupción.
+\end{enumerate}
 
 \subsubsection{Implementacion de ejemplo N$^{\circ}$7}
-El siguiente ejemplo realiza el encendido de los leds incorporados, de forma tal que el numero de leds encendidos corresponda al caracter enviado, por ejemplo, si se envía el caracter '3', entonces se encienden 3 leds.
+El siguiente ejemplo utiliza los leds incorporados en la placa, de forma tal que el numero de leds encendidos corresponda al caracter enviado. Por ejemplo, si se envía el caracter '3', entonces se encienden 3 leds.
 
-En este ejemplo también se utiliza un display LCD 16x2 para efectuar mensajes al usuario. Para el manejo del mismo fue necesario utilizar una libreria, la cual fue diseñada por Matias Ferraro.
+En este ejemplo también se utiliza un display LCD 16x2. Para el manejo del mismo fue necesario utilizar una libreria, la cual fue diseñada por Matias Ferraro\cite{repositoriomatiasferraro}.
 
 Para la implementación de la misma, se procede de forma similar a la realizada para el display de 7 segmentos, explicado anteriormente sobre la sección \ref{sec:ej2BM} .
 
@@ -779,17 +807,17 @@ Ante la ocurrencia de ciertos eventos el Scheduler revisa si la tarea en ejecuci
 
 Debido a que el OS debe guardar el contexto completo de la tarea actual, y reemplazarlo por la tarea reentrante, debe reservarse un bloque de la memoria de datos para cada tarea. Lo cual limita el número de tareas que pueden ejecutarse de forma simultánea.Los cambios de contexto que se realizan cuando se reemplaza una tarea por otra no agregan trabajo al programador, de modo que al retornar a dicha tarea, el programador no observa ningún sintoma de haberla pausado alguna vez.
 
-Un RTOS (sigla de \textit{Real Time Operating System} realiza la misma función que un OS común, sin embargo agrega herramientas para que los programas de aplicación puedan cumplir compromisos temporales definidos por el programador. De modo que se encuentran diseñados para la administración de varias tareas simultáneas con plazos de tiempo estrictos.
+Un RTOS (sigla de \textit{Real Time Operating System}) realiza la misma función que un OS común, sin embargo agrega herramientas para que los programas de aplicación puedan cumplir compromisos temporales definidos por el programador. De modo que se encuentran diseñados para la administración de varias tareas simultáneas con plazos de tiempo estrictos.
 
 El RTOS ofrece funcionalidad para asegurar que una vez ocurrido un evento, la respuesta ocurra en un tiempo acotado.Es necesario destacar que esto no lo hace por si solo sino que brinda al programador herramientas para implemetarlo de forma mas simple.
 
 \subsection{Tareas}\label{sec:tareas}
-El bloque básico de software escrito sobre un RTOS es la Tarea, sobre la mayoria de las RTOS que se ofrecen en el mercado, una Tarea es una simple subrutina(referencia libro).
+El bloque básico de software escrito sobre un RTOS es la Tarea, sobre la mayoria de las RTOS que se ofrecen en el mercado, una Tarea es una simple subrutina\cite{librodertoseningles}.
 
 Una Tarea provee un contexto en el cual se ejecuten las funciones.Mientras que el Scheduler organiza la secuencia de ejecución de las tareas(referencia os223).
 En algún punto del programa se produce el llamado a alguna función que produzca la ejecución de dicha tarea(referencia libro).
 
-En el sistema operativo OSEK las Tareas deben ser definidas en la configuración, de manera que no es posible crear Tareas de forma dinámica (a diferencia de los Sistemas Operativos de escritorio).En el momento de la compilación se genera el código del sistema operativo y se definen la cantidad de Tareas y sus características.Además deben utilizarse macros para las definiciones y las funciones que ofrece este Sistema Operativo, para ello, debe incluirse sobre el programa, \textit{os.h}.
+En el sistema operativo OSEK las Tareas deben ser definidas en la configuración, de manera que no es posible crear Tareas de forma dinámica (a diferencia de los Sistemas Operativos de escritorio). En el momento de la compilación se genera el código del sistema operativo y se definen la cantidad de Tareas y sus características. Además deben utilizarse macros para las definiciones y las funciones que ofrece este Sistema Operativo, para ello, debe incluirse sobre el programa, \textit{os.h}.
 
 Este sistema operativo ofrece dos conceptos distintos de Tareas:
 \begin{enumerate}
@@ -874,7 +902,7 @@ El Cuadro \ref{Tab4} explica los diferentes eventos que provocan las transicione
 \textbf{terminate}&runnning&suspended&La Tarea en estado \textit{Running} se establece al estado \textit{Suspended} gracias a un Servicio del Sistema.
 \end{tabular}
 }
-\caption{Tabla de transiciones de las Tareas del tipo \textit{Extended}.}
+\caption{Transiciones de las Tareas del tipo \textit{Extended}.}
 \label{Tab4}
 \end{center}
 \end{table}
@@ -894,6 +922,7 @@ Cuando el cambio de Tareas solo se produce mediante la ejecución de algún Serv
 
 
 \underline{Puntos de \textit{Scheduling}}:
+
 \begin{enumerate}
 \item[•]Puntos de \textit{Scheduling} en una tarea NON-PREEMPTIVE
 \begin{enumerate}
@@ -932,6 +961,14 @@ Fecha: 15/10/16 11:00 am.
 Documento existente sobre el repositorio ubicado en \textit{Github}.
 
 Dirección web: https://github.com/epernia/sAPI
+
+\bibitem{librodertoseningles}\textit{"An Embedded Software Primer"} Primera Edición Autor: David E. Simon Editorial: Pearson Education. Pags: 138-139.
+
+\bibitem{manuallpcuart} \textit{UM10503 LPC43xx/LPC43Sxx ARM Cortex-M4/M0 multi-core microcontroller} Capítulo 40.
+
+\bibitem{repositoriomatiasferraro}{\footnotesize https://github.com/MatiasFerraro/CIAA-MatiasFerraro} 
+
+Fecha: 30/10/16 16:00 pm.
 \end{thebibliography}
 
 \end{document}
