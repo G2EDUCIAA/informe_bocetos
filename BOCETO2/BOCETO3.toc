@@ -2,7 +2,7 @@
 \contentsline {section}{\numberline {1}Introducci\'on}{1}
 \contentsline {section}{\numberline {2}Desarrollo}{2}
 \contentsline {subsection}{\numberline {2.1}Origen del proyecto CIAA}{2}
-\contentsline {subsection}{\numberline {2.2}Descripci\IeC {\'o}n de la placa}{2}
+\contentsline {subsection}{\numberline {2.2}Descripci\IeC {\'o}n de la placa}{3}
 \contentsline {section}{\numberline {3}Instalacion de Software}{5}
 \contentsline {subsection}{\numberline {3.1}Conceptos previos}{5}
 \contentsline {subsection}{\numberline {3.2}Firmware de la EDU CIAA}{6}
@@ -14,10 +14,14 @@
 \contentsline {subsection}{\numberline {5.1}Programaci\IeC {\'o}n en Baremetal}{15}
 \contentsline {subsection}{\numberline {5.2}Programacion en Baremetal a trav\IeC {\'e}s de libreria sAPI}{16}
 \contentsline {subsubsection}{\numberline {5.2.1}Implementacion de ejemplo N$^{\circ }$1}{18}
-\contentsline {subsubsection}{\numberline {5.2.2}Implementacion de ejemplo N$^{\circ }$2}{19}
+\contentsline {subsubsection}{\numberline {5.2.2}Implementacion de ejemplo N$^{\circ }$2}{20}
 \contentsline {subsubsection}{\numberline {5.2.3}Implementacion de ejemplo N$^{\circ }$3}{21}
 \contentsline {subsubsection}{\numberline {5.2.4}Implementacion de ejemplo N$^{\circ }$4}{22}
 \contentsline {subsubsection}{\numberline {5.2.5}Implementacion de ejemplo N$^{\circ }$5}{24}
 \contentsline {subsubsection}{\numberline {5.2.6}Implementacion de ejemplo N$^{\circ }$6}{25}
 \contentsline {subsubsection}{\numberline {5.2.7}Implementacion de ejemplo N$^{\circ }$7}{27}
-\contentsline {section}{\numberline {6}Sistemas Operativos en Tiempo Real}{27}
+\contentsline {section}{\numberline {6}Sistemas Operativos en Tiempo Real}{28}
+\contentsline {subsection}{\numberline {6.1}Tareas}{28}
+\contentsline {subsubsection}{\numberline {6.1.1}Modelo de Tareas B\IeC {\'a}sicas}{29}
+\contentsline {subsubsection}{\numberline {6.1.2}Modelo de Tareas Extendidas}{30}
+\contentsline {subsection}{\numberline {6.2}Scheduler}{30}

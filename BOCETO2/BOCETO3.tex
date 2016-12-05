@@ -682,8 +682,6 @@ Este ejemplo utiliza maquinas de estado para poder establecer un orden sobre los
 \end{center}
 
 \subsubsection{Implementacion de ejemplo N$^{\circ}$5}
-Sobre este código se utiliza el modulo conversor analógico digital de la placa, para efectuar la lectura de una entrada analógica sobre esta. En el caso que dicha medición sea superior a 2[V], se establece una salida analógica de 2[V] utilizando el módulo conversor digital analógico. De forma similar, si la tensión de entrada resulta mayor a 4[V], se define una salida analógica de 3[V].
-Es necesario destacar que la placa ya integra internamente el conversor digital analógico, de modo que no es necesario realizar una interfaz para la ejecución de dicha salida, además, es necesario destacar que la tensión de referencia interna se encuentra establecida, y adquiere un valor igual a 3.3[V]. La Figura \ref{Fig26} ilustra el diagrama esquemático que ilustra dicho concepto.
 
 \begin{center}
 \begin{figure}[!h]
@@ -694,6 +692,8 @@ Es necesario destacar que la placa ya integra internamente el conversor digital 
 \end{figure}
 \end{center}
 
+Sobre este código se utiliza el modulo conversor analógico digital de la placa, para efectuar la lectura de una entrada analógica sobre esta. En el caso que dicha medición sea superior a 2[V], se establece una salida analógica de 2[V] utilizando el módulo conversor digital analógico. De forma similar, si la tensión de entrada resulta mayor a 4[V], se define una salida analógica de 3[V].
+Es necesario destacar que la placa ya integra internamente el conversor digital analógico, de modo que no es necesario realizar una interfaz para la ejecución de dicha salida, además, es necesario destacar que la tensión de referencia interna se encuentra establecida, y adquiere un valor igual a 3.3[V]. La Figura \ref{Fig26} ilustra el diagrama esquemático que ilustra dicho concepto.
 La instrucción \textit{analogRead()}, permite realizar la lectura de la tensión aplicada sobre el canal 1 del modulo ADC0 de la placa. A partir de la conversión a tensión, el programa aplica la tensión de salida correspondiente.
 
 Este ejemplo también utiliza maquina de estado para establecer un orden sobre los eventos y las acciones que debe ejecutar el procesador.A continuación se realiza una breve descripción de los estados, eventos y acciones que contiene este programa.
@@ -802,7 +802,133 @@ Debido a que el OS debe guardar el contexto completo de la tarea actual, y reemp
 
 Un RTOS (sigla de \textit{Real Time Operating System} realiza la misma función que un OS común, sin embargo agrega herramientas para que los programas de aplicación puedan cumplir compromisos temporales definidos por el programador. De modo que se encuentran diseñados para la administración de varias tareas simultáneas con plazos de tiempo estrictos.
 
-El RTOS ofrece funcionalidad para asegurar que una vez ocurrido un evento, la respuesta ocurra en un tiempo determinado.
+El RTOS ofrece funcionalidad para asegurar que una vez ocurrido un evento, la respuesta ocurra en un tiempo acotado.Es necesario destacar que esto no lo hace por si solo sino que brinda al programador herramientas para implemetarlo de forma mas simple.
+
+\subsection{Tareas}
+El bloque básico de software escrito sobre un RTOS es la Tarea, sobre la mayoria de las RTOS que se ofrecen en el mercado, una Tarea es una simple subrutina(referencia libro).
+
+Una Tarea provee un contexto en el cual se ejecuten las funciones.Mientras que el Scheduler organiza la secuencia de ejecución de las tareas(referencia os223).
+En algún punto del programa se produce el llamado a alguna función que produzca la ejecución de dicha tarea(referencia libro).
+
+En el sistema operativo OSEK las Tareas deben ser definidas en la configuración, de manera que no es posible crear Tareas de forma dinámica (a diferencia de los Sistemas Operativos de escritorio).En el momento de la compilación se genera el código del sistema operativo y se definen la cantidad de Tareas y sus características.Además deben utilizarse macros para las definiciones y las funciones que ofrece este Sistema Operativo, para ello, debe incluirse sobre el programa, \textit{os.h}.
+
+Este sistema operativo ofrece dos conceptos distintos de Tareas:
+\begin{enumerate}
+\item[•]Tareas del tipo \emph{BASIC}:Este tipo de Tareas solamente libera al procesador en los siguientes casos:
+\begin{enumerate}
+\item[1]Cuando terminan.
+\item[2]Cuando son interrumpidas por acción del Scheduler, al realizar la activación de una Tarea que posea mayor prioridad (caracteristica propia de los Sistemas Operativos del tipo \textit{preemptive}).
+\item[3]Ocurre una interrupción que causa que el procesador acuda a una subrutina de atencion de interrupción.
+\end{enumerate}
+\item[•]Tareas del tipo \emph{EXTENDED}: Se distinguen de las Tareas extendidas por el hecho de que pueden utilizar una funcion propia de este OS, denominado \textit{WaitEvent()}. Este tipo de Tareas permite liberar el procesador y ser relevado hacia Tareas de menor prioridad, sin la necesidad de que finalize la Tarea que se encuentra esperando.
+%DECIDIR SI ESTO VA O NO..DADO QUE NO ENCUENTRO DE DONDE LO SAQUE%
+La ventaja de las Tareas extendidas es que pueden manejar coherentemente una Tarea sin importar que eventos de sincronización se encuentren activos%%
+\subsubsection{Modelo de Tareas Básicas}
+El modelo de las Tareas Basicas es similar al de las Tareas Extendidas, excepto que éstas no contienen un estado \textit{Waiting}. A continuación se realiza una breve descripción de los estados definidos sobre este tipo de Tareas.
+\begin{enumerate}
+\item[•]\textbf{\emph{Running}}:En este estado, la CPU es asignada a la Tarea, de modo que se ejecutan sus instrucciones. Solamente una sola Tarea (sin importar de que tipo sea) puede estar en este estado, en un instante determinado; mientras las demás Tareas pueden adoptar otros estados.
+\item[•]\textbf{\emph{Ready}}: Se cumplieron todos los pre-requisitos para que la Tarea adquiera el estado \textit{Running}.El \textit{Scheduler} decide cuál Tarea en estado \textit{Ready} será desplazada al estado \textit{Running}.
+\item[•]\textbf{\emph{Suspended}}: En este estado, la Tarea se encuentra en estado pasivo y puede ser activada.
+\end{enumerate}
+La Figura \ref{Fig32} ilustra los conceptos explicados previamente.
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/f14.png}
+\caption{Modelo de las Tareas del tipo \textit{BASIC}}
+\label{Fig32}
+\end{figure}
+\end{center}
+\end{enumerate}
+
+El Cuadro \ref{Tab3} explica los diferentes eventos que provocan las transiciones entre los estados. 
+
+\begin{table}[h]
+\begin{center}
+\resizebox{18cm}{!}{
+\begin{tabular}{|l|l|l|l|}
+\hline\hline
+\textbf{Transicion} & \textbf{Estado Actual} & \textbf{Nuevo Estado} & \textbf{Descripcion}\\ \hline
+\textbf{activate}&suspended&ready&Una nueva tarea se asigna al estado \textit{Ready} por el OS.\\ \hline
+\textbf{start}&ready&running&Una Tarea en estado \textit{Ready} es seleccionada por el \textit{Scheduler} para ser ejecutada\\ \hline
+\textbf{preempt}&running&ready&El \textit{Scheduler} decide empezar otra Tarea. La Tarea que estaba en estado \textit{Running} se establece en estado \textit{Ready}.\\ \hline
+\textbf{terminate}&running&suspended&La tarea en estado \textit{Running} se establece en estado \textit{Suspended} gracias a la acción de algún servicio del sistema.\\ \hline
+\end{tabular}
+}
+\caption{Tabla de transiciones de las Tareas del tipo \textit{Basic}.}
+\label{Tab3}
+\end{center}
+\end{table}
+
+\subsubsection{Modelo de Tareas Extendidas}
+El modelo de las Tareas Extendidas posee cuatro estados:
+\begin{enumerate}
+\item[•]\emph{\textbf{Running}}: En dicho estado, la CPU es asignada a la Tarea, de modo que se ejecuten las instrucciones que contiene la misma. Solamente una Tarea puede encontrarse en dicho estado en un instante determinado, mientras las otras Tareas pueden adoptar los demas estados.
+\item[•]\emph{\textbf{Ready}}: Se cumplieron todos los pre-requisitos necesarios para la transición al estado \textit{Running}. El \textit{Scheduler} decide cuál de las tareas en estado \textit{Ready} será ejecutada a continuación.
+\item[•]\emph{\textbf{Waiting}}:La ejecución de una Tarea no puede continuar debido a que debe $"$esperar$"$ a que un evento ocurra.
+\item[•]\emph{\textbf{Suspended}}: La Tarea se encuentra en modo pasivo hasta que se active.
+\end{enumerate}
+
+La Figura \ref{Fig33} ilustra los conceptos explicados previamente.
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/f15.png}
+\caption{Modelo de las Tareas del tipo \textit{BASIC}}
+\label{Fig33}
+\end{figure}
+\end{center}
+
+El Cuadro \ref{Tab4} explica los diferentes eventos que provocan las transiciones entre los estados. 
+
+\begin{table}[h]
+\begin{center}
+\resizebox{18cm}{!}{
+\begin{tabular}{|l|l|l|l|}
+\hline\hline
+\textbf{Transicion} & \textbf{Estado Actual} & \textbf{Nuevo Estado} & \textbf{Descripcion}\\ \hline
+\textbf{activate}&suspended&ready&Una nueva tarea se asigna al estado \textit{Ready} por el OS.\\ \hline
+\textbf{start}&ready&running&Una Tarea en estado \textit{Ready} es seleccionada por el \textit{Scheduler} para ser ejecutada\\ \hline
+\textbf{wait}&running&waiting&La tarea se establece en estado \textit{Waiting} debido a la accion de un Servicio del Sistema. \\ \hline
+\textbf{release}&waiting&ready&Al menos ocurrió un evento que esperaba la Tarea\\ \hline
+\textbf{preempt}&running&ready&El \textit{Scheduler}decide iniciar otra Tarea. La Tarea que se encontraba en estado \textit{Running}, se establece en estado \textit{Ready}.\\ \hline
+\textbf{terminate}&runnning&suspended&La Tarea en estado \textit{Running} se establece al estado \textit{Suspended} gracias a un Servicio del Sistema.
+\end{tabular}
+}
+\caption{Tabla de transiciones de las Tareas del tipo \textit{Extended}.}
+\label{Tab4}
+\end{center}
+\end{table}
+
+\subsection{Scheduler}
+El algoritmo del Scheduler puede ser visto fundamentalmente como un coordinador de Tareas con las prioridades ya establecidas, en el cual se define un número máximo de activaciones de las mismas. El sistema operativo OSEK define tres politicas de \textit{Scheduling}, las cuales se mencionan a continuación.
+
+\underline{\textit{Scheduling Full Preemptive}}:
+Esta politica de \textit{Scheduling} implica que una Tarea que se encuentra en el estado \textit{Running} puede ser interrupida sobre cualquier instrucción, como consecuencia de la ocurrencia de alguna condición o evento; que ya se encuentre definido previamente sobre el OS. \textit{Full Preemptive Scheduling} determinará que una Tarea en el estado \textit{Running} sea establecido en el estado \textit{Ready}, tan pronto como una Tarea de mayor prioridad se establezca en estado \textit{\textit{Ready}}.
+
+El contexto de la Tarea será almacenado de forma que la Tarea que fue interrumpida pueda continuar sobre la instancia en donde fue interrumpida.
+
+\underline{\textit{Scheduling Non Preemptive}}:
+Cuando el cambio de Tareas solo se produce mediante la ejecución de algún Servicio del Sistema (explicitados en los puntos de \textit{Scheduling}).
+
+
+\underline{Puntos de \textit{Scheduling}}:
+\begin{enumerate}
+\item[•]Puntos de \textit{Scheduling} en una tarea NON-PREEMPTIVE
+\begin{enumerate}
+\item[•]Al llamar a la interfase Schedule cuando retorna E$\_$OK.
+\end{enumerate}
+\item[•]Puntos de \textit{Scheduling} en una tarea PREEMPTIVE
+\begin{enumerate}
+\item[•]Al finalizar un llamado a la interfase ActivateTask que retorna E$\_$OK.
+\item[•]Al finalizar un llamado a la interfase ChainTask que no retorna.
+\item[•]Al finalizar un llamado a la interfase TerminateTask que no retorna.
+\item[•]Al finalizar un llamado a la interfase ReleaseResource que retorna E$\_$OK.
+\item[•]Al finalizar un llamado a la interfase SetEvent que no retorna.
+\item[•]Al expirar una alarma que activa una tarea.
+\item[•]Al terminar la ejecución de una ISR de categoría 2
+\end{enumerate}
+\end{enumerate} 
 \begin{thebibliography}{}
 %\bibitem{A4_IEEE} http://www.ieee.org/conferences\_events/conferences/publishing/templates.html
 %\bibitem{texmaker} http://www.xm1math.net/texmaker/
