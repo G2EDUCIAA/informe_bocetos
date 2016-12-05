@@ -42,9 +42,9 @@ Sobre el inicio del siguiente apartado, se introduce al usuario sobre la program
 %Todo informe está compuesto por partes que están interrelacionadas. A su vez todo el informe está enmarcado en un estilo que hace al tipo de letra utilizado, tamaño de la letra, márgenes, etc.
 
 \subsection{Origen del proyecto CIAA}
-Sobre julio de 2013, la Secretaría de Planeamiento Estratégico Industrial del Ministerio de Industria de la Nación (SPEI) y la Secretaría de Políticas Universitarias del Ministerio de Educación de la Nación (SPU) convocaron a la Asociación Civil para la Investigación, Promoción y Desarrollo de los Sistemas Electrónicos Embebidos (ACSE) y a la Cámara de Industrias Electrónicas, Electromecánicas y Luminotécnicas (CADIEEL) a participar en el "Plan Estratégico Industrial 2020". A partir de dicha convocatoria se inició el desarrollo de la Computadora Industrial Abierta Argentina (CIAA).\\
+Sobre julio de 2013, la Secretaría de Planeamiento Estratégico Industrial del Ministerio de Industria de la Nación (SPEI) y la Secretaría de Políticas Universitarias del Ministerio de Educación de la Nación (SPU) convocaron a la Asociación Civil para la Investigación, Promoción y Desarrollo de los Sistemas Electrónicos Embebidos (ACSE) y a la Cámara de Industrias Electrónicas, Electromecánicas y Luminotécnicas (CADIEEL) a participar en el "Plan Estratégico Industrial 2020". A partir de dicha convocatoria se inició el desarrollo de la Computadora Industrial Abierta Argentina (CIAA).
 
-El pedido inicial fue que desde el sector académico (ACSE) y desde el sector industrial (CADIEEL) se presenten propuestas para agregar valor en distintas ramas de la economía (maquinaria agrícola, bienes de capital, forestal, textil, alimentos, etc.) a través de la incorporación de sistemas electrónicos en procesos productivos y en productos de fabricación nacional. Debe destacarse que muchas empresas argentinas de diversos sectores productivos no incorporaban electrónica en sus procesos productivos o en sus productos, otras utilizaban sistemas electrónicos obsoletos, muchas utilizaban sistemas importados y sólo unas pocas utilizaban diseños propios basados en tecnologías vigentes y competitivas.\\
+El pedido inicial fue que desde el sector académico (ACSE) y desde el sector industrial (CADIEEL) se presenten propuestas para agregar valor en distintas ramas de la economía (maquinaria agrícola, bienes de capital, forestal, textil, alimentos, etc.) a través de la incorporación de sistemas electrónicos en procesos productivos y en productos de fabricación nacional. Debe destacarse que muchas empresas argentinas de diversos sectores productivos no incorporaban electrónica en sus procesos productivos o en sus productos, otras utilizaban sistemas electrónicos obsoletos, muchas utilizaban sistemas importados y sólo unas pocas utilizaban diseños propios basados en tecnologías vigentes y competitivas.
 
 A partir de esta situación, la ACSE y CADIEEL propusieron desarrollar un sistema electrónico abierto de uso general, donde toda su documentación y el material para su fabricación estuviera libremente disponible en internet, con el objetivo de que dicho sistema pueda ser fabricado por la mayoría de las empresas PyMEs nacionales, y realizar modificaciónes en base a las necesidades específicas que puedan tener.
 
@@ -62,7 +62,7 @@ A partir de esta situación, la ACSE y CADIEEL propusieron desarrollar un sistem
 %\label{fig_Fig1}
 %\end{figure}
 Hoy en día la CIAA está disponible en la versión CIAA-NXP y otras seis versiones están en elaboración: CIAA-ATMEL, CIAA-FSL, CIAA-PIC, CIAA-RX, CIAA-ST, CIAA-TI. Además, se está trabajando en el firmware y en el software, para que la CIAA se pueda programar en lenguaje C utilizando una API especialmente diseñada para ser compatible con los estándares POSIX y que sea portable a diversos sistemas operativos de tiempo real.\\
-Desde la concepción del proyecto, el diseño de la placa se encuentra pensada para soportar las condiciones hostiles de los ambientes industriales los que abundan ruidos, vibraciones, temperaturas extremas, picos de tensión e interferencias electromagnéticas, y además se diseñó de modo tal que pueda ser fabricada en Argentina.
+Desde la concepción del proyecto, el diseño de la placa se encuentra pensada para soportar las condiciones hostiles de los ambientes industriales los que abundan ruidos, vibraciones, temperaturas extremas, picos de tensión e interferencias electromagnéticas, y además se diseñó de modo tal que pueda ser fabricada en Argentina\cite{origeneduciaa}.
 
 \subsection{Descripción de la placa}
 
@@ -75,8 +75,7 @@ Desde la concepción del proyecto, el diseño de la placa se encuentra pensada p
 \end{figure}
 \end{center}
 
-La CIAA es una plaqueta electrónica provista de un microcontrolador y puertos de entrada y salida, cuyo diseño se encuentra disponible en Internet, dicha placa fue concebida para ser utilizada para sistemas de control de procesos productivos, agroindustria, automatización, entre otras; es notable destacar que gracias a la posibilidad del acceso a la información de dicha plataforma, cualquier empresa que desee utilizarla para la elaboración de sus productos puede rediseñarla; de modo que esto fomenta el diseño y la fabricación nacional de sistemas electrónicos.\\
-
+La CIAA es una plaqueta electrónica provista de un microcontrolador y puertos de entrada y salida, cuyo diseño se encuentra disponible en Internet, dicha placa fue concebida para ser utilizada para sistemas de control de procesos productivos, agroindustria, automatización, entre otras; es notable destacar que gracias a la posibilidad del acceso a la información de dicha plataforma, cualquier empresa que desee utilizarla para la elaboración de sus productos puede rediseñarla; de modo que esto fomenta el diseño y la fabricación nacional de sistemas electrónicos.
 
 La placa EDU CIAA es la versión educativa de esta,la cual se encuentra diseñada con el propósito de conseguir una plataforma base para el desarrollo de proyectos educativos, en este caso, se busca proporcionar las bases del desarrollo de códigos utilizando RTOS.
 
@@ -93,7 +92,7 @@ El procesador sobre que utiliza es el LPC4337, basado en el procesador ARM Corte
 
 La frecuencia de trabajo del procesador alcanza los 204 Mhz, una característica vital del procesador, es que provee soporte para la depuración en JTAG, con posibilidad de incluir hasta 8 breakpoints, y 4 watchpoints.
 
-Dicho procesador nos brinda una interface que nos posibilita extender hasta 164 pines de entrada-salida de propósito general (GPIO), provee una interface USB Host/Device 2.0 de alta velocidad con soporte para acceso directo de memoria, una interface UART 550 con soporte DMA , tres USART 550 con soporte para DMA.
+Dicho procesador nos brinda una interface que nos posibilita extender hasta 164 pines de entrada-salida de propósito general (GPIO), provee una interface USB Host/Device 2.0 de alta velocidad con soporte para acceso directo de memoria, una interface UART 550 con soporte DMA , tres USART 550 con soporte para DMA\cite{descripcionenhojadatos}.
 
 
 \begin{figure}[!h]
@@ -104,20 +103,22 @@ Dicho procesador nos brinda una interface que nos posibilita extender hasta 164 
 \end{figure}
 
 
-Como perifericos analógicos, debe destacarse la inclusión de un DAC de 10 bits, con soporte DMA y frecuencia de conversión de 400000 muestras por segundo. Dos ADC's con soporte DMA, y frecuencia de conversión de 400000 muestras por segundo, con un numero máximo de 8 canales sobre cada ADC. Y un ADC de 12 bits de 6 canales con soporte DMA, y frecuencia de conversión que puede alcanzar hasta los $80 . 10^6$ muestras por segundo.\\
-El cristal oscilador posee un rango de operación desde 1 Mhz hasta 25 Mhz, este procesador incluye un reloj de tiempo real de baja potencia, el cual utiliza un oscilador de cristal.\\
+Como perifericos analógicos, debe destacarse la inclusión de un DAC de 10 bits, con soporte DMA y frecuencia de conversión de 400000 muestras por segundo. Dos ADC's con soporte DMA, y frecuencia de conversión de 400000 muestras por segundo, con un numero máximo de 8 canales sobre cada ADC. Y un ADC de 12 bits de 6 canales con soporte DMA, y frecuencia de conversión que puede alcanzar hasta los $80 . 10^6$ muestras por segundo.
+
+El cristal oscilador posee un rango de operación desde 1 Mhz hasta 25 Mhz, este procesador incluye un reloj de tiempo real de baja potencia, el cual utiliza un oscilador de cristal.
+
 La placa provee alimentación de 3,3 V (cuyo rango oscila entre 2,2 V hasta 3,6 V), y es capaz de operar en cuatro modos, los cuales se denominan \textit{sleep}, \textit{deep-sleep}, \textit{power-down},y \textit{deep power-down}.Es posible restablecer la operación de la placa desde los modos \textit{deep-sleep}, \textit{power-down}, y \textit{deep power-down}, a través de interrupciones externas.
 
 %%
 
-Sobre la Figura 1 \ref{Fig1} se proporciona el diagrama en bloques de la placa, puede observarse que la placa cuenta con 2 puertos micro-USB (uno para aplicaciones y debugging, otro para alimentación); 4 salidas digitales implementadas con leds RGB, 4 entradas digitales con pulsadores; 1 puerto de comunicaciones RS485 con bornera. La Figura 2 \ref{Fig2} nos muestra  una imagen frontal de la placa; nótese la presencia de dos puertos sobre los cuales se ubican los pines correspondientes a la placa, la Figura 3 \ref{Fig3} ilustra el distribución de dichos pines sobre cada puerto.
+Sobre la Figura 1 \ref{Fig1} se proporciona el diagrama en bloques de la placa\cite{diagramaenbloquesdeplaca}, puede observarse que la placa cuenta con 2 puertos micro-USB (uno para aplicaciones y debugging, otro para alimentación); 4 salidas digitales implementadas con leds RGB, 4 entradas digitales con pulsadores; 1 puerto de comunicaciones RS485 con bornera. La Figura 2 \ref{Fig2} nos muestra  una imagen frontal de la placa; nótese la presencia de dos puertos sobre los cuales se ubican los pines correspondientes a la placa, la Figura 3 \ref{Fig3} ilustra el distribución de dichos pines sobre cada puerto.
 
 %%
 
 Sobre el puerto P1, se ubican los siguientes módulos:
 
 \begin{enumerate}
-\item 3 entradas analógicas ($ADC0_ 1,2 y 3$)
+\item 3 entradas analógicas ($ADC0$\_$,1,2 y 3$)
 \item 1 salida analógica (DAC0).
 \item 1 puerto I2C.
 \item 1 puerto asincrónico full duplex (para RS-232).
@@ -139,7 +140,7 @@ Sobre el puerto P1, se ubican los siguientes módulos:
 \subsection{Conceptos previos}
 El desarrollo de codigos para sistemas embebidos tiene ciertas semejanzas con el desarrollo de aplicaciones en las PC, en nuestro caso particular se utiliza un compilador llamado \textit{GCC} con soporte para la compilación de proyectos sobre los procesadores basados en la arquitectura ARM, en este caso particular, el compilador utilizado para el procesador de la EDU CIAA (el cual es el LPC4337) se lo denomina \textit{arm-none-eabi-gcc}.
 
-Para la ejecución de la depuración de algun programa previamente compilado, el hardware de la CIAA viene provisto con el chip \textit{FT2232H}, que se encarga de hacer un puente entre la interfase JTAG del microcontrolador, y el USB que conecta a la PC en el puerto USB dedicado al debug. Mediante la herramienta de código abierto \textit{OpenOCD (On Chip Debugger)} se controla el chip \textit{FT2232H} por el USB y ademas todo lo referido al JTAG. Luego la herramienta de depuración \textit{GDB} utilizado en el IDE-Eclipse que se instala, se comunica sobre el puerto 3333 (TCP) que el \textit{Open OCD} tiene en escucha esperando la conexión.
+Para la ejecución de la depuración de algun programa previamente compilado, el hardware de la CIAA viene provisto con el chip \textit{FT2232H}, que se encarga de hacer un puente entre la interfase JTAG del microcontrolador, y el USB que conecta a la PC en el puerto USB dedicado al debug. Mediante la herramienta de código abierto \textit{OpenOCD (On Chip Debugger)} se controla el chip \textit{FT2232H} por el USB y ademas todo lo referido al JTAG. Luego la herramienta de depuración \textit{GDB} utilizado en el IDE-Eclipse que se instala, se comunica sobre el puerto 3333 (TCP) que el \textit{Open OCD} tiene en escucha esperando la conexión\cite{descripcionopenocd}.
 
 Debe tenerse en cuenta que el chip \textit{FT2232H} posee 2 canales de comunicación independientes (A y B), sin embargo, ambos salen por el mismo USB, de modo que la PC detecta 2 dispositivos distintos (en realidad es uno compuesto). Uno de ellos, se conecta al JTAG manejado por \textit{OpenOCD} como fue mencionado, mientras que el otro se ve como un puerto virtual COM. Este último sirve principalmente para la depuración.
 %%CONSIDERAR SI CIERTA PARTE VA A IR A SECCION INSTALACION
@@ -155,7 +156,7 @@ Cuando se desea realizar el primer proyecto sobre la placa, el usuario debe crea
 
 Debe tenerse en cuenta que la dinámica de trabajo sobre la placa se encuentra pensada para trabajar sobre la plataforma de versionado \textit{Git}; en este caso en particular, el archivo \textit{Makefile.mine} se encuentra diseñado de forma tal que dicho archivo sea ignorado al sincronizar su repositorio local, con su repositorio remoto (ubicado sobre \textit{Github}).
 
-En el Makefile.mine se pueden editar y configurar los siguientes parámetros:
+En \textit{Makefile.mine} se pueden editar y configurar los siguientes parámetros\cite{parametrosdelmakefile}:
 \begin{enumerate}
 \item \textbf{ARCH}  indica la arquitectura del hardware para la cual se desea compilar. Ej: x86, cortexM4.
 \item \textbf{CPUTYPE} indica el tipo de CPU. Ej: none, ia32, ia64, lpc43xx.
@@ -164,34 +165,38 @@ En el Makefile.mine se pueden editar y configurar los siguientes parámetros:
 \item \textbf{BOARD }es la placa sobre la cual se trabajaca (CIAA-NXP, EDU-CIAA-NXP, etc.)
 \item \textbf{PROJECT }es el Path al proyecto a compilar. Ej: examples$\$(DS)blinking_base$.
 \end{enumerate}
-Se utiliza la variable \$(DS) para indicar el separador de directorios (de manera automática se usa '/' para linux y '\' para windows).\\
+Se utiliza la variable \$(DS) para indicar el separador de directorios (de manera automática se usa '/' para linux y \textbackslash{} para windows).
 
-En el mismo Makefile aparecen al comienzo comentarios donde se indican los valores que pueden tomar estos parámetros.\\
+En el mismo Makefile aparecen al comienzo comentarios donde se indican los valores que pueden tomar estos parámetros.
 
-Otro concepto importante sobre el cual se tiene en cuenta cuando se desarrollan proyectos propios, es que cada proyecto tiene también su propio archivo \textit{Makefile}.El mismo se encuentra bajo el directorio\textbf{mak} en el directorio principal del proyecto o ejemplo. En el ejemplo \textbf{examples/blinking} el makefile del ejemplo se encuentra en \textbf{examples/blinking/mak} y se llama \textbf{Makefile}.\\
+Otro concepto importante sobre el cual se tiene en cuenta cuando se desarrollan proyectos propios, es que cada proyecto tiene también su propio archivo \textit{Makefile}.El mismo se encuentra bajo el directorio \textbf{mak} en el directorio principal del proyecto o ejemplo. En el ejemplo \textbf{examples/blinking} el makefile del ejemplo se encuentra en \textbf{examples/blinking/mak} y se llama \textbf{Makefile}.
 
-Sobre este \textit{Makefile} contiene las siguientes definiciones:
+Sobre este archivo \textit{Makefile} contiene las siguientes definiciones:
 
 \begin{enumerate}
-\item \textbf{project} el nombre del proyecto y por ende nombre del ejecutable.
-\item \textbf{\$(project)\_PATH} es el directorio del proyecto.
+\item \textbf{PROJECT} el nombre del proyecto y por ende nombre del ejecutable.
+\item \textbf{\$(PROJECT)$\_$PATH} es el directorio del proyecto.
 \item \textbf{INCLUDE} los paths a indicar al compilador para buscar includes files.
-\item \textbf{SRC\_ FILES} archivos a compilar ya sean archivos c como c++.
-\item \textbf{OIL\_ FILES} configuración del sistema operativo (si es utilizado).
+\item \textbf{SRC$\_$FILES} archivos a compilar ya sean archivos c como c++.
+\item \textbf{OIL$\_$FILES} configuración del sistema operativo (si es utilizado).
 \end{enumerate}
 
-Cada proyecto incluye en su Makefile los módulos (aca digo que son los módulos) a compilar en una variable llamada MODS, por ejemplo:\\
-------------------------decidir si poner como imagen o como texto\\
-MODS += modules$\$(DS)posix$ \  \\
-        modules$\$(DS)ciaak $\  \\
-        modules$\$(DS)config$ \  \\
-        modules$\$(DS)bsp $\	\\
-        modules$\$(DS)platforms$\\
+Cada proyecto incluye en su Makefile los módulos a compilar en una variable llamada MODS, por ejemplo:
 
-Es recomendable utilizar \$(DS) en vez de / o \ para mantener la compatibilidad entre sistemas operativos (Linux, Windows, MAC OS).
+MODS += modules$\$(DS)posix$ \  
+
+        modules$\$(DS)ciaak $\  
+        
+        modules$\$(DS)config$ \  
+        
+        modules$\$(DS)bsp $\	
+        
+        modules$\$(DS)platforms$
+
+Es recomendable utilizar \$(DS) en vez de / o \textbackslash{} para mantener la compatibilidad entre sistemas operativos (Linux, Windows, MAC OS).
 {
 \subsection{Estructura de Directorios de Firmware de EDU CIAA}
-En el directorio principal luego de hacer un git clone o al bajar una release oficial se pueden encontrar los siguientes Directorios y Archivos:
+En el directorio principal luego de hacer un git clone o al bajar una release oficial se pueden encontrar los siguientes Directorios y Archivos\cite{estructuradedirectorios}:
 
 
 \begin{figure}[!h]
@@ -422,9 +427,11 @@ El primer ejemplo que se presenta ejecuta el encendido intermitente de los cuatr
 La Unidad de Control del Sistema (SCU) determina la función y el comportamiento eléctrico de la mayoria de los pines del LPC4337, por defecto, se selecciona la función digital 0 (que corresponde a la habilitación de las resistencias de pull-up) para todos los pines.\\
 Algunos de estos pines, soportan la multiplexación entre funciones digitales y analógicas, sin embargo, todas las entradas y salidas de los pines que corresponden a el ADC y/o DAC pueden configurarse sin establecer esta multiplexación,además, el SCU contiene registros que establecen la configuración de la función del pin multiplexado.\\
 %pagina 404-405 hay una tabla que contiene el nombre del pin y la funcion para multiplexar
-Otra funcionalidad que utiliza este ejemplo es el \textit{RIT (Repetitive Interrupt Timer)}, el cual provee una forma versátil de generar interrupciones repetitivas en intervalos de tiempo específicos, y puede utilizarse como alternativa al \textit{Systick Timer}.Dicho timer consta de un contador de 32 bits que puede incrementarse de forma libre, o puede reiniciarse mediante una interrupción generada. El funcionamiento de este Timer puede describirse de la siguiente forma:\\
-A partir del reinicio, el contador empieza a incrementar desde $0x0000 0000$. Cuando el valor del contador iguala el valor programado en el registro \textit{COMPVAL}, se establece en alto el flag que corresponde a la interrupción del Timer. Cualquier combinación de bits del registro \textit{COMPVAL} pueden ser enmascarada a través de un registro \textit{MASK}. Si el bit \textit{$enable_clr$} se encuentra en bajo (estado por defecto), una comparación válida solamente causa que el flag de interrupción se establezca; mientras que si el bit \textit{$enable_clr$} se encuentra en alto, se establece el reinicio del conteo.\\
-Este ejemplo utiliza la librería LPCOpen correspondiente a la placa LPC4337, con el objetivo de permitir la configuración correspondiente de los pines digitales y de la configuración del timer, independizándose de el hardware utilizado, esto implica que el usuario no necesita conocer en profundidad la arquitectura del procesador.\\
+Otra funcionalidad que utiliza este ejemplo es el \textit{RIT (Repetitive Interrupt Timer)}, el cual provee una forma versátil de generar interrupciones repetitivas en intervalos de tiempo específicos, y puede utilizarse como alternativa al \textit{Systick Timer}.Dicho timer consta de un contador de 32 bits que puede incrementarse de forma libre, o puede reiniciarse mediante una interrupción generada. El funcionamiento de este Timer puede describirse de la siguiente forma:
+
+A partir del reinicio, el contador empieza a incrementar desde $0x0000 0000$. Cuando el valor del contador iguala el valor programado en el registro \textit{COMPVAL}, se establece en alto el flag que corresponde a la interrupción del Timer. Cualquier combinación de bits del registro \textit{COMPVAL} pueden ser enmascarada a través de un registro \textit{MASK}. Si el bit \textit{enable$\_$clr} se encuentra en bajo (estado por defecto), una comparación válida solamente causa que el flag de interrupción se establezca; mientras que si el bit \textit{enable$\_$clr} se encuentra en alto, se establece el reinicio del conteo.
+Este ejemplo utiliza la librería LPCOpen correspondiente a la placa LPC4337, con el objetivo de permitir la configuración correspondiente de los pines digitales y de la configuración del timer, independizándose de el hardware utilizado, esto implica que el usuario no necesita conocer en profundidad la arquitectura del procesador.
+
 Las siguientes instrucciones permiten la configuración del pin digital que corresponde al Led 1 de la placa; teniendo en cuenta que el diagrama de distribución de pines de la misma indica que el pin 10 del puerto 2 corresponde al puerto 0 y el pin 14 del registro de GPIO del SCU. 
 \begin{verbatim}
 	Chip_GPIO_Init(LPC_GPIO_PORT);
@@ -443,11 +450,13 @@ La funcion que corresponde a la subrutina de atención de la interrupción provo
 	Chip_RIT_SetTimerInterval(LPC_RITIMER,250);
 	NVIC_EnableIRQ(RITIMER_IRQ);
 \end{verbatim}
-Al establecer el decrecimiento de un contador sobre la subrutina de atención de la interrupción, se provoca una temporización determinada por el usuario, a través de la configuración del intervalo mediante la instruccion $Chip\_RIT\_SetTimerInterval$
+Al establecer el decrecimiento de un contador sobre la subrutina de atención de la interrupción, se provoca una temporización determinada por el usuario, a través de la configuración del intervalo mediante la instruccion $Chip\_RIT\_SetTimerInterval$.
 \subsection{Programacion en Baremetal a través de libreria sAPI}
-Debido a que la programación de la placa en Baremetal puede tornarse un tanto engorrosa en principio, es posible utilizar una libreria diseñada para la implementación de proyectos en Baremetal con la placa EDU CIAA, dicha librería se la denomina \textit{sAPI}. Esta biblioteca implementa una API simple para la programación de dicha placa, es necesario comentar que una API es una interfaz de programación de aplicaciones, y consta de un conjunto de subrutinas, funciones y procedimientos (o métodos, en la programación orientada a objetos) que ofrece cierta biblioteca; para permitir ser utilizada por otro software como una capa de abstracción en la programación (aunque no necesariamente) entre los niveles o capas inferiores y las superiores del software.\\
+Debido a que la programación de la placa en Baremetal puede tornarse un tanto engorrosa en principio, es posible utilizar una libreria diseñada para la implementación de proyectos en Baremetal con la placa EDU CIAA, dicha librería se la denomina \textit{sAPI}. Esta biblioteca implementa una API simple para la programación de dicha placa, es necesario comentar que una API es una interfaz de programación de aplicaciones, y consta de un conjunto de subrutinas, funciones y procedimientos (o métodos, en la programación orientada a objetos) que ofrece cierta biblioteca; para permitir ser utilizada por otro software como una capa de abstracción en la programación (aunque no necesariamente) entre los niveles o capas inferiores y las superiores del software\cite{sapi}.
+
 La motivación para el desarrollo de la biblioteca sAPI surge de la necesidad de manejar los periféricos directamente desde una máquina virtual de Java para el desarrollo de Java sobre la CIAA y corresponde a la parte de bajo nivel de las clases de periféricos en Java que básicamente bindea a funciones escritas en C.
-Luego se extendió la misma para facilitar el uso de la EDU-CIAA-NXP a personas no expertas en la arquitectura del LPC4337 facilitando el uso de esta plataforma.\\
+Luego se extendió la misma para facilitar el uso de la EDU-CIAA-NXP a personas no expertas en la arquitectura del LPC4337 facilitando el uso de esta plataforma.
+
 La idea es tener periféricos abstractos y lo más genéricos posibles. Que sea bien independiente de la arquitectura y en lo posible que las funciones sean todas del tipo:
 \begin{enumerate}
 \item[$\bullet$]	moduloConfig();
@@ -930,12 +939,27 @@ Cuando el cambio de Tareas solo se produce mediante la ejecución de algún Serv
 \end{enumerate}
 \end{enumerate} 
 \begin{thebibliography}{}
-%\bibitem{A4_IEEE} http://www.ieee.org/conferences\_events/conferences/publishing/templates.html
-%\bibitem{texmaker} http://www.xm1math.net/texmaker/
-%\bibitem{Lyx} http://www.lyx.org/
-%\bibitem{office} https://www.microsoft.com/es-ar/
-%\bibitem{Informe} \textit{Cómo escribir un paper. Orientaciones y consejos}. Pedro Barrientos Loayza. Septiembre de 2012.
-%\bibitem{guia} \textit{Informes Técnicos - Guía de redacción y presentación}. Pablo D. Ronco. FIUBA. Agosto 2011. 
+\bibitem{origeneduciaa} {\footnotesize http://proyecto-ciaa.com.ar/devwiki/doku.php?id=proyecto:origen$\_$ciaa}
+
+Fecha: 15/10/16 10:55 am.
+\bibitem{descripcionenhojadatos}\textit{UM10503
+LPC43xx/LPC43Sxx ARM Cortex-M4/M0 multi-core
+microcontroller} Pags: 12-16.
+\bibitem{diagramaenbloquesdeplaca} {\footnotesize http://proyecto-ciaa.com.ar/devwiki/doku.php?id=desarrollo:edu-ciaa:edu-ciaa-nxp}
+
+Fecha: 15/10/16 10:55 am.
+\bibitem{descripcionopenocd}{\footnotesize http://proyecto-ciaa.com.ar/devwiki/doku.php?id=desarrollo:firmware:instalacion$\_$sw$\&$s[]=puente}\
+
+Fecha: 15/10/16 11:00 am.
+\bibitem{parametrosdelmakefile} {\footnotesize http://proyecto-ciaa.com.ar/devwiki/doku.php?id=docu:fw:bm:make$\&$s[]=makefile}
+
+Fecha: 15/10/16 11:00 am.
+\bibitem{estructuradedirectorios} {\footnotesize http://proyecto-ciaa.com.ar/devwiki/doku.php?id=docu:fw:bm:estructura$\&$s[]=estructura$\&$s[]=de$\&$s[]=directorios} Fecha: 15/10/16 11:00 am.
+\bibitem{sapi}\textit{sAPI:Introducción}
+
+Documento existente sobre el repositorio ubicado en \textit{Github}.
+
+Dirección web: https://github.com/epernia/sAPI
 \end{thebibliography}
 
 \end{document}
