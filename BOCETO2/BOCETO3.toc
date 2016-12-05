@@ -11,17 +11,16 @@
 \contentsline {subsection}{\numberline {3.5}Instalaci\IeC {\'o}n de IDE}{8}
 \contentsline {section}{\numberline {4}Desinstalaci\IeC {\'o}n}{15}
 \contentsline {section}{\numberline {5}Primeros Pasos con la EDU-CIAA}{15}
-\contentsline {subsection}{\numberline {5.1}Programaci\IeC {\'o}n en Baremetal}{15}
-\contentsline {subsection}{\numberline {5.2}Programacion en Baremetal a trav\IeC {\'e}s de libreria sAPI}{16}
-\contentsline {subsubsection}{\numberline {5.2.1}Implementacion de ejemplo N$^{\circ }$1}{19}
-\contentsline {subsubsection}{\numberline {5.2.2}Implementacion de ejemplo N$^{\circ }$2}{20}
-\contentsline {subsubsection}{\numberline {5.2.3}Implementacion de ejemplo N$^{\circ }$3}{21}
-\contentsline {subsubsection}{\numberline {5.2.4}Implementacion de ejemplo N$^{\circ }$4}{23}
-\contentsline {subsubsection}{\numberline {5.2.5}Implementacion de ejemplo N$^{\circ }$5}{24}
-\contentsline {subsubsection}{\numberline {5.2.6}Implementacion de ejemplo N$^{\circ }$6}{26}
-\contentsline {subsubsection}{\numberline {5.2.7}Implementacion de ejemplo N$^{\circ }$7}{27}
-\contentsline {section}{\numberline {6}Sistemas Operativos en Tiempo Real}{28}
-\contentsline {subsection}{\numberline {6.1}Tareas}{28}
-\contentsline {subsubsection}{\numberline {6.1.1}Modelo de Tareas B\IeC {\'a}sicas}{29}
-\contentsline {subsubsection}{\numberline {6.1.2}Modelo de Tareas Extendidas}{30}
-\contentsline {subsection}{\numberline {6.2}Scheduler}{30}
+\contentsline {subsection}{\numberline {5.1}Programacion en Baremetal a trav\IeC {\'e}s de libreria sAPI}{15}
+\contentsline {subsubsection}{\numberline {5.1.1}Implementacion de ejemplo N$^{\circ }$1}{17}
+\contentsline {subsubsection}{\numberline {5.1.2}Implementacion de ejemplo N$^{\circ }$2}{18}
+\contentsline {subsubsection}{\numberline {5.1.3}Implementacion de ejemplo N$^{\circ }$3}{19}
+\contentsline {subsubsection}{\numberline {5.1.4}Implementacion de ejemplo N$^{\circ }$4}{21}
+\contentsline {subsubsection}{\numberline {5.1.5}Implementacion de ejemplo N$^{\circ }$5}{22}
+\contentsline {subsubsection}{\numberline {5.1.6}Implementacion de ejemplo N$^{\circ }$6}{24}
+\contentsline {subsubsection}{\numberline {5.1.7}Implementacion de ejemplo N$^{\circ }$7}{26}
+\contentsline {section}{\numberline {6}Sistemas Operativos en Tiempo Real}{26}
+\contentsline {subsection}{\numberline {6.1}Tareas}{27}
+\contentsline {subsubsection}{\numberline {6.1.1}Modelo de Tareas B\IeC {\'a}sicas}{27}
+\contentsline {subsubsection}{\numberline {6.1.2}Modelo de Tareas Extendidas}{28}
+\contentsline {subsection}{\numberline {6.2}Scheduler}{29}

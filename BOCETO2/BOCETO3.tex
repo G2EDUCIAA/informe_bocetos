@@ -420,37 +420,7 @@ directorio de instalación elegido. Esto se debe a que el desinstalador del Soft
 elimina el directorio y todo su contenido.
 
 \section{Primeros Pasos con la EDU-CIAA}
-\subsection{Programación en Baremetal}
-Si bien el objetivo de este tutorial es introducir al usuario en la programación mediante \textit{RTOS OSEK}, es conveniente comenzar a explicar previamente como implementar proyectos en Baremetal, éste método de programacion se destaca por no utilizar SO alguno; de modo que permite una transición mas natural hacia los temas posteriores.\\
-El primer ejemplo que se presenta ejecuta el encendido intermitente de los cuatro leds instalados en la placa. Sobre las placas del tipo \textit{LPC43XX/LPC43SXX}, los pines digitales se encuentran agrupados en 16 conjuntos de pines, los cuales se encuentran definidos desde P0 a P9, y desde PA hacia PF; cada uno de estos pines soporta hasta 8 diferentes funciones digitales, entre ellas se incluye la función \textit{General Purpose I/O}, el cual es seleccionable a través de la configuración de registros de pines SCU.
-%sobre pagina 349 de UM10503 se encuentra la tabla de la descripcion de pines
-La Unidad de Control del Sistema (SCU) determina la función y el comportamiento eléctrico de la mayoria de los pines del LPC4337, por defecto, se selecciona la función digital 0 (que corresponde a la habilitación de las resistencias de pull-up) para todos los pines.\\
-Algunos de estos pines, soportan la multiplexación entre funciones digitales y analógicas, sin embargo, todas las entradas y salidas de los pines que corresponden a el ADC y/o DAC pueden configurarse sin establecer esta multiplexación,además, el SCU contiene registros que establecen la configuración de la función del pin multiplexado.\\
-%pagina 404-405 hay una tabla que contiene el nombre del pin y la funcion para multiplexar
-Otra funcionalidad que utiliza este ejemplo es el \textit{RIT (Repetitive Interrupt Timer)}, el cual provee una forma versátil de generar interrupciones repetitivas en intervalos de tiempo específicos, y puede utilizarse como alternativa al \textit{Systick Timer}.Dicho timer consta de un contador de 32 bits que puede incrementarse de forma libre, o puede reiniciarse mediante una interrupción generada. El funcionamiento de este Timer puede describirse de la siguiente forma:
 
-A partir del reinicio, el contador empieza a incrementar desde $0x0000 0000$. Cuando el valor del contador iguala el valor programado en el registro \textit{COMPVAL}, se establece en alto el flag que corresponde a la interrupción del Timer. Cualquier combinación de bits del registro \textit{COMPVAL} pueden ser enmascarada a través de un registro \textit{MASK}. Si el bit \textit{enable$\_$clr} se encuentra en bajo (estado por defecto), una comparación válida solamente causa que el flag de interrupción se establezca; mientras que si el bit \textit{enable$\_$clr} se encuentra en alto, se establece el reinicio del conteo.
-Este ejemplo utiliza la librería LPCOpen correspondiente a la placa LPC4337, con el objetivo de permitir la configuración correspondiente de los pines digitales y de la configuración del timer, independizándose de el hardware utilizado, esto implica que el usuario no necesita conocer en profundidad la arquitectura del procesador.
-
-Las siguientes instrucciones permiten la configuración del pin digital que corresponde al Led 1 de la placa; teniendo en cuenta que el diagrama de distribución de pines de la misma indica que el pin 10 del puerto 2 corresponde al puerto 0 y el pin 14 del registro de GPIO del SCU. 
-\begin{verbatim}
-	Chip_GPIO_Init(LPC_GPIO_PORT);
-	Chip_SCU_PinMux(
-			2,
-			10,
-			SCU_MODE_INACT | SCU_MODE_ZIF_DIS,
-			SCU_MODE_FUNC0
-	 	);
-	Chip_GPIO_SetDir( LPC_GPIO_PORT, 0, ( 1 << 14 ), 1 );
-	Chip_GPIO_SetPinState( LPC_GPIO_PORT, 0, 14, 0);
-\end{verbatim}
-La funcion que corresponde a la subrutina de atención de la interrupción provocada por el Timer RIT, se la especifica como \textit{$RIT\_IRQHandler$}. Mientras que las siguientes instrucciones realizan la inicialización y la configuración del mismo:
-\begin{verbatim}
-	Chip_RIT_Init(LPC_RITIMER);
-	Chip_RIT_SetTimerInterval(LPC_RITIMER,250);
-	NVIC_EnableIRQ(RITIMER_IRQ);
-\end{verbatim}
-Al establecer el decrecimiento de un contador sobre la subrutina de atención de la interrupción, se provoca una temporización determinada por el usuario, a través de la configuración del intervalo mediante la instruccion $Chip\_RIT\_SetTimerInterval$.
 \subsection{Programacion en Baremetal a través de libreria sAPI}
 Debido a que la programación de la placa en Baremetal puede tornarse un tanto engorrosa en principio, es posible utilizar una libreria diseñada para la implementación de proyectos en Baremetal con la placa EDU CIAA, dicha librería se la denomina \textit{sAPI}. Esta biblioteca implementa una API simple para la programación de dicha placa, es necesario comentar que una API es una interfaz de programación de aplicaciones, y consta de un conjunto de subrutinas, funciones y procedimientos (o métodos, en la programación orientada a objetos) que ofrece cierta biblioteca; para permitir ser utilizada por otro software como una capa de abstracción en la programación (aunque no necesariamente) entre los niveles o capas inferiores y las superiores del software\cite{sapi}.
 
@@ -560,7 +530,7 @@ Para la compilación de dicho proyecto, debe tenerse en cuenta lo mencionado sob
 \label{Fig21}
 \end{figure}
 \end{center}
-\subsubsection{Implementacion de ejemplo N$^{\circ}$2}
+\subsubsection{Implementacion de ejemplo N$^{\circ}$2}\label{sec:ej2BM}
 El siguiente ejemplo tiene como objetivo mostrar como se realiza el trabajo sobre entradas y salidas digitales, dicho programa enciende los leds instalados sobre la placa, de acuerdo con la cantidad de veces que se oprime la tecla \textit{TEC1}, sobre dicho ejemplo se implemento una maquina de estado, a través del programa \textit{uModel Factory} para poder establecer un orden sobre los eventos y las acciones que debe ejecutar el procesador. Debe tenerse en cuenta que se implementan multiples archivos fuentes y cabeceras, en particular, el archivo fuente \textit{FUNC$\_$EJ2$\_$BM.c} define las acciones y la evaluación de los eventos y \textit{FUNC$\_$EJ2$\_$BM.h} establece la declaración de dichas funciones y de los estados.
 A continuación se realiza una breve descripción de los estados, eventos y acciones que contiene este programa.
 \begin{enumerate}
@@ -784,7 +754,7 @@ El siguiente ejemplo realiza el encendido de los leds incorporados, de forma tal
 
 En este ejemplo también se utiliza un display LCD 16x2 para efectuar mensajes al usuario. Para el manejo del mismo fue necesario utilizar una libreria, la cual fue diseñada por Matias Ferraro.
 
-Para la implementación de la misma, se procede de forma similar a la realizada para el display de 7 segmentos, explicado anteriormente sobre la seccion 5.2.2 .
+Para la implementación de la misma, se procede de forma similar a la realizada para el display de 7 segmentos, explicado anteriormente sobre la sección \ref{sec:ej2BM} .
 
 Sobre la Figura \ref{Fig31} se ilustra el diagrama esquemático para el conexionado.
 
@@ -813,7 +783,7 @@ Un RTOS (sigla de \textit{Real Time Operating System} realiza la misma función 
 
 El RTOS ofrece funcionalidad para asegurar que una vez ocurrido un evento, la respuesta ocurra en un tiempo acotado.Es necesario destacar que esto no lo hace por si solo sino que brinda al programador herramientas para implemetarlo de forma mas simple.
 
-\subsection{Tareas}
+\subsection{Tareas}\label{sec:tareas}
 El bloque básico de software escrito sobre un RTOS es la Tarea, sobre la mayoria de las RTOS que se ofrecen en el mercado, una Tarea es una simple subrutina(referencia libro).
 
 Una Tarea provee un contexto en el cual se ejecuten las funciones.Mientras que el Scheduler organiza la secuencia de ejecución de las tareas(referencia os223).
@@ -909,15 +879,17 @@ El Cuadro \ref{Tab4} explica los diferentes eventos que provocan las transicione
 \end{center}
 \end{table}
 
-\subsection{Scheduler}
+\subsection{Scheduler}\label{sec:scheduler}
 El algoritmo del Scheduler puede ser visto fundamentalmente como un coordinador de Tareas con las prioridades ya establecidas, en el cual se define un número máximo de activaciones de las mismas. El sistema operativo OSEK define tres politicas de \textit{Scheduling}, las cuales se mencionan a continuación.
 
 \underline{\textit{Scheduling Full Preemptive}}:
+
 Esta politica de \textit{Scheduling} implica que una Tarea que se encuentra en el estado \textit{Running} puede ser interrupida sobre cualquier instrucción, como consecuencia de la ocurrencia de alguna condición o evento; que ya se encuentre definido previamente sobre el OS. \textit{Full Preemptive Scheduling} determinará que una Tarea en el estado \textit{Running} sea establecido en el estado \textit{Ready}, tan pronto como una Tarea de mayor prioridad se establezca en estado \textit{\textit{Ready}}.
 
 El contexto de la Tarea será almacenado de forma que la Tarea que fue interrumpida pueda continuar sobre la instancia en donde fue interrumpida.
 
 \underline{\textit{Scheduling Non Preemptive}}:
+
 Cuando el cambio de Tareas solo se produce mediante la ejecución de algún Servicio del Sistema (explicitados en los puntos de \textit{Scheduling}).
 
 
