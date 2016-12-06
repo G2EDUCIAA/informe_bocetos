@@ -13,11 +13,11 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[RO,LE]{\includegraphics[width=0.8cm]{figuras/unsl.png}}
-\fancyhead[CO,RE]{Universidad Nacional de San Luis\\Facultad de Ciencias Fisico Matemáticas y Naturales}
-\fancyfoot[CO,RE]{\emph{Tutorial de manejo de placa EDU CIAA con RTOS OSEK}}
+\fancyhead[RO]{\includegraphics[width=0.8cm]{figuras/unsl.png}}
+\fancyhead[CO]{Universidad Nacional de San Luis\\Facultad de Ciencias Fisico Matemáticas y Naturales}
+\fancyfoot[CO]{\emph{Tutorial de manejo de placa EDU CIAA con RTOS OSEK}}
 \pagenumbering{arabic}
-\fancyfoot[RO,RE]{\thepage}
+\fancyfoot[RO]{\thepage}
 \begin{document}
 %insertar portada
 %\includepdf{figuras/Caratula}
@@ -998,16 +998,23 @@ De esta forma se definen las siguientes clases de conformidad:
 \item[•]ECC1: como BCC1 pero con tareas extendidas.
 \item[•]ECC2: como  ECC1 pero con más de una tarea por prioridad y las tareas soportan más de una activación.
 \end{enumerate}
-El OSEK-OS de la CIAA soporta todas las conformidades. Dependiendo de esta configuración el sistema decidirá si se implementa una clase BCC1 o ECC2. Por lo que para el usuario final del CIAA-Firmware es prácticamente irrelevante conocer las clases. El Firmware decide automáticamente y configura la clase de conformidad correcta según los requerimientos del usuario.La Figura 37 ilustra los conceptos presentados anteriormente.
+El OSEK-OS de la CIAA soporta todas las conformidades. Dependiendo de esta configuración el sistema decidirá si se implementa una clase BCC1 o ECC2. Por lo que para el usuario final del CIAA-Firmware es prácticamente irrelevante conocer las clases. El Firmware decide automáticamente y configura la clase de conformidad correcta según los requerimientos del usuario.La Figura 37 ilustra los conceptos presentados anteriormente\ref{Fig34}.
 
 
+%\begin{figure}[!h]
+%\centering
+%\includegraphics[width=8 cm]{figuras/f17.png}
+%\caption{Clases de Conformidad.}
+%\label{Fig34}
+%\end{figure}
+\begin{center}
 \begin{figure}[!h]
 \centering
 \includegraphics[width=8 cm]{figuras/f17.png}
-\caption{Clases de Conformidad.}
+\caption{PRUEBA}
 \label{Fig34}
 \end{figure}
-
+\end{center}
 
 \subsection{Configuración y Generación}\label{sec:generacionoil}
 Al ser OSEK-OS un sistema estático es necesario configurarlo. La cantidad de tareas, que prioridad tienen las mismas, el tamaño de pila que utilizan, etc. Para ello OSEK-VDX definió otro estándar llamado OSEK Implementation Language comúnmente llamado "OIL".
@@ -1063,6 +1070,8 @@ La Figura  ilustra un OS configurado de forma que el nivel de chequeo de errores
 \caption{Archivo de Configuración:Ejemplo de especificación de OS}
 \label{Fig37}
 \end{figure}
+
+\ref{Fig37}
 
 \begin{thebibliography}{}
 \bibitem{origeneduciaa} {\footnotesize http://proyecto-ciaa.com.ar/devwiki/doku.php?id=proyecto:origen$\_$ciaa}
