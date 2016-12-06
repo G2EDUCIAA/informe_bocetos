@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  6 DEC 2016 13:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  6 DEC 2016 14:02
 entering extended mode
 **./BOCETO3.tex
 (BOCETO3.tex
@@ -1313,7 +1313,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [30]
 File: figuras/unsl.png Graphic file (type png)
  <use figuras/unsl.png>
-Package pdftex.def Info: figuras/unsl.png used on input line 985.
+Package pdftex.def Info: figuras/unsl.png used on input line 983.
 (pdftex.def)             Requested size: 22.76228pt x 28.57912pt.
 
 
@@ -1323,14 +1323,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [31]
-Overfull \hbox (17.2392pt too wide) in paragraph at lines 994--995
+Overfull \hbox (17.2392pt too wide) in paragraph at lines 996--997
 []\OT1/cmr/m/n/10 http://proyecto-ciaa.com.ar/devwiki/doku.php?id=docu:fw:bm:es
 tructura$&$s[]=estructura$&$s[]=de$&$s[]=directorios
  []
 
 File: figuras/unsl.png Graphic file (type png)
 <use figuras/unsl.png>
-Package pdftex.def Info: figuras/unsl.png used on input line 1010.
+Package pdftex.def Info: figuras/unsl.png used on input line 1012.
 (pdftex.def)             Requested size: 22.76228pt x 28.57912pt.
 
 
@@ -1368,7 +1368,7 @@ hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
 msy8.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsf
 onts/cm/cmti12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmti7.pfb>
-Output written on BOCETO3.pdf (32 pages, 3382886 bytes).
+Output written on BOCETO3.pdf (32 pages, 3383101 bytes).
 PDF statistics:
  187 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

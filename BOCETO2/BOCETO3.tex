@@ -974,7 +974,9 @@ Un evento individual es identificado por el propietario de dicho evento, y por s
 
 Existen varias opciones disponibles para manipular los eventos, tanto para las Tareas que son propietarias de dicho Evento, como de las demás Tareas que no son propietarias del Evento, las cuales no necesariamente deben ser Tareas del tipo \textit{EXTENDED}.
 
-Todas las Tareas e interrupciones del tipo \textit{ISR2} pueden indicar el suceso de un Evento e informarlo a la Tarea propietaria del evento (del tipo \textit{EXTENDED}) siempre y cuando no se encuentre en estado \textit{SUSPENDED}.Sin embargo, solamente la Tarea propietaria de dicho Evento puede restablecer el flag del Evento.
+Todas las Tareas e Interrupciones del tipo \textit{ISR2} pueden indicar el suceso de un Evento e informarlo a la Tarea propietaria del evento (del tipo \textit{EXTENDED}) siempre y cuando no se encuentre en estado \textit{SUSPENDED}.Sin embargo, solamente la Tarea propietaria de dicho Evento puede restablecer el flag del Evento.
+
+Debe destacarse que cuando una Tarea tipo \textit{EXTENDED}, se encuentra en estado \textit{Waiting}, se establece en el estado \textit{Ready} si al menos ocurre uno de los Eventos que dicha Tarea estaba esperando. Si una Tarea tipo \textit{EXTENDED} se encuentra ejecutándose y trata de esperar un Evento que ya haya ocurrido, dicha Tarea se mantiene en el estado \textit{Running}.
 \begin{thebibliography}{}
 \bibitem{origeneduciaa} {\footnotesize http://proyecto-ciaa.com.ar/devwiki/doku.php?id=proyecto:origen$\_$ciaa}
 
