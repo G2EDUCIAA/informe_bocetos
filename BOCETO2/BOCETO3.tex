@@ -69,7 +69,7 @@ Desde la concepción del proyecto, el diseño de la placa se encuentra pensada p
 \begin{center}
 \begin{figure}[!h]
 \centering
-\includegraphics[width=15 cm]{figuras/descripcion1.png}
+\includegraphics[width=10 cm]{figuras/descripcion1.png}
 \caption{Placa EDU CIAA}
 \label{Fig_placa}
 \end{figure}
@@ -97,7 +97,7 @@ Dicho procesador nos brinda una interface que nos posibilita extender hasta 164 
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=8 cm]{figuras/FIGURA_1.jpg}\\
+\includegraphics[width=6 cm]{figuras/FIGURA_1.jpg}\\
 \caption{Imagen frontal de placa}
 \label{Fig2}
 \end{figure}
@@ -111,14 +111,21 @@ La placa provee alimentación de 3,3 V (cuyo rango oscila entre 2,2 V hasta 3,6 
 
 %%
 
-Sobre la Figura 1 \ref{Fig1} se proporciona el diagrama en bloques de la placa\cite{diagramaenbloquesdeplaca}, puede observarse que la placa cuenta con 2 puertos micro-USB (uno para aplicaciones y debugging, otro para alimentación); 4 salidas digitales implementadas con leds RGB, 4 entradas digitales con pulsadores; 1 puerto de comunicaciones RS485 con bornera. La Figura 2 \ref{Fig2} nos muestra  una imagen frontal de la placa; nótese la presencia de dos puertos sobre los cuales se ubican los pines correspondientes a la placa, la Figura 3 \ref{Fig3} ilustra el distribución de dichos pines sobre cada puerto.
+Sobre la Figura  \ref{Fig1} se proporciona el diagrama en bloques de la placa\cite{diagramaenbloquesdeplaca}, puede observarse que la placa cuenta con 2 puertos micro-USB (uno para aplicaciones y debugging, otro para alimentación); 4 salidas digitales implementadas con leds RGB, 4 entradas digitales con pulsadores; 1 puerto de comunicaciones RS485 con bornera. La Figura  \ref{Fig2} nos muestra  una imagen frontal de la placa; nótese la presencia de dos puertos sobre los cuales se ubican los pines correspondientes a la placa, la Figura  \ref{distribucionpines} ilustra el distribución de dichos pines sobre cada puerto.
 
-%%
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/f16.png}
+\caption{Distribución de pines de la placa}
+\label{distribucionpines}
+\end{figure}
+\end{center}
 
 Sobre el puerto P1, se ubican los siguientes módulos:
 
 \begin{enumerate}
-\item 3 entradas analógicas ($ADC0$\_$,1,2 y 3$)
+\item 3 entradas analógicas ($ADC0,1,2 y 3$)
 \item 1 salida analógica (DAC0).
 \item 1 puerto I2C.
 \item 1 puerto asincrónico full duplex (para RS-232).
@@ -301,7 +308,7 @@ ventana emergente, similar a la que se muestra en la Figura \ref{Fig8} en donde 
 \begin{center}
 \begin{figure}[!h]
 \centering
-\includegraphics[width=8 cm]{figuras/instalacion5.png}\\
+\includegraphics[width=6 cm]{figuras/instalacion5.png}\\
 \caption{Instalación de los drivers: primera instancia}
 \label{Fig8}
 \end{figure}
@@ -310,25 +317,25 @@ ventana emergente, similar a la que se muestra en la Figura \ref{Fig8} en donde 
 \begin{center}
 \begin{figure}[!h]
 \centering
-\includegraphics[width=8 cm]{figuras/instalacion6.png}\\
+\includegraphics[width=6 cm]{figuras/instalacion6.png}\\
 \caption{Instalación de drivers si se dispone del hardware}
 \label{Fig9}
 \end{figure}
 \end{center}
 
-Una vez finalizada esta etapa, se procede a la instalación de los drivers por defecto del fabricante FTDI para puerto virtual. Este proceso se ilustra en las figuras \ref{Fig9} ,\ref{Fig10},\ref{Fig11}.
+Una vez finalizada esta etapa, se procede a la instalación de los drivers por defecto del fabricante FTDI para puerto virtual. Este proceso se ilustra en las figuras \ref{driversFTDI} ,\ref{Fig10},\ref{Fig11},\ref{Fig12} y \ref{Fig13}.
 \begin{center}
 \begin{figure}[!h]
 \centering
-\includegraphics[width=8 cm]{figuras/instalacion7.png}\\
+\includegraphics[width=6 cm]{figuras/instalacion7.png}\\
 \caption{Instalador de drivers FTDI parte 1}
-\label{Fig9}
+\label{driversFTDI}
 \end{figure}
 \end{center}
 \begin{center}
 \begin{figure}[!h]
 \centering
-\includegraphics[width=8 cm]{figuras/instalacion8.png}\\
+\includegraphics[width=6 cm]{figuras/instalacion8.png}\\
 \caption{Instalador de drivers FTDI parte 2}
 \label{Fig10}
 \end{figure}
@@ -336,7 +343,7 @@ Una vez finalizada esta etapa, se procede a la instalación de los drivers por d
 \begin{center}
 \begin{figure}[!h]
 \centering
-\includegraphics[width=8 cm]{figuras/instalacion9.png}\\
+\includegraphics[width=6 cm]{figuras/instalacion9.png}\\
 \caption{Instalador de drivers FTDI parte 3}
 \label{Fig11}
 \end{figure}
@@ -344,7 +351,7 @@ Una vez finalizada esta etapa, se procede a la instalación de los drivers por d
 \begin{center}
 \begin{figure}[!h]
 \centering
-\includegraphics[width=8 cm]{figuras/instalacion10.png}\\
+\includegraphics[width=6 cm]{figuras/instalacion10.png}\\
 \caption{Instalador de drivers FTDI parte 4}
 \label{Fig12}
 \end{figure}
@@ -352,11 +359,12 @@ Una vez finalizada esta etapa, se procede a la instalación de los drivers por d
 \begin{center}
 \begin{figure}[!h]
 \centering
-\includegraphics[width=8 cm]{figuras/instalacion11.png}\\
+\includegraphics[width=6 cm]{figuras/instalacion11.png}\\
 \caption{Instalador de drivers FTDI parte 4}
 \label{Fig13}
 \end{figure}
 \end{center}
+
 Una de las posibles fallas que pueden surgir a través de este proceso, se presenta al producirse una falla en la comunicación a través del puerto virtual FTDI, que impide la correcta comunicación entre la placa y el entorno IDE. Su corrección debe efectuarse manualmente, fuera del instalador, y es posible la aparición de una ventana de error emergente como la que se muestra en la figura \ref{Fig13}.
 
 El instalador incluye en la carpeta donde se instaló el software (Por defecto, $ C:/CIAA $ ) un programa que configura el driver del controlador serie,emulado por la placa, para que uno de ellos pueda ser utilizado como interfaz JTAG. Dicho programa se llama $ Zadig\_Win\_7\_2\_1\_1.exe $, la figura \ref{Fig14} nos muestra una ilustración de la ubicación del programa.
@@ -364,7 +372,7 @@ El instalador incluye en la carpeta donde se instaló el software (Por defecto, 
 \begin{center}
 \begin{figure}[!h]
 \centering
-\includegraphics[width=8 cm]{figuras/instalacion12.png}\\
+\includegraphics[width=6 cm]{figuras/instalacion12.png}\\
 \caption{Instalador de drivers FTDI parte 4}
 \label{Fig14}
 \end{figure}
@@ -375,7 +383,7 @@ Al abrir la aplicación, se presenta la Figura \ref{Fig15}. Antes de proceder, e
 \begin{center}
 \begin{figure}[!h]
 \centering
-\includegraphics[width=8 cm]{figuras/instalacion13.png}\\
+\includegraphics[width=6 cm]{figuras/instalacion13.png}\\
 \caption{Entorno del software corrector Zadig para Windows}
 \label{Fig15}
 \end{figure}
@@ -678,21 +686,21 @@ La instrucción \textit{analogConfig( ENABLE$\_$ANALOG$\_$INPUTS )} se encarga d
 \end{center}
 
 \subsubsection{Implementacion de ejemplo N$^{\circ}$5: Uso de UART y Display LCD 16x2}
+Sobre este código se utiliza el modulo conversor analógico digital de la placa, para efectuar la lectura de una entrada analógica sobre esta. En el caso que dicha medición sea superior a 2[V], se establece una salida analógica de 2[V] utilizando el módulo conversor digital analógico. De forma similar, si la tensión de entrada resulta mayor a 4[V], se define una salida analógica de 3[V].
+Es necesario destacar que la placa ya integra internamente el conversor digital analógico, de modo que no es necesario realizar una interfaz para la ejecución de dicha salida, además, es necesario destacar que la tensión de referencia interna se encuentra establecida, y adquiere un valor igual a 3.3[V]. La Figura \ref{Fig26} ilustra el esquemático que muestra dicho concepto.
+
+La instrucción \textit{analogRead()}, permite realizar la lectura de la tensión aplicada sobre el canal 1 del modulo ADC0 de la placa. A partir de la conversión a tensión, el programa aplica la tensión de salida correspondiente.
+
+Este ejemplo también utiliza maquina de estado para establecer un orden sobre los eventos y las acciones que debe ejecutar el procesador.A continuación se realiza una breve descripción de los estados, eventos y acciones que contiene este programa.
 
 \begin{center}
 \begin{figure}[!h]
 \centering
-\includegraphics[width=6 cm]{figuras/f8.png}\\
+\includegraphics[width=8 cm]{figuras/f8.png}\\
 \caption{Ilustración de tensión de referencia de DAC.}
 \label{Fig26}
 \end{figure}
 \end{center}
-
-Sobre este código se utiliza el modulo conversor analógico digital de la placa, para efectuar la lectura de una entrada analógica sobre esta. En el caso que dicha medición sea superior a 2[V], se establece una salida analógica de 2[V] utilizando el módulo conversor digital analógico. De forma similar, si la tensión de entrada resulta mayor a 4[V], se define una salida analógica de 3[V].
-Es necesario destacar que la placa ya integra internamente el conversor digital analógico, de modo que no es necesario realizar una interfaz para la ejecución de dicha salida, además, es necesario destacar que la tensión de referencia interna se encuentra establecida, y adquiere un valor igual a 3.3[V]. La Figura \ref{Fig26} ilustra el esquemático que muestra dicho concepto.
-La instrucción \textit{analogRead()}, permite realizar la lectura de la tensión aplicada sobre el canal 1 del modulo ADC0 de la placa. A partir de la conversión a tensión, el programa aplica la tensión de salida correspondiente.
-
-Este ejemplo también utiliza maquina de estado para establecer un orden sobre los eventos y las acciones que debe ejecutar el procesador.A continuación se realiza una breve descripción de los estados, eventos y acciones que contiene este programa.
 
 \begin{enumerate}
 \item[•]\underline{Estados}:
@@ -729,7 +737,7 @@ La Figura \ref{Fig28} ilustra el diagrama de estados que corresponde al ejemplo
 
 
 
-\subsubsection{Implementacion de ejemplo N$^{\circ}$6}
+\subsubsection{Implementacion de ejemplo N$^{\circ}$6: Comunicación Serial}
 El siguiente ejemplo introduce al usuario a la utilización de comunicación serial, es necesario destacar que para la implementación del ejemplo se utiliza el programa \textit{Octoplus Terminal} para la visualización y simulación del envío y transmisión de datos a través del terminal conectado sobre el puerto USB.
 
 El programa se encuentra disponible de forma gratuita en la dirección web \textit{http://octoplus-terminal.software.informer.com/download/}. La instalación de dicho programa es simple, sin embargo, es necesario destacar que durante dicho proceso, el usuario debe obviar la instalación de los drivers que provee dicho programa.
@@ -777,10 +785,10 @@ En este apartado se verá un código base para utilizar la UART del LPC4337 medi
 \item[•]Habilitar la interrupción.
 \end{enumerate}
 
-\subsubsection{Implementacion de ejemplo N$^{\circ}$7}
+\subsubsection{Implementacion de ejemplo N$^{\circ}$7:Comunicación Serial-Utilización Display LCD 16x2}
 El siguiente ejemplo utiliza los leds incorporados en la placa, de forma tal que el numero de leds encendidos corresponda al caracter enviado. Por ejemplo, si se envía el caracter '3', entonces se encienden 3 leds.
 
-En este ejemplo también se utiliza un display LCD 16x2. Para el manejo del mismo fue necesario utilizar una libreria, la cual fue diseñada por Matias Ferraro\cite{repositoriomatiasferraro}.
+En este ejemplo también se utiliza un display LCD 16x2. Para el manejo del mismo fue necesario utilizar una libreria no perteneciente a \textit{sAPI}, la cual fue diseñada por Matias Ferraro\cite{repositoriomatiasferraro}.
 
 Para la implementación de la misma, se procede de forma similar a la realizada para el display de 7 segmentos, explicado anteriormente sobre la sección \ref{sec:ej2BM} .
 
@@ -817,7 +825,7 @@ El bloque básico de software escrito sobre un RTOS es la Tarea, sobre la mayori
 Una Tarea provee un contexto en el cual se ejecuten las funciones.Mientras que el Scheduler organiza la secuencia de ejecución de las tareas(referencia os223).
 En algún punto del programa se produce el llamado a alguna función que produzca la ejecución de dicha tarea(referencia libro).
 
-En el sistema operativo OSEK las Tareas deben ser definidas en la configuración, de manera que no es posible crear Tareas de forma dinámica (a diferencia de los Sistemas Operativos de escritorio). En el momento de la compilación se genera el código del sistema operativo y se definen la cantidad de Tareas y sus características. Además deben utilizarse macros para las definiciones y las funciones que ofrece este Sistema Operativo, para ello, debe incluirse sobre el programa, \textit{os.h}.
+En el sistema operativo OSEK las Tareas deben ser definidas en la configuración, de manera que no es posible crear Tareas de forma dinámica (a diferencia de los Sistemas Operativos de escritorio). En el momento de la compilación se genera el código del sistema operativo y se definen la cantidad de Tareas y sus características. Además deben utilizarse macros para las definiciones y las funciones (a dichas funciones se las suele denominar Servicios del Sistema ) que ofrece este Sistema Operativo, para ello, debe incluirse sobre el programa, \textit{os.h}.
 
 Este sistema operativo ofrece dos conceptos distintos de Tareas:
 \begin{enumerate}
@@ -881,7 +889,7 @@ La Figura \ref{Fig33} ilustra los conceptos explicados previamente.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=8 cm]{figuras/f15.png}
-\caption{Modelo de las Tareas del tipo \textit{BASIC}}
+\caption{Modelo de las Tareas del tipo \textit{EXTENDED}}
 \label{Fig33}
 \end{figure}
 \end{center}
@@ -907,6 +915,19 @@ El Cuadro \ref{Tab4} explica los diferentes eventos que provocan las transicione
 \end{center}
 \end{table}
 
+\underline{Activación de Tareas}: 
+
+La activación de una Tarea es realizada mediante el Servicio del Sistema \textit{ActivateTask} o por \textit{ChainTask}. Luego de la activación de una Tarea, ésta se encuentra lista para ejecutarse desde su primer instrucción. En el caso que se produzcan múltiples activaciones de una Tarea del tipo \textit{BASIC}, el Sistema Operativo OSEK almacena estas activaciones paralelas, siempre y cuando se haya definido sobre éste, una clase de conformidad.
+
+\underline{Finalización de las tareas}:
+
+En el Sistema Operativo OSEK, una Tarea solo puede finalizarse por acción propia, mediante el Servicio del Sistema \textit{TerminateTask}. Cabe destacar que el Servicio del Sistema \textit{ChainTask} provee una forma de realizar la activación de una Tarea determinada, justo después de la finalización de la Tarea que se encuentra corriendo.
+
+Esta estrictamente prohibido realizar una Tarea que no finalize con alguno de estos dos Servicios del Sistema, dado que puede ocasionar un comportamiento indefinido.
+
+\underline{Prioridad de las tareas}:
+
+La asignación de prioridades sobre las Tareas se realiza a través de la definición de números enteros desde 0 hasta 255. Mientras mayor es el valor del numero, mayor será la prioridad.Una Tarea que se encuentra corriendo, no puede ser interrumpida por una de menor o igual prioridad.
 \subsection{Scheduler}\label{sec:scheduler}
 El algoritmo del Scheduler puede ser visto fundamentalmente como un coordinador de Tareas con las prioridades ya establecidas, en el cual se define un número máximo de activaciones de las mismas. El sistema operativo OSEK define tres politicas de \textit{Scheduling}, las cuales se mencionan a continuación.
 
@@ -924,21 +945,36 @@ Cuando el cambio de Tareas solo se produce mediante la ejecución de algún Serv
 \underline{Puntos de \textit{Scheduling}}:
 
 \begin{enumerate}
-\item[•]Puntos de \textit{Scheduling} en una tarea NON-PREEMPTIVE
+\item[•]Puntos de \textit{Scheduling} en una tarea \textit{NON-PREEMPTIVE}
 \begin{enumerate}
-\item[•]Al llamar a la interfase Schedule cuando retorna E$\_$OK.
+\item[•]Al llamar a la interfase \textit{Schedule} cuando retorna E$\_$OK.
 \end{enumerate}
-\item[•]Puntos de \textit{Scheduling} en una tarea PREEMPTIVE
+\item[•]Puntos de \textit{Scheduling} en una tarea \textit{PREEMPTIVE}
 \begin{enumerate}
-\item[•]Al finalizar un llamado a la interfase ActivateTask que retorna E$\_$OK.
-\item[•]Al finalizar un llamado a la interfase ChainTask que no retorna.
-\item[•]Al finalizar un llamado a la interfase TerminateTask que no retorna.
-\item[•]Al finalizar un llamado a la interfase ReleaseResource que retorna E$\_$OK.
-\item[•]Al finalizar un llamado a la interfase SetEvent que no retorna.
+\item[•]Al finalizar un llamado a la interfase \textit{ActivateTask} que retorna E$\_$OK.
+\item[•]Al finalizar un llamado a la interfase \textit{ChainTask} que no retorna.
+\item[•]Al finalizar un llamado a la interfase \textit{TerminateTask} que no retorna.
+\item[•]Al finalizar un llamado a la interfase \textit{ReleaseResource} que retorna E$\_$OK.
+\item[•]Al finalizar un llamado a la interfase \textit{SetEvent} que no retorna.
 \item[•]Al expirar una alarma que activa una tarea.
 \item[•]Al terminar la ejecución de una ISR de categoría 2
 \end{enumerate}
 \end{enumerate} 
+
+\subsection{Modos de Aplicación}
+Los Modos de Aplicación son designados sobre un Sistema Operativo OSEK, para trabajar sobre diferentes modos de operación. El número mínimo de modos de aplicación que puede soportar este Sistema Operativo es igual a 1. Un ejemplo que puede ilustrarse es la definición de dos modos de operación, uno para la operación normal del programa, y otro para la finalización de la misma.
+
+\subsection{Eventos}
+
+Los eventos son objetos manejados por el OS. Es posible considerarla de forma abstracta como un bit o un flag, que puede ser enmascarado.Dichos eventos pueden ser seteados o restablecidos utilizando Servicios del Sistema. Es importante destacar que solamente las Tareas del tipo \textit{EXTENDED} pueden utilizar esta herramienta para permitir la sincronización de las mismas. El Servicio del Sistema \textit{WaitEvent} permite esperar al suceso del evento, para poder realizar las instrucciones que contenga dicha Tarea.
+
+Las Tareas del tipo \textit{EXTENDED} típicamente poseen su propio \textit{stack} o pila que registra el suceso de dicho evento. Sin embargo, es muy importante destacar que este tipo de Tareas solo pueden ser activadas una sola vez.
+
+Un evento individual es identificado por el propietario de dicho evento, y por su nombre (denominado Máscara según la especificación).Cuando una Tarea de tipo \textit{EXTENDED} es activada, los eventos asignados a la misma son establecidos a 0 por el OS. El significado de un evento es definido por la aplicación; por ejempo, puede significar que ha expirado un \textit{Timer}, puede significar que se encuentra disponible un recurso, puede significar la recepción de un mensaje, etc.
+
+Existen varias opciones disponibles para manipular los eventos, tanto para las Tareas que son propietarias de dicho Evento, como de las demás Tareas que no son propietarias del Evento, las cuales no necesariamente deben ser Tareas del tipo \textit{EXTENDED}.
+
+Todas las Tareas e interrupciones del tipo \textit{ISR2} pueden indicar el suceso de un Evento e informarlo a la Tarea propietaria del evento (del tipo \textit{EXTENDED}) siempre y cuando no se encuentre en estado \textit{SUSPENDED}.Sin embargo, solamente la Tarea propietaria de dicho Evento puede restablecer el flag del Evento.
 \begin{thebibliography}{}
 \bibitem{origeneduciaa} {\footnotesize http://proyecto-ciaa.com.ar/devwiki/doku.php?id=proyecto:origen$\_$ciaa}
 
