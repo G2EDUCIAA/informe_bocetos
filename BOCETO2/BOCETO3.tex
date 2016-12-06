@@ -863,11 +863,11 @@ El Cuadro \ref{Tab3} explica los diferentes eventos que provocan las transicione
 \resizebox{18cm}{!}{
 \begin{tabular}{|l|l|l|l|}
 \hline\hline
-\textbf{Transicion} & \textbf{Estado Actual} & \textbf{Nuevo Estado} & \textbf{Descripcion}\\ \hline
-\textbf{activate}&suspended&ready&Una nueva tarea se asigna al estado \textit{Ready} por el OS.\\ \hline
-\textbf{start}&ready&running&Una Tarea en estado \textit{Ready} es seleccionada por el \textit{Scheduler} para ser ejecutada\\ \hline
-\textbf{preempt}&running&ready&El \textit{Scheduler} decide empezar otra Tarea. La Tarea que estaba en estado \textit{Running} se establece en estado \textit{Ready}.\\ \hline
-\textbf{terminate}&running&suspended&La tarea en estado \textit{Running} se establece en estado \textit{Suspended} gracias a la acción de algún servicio del sistema.\\ \hline
+\textbf{{\Large Transicion}} & \textbf{{\Large Estado Actual}} & \textbf{{\Large Nuevo Estado}} & \textbf{{\Large Descripcion}}\\ \hline
+\textbf{{\Large activate}}&{\Large suspended}&{\Large ready}&{\Large Una nueva tarea se asigna al estado} \textit{{\Large Ready}} {\Large por el OS}.\\ \hline
+\textbf{{\Large start}}&{\Large ready}&{\Large running}&{\Large Una Tarea en estado} \textit{{\Large Ready}} {\Large es seleccionada por el} \textit{{\Large Scheduler}} {\Large para ser ejecutada}\\ \hline
+\textbf{{\Large preempt}}&{\Large running}&{\Large ready}&{\Large El} \textit{{\Large Scheduler}} {\Large decide empezar otra Tarea. La Tarea que estaba en estado} \textit{{\Large Running}} {\Large se establece en estado} \textit{{\Large Ready}}.\\ \hline
+\textbf{{\Large terminate}}&{\Large running}&{\Large suspended}&{\Large La tarea en estado} \textit{{\Large Running}} {\Large se establece en estado} \textit{{\Large Suspended}} {\Large gracias a la acción de algún servicio del sistema}.\\ \hline
 \end{tabular}
 }
 \caption{Tabla de transiciones de las Tareas del tipo \textit{Basic}.}
@@ -901,13 +901,13 @@ El Cuadro \ref{Tab4} explica los diferentes eventos que provocan las transicione
 \resizebox{18cm}{!}{
 \begin{tabular}{|l|l|l|l|}
 \hline\hline
-\textbf{Transicion} & \textbf{Estado Actual} & \textbf{Nuevo Estado} & \textbf{Descripcion}\\ \hline
-\textbf{activate}&suspended&ready&Una nueva tarea se asigna al estado \textit{Ready} por el OS.\\ \hline
-\textbf{start}&ready&running&Una Tarea en estado \textit{Ready} es seleccionada por el \textit{Scheduler} para ser ejecutada\\ \hline
-\textbf{wait}&running&waiting&La tarea se establece en estado \textit{Waiting} debido a la accion de un Servicio del Sistema. \\ \hline
-\textbf{release}&waiting&ready&Al menos ocurrió un evento que esperaba la Tarea\\ \hline
-\textbf{preempt}&running&ready&El \textit{Scheduler}decide iniciar otra Tarea. La Tarea que se encontraba en estado \textit{Running}, se establece en estado \textit{Ready}.\\ \hline
-\textbf{terminate}&runnning&suspended&La Tarea en estado \textit{Running} se establece al estado \textit{Suspended} gracias a un Servicio del Sistema.
+\textbf{{\LARGE Transicion}} & \textbf{{\LARGE Estado Actual}} & \textbf{{\LARGE Nuevo Estado}} & \textbf{{\LARGE Descripcion}}\\ \hline
+\textbf{{\LARGE activate}}&{\LARGE suspended}&{\LARGE ready}&{\LARGE Una nueva tarea se asigna al estado }\textit{{\LARGE Ready}} {\LARGE por el OS}.\\ \hline
+\textbf{{\Large start}}&{\Large ready}&{\Large running}&{\Large Una Tarea en estado} \textit{{\Large Ready}} {\LARGE es seleccionada por el} \textit{{\Large Scheduler}} {\Large para ser ejecutada}\\ \hline
+\textbf{{\Large wait}}&{\Large running}&{\Large waiting}&{\Large La tarea se establece en estado} \textit{{\Large Waiting}} {\Large debido a la accion de un Servicio del Sistema.} \\ \hline
+\textbf{{\Large release}}&{\Large waiting}&{\Large ready}&{\Large Al menos ocurrió un evento que esperaba la Tarea}\\ \hline
+\textbf{{\Large preempt}}&{\Large running}&{\Large ready}&{\Large El} \textit{{\Large Scheduler}}{\Large decide iniciar otra Tarea. La Tarea que se encontraba en estado} \textit{{\Large Running}},{\Large  se establece en estado} \textit{{\Large Ready}}.\\ \hline
+\textbf{{\Large terminate}}&{\Large runnning}&{\Large suspended}&{\Large La Tarea en estado} \textit{{\Large Running}} {\Large se establece al estado} \textit{{\Large Suspended}} {\Large gracias a un Servicio del Sistema}.
 \end{tabular}
 }
 \caption{Transiciones de las Tareas del tipo \textit{Extended}.}
@@ -977,6 +977,93 @@ Existen varias opciones disponibles para manipular los eventos, tanto para las T
 Todas las Tareas e Interrupciones del tipo \textit{ISR2} pueden indicar el suceso de un Evento e informarlo a la Tarea propietaria del evento (del tipo \textit{EXTENDED}) siempre y cuando no se encuentre en estado \textit{SUSPENDED}.Sin embargo, solamente la Tarea propietaria de dicho Evento puede restablecer el flag del Evento.
 
 Debe destacarse que cuando una Tarea tipo \textit{EXTENDED}, se encuentra en estado \textit{Waiting}, se establece en el estado \textit{Ready} si al menos ocurre uno de los Eventos que dicha Tarea estaba esperando. Si una Tarea tipo \textit{EXTENDED} se encuentra ejecutándose y trata de esperar un Evento que ya haya ocurrido, dicha Tarea se mantiene en el estado \textit{Running}.
+
+\subsection{Clases de Conformidad}
+Con la finalidad de permitir que OSEK-OS pueda ser utilizado en una gran variedad de sistemas con diferentes capacidades y demandas (por ejemplo memoria, capacidad de procesamiento, etc.) es que OSEK-OS define 4 clases de conformidad (CC).
+
+Las diferentes clases existen para poder comparar entre sistemas, agrupar las interfaces según la clase de conformidad y facilitar la certificación de conformidad.
+
+Las clases de conformidad se determinan según los siguientes atributos: 
+
+\begin{enumerate}
+\item[•]Múltiple activaciónde tareas básicas.
+\item[•]Tipos de tareas aceptadas: básicasy extendidas.
+\item[•]Cantidad de tareas por prioridad.
+\end{enumerate}
+
+De esta forma se definen las siguientes clases de conformidad:
+\begin{enumerate}
+\item[•]BCC1: que soporta únicamente tareas  básicas con máximo una activación por tarea, y todas las tareas con prioridad diferente.
+\item[•]BCC2: como  BCC1 pero con más de una tarea por prioridad y las tareas soportan más de una activación.
+\item[•]ECC1: como BCC1 pero con tareas extendidas.
+\item[•]ECC2: como  ECC1 pero con más de una tarea por prioridad y las tareas soportan más de una activación.
+\end{enumerate}
+El OSEK-OS de la CIAA soporta todas las conformidades. Dependiendo de esta configuración el sistema decidirá si se implementa una clase BCC1 o ECC2. Por lo que para el usuario final del CIAA-Firmware es prácticamente irrelevante conocer las clases. El Firmware decide automáticamente y configura la clase de conformidad correcta según los requerimientos del usuario.La Figura 37 ilustra los conceptos presentados anteriormente.
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/f17.png}
+\caption{Clases de Conformidad.}
+\label{Fig34}
+\end{figure}
+
+
+\subsection{Configuración y Generación}\label{sec:generacionoil}
+Al ser OSEK-OS un sistema estático es necesario configurarlo. La cantidad de tareas, que prioridad tienen las mismas, el tamaño de pila que utilizan, etc. Para ello OSEK-VDX definió otro estándar llamado OSEK Implementation Language comúnmente llamado "OIL".
+
+OIL es un lenguaje textual con una sintaxis similar al lenguaje C donde se indican las características del sistema operativo como ser: tareas, prioridades, pila, interrupciones etc.El siguiente ejemplo ilustra al usuario sobre la generación de dicho archivo.
+
+\subsubsection{Implementacion de ejemplo N$^{\circ}$1: Tareas en OSEK}
+Este ejemplo utiliza los leds de la placa y un Display 7 Segmentos, para implementar un contador de numeros decimales, a través de una sola Tarea del tipo \textit{BASIC}.
+
+En primer lugar es necesario generar el archivo OIL para configurar el Sistema Operativo OSEK. A través del \textit{Bloc de Notas} o a través de cualquier editor de texto, debe iniciar la configuración a través de la sintaxis \textit{OSEK OSEK} y sobre los simbolos { y } ,se determinarán los restantes aspectos que tendra el OS.La Figura 38 ilustra lo mencionado anteriormente.
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=5 cm]{figuras/f18.png}
+\caption{Inicio de Archivo de Configuración.}
+\label{Fig35}
+\end{figure}
+
+Luego debe definirse mediante la sintaxis \textit{OS}, el nombre del sistema operativo (el cual es arbitrario, dado que se ha especificado en la instruccion anterior que se implementa un sistema operativo OSEK), la Figura ilustra el concepto explicado anteriormente.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=5 cm]{figuras/f19.png}
+\caption{Archivo de Configuración:Comienzo de especificación}
+\label{Fig36}
+\end{figure}
+
+A continuación debe definirse las siguientes configuraciones para el OS del ejemplo:
+
+\begin{enumerate}
+\item[•]El nivel de chequeo de errores que se pueden producir. Existen dos niveles que pueden determinarse:
+\begin{enumerate}
+\item[•]\textit{STANDARD}: Implica un chequeo mínimo de errores, se encuentra pensado para unidades de producción en serie.La instrucción utilizada es \textit{OS = STANDARD}. 
+\item[•]\textit{EXTENDED}: Implica un chequeo máximo de errores y \textit{debug hooks}.La instrucción utilizada es \textit{OS = EXTENDED}.
+\end{enumerate}
+\item[•]Funciones implementadas por el usuario que el OS llamará en circunstancias específicas, tales como:
+\begin{enumerate}
+\item[•]\textit{Startuphook}: es  llamada  durante  la  inicialización  del  sistema  operativo,  antes  de  ser completada. En caso de utilizarla se debe escribir la instrucción \textit{STARTUPHOOK = TRUE}; en caso contrario se debe asignar \textit{FALSE}.
+\item[•]\textit{Shutdownhook}: es llamada al finalizar el apagado del sistema operativo.En caso de utilizarla se debe escribir la instrucción \textit{SHUTDOWNHOOK = TRUE}; en caso contrario se debe asignar \textit{FALSE}.
+\item[•]\textit{Pretaskhook}: es llamada antes de proceder a ejecutar una tarea.En caso de utilizarla se debe escribir la instrucción \textit{PRETASKHOOK = TRUE}; en caso contrario se debe asignar \textit{FALSE}.
+\item[•]\textit{Posttaskhook}:es llamada al finalizar la ejecución de una tarea.En caso de utilizarla se debe escribir la instrucción \textit{POSTTASKHOOK = TRUE}; en caso contrario se debe asignar \textit{FALSE}.
+\item[•]\textit{Errorhook}:es llamada en caso de que alguna de las interfaces del sistema operativo retorne un valor distinto a E$\_$OK.En caso de utilizarla se debe escribir la instrucción \textit{ERRORHOOK = TRUE}; en caso contrario se debe asignar \textit{FALSE}.
+\end{enumerate}
+\item[•]Uso del \textit{Scheduler} como recurso.
+\item[•]Uso del mapa de memoria.
+\end{enumerate}
+La Figura  ilustra un OS configurado de forma que el nivel de chequeo de errores sea el mínimo, y solamente se defina una función para en caso de un error producido en el OS.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=5 cm]{figuras/f20.png}
+\caption{Archivo de Configuración:Ejemplo de especificación de OS}
+\label{Fig37}
+\end{figure}
+
 \begin{thebibliography}{}
 \bibitem{origeneduciaa} {\footnotesize http://proyecto-ciaa.com.ar/devwiki/doku.php?id=proyecto:origen$\_$ciaa}
 
