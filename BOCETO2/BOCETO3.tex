@@ -285,16 +285,12 @@ Luego de dicha configuración, se inicia automáticamente el proceso de instalac
 \label{Fig8}
 \end{figure}
 \end{center}
-
-
 \begin{figure}[!h]
 \centering
 \includegraphics[width=6 cm]{figuras/instalacion6.png}\\
 \caption{Instalación de drivers si se dispone del hardware}
 \label{Fig9}
 \end{figure}
-
-Una vez finalizada esta etapa, se procede a la instalación de los drivers por defecto del fabricante FTDI para puerto virtual. Este proceso se ilustra en las figuras \ref{driversFTDI} ,\ref{Fig10},\ref{Fig11},\ref{Fig12} y \ref{Fig13}.
 \begin{center}
 \begin{figure}[!h]
 \centering
@@ -303,6 +299,8 @@ Una vez finalizada esta etapa, se procede a la instalación de los drivers por d
 \label{driversFTDI}
 \end{figure}
 \end{center}
+Una vez finalizada esta etapa, se procede a la instalación de los drivers por defecto del fabricante FTDI para puerto virtual. Este proceso se ilustra en las figuras \ref{driversFTDI} ,\ref{Fig10},\ref{Fig11},\ref{Fig12} y \ref{Fig13}.
+
 \begin{center}
 \begin{figure}[!h]
 \centering
@@ -641,10 +639,6 @@ La instrucción \textit{analogConfig( ENABLE$\_$ANALOG$\_$INPUTS )} se encarga d
 En este código se utiliza el modulo conversor analógico digital de la placa, para efectuar la lectura de una entrada analógica sobre esta. En el caso que dicha medición sea superior a 2[V], se establece una salida analógica de 2[V] utilizando el módulo conversor digital analógico. De forma similar, si la tensión de entrada resulta mayor a 4[V], se define una salida analógica de 3[V].
 Es necesario destacar que la placa ya integra internamente el conversor digital analógico, de modo que no es necesario realizar una interfaz para la ejecución de dicha salida, además, es necesario destacar que la tensión de referencia interna se encuentra establecida, y adquiere un valor igual a 3.3[V]. La Figura \ref{Fig26} ilustra el esquemático que muestra dicho concepto.
 
-La instrucción \textit{analogRead()}, permite realizar la lectura de la tensión aplicada sobre el canal 1 del modulo ADC0 de la placa. A partir de la conversión a tensión, el programa aplica la tensión de salida correspondiente.
-
-Este ejemplo también utiliza maquina de estado para establecer un orden sobre los eventos y las acciones que debe ejecutar el procesador.A continuación se realiza una breve descripción de los estados, eventos y acciones que contiene este programa.
-
 \begin{center}
 \begin{figure}[!h]
 \centering
@@ -653,6 +647,10 @@ Este ejemplo también utiliza maquina de estado para establecer un orden sobre l
 \label{Fig26}
 \end{figure}
 \end{center}
+
+La instrucción \textit{analogRead()}, permite realizar la lectura de la tensión aplicada sobre el canal 1 del modulo ADC0 de la placa. A partir de la conversión a tensión, el programa aplica la tensión de salida correspondiente.
+
+Este ejemplo también utiliza maquina de estado para establecer un orden sobre los eventos y las acciones que debe ejecutar el procesador.A continuación se realiza una breve descripción de los estados, eventos y acciones que contiene este programa.
 
 \begin{enumerate}
 \item[•]\underline{Estados}:
@@ -689,7 +687,7 @@ La Figura \ref{Fig28} ilustra el diagrama de estados que corresponde al ejemplo
 
 
 
-\subsubsection{Implementacion de ejemplo N$^{\circ}$6: Comunicación Serial}
+\subsubsection{Implementacion de ejemplo N$^{\circ}$6: Comunicación Serial}\label{sec:serial}
 El siguiente ejemplo introduce al usuario en la utilización de comunicación serial, es necesario destacar que para la implementación del ejemplo se utiliza el programa \textit{Octoplus Terminal} para la visualización y simulación del envío y transmisión de datos a través del terminal conectado sobre el puerto USB.
 
 El programa se encuentra disponible de forma gratuita en la dirección web \textit{http://octoplus-terminal.software.informer.com/download/}. La instalación de dicho programa es simple, sin embargo, es necesario destacar que durante dicho proceso, el usuario debe obviar la instalación de los drivers que provee dicho programa.
@@ -978,7 +976,7 @@ Para solventar dicho error, una alternativa propuesta es la siguiente:
 \end{figure}
 \end{enumerate}\underline{Archivos Makefile utilizados sobre cada ejemplo}: \\
 Otro aspecto que es necesario destacar es que para la implementación de los siguientes ejemplos se utiliza el archivo \textit{Makefile} proporcionado en los ejemplos del \textit{Firmware} de la \textit{CIAA}.
-\subsubsection{Implementacion de ejemplo N$^{\circ}$1: Tareas en OSEK}
+\subsubsection{Implementacion de ejemplo N$^{\circ}$1: Tareas en OSEK}\label{sec:tareasOSEK}
 Este ejemplo utiliza los leds de la placa y un Display 7 Segmentos, para implementar un contador de numeros decimales, a través de una sola Tarea del tipo \textit{BASIC}.
 
 En primer lugar es necesario generar el archivo OIL para configurar el Sistema Operativo OSEK. Sobre el IDE de la placa, debe agregarse un nuevo directorio, realizando click derecho sobre \textit{Firmware}, luego se selecciona la opción \textit{New} $\rightarrow$ \textit{Folder}; a continuación se abre una ventana que permite designar el nombre de dicho directorio, en el cual se ubica el proyecto que se implementa. El usuario debe recordar que para compilar dicho proyecto debe establecer la ruta que le corresponde sobre el archivo \textit{Makefile}. Asimismo, deben agregarse los directorios \textit{etc}, \textit{mak}, \textit{inc}, y \textit{src}, sobre el directorio creado recientemente.
@@ -1022,19 +1020,19 @@ En particular el módulo \textit{sAPI$\_$Uart} puede ser compatible en el caso q
 \label{modificacionuart}
 \end{figure}
 
-Sobre el archivo \textit{sAPI$\_$Uart.c}, debe realizar las siguientes modificaciones:
-
+Sobre el archivo \textit{sAPI$\_$Uart.c}, debe realizar las modificaciones que se muestran en las Figuras \ref{modificacionuart2} y \ref{modificacionuart3}.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=8 cm]{figuras/f30.png}
 \caption{Modificación para compatibilidad de módulo sAPI$\_$Uart.Parte 2}
 \label{modificacionuart2}
 \end{figure}
+Para finalizar la inclusión de dichos módulos, el usuario debe eliminar las inclusiones realizadas sobre el archivo cabecera \textit{sAPI.h}. La Figura \ref{ejemploinclusion} ejemplifica la inclusión de el módulo \textit{sAPI$\_$DigitalIO.h}.
 
-Sobre el final del mismo archivo debe realizar la modificación ilustrada en la Figura \ref{modificacionuart3}.
+Debe destacarse que es necesaria la inclusión de las librerias \textit{sAPI$\_$Board.h},\textit{sAPI$\_$DataTypes.h} y \textit{sAPI$\_$PeripheralMap.h}. En primer lugar para la definición de la placa a utilizar, en segundo lugar los tipos de datos definidos por la librería, y por último para la inclusión de las definiciónes de los terminales para los periféricos.\\
+\underline{Generación de archivo OIL}:
 
-Para la inclusión de dichos módulos, el usuario debe eliminar las inclusiones realizadas sobre el archivo cabecera \textit{sAPI.h}. La Figura \ref{ejemploinclusion} ejemplifica la inclusión de el módulo \textit{sAPI$\_$DigitalIO.h}. Debe destacarse que es necesaria la inclusión de las librerias \textit{sAPI$\_$Board.h},\textit{sAPI$\_$DataTypes.h} y \textit{sAPI$\_$PeripheralMap.h}. En primer lugar para la definición de la placa a utilizar, en segundo lugar los tipos de datos definidos por la librería, y por último para la inclusión de las definiciónes de los terminales para los periféricos.
-
+A través del \textit{Bloc de Notas} o a través de cualquier editor de texto, debe iniciar la configuración a través de la sintaxis \textit{OSEK OSEK} y sobre los simbolos $\lbrace$ y $\rbrace$ ,se determinarán los restantes aspectos que tendra el OS. La Figura \ref{Fig35} ilustra lo mencionado anteriormente.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=8 cm]{figuras/f31.png}
@@ -1047,9 +1045,8 @@ Para la inclusión de dichos módulos, el usuario debe eliminar las inclusiones 
 \includegraphics[width=8 cm]{figuras/f32.png}
 \caption{Ejemplo de inclusion de módulo de entradas y salidas digitales.}
 \label{ejemploinclusion}
-\end{figure}\underline{Generación de archivo OIL}:
+\end{figure}
 
-A través del \textit{Bloc de Notas} o a través de cualquier editor de texto, debe iniciar la configuración a través de la sintaxis \textit{OSEK OSEK} y sobre los simbolos $\lbrace$ y $\rbrace$ ,se determinarán los restantes aspectos que tendra el OS. La Figura 38 ilustra lo mencionado anteriormente.
 \begin{center}
 \begin{figure}[!h]
 \centering
@@ -1083,7 +1080,7 @@ A continuación debe definirse las siguientes configuraciones para el OS del eje
 \begin{figure}[!h]
 \centering
 \includegraphics[width=5 cm]{figuras/f19.png}
-\caption{Archivo de Configuración:Comienzo de especificación}
+\caption{Archivo de Configuración.Comienzo de especificación}
 \label{Fig36}
 \end{figure}
 
@@ -1121,18 +1118,16 @@ El siguiente ejemplo pretende demostrar como pueden implementarse varias Tareas 
 En este caso, se desea implementar un programa que  permita encender los leds incorporados en la placa de izquierda a derecha, oprimiendo \textit{TEC1,TEC2,TEC3,TEC4} en el mismo orden.
 
 Se realiza la definición de una Tarea que establece la configuración inicial de la placa, de forma similar al ejemplo anterior, sin embargo, dicha Tarea produce la activación de otra denominada \textit{LEDUNO}, la cual permite el encendido del LED1 (es importante aclarar en esta instancia para evitar posibles problemas al usuario, que para la implementación de otros programas, es recomendable que al definir nombres para las Tareas, éstos sean distintos a definiciones o nombres de funciones de bibliotecas incorporadas ).
-
-La tarea \textit{LEDB} se reactiva automáticamente a través de la instrucción del Sistema Operativo \textit{ChainTask()}, salvo que se oprima la tecla \textit{TEC1}, en cuyo caso el código procede a encender el \textit{LEDB}, y posteriormente activa la Tarea siguiente y finaliza la que se encuentra ejecutando, a través de las instrucciones \textit{ActivateTask()} y \textit{TerminateTask()}. Las siguientes Tareas poseen una estructura similar.
-
-Es importante destacar que las Tareas \textbf{LEDB,LED1,LED2,LED3}, no son interrumpidas  en el momento de la activación de la posterior Tarea que le corresponde, debido a que en el archivo de configuración se establece el valor \textit{NON} sobre el atributo \textit{SCHEDULE}(Es posible consultar la Figura \ref{Fig38}). La Figura \ref{Fig40} ilustra la estructura de este ejemplo.
-\begin{center}
 \begin{figure}[!h]
 \centering
 \includegraphics[width=5 cm]{figuras/f23.png}
 \caption{Estructura general de archivo fuente de Ejemplo N$^{\circ}$2}
 \label{Fig40}
 \end{figure}
-\end{center}
+La tarea \textit{LEDB} se reactiva automáticamente a través de la instrucción del Sistema Operativo \textit{ChainTask()}, salvo que se oprima la tecla \textit{TEC1}, en cuyo caso el código procede a encender el \textit{LEDB}, y posteriormente activa la Tarea siguiente y finaliza la que se encuentra ejecutando, a través de las instrucciones \textit{ActivateTask()} y \textit{TerminateTask()}. Las siguientes Tareas poseen una estructura similar.
+
+Es importante destacar que las Tareas \textbf{LEDB,LED1,LED2,LED3}, no son interrumpidas  en el momento de la activación de la posterior Tarea que le corresponde, debido a que en el archivo de configuración se establece el valor \textit{NON} sobre el atributo \textit{SCHEDULE}(Es posible consultar la Figura \ref{Fig38}). La Figura \ref{Fig40} ilustra la estructura de este ejemplo.
+
 \subsubsection{Implementacion de ejemplo N$^{\circ}$3: Eventos en OSEK}
 Este ejemplo pretende brindar al usuario una introducción al manejo de las Tareas del tipo \textit{EXTENDED} a través de los Eventos. Se pretende encender el \textit{LED1} de la placa en el instante en que el usuario oprima la tecla \textit{TEC1}, a continuación, se desea encender el \textit{LED2} de la placa oprimiento la tecla \textit{TEC2}.
 
@@ -1143,14 +1138,14 @@ La Figura \ref{Fig41} ilustra la transición que se produce entre las Tareas a t
 \begin{center}
 \begin{figure}[!h]
 \centering
-\includegraphics[width=5 cm]{figuras/f26.png}
+\includegraphics[width=10 cm]{figuras/f26.png}
 \caption{Transición de las Tareas mediante Eventos en Ejemplo N$^{\circ}$3}
 \label{Fig41}
 \end{figure}
 \end{center}
 
 \subsection{Alarmas}
-Las alarmas son herramientas que proporciona el Sistema Operativo \textit{OSEK} para la ejecución de una acción luego de determinado tiempo \cite{librodeosekcerdeiro}.Éstas pueden realizar tres tipos de acciones:
+Las alarmas son herramientas que proporciona el Sistema Operativo \textit{OSEK} para la ejecución de una acción luego de determinado tiempo \cite{libroosekcerdeiro}.Éstas pueden realizar tres tipos de acciones:
 \begin{enumerate}
 \item[•]Activar una tarea.
 \item[•]Establecer un evento de una tarea.
@@ -1182,10 +1177,111 @@ En caso de que haya ocurrido el Evento \textit{primersecuencia} o \textit{segsec
 \end{figure}
 \end{center}
 
-\subsubsection{Implementacion de ejemplo N$^{\circ}$4: Alarmas en OSEK}
+\subsubsection{Implementacion de ejemplo N$^{\circ}$5: Alarmas en OSEK}
 En este ejemplo se utilizan las Alarmas para permitir la activación de una Tarea en forma periódica. En particular, esta Alarma activa una Tarea la cual permite la lectura analógica sobre el canal 1 del \textit{ADC0} de la placa.
 
-Se realiza la definición de la Tarea 
+Se realiza la definición de la Tarea \textit{lectura$\_$periodica}, la cuál se activa cada 500[ms], gracias a la previa activación de la Alarma \textit{Activa$\_$lecturaperiodica} mediante la instrucción \textit{SetRelAlarm()}. En caso que la lectura sea igual a 1[V], 2[V], 3[V], 4[V] o 5[V]; se efectúa la muestra sobre el Display 7 Segmentos del valor correspondiente. La Figura \ref{estructuraej5} ilustra la estructura del archivo fuente de este ejemplo:
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=15 cm]{figuras/f36.png}
+\caption{Estructura y funcionamiento de archivo fuente en Ejemplo N$^{\circ}$5}
+\label{estructuraej5}
+\end{figure}
+\end{center}
+\subsection{Interrupciones}
+Las funciones para realizar la atención de las distintas interrupciones sobre el programa se pueden subdividir en 2 categorías\cite{libroosekcerdeiro}:
+\begin{enumerate}
+\item[•]Interrupciones del tipo \textbf{ISR1}: Éste tipo de interrupciones son transparentes al Sistema Operativo \textit{OSEK} y por ello no pueden utilizar casi ninguna interfaz del Sistema Operativo.
+\item[•]Interrupciones del tipo \textbf{ISR2}: Éste tipo de interrupciones tienen una mínima intervención del Sistema Operativo, y por ello pueden utilizar algunas interfaces del Sistema Operativo. Puede consultarse como referencia el \textit{Introducción a OSEK-OS: El Sistema Operativo del CIAA-Firmware} sobre la Tabla A1 de la página 51 y 52 para consultar las instrucciones del Sistema Operativo que pueden utilizarse según el contexto.
+\end{enumerate}
+
+Sin importar si se trata de una tarea \textit{PREEMPTIVE} o \textit{NON PREEMPTIVE} la misma va a ser interrumpida si se recibe una interrupción. En caso de querer evitar esto el sistema operativo provee al usuario las siguientes
+interfaces para desactivar las interrupciones:
+\begin{enumerate}
+\item[•]\textit{DisableAllInterrupts}
+\item[•]\textit{EnableAllInterrupts}
+\item[•]\textit{SuspendAllInterrupts}
+\item[•]\textit{ResumeAllInterrupts}
+\item[•]\textit{SuspendOSInterrupts}
+\item[•]\textit{ResumeOSInterrupts}
+\end{enumerate}
+
+\subsubsection{Implementacion de ejemplo N$^{\circ}$6: Interrupciones en OSEK}
+En este ejemplo se busca ilustrar al usuario a la utilización de Interrupciones en \textit{OSEK}. En particular, este ejemplo implementa una interrupción externa, a través de la utilización de una librería creada por Pablo Ridolfi\cite{enlacelibreriainterrupcion}. Para la inclusión de dicha librería, se debe proceder de forma similar que la explicada en la sección \ref{sec:tareasOSEK}.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=5 cm]{figuras/f34.png}
+\caption{Definición de Interrupción sobre Ejemplo N$^{\circ}$6}
+\label{Fig43}
+\end{figure}
+Sobre la Tarea \textit{Inicializar} se realiza la habilitación de la interrupción a través del GPIO0 (el cuál se encuentra configurado sobre el pin perteneciente a la tecla \textit{TEC4} incorporada a la placa) mediante la instrucción (previamente definida sobre el archivo cabecera que pertenece a la librería) \textit{ciaaGpioIntEnable(0, appIrqHandler)}.
+
+Sobre el primer parámetro de dicha instrucción se especifica el canal utilizado. En este caso la librería utiliza el canal 0, el cual indica que se trabaja sobre el Registro de selección de Pines de Interrupción N$^{\circ}$0 (denominado registro \textit{PINTSEL 0}).
+
+Sobre el segundo parámetro utilizado se especifica el \textit{Handler} de interrupción utilizado, en este caso la librería la denomina \textit{appIrqHandler}.
+
+Sobre el archivo de configuración del Sistema Operativo se define una Interrupción denominada \textit{GPIOINTHandler0}. La Figura \ref{Fig43} ilustra dicha definición sobre el archivo \textit{OIL} y la interpretación de los parámetros establecidos sobre dicha Interrupción.
+
+Es importante aclarar en esta instancia que es conveniente definir para los nombres de las interrupciones, nombres distintos a las definiciones de interrupciones previamente declaradas sobre el Firmware, dado que se genera conflictos. Es posible ver que sobre el parámetro \textit{CATEGORY} se debe establecer el tipo de Interrupción a implementar, en caso de que la interrupción sea del tipo \textit{ISR1} debe asignarse el valor 1 sobre este atributo, en cambio, si dicha Interrupción es del tipo \textit{ISR2} debe asignarse el valor 2.
+\begin{figure}[!h]
+\centering
+\includegraphics[width=12 cm]{figuras/f37.png}
+\caption{Estructura de archivo fuente en Ejemplo N$^{\circ}$6}
+\label{estructuraej6}
+\end{figure}
+Sobre el parámetro \textit{INTERRUPT} debe indicarse el nombre de la interrupción. Es importante tener en cuenta que dicho nombre es específico de cada implementación de Sistema Operativo, en este caso en particular, el nombre de la interrupción asociada tiene como nombre \textit{GPIO0}.
+
+Puede observarse los nombres de las interrupciónes asociadas en esta implementación de \textit{OSEK}, sobre el archivo \textit{Os$\_$Internal$\_$Arch$\_$Cfg.c.php} ubicado sobre la siguiente ruta:
+
+{\footnotesize \textit{Firmware/modules/rtos/gen/src/CortexM4}}.
+
+Cuando la interrupción externa se produce el establecimiento de una tensión de salida analógica a través del uso del DAC, la magnitud de la tensión es igual a 1[V],2[V] o 3.3[V], según se aprete una, dos o tres veces la tecla asignada a la interrupción externa (\textit{TEC4}). La Figura \ref{estructuraej6} ilustra el funcionamiento y la estructura del archivo fuente del ejemplo.
+
+\subsubsection{Implementacion de ejemplo N$^{\circ}$7: Interrupciones en OSEK}
+En este ejemplo se implementa comunicación serial mediante la interrupción sobre el módulo UART del microprocesador. Para la inclusión del módulo \textit{sAPI$\_$Uart} debe realizarse los procedimientos explicados en la sección \ref{sec:tareasOSEK}. 
+
+En particular este ejemplo realiza la recepción a través de una Interrupción producida por la UART, de manera tal que provoque un Evento denominado \textit{palabra}. A continuación la Tarea asociada a dicho Evento identifica si el caracter recibido es igual a "L", en cuyo caso, se establece el envío de la palabra "\textit{Recibido caracter deseado}". Sobre el archivo de configuración se define la interrupción \textit{UART2}, la cual se ilustra sobre la Figura \ref{Fig44}. Es importante destacar que el nombre utilizado en la interrupción puede definirse arbitrariamente, mientras que el nombre de la interrupción establecido sobre el parámetro \textit{INTERRUPT} es \textit{UART2}, el cuál es el nombre que esta implementación de \textit{OSEK} ha utilizado.
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=5 cm]{figuras/f35.png}
+\caption{Definición de Interrupción sobre Ejemplo N$^{\circ}$7}
+\label{Fig44}
+\end{figure}
+\end{center}
+
+La Figura \ref{Fig45} ilustra la estructura y el funcionamiento del ejemplo.
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=15 cm]{figuras/f38.png}
+\caption{Estructura y funcionamiento de archivo fuente sobre Ejemplo N$^{\circ}$7}
+\label{Fig45}
+\end{figure}
+\end{center}
+\subsubsection{Implementacion de ejemplo N$^{\circ}$8: Interrupciones en OSEK}
+El siguiente ejemplo permite mostrar como puede implementarse la interrupción por recepción de datos sobre el módulo UART, de manera tal que el usuario pueda interactuar con el programa, a través del envío de datos sobre el puerto serial con el programa \textit{Octoplus}. Para efectuar la implementación de este ejemplo, el usuario puede recurrir a la sección \ref{sec:serial} para repasar el modo de utilización de dicho programa.
+
+Sobre el archivo de configuración se efectúa la definición de una Tarea denominada \textit{BLINKING}, en la cuál se realiza la identificación del evento establecido y su posterior acción de manera similar a la que se aplica sobre el ejemplo N$^{\circ}$4. 
+
+Dicha Tarea realiza un blinkeo del \textit{LED1} de la placa, igual a un numero de veces determinado por un solo caracter recibido sobre el puerto serial. De modo que el \textit{LED1} puede ejecutar el blinkeo entre 1 y 9 veces.
+
+Para efectuar la recepción del caracter se implementa una interrupción del tipo \textit{ISR2} denominada \textit{UART2} en la cual se efectúa la lectura del caracter recibido a través de la función \textit{leerUART()}. A continuación, se produce el pasaje hacia el número entero asociado a dicha letra recibida. Finalmente se realiza la activación de la Tarea \textit{BLINKING} y el establecimiento del evento \textit{recepcion}, el cual esta asociado a dicha Tarea. Es necesario destacar la utilización de la variable global \textit{conversion} para el control de la cantidad de veces que debe realizarse el blinking. La Figura  ilustra esquemáticamente la estructura y el comportamiento del archivo fuente del ejemplo.
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=15 cm]{figuras/f39.png}
+\caption{Estructura y funcionamiento de archivo fuente sobre Ejemplo N$^{\circ}$8}
+\label{Fig46}
+\end{figure}
+\end{center}
+\subsubsection{Implementacion de ejemplo N$^{\circ}$9: Interrupciones en OSEK}
+El siguiente ejemplo tiene como objetivo efectuar la medición de una tensión de entrada sobre el 
 \begin{thebibliography}{}
 \bibitem{origeneduciaa} {\footnotesize http://proyecto-ciaa.com.ar/devwiki/doku.php?id=proyecto:origen$\_$ciaa}
 
@@ -1229,6 +1325,10 @@ Fecha: 30/10/16 16:00 pm.
 \bibitem{direccionwebproblemaFALSE} Extraído de pagina web:
 
 {\footnotesize https://groups.google.com/forum/$\#$!searchin/ciaa-firmware/boolean\%7Csort:relevance/ciaa-firmware/SNLmTVZbIkk/iSPYr-l-EAAJ}
+
+\bibitem{enlacelibreriainterrupcion} Enlace web de repositorio de librería que implementa interrupción externa sobre GPIO0:
+
+{\footnotesize https://gitlab.com/pridolfi/rtos$\_$ii$\_$ejercicios/tree/master/gpioint}
 \end{thebibliography}
 
 \end{document}
