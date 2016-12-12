@@ -20,12 +20,12 @@
 \fancyfoot[RO]{\thepage}
 \begin{document}
 %insertar portada
-%\includepdf{figuras/Caratula}
+\includepdf{figuras/CARATULA}
 
 \tableofcontents
 
 \section{Introducci\'on}
-En este trabajo se pretende desarrollar un tutorial que permita al usuario neófito poder iniciar sus primeros proyectos usando RTOS y comprender la arquitectura de los procesadores Cortex.
+En este trabajo se pretende desarrollar un tutorial que permita al usuario poder iniciar sus primeros proyectos usando RTOS y comprender la arquitectura de los procesadores Cortex.
 Este estudio aborda en primer lugar, las características principales de la placa y la correcta instalación del software sobre Windows para permitir el desarrollo de códigos sobre ella; además se incluyen posibles problemas que puedan suceder en el proceso junto con sus soluciones.
 
 La siguiente sección comienza introduciendo al usuario en el uso de la placa a través de la biblioteca \textit{sAPI} (realizada por Eric Pernia) ésta nos permite el desarrollo de programas utilizando lenguaje C. La idea es brindar una explicación simple de la arquitectura de los procesadores Cortex y a su vez brindar una base para la siguiente sección del informe.
@@ -756,7 +756,7 @@ Sobre la Figura \ref{Fig31} se ilustra el diagrama esquemático para el conexion
 \end{center}
 
 \section{Sistemas Operativos en Tiempo Real}
-Un Sistema Operativo es un conjunto de programas que ayuda al programador de aplicaciones a gestionar recursos de hardware disponible, entre ellos el tiempo del procesador y la memoria (citar).
+Un Sistema Operativo es un conjunto de programas que ayuda al programador de aplicaciones a gestionar recursos de hardware disponible, entre ellos el tiempo del procesador y la memoria \cite{sase2011}.
 Una parte del OS se encarga de asignar el tiempo de ejecución a todos los programas que tiene cargados en base a un juego de reglas conocido de antemano. A dichos subprogramas se los denomina Tareas.
 
 Con esto se logra aparentar que múltiples programas se están ejecutando simultaneamente, sin embargo solo pueden hacerlo de uno a la vez.
@@ -774,12 +774,12 @@ El RTOS ofrece funcionalidad para asegurar que una vez ocurrido un evento, la re
 \subsection{Tareas}\label{sec:tareas}
 El bloque básico de software escrito sobre un RTOS es la Tarea, sobre la mayoria de las RTOS que se ofrecen en el mercado, una Tarea es una simple subrutina\cite{librodertoseningles}.
 
-Una Tarea provee un contexto en el cual se ejecuten las funciones.Mientras que el Scheduler organiza la secuencia de ejecución de las tareas(referencia os223).
-En algún punto del programa se produce el llamado a alguna función que produzca la ejecución de dicha tarea(referencia libro).
+Una Tarea provee un contexto en el cual se ejecuten las funciones.Mientras que el Scheduler organiza la secuencia de ejecución de las tareas\cite{os223}.
+En algún punto del programa se produce el llamado a alguna función que produzca la ejecución de dicha tarea\cite{librodertoseningles}.
 
-En el sistema operativo OSEK las Tareas deben ser definidas en la configuración, de manera que no es posible crear Tareas de forma dinámica (a diferencia de los Sistemas Operativos de escritorio). En el momento de la compilación se genera el código del sistema operativo y se definen la cantidad de Tareas y sus características. Además deben utilizarse macros para las definiciones y las funciones (a dichas funciones se las suele denominar Servicios del Sistema ) que ofrece este Sistema Operativo, para ello, debe incluirse sobre el programa, \textit{os.h}.
+En el sistema operativo OSEK las Tareas deben ser definidas en la configuración, de manera que no es posible crear Tareas de forma dinámica (a diferencia de los Sistemas Operativos de escritorio)\cite{libroosekcerdeiro}. En el momento de la compilación se genera el código del sistema operativo y se definen la cantidad de Tareas y sus características. Además deben utilizarse macros para las definiciones y las funciones (a dichas funciones se las suele denominar Servicios del Sistema ) que ofrece este Sistema Operativo, para ello, debe incluirse sobre el programa, el archivo cabecera \textit{os.h}.
 
-Este sistema operativo ofrece dos conceptos distintos de Tareas:
+Este sistema operativo ofrece dos conceptos distintos de Tareas\cite{os223}:
 \begin{enumerate}
 \item[•]Tareas del tipo \emph{BASIC}:Este tipo de Tareas solamente libera al procesador en los siguientes casos:
 \begin{enumerate}
@@ -846,8 +846,7 @@ La Figura \ref{Fig33} ilustra los conceptos explicados previamente.
 \end{figure}
 \end{center}
 
-El Cuadro \ref{Tab4} explica los diferentes eventos que provocan las transiciones entre los estados. 
-
+El Cuadro \ref{Tab4} explica los diferentes eventos que provocan las transiciones entre los estados.
 \begin{table}[h]
 \begin{center}
 \resizebox{18cm}{!}{
@@ -866,34 +865,28 @@ El Cuadro \ref{Tab4} explica los diferentes eventos que provocan las transicione
 \label{Tab4}
 \end{center}
 \end{table}
-
+ \\
 \underline{Activación de Tareas}: 
 
-La activación de una Tarea es realizada mediante el Servicio del Sistema \textit{ActivateTask} o por \textit{ChainTask}. Luego de la activación de una Tarea, ésta se encuentra lista para ejecutarse desde su primer instrucción. En el caso que se produzcan múltiples activaciones de una Tarea del tipo \textit{BASIC}, el Sistema Operativo OSEK almacena estas activaciones paralelas, siempre y cuando se haya definido sobre éste, una clase de conformidad.
-
+La activación de una Tarea es realizada mediante el Servicio del Sistema \textit{ActivateTask} o por \textit{ChainTask}\cite{os223}. Luego de la activación de una Tarea, ésta se encuentra lista para ejecutarse desde su primer instrucción. En el caso que se produzcan múltiples activaciones de una Tarea del tipo \textit{BASIC}, el Sistema Operativo OSEK almacena estas activaciones paralelas, siempre y cuando se haya definido sobre éste, una clase de conformidad.\\
 \underline{Finalización de las tareas}:
 
 En el Sistema Operativo OSEK, una Tarea solo puede finalizarse por acción propia, mediante el Servicio del Sistema \textit{TerminateTask}. Cabe destacar que el Servicio del Sistema \textit{ChainTask} provee una forma de realizar la activación de una Tarea determinada, justo después de la finalización de la Tarea que se encuentra corriendo.
 
-Esta estrictamente prohibido realizar una Tarea que no finalize con alguno de estos dos Servicios del Sistema, dado que puede ocasionar un comportamiento indefinido.
-
+Esta estrictamente prohibido realizar una Tarea que no finalize con alguno de estos dos Servicios del Sistema, dado que puede ocasionar un comportamiento indefinido.\\
 \underline{Prioridad de las tareas}:
 
-La asignación de prioridades sobre las Tareas se realiza a través de la definición de números enteros desde 0 hasta 255. Mientras mayor es el valor del numero, mayor será la prioridad.Una Tarea que se encuentra corriendo, no puede ser interrumpida por una de menor o igual prioridad.
+La asignación de prioridades sobre las Tareas se realiza a través de la definición de números enteros desde 0 hasta 255\cite{libroosekcerdeiro}. Mientras mayor es el valor del numero, mayor será la prioridad.Una Tarea que se encuentra corriendo, no puede ser interrumpida por una de menor o igual prioridad.
 \subsection{Scheduler}\label{sec:scheduler}
-El algoritmo del Scheduler puede ser visto fundamentalmente como un coordinador de Tareas con las prioridades ya establecidas, en el cual se define un número máximo de activaciones de las mismas. El sistema operativo OSEK define tres politicas de \textit{Scheduling}, las cuales se mencionan a continuación.
-
+El algoritmo del Scheduler puede ser visto fundamentalmente como un coordinador de Tareas con las prioridades ya establecidas, en el cual se define un número máximo de activaciones de las mismas. El sistema operativo OSEK define tres politicas de \textit{Scheduling}, las cuales se mencionan a continuación.\\
 \underline{\textit{Scheduling Full Preemptive}}:
 
 Esta politica de \textit{Scheduling} implica que una Tarea que se encuentra en el estado \textit{Running} puede ser interrupida sobre cualquier instrucción, como consecuencia de la ocurrencia de alguna condición o evento; que ya se encuentre definido previamente sobre el OS. \textit{Full Preemptive Scheduling} determinará que una Tarea en el estado \textit{Running} sea establecido en el estado \textit{Ready}, tan pronto como una Tarea de mayor prioridad se establezca en estado \textit{\textit{Ready}}.
 
-El contexto de la Tarea será almacenado de forma que la Tarea que fue interrumpida pueda continuar sobre la instancia en donde fue interrumpida.
-
+El contexto de la Tarea será almacenado de forma que la Tarea que fue interrumpida pueda continuar sobre la instancia en donde fue interrumpida.\\
 \underline{\textit{Scheduling Non Preemptive}}:
 
-Cuando el cambio de Tareas solo se produce mediante la ejecución de algún Servicio del Sistema (explicitados en los puntos de \textit{Scheduling}).
-
-
+Cuando el cambio de Tareas solo se produce mediante la ejecución de algún Servicio del Sistema (explicitados en los puntos de \textit{Scheduling}).\\
 \underline{Puntos de \textit{Scheduling}}:
 
 \begin{enumerate}
@@ -926,16 +919,14 @@ Un evento individual es identificado por el propietario de dicho evento, y por s
 
 Existen varias opciones disponibles para manipular los eventos, tanto para las Tareas que son propietarias de dicho Evento, como de las demás Tareas que no son propietarias del Evento, las cuales no necesariamente deben ser Tareas del tipo \textit{EXTENDED}.
 
-Todas las Tareas e Interrupciones del tipo \textit{ISR2} pueden indicar el suceso de un Evento e informarlo a la Tarea propietaria del evento (del tipo \textit{EXTENDED}) siempre y cuando no se encuentre en estado \textit{SUSPENDED}.Sin embargo, solamente la Tarea propietaria de dicho Evento puede restablecer el flag del Evento.
+Todas las Tareas e Interrupciones del tipo \textit{ISR2} pueden indicar el suceso de un Evento e informarlo a la Tarea propietaria del evento (del tipo \textit{EXTENDED}) siempre y cuando no se encuentre en estado \textit{SUSPENDED}. Sin embargo, solamente la Tarea propietaria de dicho Evento puede restablecer el flag del Evento.
 
 Debe destacarse que cuando una Tarea tipo \textit{EXTENDED}, se encuentra en estado \textit{Waiting}, se establece en el estado \textit{Ready} si al menos ocurre uno de los Eventos que dicha Tarea estaba esperando. Si una Tarea tipo \textit{EXTENDED} se encuentra ejecutándose y trata de esperar un Evento que ya haya ocurrido, dicha Tarea se mantiene en el estado \textit{Running}.
 
 \subsection{Clases de Conformidad}
 Con la finalidad de permitir que OSEK-OS pueda ser utilizado en una gran variedad de sistemas con diferentes capacidades y demandas (por ejemplo memoria, capacidad de procesamiento, etc.) es que OSEK-OS define 4 clases de conformidad (CC).
 
-Las diferentes clases existen para poder comparar entre sistemas, agrupar las interfaces según la clase de conformidad y facilitar la certificación de conformidad.
-
-Las clases de conformidad se determinan según los siguientes atributos: 
+Las diferentes clases existen para poder comparar entre sistemas, agrupar las interfaces según la clase de conformidad y facilitar la certificación de conformidad.Las clases de conformidad se determinan según los siguientes atributos: 
 
 \begin{enumerate}
 \item[•]Múltiple activaciónde tareas básicas.
@@ -965,34 +956,116 @@ Al ser OSEK-OS un sistema estático es necesario configurarlo. La cantidad de ta
 
 OIL es un lenguaje textual con una sintaxis similar al lenguaje C donde se indican las características del sistema operativo como ser: tareas, prioridades, pila, interrupciones etc.El siguiente ejemplo ilustra al usuario sobre la generación de dicho archivo.
 
+Es necesario destacar que para la utilización de \textit{RTOS OSEK} utilizando instrucciones en \textit{LPCOpen versión 2.17}, se debe eliminar la definiciones de \textit{TRUE/FALSE} del tipo \textit{boolean} que realiza \textit{LPCOpen} de forma que no genere conflictos con las definiciones propias del Sistema Operativo\cite{direccionwebproblemaFALSE}. La Figura \ref{errorboolean} ilustra una ventana resultante del error en el caso que no se haya realizado la eliminacion de dicha definicion.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=16 cm]{figuras/f24.png}
+\caption{Mensaje de consola de error por conflicto de definiciones de valores lógicos}
+\label{errorboolean}
+\end{figure}
+Para solventar dicho error, una alternativa propuesta es la siguiente:
+\begin{enumerate}
+\item[•]Sobre el \textit{Firmware} del proyecto, el usuario debe dirigirse hacia:
+
+{\footnotesize \textit{Firmware/externals/drivers/cortexM4/lpc43xx/inc/lpc$\_$types.h}}.
+\item[•]Comentar la instrucción \textit{typedef enum {FALSE =0, TRUE=!FALSE} Bool}. La Figura \ref{eliminacion} ilustra dicha instrucción comentada:
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/f25.png}
+\caption{Eliminación de definición de variables lógicas en \textit{LPCOpen}}
+\label{eliminacion}
+\end{figure}
+\end{enumerate}\underline{Archivos Makefile utilizados sobre cada ejemplo}: \\
+Otro aspecto que es necesario destacar es que para la implementación de los siguientes ejemplos se utiliza el archivo \textit{Makefile} proporcionado en los ejemplos del \textit{Firmware} de la \textit{CIAA}.
 \subsubsection{Implementacion de ejemplo N$^{\circ}$1: Tareas en OSEK}
 Este ejemplo utiliza los leds de la placa y un Display 7 Segmentos, para implementar un contador de numeros decimales, a través de una sola Tarea del tipo \textit{BASIC}.
 
-En primer lugar es necesario generar el archivo OIL para configurar el Sistema Operativo OSEK. A través del \textit{Bloc de Notas} o a través de cualquier editor de texto, debe iniciar la configuración a través de la sintaxis \textit{OSEK OSEK} y sobre los simbolos { y } ,se determinarán los restantes aspectos que tendra el OS.La Figura 38 ilustra lo mencionado anteriormente.
+En primer lugar es necesario generar el archivo OIL para configurar el Sistema Operativo OSEK. Sobre el IDE de la placa, debe agregarse un nuevo directorio, realizando click derecho sobre \textit{Firmware}, luego se selecciona la opción \textit{New} $\rightarrow$ \textit{Folder}; a continuación se abre una ventana que permite designar el nombre de dicho directorio, en el cual se ubica el proyecto que se implementa. El usuario debe recordar que para compilar dicho proyecto debe establecer la ruta que le corresponde sobre el archivo \textit{Makefile}. Asimismo, deben agregarse los directorios \textit{etc}, \textit{mak}, \textit{inc}, y \textit{src}, sobre el directorio creado recientemente.
 
+Para generar el archivo cabecera, el usuario debe ubicarse sobre la carpeta \textit{inc}, y luego oprimiendo click derecho, debe seleccionar la opción \textit{New} $\rightarrow$ \textit{Header File}. A continuación se abre una ventana cuyo aspecto es similar al de la Figura \ref{archivocabecera}, en ella, se debe establecer el nombre del archivo cabecera. Al terminar la escritura de su nombre, debe escribirse la terminación \textit{.h}, y oprimir el boton \textit{Finish}, para concluir la generacion de dicho archivo.
 
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/f27.png}
+\caption{Generación de archivo cabecera para implementación de proyecto.}
+\label{archivocabecera}
+\end{figure}
+
+Para generar el archivo fuente, el usuario debe ubicarse sobre la carpeta \textit{inc}, y luego oprimiendo click derecho, debe seleccionar la opción \textit{New} $\rightarrow$ \textit{Source File}. A continuación se abre una ventana cuyo aspecto es similar al de la Figura \ref{archivofuente}, en ella, se debe establecer el nombre del archivo cabecera. Al terminar la escritura de su nombre, debe escribirse la terminación \textit{.c},y oprimir el boton \textit{Finish}, para concluir la generacion de dicho archivo.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/f28.png}
+\caption{Generación de archivo fuente para implementación de proyecto.}
+\label{archivofuente}
+\end{figure}
+
+Debido a que no todos los módulos que integra la librería \textit{sAPI} son compatibles con el Sistema Operativo, debemos especificar sobre el proyecto cuáles son los módulos a utilizar. En primer lugar debemos copiar y pegar aquellos archivos cabeceras de los módulos (compatibles) sobre la carpeta \textit{inc}. A continuación se detalla una lista (respecto la version 0.3.0) de éstos modulos:
+\begin{enumerate}
+\item[•]\textit{sAPI$\_$AnalogIO.h}
+\item[•]\textit{sAPI$\_$Board.h}
+\item[•]\textit{sAPI$\_$DataTypes.h}
+\item[•]\textit{sAPI$\_$DigitalIO.h}
+\item[•]\textit{sAPI$\_$Hmc5883l.h}
+\item[•]\textit{sAPI$\_$I2c.h}
+\item[•]\textit{sAPI$\_$PeripheralMap.h}
+\item[•]\textit{sAPI$\_$Rtc.h}
+\item[•]\textit{sAPI.h}
+\end{enumerate}
+En particular el módulo \textit{sAPI$\_$Uart} puede ser compatible en el caso que se borren los Handler de interrupción. Para ello, el usuario puede comentar la sección del código (ilustrado sobre la Figura \ref{modificacionuart}) sobre \textit{sAPI$\_$Uart.h}.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/f29.png}
+\caption{Modificación para compatibilidad de módulo sAPI$\_$Uart.Parte 1}
+\label{modificacionuart}
+\end{figure}
+
+Sobre el archivo \textit{sAPI$\_$Uart.c}, debe realizar las siguientes modificaciones:
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/f30.png}
+\caption{Modificación para compatibilidad de módulo sAPI$\_$Uart.Parte 2}
+\label{modificacionuart2}
+\end{figure}
+
+Sobre el final del mismo archivo debe realizar la modificación ilustrada en la Figura \ref{modificacionuart3}.
+
+Para la inclusión de dichos módulos, el usuario debe eliminar las inclusiones realizadas sobre el archivo cabecera \textit{sAPI.h}. La Figura \ref{ejemploinclusion} ejemplifica la inclusión de el módulo \textit{sAPI$\_$DigitalIO.h}. Debe destacarse que es necesaria la inclusión de las librerias \textit{sAPI$\_$Board.h},\textit{sAPI$\_$DataTypes.h} y \textit{sAPI$\_$PeripheralMap.h}. En primer lugar para la definición de la placa a utilizar, en segundo lugar los tipos de datos definidos por la librería, y por último para la inclusión de las definiciónes de los terminales para los periféricos.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/f31.png}
+\caption{Modificación para compatibilidad de módulo sAPI$\_$Uart.Parte 3}
+\label{modificacionuart3}
+\end{figure}
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/f32.png}
+\caption{Ejemplo de inclusion de módulo de entradas y salidas digitales.}
+\label{ejemploinclusion}
+\end{figure}\underline{Generación de archivo OIL}:
+
+A través del \textit{Bloc de Notas} o a través de cualquier editor de texto, debe iniciar la configuración a través de la sintaxis \textit{OSEK OSEK} y sobre los simbolos $\lbrace$ y $\rbrace$ ,se determinarán los restantes aspectos que tendra el OS. La Figura 38 ilustra lo mencionado anteriormente.
+\begin{center}
 \begin{figure}[!h]
 \centering
 \includegraphics[width=5 cm]{figuras/f18.png}
 \caption{Inicio de Archivo de Configuración.}
 \label{Fig35}
 \end{figure}
-
-Luego debe definirse mediante la sintaxis \textit{OS}, el nombre del sistema operativo (el cual es arbitrario, dado que se ha especificado en la instruccion anterior que se implementa un sistema operativo OSEK), la Figura ilustra el concepto explicado anteriormente.
-
-\begin{figure}[!h]
-\centering
-\includegraphics[width=5 cm]{figuras/f19.png}
-\caption{Archivo de Configuración:Comienzo de especificación}
-\label{Fig36}
-\end{figure}
+\end{center}
+Luego debe definirse mediante la sintaxis \textit{OS}, el nombre del sistema operativo (el cual es arbitrario, dado que se ha especificado en la instruccion anterior que se implementa un sistema operativo OSEK), la Figura \ref{Fig36} ilustra el concepto explicado anteriormente.
 
 A continuación debe definirse las siguientes configuraciones para el OS del ejemplo:
 
 \begin{enumerate}
 \item[•]El nivel de chequeo de errores que se pueden producir. Existen dos niveles que pueden determinarse:
 \begin{enumerate}
-\item[•]\textit{STANDARD}: Implica un chequeo mínimo de errores, se encuentra pensado para unidades de producción en serie.La instrucción utilizada es \textit{OS = STANDARD}. 
+\item[•]\textit{STANDARD}: Implica un chequeo mínimo de errores, se encuentra pensado para el empleo en sistemas que deben producirse en masa.La instrucción utilizada es \textit{OS = STANDARD}. 
 \item[•]\textit{EXTENDED}: Implica un chequeo máximo de errores y \textit{debug hooks}.La instrucción utilizada es \textit{OS = EXTENDED}.
 \end{enumerate}
 \item[•]Funciones implementadas por el usuario que el OS llamará en circunstancias específicas, tales como:
@@ -1006,17 +1079,113 @@ A continuación debe definirse las siguientes configuraciones para el OS del eje
 \item[•]Uso del \textit{Scheduler} como recurso.
 \item[•]Uso del mapa de memoria.
 \end{enumerate}
-La Figura  ilustra un OS configurado de forma que el nivel de chequeo de errores sea el mínimo, y solamente se defina una función para en caso de un error producido en el OS.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=5 cm]{figuras/f19.png}
+\caption{Archivo de Configuración:Comienzo de especificación}
+\label{Fig36}
+\end{figure}
+
+La Figura \ref{Fig37} ilustra un OS configurado de forma que el nivel de chequeo de errores sea el mínimo,no se determine el uso del \textit{Scheduler},y no se utilize una cantidad específica de memoria,por último solamente se define una función en caso de un error producido en el OS.
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=5 cm]{figuras/f20.png}
-\caption{Archivo de Configuración:Ejemplo de especificación de OS}
+\caption{Ejemplo de especificación de OS sobre archivo OIL}
 \label{Fig37}
 \end{figure}
+A continuación se define una Tarea que efectua la configuración inicial de la placa, y de los puertos GPIO utilizados para el display 7 segmentos. La instrucción que permite la definición de una Tarea sobre el archivo de configuracion \textit{OIL} es \textit{TASK}, la Figura \ref{Fig38} ilustra el proceso llevado a cabo para dicho proceso.
 
-\ref{Fig37}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=15 cm]{figuras/f21.png}
+\caption{Definición de Tarea sobre archivo de configuración}
+\label{Fig38}
+\end{figure}
 
+En este caso en particular, la tarea que se desea definir en primer lugar, necesita activarse en el momento de inicio del programa. Teniendo en cuenta los atributos que se explican sobre la figura \ref{Fig38} ,se determina que el atributo \textit{AUTOSTART} adquiera el valor \textit{TRUE}. Debe considerarse que no se prevee que dicha Tarea vuelva a ejecutarse durante el desarrollo del programa, por ese motivo, se asigna una prioridad baja y su tipo designado es \textit{BASIC}.
+
+La siguiente Tarea realiza la muestra de los digitos sobre los leds incorporados en la placa (forma binaria) y sobre el Display 7 Segmentos. Es importante destacar que esta Tarea se ejecuta constantemente, debido a que no existe otra Tarea de mayor prioridad que se active e interrumpa su ejecución. Para permitir esta ejecución constante es necesario la instrucción propia del SO (también denominada Servicio del Sistema) \textit{ChainTask()} para permitir que esta Tarea se reactive a si misma.La Figura \ref{Fig39} ilustra las definiciones de las dos Tareas descriptas anteriormente.
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/f22.png}
+\caption{Ilustración de definición de Tareas de Ejemplo N$^{\circ}$1}
+\label{Fig39}
+\end{figure}
+
+\subsubsection{Implementacion de ejemplo N$^{\circ}$2: Múltiples Tareas en OSEK}
+
+El siguiente ejemplo pretende demostrar como pueden implementarse varias Tareas del Tipo \textit{BASIC} a través de las instrucciónes del Sistema Operativo \textit{TerminateTask()} y \textit{ChainTask()}.
+
+En este caso, se desea implementar un programa que  permita encender los leds incorporados en la placa de izquierda a derecha, oprimiendo \textit{TEC1,TEC2,TEC3,TEC4} en el mismo orden.
+
+Se realiza la definición de una Tarea que establece la configuración inicial de la placa, de forma similar al ejemplo anterior, sin embargo, dicha Tarea produce la activación de otra denominada \textit{LEDUNO}, la cual permite el encendido del LED1 (es importante aclarar en esta instancia para evitar posibles problemas al usuario, que para la implementación de otros programas, es recomendable que al definir nombres para las Tareas, éstos sean distintos a definiciones o nombres de funciones de bibliotecas incorporadas ).
+
+La tarea \textit{LEDB} se reactiva automáticamente a través de la instrucción del Sistema Operativo \textit{ChainTask()}, salvo que se oprima la tecla \textit{TEC1}, en cuyo caso el código procede a encender el \textit{LEDB}, y posteriormente activa la Tarea siguiente y finaliza la que se encuentra ejecutando, a través de las instrucciones \textit{ActivateTask()} y \textit{TerminateTask()}. Las siguientes Tareas poseen una estructura similar.
+
+Es importante destacar que las Tareas \textbf{LEDB,LED1,LED2,LED3}, no son interrumpidas  en el momento de la activación de la posterior Tarea que le corresponde, debido a que en el archivo de configuración se establece el valor \textit{NON} sobre el atributo \textit{SCHEDULE}(Es posible consultar la Figura \ref{Fig38}). La Figura \ref{Fig40} ilustra la estructura de este ejemplo.
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=5 cm]{figuras/f23.png}
+\caption{Estructura general de archivo fuente de Ejemplo N$^{\circ}$2}
+\label{Fig40}
+\end{figure}
+\end{center}
+\subsubsection{Implementacion de ejemplo N$^{\circ}$3: Eventos en OSEK}
+Este ejemplo pretende brindar al usuario una introducción al manejo de las Tareas del tipo \textit{EXTENDED} a través de los Eventos. Se pretende encender el \textit{LED1} de la placa en el instante en que el usuario oprima la tecla \textit{TEC1}, a continuación, se desea encender el \textit{LED2} de la placa oprimiento la tecla \textit{TEC2}.
+
+Se realiza la definición de dos Tareas, denominadas \textit{LED$\_$1} y \textit{LED$\_$2}. La primera de ellas produce el encendido del \textit{LED1} en caso de que se oprima \textit{TEC1}, a continuación realiza la activación de la Tarea \textit{LED$\_$2}. En el instante en que se aprete la tecla \textit{TEC2}, se produce el encendido del del \textit{LED2}, a continuación realiza la activación de la Tarea \textit{LED$\_$1}.
+
+La Figura \ref{Fig41} ilustra la transición que se produce entre las Tareas a través de los Eventos.   
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=5 cm]{figuras/f26.png}
+\caption{Transición de las Tareas mediante Eventos en Ejemplo N$^{\circ}$3}
+\label{Fig41}
+\end{figure}
+\end{center}
+
+\subsection{Alarmas}
+Las alarmas son herramientas que proporciona el Sistema Operativo \textit{OSEK} para la ejecución de una acción luego de determinado tiempo \cite{librodeosekcerdeiro}.Éstas pueden realizar tres tipos de acciones:
+\begin{enumerate}
+\item[•]Activar una tarea.
+\item[•]Establecer un evento de una tarea.
+\item[•]Llamar una callback (retrollamada) en C.
+\end{enumerate}
+Para la implementación de las alarmas, ya sean que se utiliza una ó más alarmas el sistema operativo necesita un contador de hardware. Con un contador es posible configurar la cantidad de alarmas que sean necesarias.
+
+Luego de que dicha alarma expire, solo puede realizar una sola acción, la cual es definida en el archivo de configuracion \textit{OIL} a traves de la variable \textit{ACTION}. A continuación se detalla los posibles parametros que pueden ingresarse:
+\begin{enumerate}
+\item[•]\textit{ACTIVATETASK} define la activación de una Tarea cuando dicha alarma expire.
+\item[•]\textit{SETEVENT} Permite establecer un Evento (perteneciente a una Tarea) cuando dicha alarma expire.
+\item[•]\textit{ALARMCALLBACK} define el nombre de la rutina \textit{callback} cuando la alarma expira.
+\end{enumerate}
+\subsubsection{Implementacion de ejemplo N$^{\circ}$4: Eventos y Alarmas en OSEK}
+Este ejemplo permite introducir al usuario en la utilización de alarmas para la temporización de acciones. Se pretende elaborar dos secuencias de luces a traves de los leds instalados en la placa, la primera de ellas se activa al oprimir la tecla \textit{TEC1}, mientras que la segunda se activa al oprimir \textit{TEC2}.
+
+Sobre el archivo de configuración se definen dos Tareas en particular: \textit{SECUENCIA1} y \textit{SECUENCIA2}. Dichas Tareas se activan y ejecutan sus correspondientes códigos a través del establecimiento del Evento \textit{primersecuencia} o \textit{segsecuencia}.
+
+Durante la ejecución de las Tareas \textit{SECUENCIA1} o \textit{SECUENCIA2} se identifica el Evento ocurrido, a través de las instrucciones \textit{WaitEvent()}y \textit{GetEvent()}. Definiendo como tipo de variable para la máscara de los Eventos de las Tareas, como \textit{Eventos1} y \textit{Eventos2} respectivamente.
+
+En caso de que haya ocurrido el Evento \textit{primersecuencia} o \textit{segsecuencia}, los códigos de las Tareas proceden a activar las Alarmas \textit{Set$\_$Event$\_$tiempo1} y \textit{Set$\_$Event$\_$tiempo2} respectivamente, para lograr la temporización deseada en las secuencias. La Figura \ref{Fig42} ilustra los conceptos explicados anteriormente.
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=10 cm]{figuras/f33.png}
+\caption{Identificacion de Evento en Ejemplo N$^{\circ}$4}
+\label{Fig42}
+\end{figure}
+\end{center}
+
+\subsubsection{Implementacion de ejemplo N$^{\circ}$4: Alarmas en OSEK}
+En este ejemplo se utilizan las Alarmas para permitir la activación de una Tarea en forma periódica. En particular, esta Alarma activa una Tarea la cual permite la lectura analógica sobre el canal 1 del \textit{ADC0} de la placa.
+
+Se realiza la definición de la Tarea 
 \begin{thebibliography}{}
 \bibitem{origeneduciaa} {\footnotesize http://proyecto-ciaa.com.ar/devwiki/doku.php?id=proyecto:origen$\_$ciaa}
 
@@ -1034,7 +1203,7 @@ Fecha: 15/10/16 11:00 am.
 
 Fecha: 15/10/16 11:00 am.
 \bibitem{estructuradedirectorios} {\footnotesize http://proyecto-ciaa.com.ar/devwiki/doku.php?id=docu:fw:bm:estructura$\&$s[]=estructura$\&$s[]=de$\&$s[]=directorios} Fecha: 15/10/16 11:00 am.
-\bibitem{sapi}\textit{sAPI:Introducción}
+\bibitem{sapi}\textit{sAPI versión 0.3.0:Introducción}
 
 Documento existente sobre el repositorio ubicado en \textit{Github}.
 
@@ -1047,6 +1216,19 @@ Dirección web: https://github.com/epernia/sAPI
 \bibitem{repositoriomatiasferraro}{\footnotesize https://github.com/MatiasFerraro/CIAA-MatiasFerraro} 
 
 Fecha: 30/10/16 16:00 pm.
+
+\bibitem{sase2011} \textit{Introduccion a RTOS} por Alejandro Celery. SASE 2011.
+{\footnotesize http://www.sase.com.ar/2011/files/2010/11/SASE2011-Introduccion$\_$RTOS.pdf}
+
+\bibitem{os223}\textit{OSEK/VDX Operating System Version 2.2.3}
+
+{\footnotesize http://www.irisa.fr/alf/downloads/puaut/TPNXT/images/os223.pdf}
+
+\bibitem{libroosekcerdeiro}\textit{Introducción a OSEK OS: El Sistema Operativo del CIAA-Firmware}. Primera Edición. Autor: Mariano Cerdeiro
+
+\bibitem{direccionwebproblemaFALSE} Extraído de pagina web:
+
+{\footnotesize https://groups.google.com/forum/$\#$!searchin/ciaa-firmware/boolean\%7Csort:relevance/ciaa-firmware/SNLmTVZbIkk/iSPYr-l-EAAJ}
 \end{thebibliography}
 
 \end{document}

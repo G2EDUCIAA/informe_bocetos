@@ -1,28 +1,34 @@
 \select@language {spanish}
-\contentsline {section}{\numberline {1}Introducci\'on}{1}
-\contentsline {section}{\numberline {2}Desarrollo}{2}
-\contentsline {subsection}{\numberline {2.1}Origen del proyecto CIAA}{2}
-\contentsline {subsection}{\numberline {2.2}Descripci\IeC {\'o}n de la placa}{3}
-\contentsline {section}{\numberline {3}Instalacion de Software}{5}
-\contentsline {subsection}{\numberline {3.1}Conceptos previos}{5}
-\contentsline {subsection}{\numberline {3.2}Firmware de la EDU CIAA}{6}
-\contentsline {subsection}{\numberline {3.3}Estructura de Directorios de Firmware de EDU CIAA}{7}
-\contentsline {subsection}{\numberline {3.4}Iniciaci\IeC {\'o}n a trav\IeC {\'e}s de ejemplos}{8}
-\contentsline {subsection}{\numberline {3.5}Instalaci\IeC {\'o}n de IDE}{8}
-\contentsline {section}{\numberline {4}Desinstalaci\IeC {\'o}n}{14}
-\contentsline {section}{\numberline {5}Primeros Pasos con la EDU-CIAA}{14}
-\contentsline {subsection}{\numberline {5.1}Programacion en Baremetal a trav\IeC {\'e}s de libreria sAPI}{14}
-\contentsline {subsubsection}{\numberline {5.1.1}Implementacion de ejemplo N$^{\circ }$1: Salidas Digitales}{17}
-\contentsline {subsubsection}{\numberline {5.1.2}Implementacion de ejemplo N$^{\circ }$2: Entradas y Salidas Digitales}{18}
-\contentsline {subsubsection}{\numberline {5.1.3}Implementacion de ejemplo N$^{\circ }$3: Entradas Anal\IeC {\'o}gicas y Uso de Display 7 segmentos}{19}
-\contentsline {subsubsection}{\numberline {5.1.4}Implementacion de ejemplo N$^{\circ }$4: Conversor Digital/Anal\IeC {\'o}gico (DAC)}{21}
-\contentsline {subsubsection}{\numberline {5.1.5}Implementacion de ejemplo N$^{\circ }$5: Uso de UART y Display LCD 16x2}{23}
-\contentsline {subsubsection}{\numberline {5.1.6}Implementacion de ejemplo N$^{\circ }$6: Comunicaci\IeC {\'o}n Serial}{24}
-\contentsline {subsubsection}{\numberline {5.1.7}Implementacion de ejemplo N$^{\circ }$7:Comunicaci\IeC {\'o}n Serial-Utilizaci\IeC {\'o}n Display LCD 16x2}{26}
-\contentsline {section}{\numberline {6}Sistemas Operativos en Tiempo Real}{26}
-\contentsline {subsection}{\numberline {6.1}Tareas}{27}
-\contentsline {subsubsection}{\numberline {6.1.1}Modelo de Tareas B\IeC {\'a}sicas}{28}
-\contentsline {subsubsection}{\numberline {6.1.2}Modelo de Tareas Extendidas}{29}
-\contentsline {subsection}{\numberline {6.2}Scheduler}{30}
-\contentsline {subsection}{\numberline {6.3}Modos de Aplicaci\IeC {\'o}n}{31}
-\contentsline {subsection}{\numberline {6.4}Eventos}{31}
+\contentsline {section}{\numberline {1}Introducci\'on}{2}
+\contentsline {subsection}{\numberline {1.1}Origen del proyecto CIAA}{3}
+\contentsline {subsection}{\numberline {1.2}Descripci\IeC {\'o}n de la placa}{4}
+\contentsline {section}{\numberline {2}Instalacion de Software}{6}
+\contentsline {subsection}{\numberline {2.1}Conceptos previos}{6}
+\contentsline {subsection}{\numberline {2.2}Firmware de la EDU CIAA}{7}
+\contentsline {subsection}{\numberline {2.3}Estructura de Directorios de Firmware de EDU CIAA}{8}
+\contentsline {subsection}{\numberline {2.4}Iniciaci\IeC {\'o}n a trav\IeC {\'e}s de ejemplos}{9}
+\contentsline {subsection}{\numberline {2.5}Instalaci\IeC {\'o}n de IDE}{9}
+\contentsline {section}{\numberline {3}Desinstalaci\IeC {\'o}n}{15}
+\contentsline {section}{\numberline {4}Primeros Pasos con la EDU-CIAA}{15}
+\contentsline {subsection}{\numberline {4.1}Programacion en Baremetal a trav\IeC {\'e}s de libreria sAPI}{15}
+\contentsline {subsubsection}{\numberline {4.1.1}Implementacion de ejemplo N$^{\circ }$1: Salidas Digitales}{17}
+\contentsline {subsubsection}{\numberline {4.1.2}Implementacion de ejemplo N$^{\circ }$2: Entradas y Salidas Digitales}{19}
+\contentsline {subsubsection}{\numberline {4.1.3}Implementacion de ejemplo N$^{\circ }$3: Entradas Anal\IeC {\'o}gicas y Uso de Display 7 segmentos}{20}
+\contentsline {subsubsection}{\numberline {4.1.4}Implementacion de ejemplo N$^{\circ }$4: Conversor Digital/Anal\IeC {\'o}gico (DAC)}{22}
+\contentsline {subsubsection}{\numberline {4.1.5}Implementacion de ejemplo N$^{\circ }$5: Uso de UART y Display LCD 16x2}{24}
+\contentsline {subsubsection}{\numberline {4.1.6}Implementacion de ejemplo N$^{\circ }$6: Comunicaci\IeC {\'o}n Serial}{25}
+\contentsline {subsubsection}{\numberline {4.1.7}Implementacion de ejemplo N$^{\circ }$7:Comunicaci\IeC {\'o}n Serial-Utilizaci\IeC {\'o}n Display LCD 16x2}{27}
+\contentsline {section}{\numberline {5}Sistemas Operativos en Tiempo Real}{27}
+\contentsline {subsection}{\numberline {5.1}Tareas}{28}
+\contentsline {subsubsection}{\numberline {5.1.1}Modelo de Tareas B\IeC {\'a}sicas}{29}
+\contentsline {subsubsection}{\numberline {5.1.2}Modelo de Tareas Extendidas}{30}
+\contentsline {subsection}{\numberline {5.2}Scheduler}{31}
+\contentsline {subsection}{\numberline {5.3}Modos de Aplicaci\IeC {\'o}n}{32}
+\contentsline {subsection}{\numberline {5.4}Eventos}{32}
+\contentsline {subsection}{\numberline {5.5}Clases de Conformidad}{32}
+\contentsline {subsection}{\numberline {5.6}Configuraci\IeC {\'o}n y Generaci\IeC {\'o}n}{33}
+\contentsline {subsubsection}{\numberline {5.6.1}Implementacion de ejemplo N$^{\circ }$1: Tareas en OSEK}{34}
+\contentsline {subsubsection}{\numberline {5.6.2}Implementacion de ejemplo N$^{\circ }$2: M\IeC {\'u}ltiples Tareas en OSEK}{39}
+\contentsline {subsubsection}{\numberline {5.6.3}Implementacion de ejemplo N$^{\circ }$3: Eventos en OSEK}{40}
+\contentsline {subsection}{\numberline {5.7}Alarmas}{41}
+\contentsline {subsubsection}{\numberline {5.7.1}Implementacion de ejemplo N$^{\circ }$4: Eventos y Alarmas en OSEK}{42}
