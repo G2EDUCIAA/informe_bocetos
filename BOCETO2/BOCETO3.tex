@@ -530,10 +530,10 @@ El siguiente ejemplo tiene como objetivo el manejo de las entradas y salidas dig
 La funcion \textit{digitalRead} se encarga de las entradas digitales. En este caso se pregunta  si se ha oprimido la tecla 1, como se puede apreciar esta misma se activa por bajo, por eso se pregunta si la lectura es igual a OFF.
 
 \begin{enumerate}
-\item[•] A través del programa \textit{uModel Factory}, implementar la siguiente Maquina de Estado Finita:
-\end{enumerate}
+\item[•]Realizar la generación de los archivos cabecera y fuente como se establece sobre la seccion \ref{sec:ej1sapi}.
 
-A continuación se realiza una breve descripción de los estados, eventos y acciones que contiene este programa.
+\item[•] A través del programa \textit{uModel Factory}, implementar la siguiente Maquina de Estado Finita:
+
 \begin{enumerate}
 \item[•]\underline{Estados}:
 \begin{enumerate}
@@ -569,6 +569,15 @@ La Figura \ref{Fig22} especifica el diagrama de estados del ejemplo:
 \label{Fig22}
 \end{figure}
 \end{center}
+
+\item[•] Incluir sobre el archivo fuente, el archivo cabecera \textit{funciones.h}
+
+\item[•] Incluir sobre el archivo fuente \textit{funciones.c} el archivo cabecera de la libreria \textit{sAPI} y el archivo cabecera del proyecto.
+
+\end{enumerate}
+
+
+
 \subsubsection{Implementacion de ejemplo N$^{\circ}$3: Entradas Analógicas y Uso de Display 7 Segmentos}
 En este ejemplo se realizan dos tareas distintas, dependiendo de la tecla pulsada (\textit{TEC1} y \textit{TEC2}).Si se pulsa la tecla \textit{TEC1}, se encienden los Leds en una secuencia determinada. Mientras que si se pulsa la tecla \textit{TEC2}, se realiza una muestra de los dígitos desde 1 hasta 9 a través del display 7 segmentos. 
 
