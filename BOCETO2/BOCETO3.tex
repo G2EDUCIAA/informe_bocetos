@@ -1088,28 +1088,25 @@ Para solventar dicho error, una alternativa propuesta es la siguiente:
 Otro aspecto que es necesario destacar es que para la implementación de los siguientes ejemplos se utiliza el archivo \textit{Makefile} proporcionado en los ejemplos del \textit{Firmware} de la \textit{CIAA}.
 \subsubsection{Implementacion de ejemplo N$^{\circ}$1: Tareas en OSEK}\label{sec:tareasOSEK}
 Este ejemplo utiliza los leds de la placa y un Display 7 Segmentos, para implementar un contador de numeros decimales, a través de una sola Tarea del tipo \textit{BASIC}.
-
-En primer lugar es necesario generar el archivo OIL para configurar el Sistema Operativo OSEK. Sobre el IDE de la placa, debe agregarse un nuevo directorio, realizando click derecho sobre \textit{Firmware}, luego se selecciona la opción \textit{New} $\rightarrow$ \textit{Folder}; a continuación se abre una ventana que permite designar el nombre de dicho directorio, en el cual se ubica el proyecto que se implementa. El usuario debe recordar que para compilar dicho proyecto debe establecer la ruta que le corresponde sobre el archivo \textit{Makefile}. Asimismo, deben agregarse los directorios \textit{etc}, \textit{mak}, \textit{inc}, y \textit{src}, sobre el directorio creado recientemente.
-
-Para generar el archivo cabecera, el usuario debe ubicarse sobre la carpeta \textit{inc}, y luego oprimiendo click derecho, debe seleccionar la opción \textit{New} $\rightarrow$ \textit{Header File}. A continuación se abre una ventana cuyo aspecto es similar al de la Figura \ref{archivocabecera}, en ella, se debe establecer el nombre del archivo cabecera. Al terminar la escritura de su nombre, debe escribirse la terminación \textit{.h}, y oprimir el boton \textit{Finish}, para concluir la generacion de dicho archivo.
-
-\begin{figure}[!h]
+\begin{enumerate}
+\item[•]En primer lugar es necesario generar el archivo OIL para configurar el Sistema Operativo OSEK. Sobre el IDE de la placa, debe agregarse un nuevo directorio, realizando click derecho sobre \textit{Firmware}, luego se selecciona la opción \textit{New} $\rightarrow$ \textit{Folder}.
+\item[•]A continuación se abre una ventana que permite designar el nombre de dicho directorio, en el cual se ubica el proyecto que se implementa. El usuario debe recordar que para compilar dicho proyecto debe establecer la ruta que le corresponde sobre el archivo \textit{Makefile}. Asimismo, deben agregarse los directorios \textit{etc}, \textit{mak}, \textit{inc}, y \textit{src}, sobre el directorio creado recientemente.
+\item[•]Para generar el archivo cabecera, el usuario debe ubicarse sobre la carpeta \textit{inc}, y luego oprimiendo click derecho, debe seleccionar la opción \textit{New} $\rightarrow$ \textit{Header File}. A continuación se abre una ventana cuyo aspecto es similar al de la Figura \ref{archivocabecera}, en ella, se debe establecer el nombre del archivo cabecera. Al terminar la escritura de su nombre, debe escribirse la terminación \textit{.h}, y oprimir el boton \textit{Finish}, para concluir la generacion de dicho archivo.
+\begin{figure}[H]
 \centering
 \includegraphics[width=8 cm]{figuras/f27.png}
 \caption{Generación de archivo cabecera para implementación de proyecto.}
 \label{archivocabecera}
 \end{figure}
 
-Para generar el archivo fuente, el usuario debe ubicarse sobre la carpeta \textit{inc}, y luego oprimiendo click derecho, debe seleccionar la opción \textit{New} $\rightarrow$ \textit{Source File}. A continuación se abre una ventana cuyo aspecto es similar al de la Figura \ref{archivofuente}, en ella, se debe establecer el nombre del archivo cabecera. Al terminar la escritura de su nombre, debe escribirse la terminación \textit{.c},y oprimir el boton \textit{Finish}, para concluir la generacion de dicho archivo.
-
-\begin{figure}[!h]
+\item[•]Para generar el archivo fuente, el usuario debe ubicarse sobre la carpeta \textit{inc}, y luego oprimiendo click derecho, debe seleccionar la opción \textit{New} $\rightarrow$ \textit{Source File}. A continuación se abre una ventana cuyo aspecto es similar al de la Figura \ref{archivofuente}, en ella, se debe establecer el nombre del archivo cabecera. Al terminar la escritura de su nombre, debe escribirse la terminación \textit{.c},y oprimir el boton \textit{Finish}, para concluir la generacion de dicho archivo.
+\begin{figure}[H]
 \centering
 \includegraphics[width=8 cm]{figuras/f28.png}
 \caption{Generación de archivo fuente para implementación de proyecto.}
 \label{archivofuente}
 \end{figure}
-
-Debido a que no todos los módulos que integra la librería \textit{sAPI} son compatibles con el Sistema Operativo, debemos especificar sobre el proyecto cuáles son los módulos a utilizar. En primer lugar debemos copiar y pegar aquellos archivos cabeceras de los módulos (compatibles) sobre la carpeta \textit{inc}. A continuación se detalla una lista (respecto la version 0.3.0) de éstos modulos:
+\item[•]Debido a que no todos los módulos que integra la librería \textit{sAPI} son compatibles con el Sistema Operativo, debemos especificar sobre el proyecto cuáles son los módulos a utilizar. En primer lugar debemos copiar y pegar aquellos archivos cabeceras de los módulos (compatibles) sobre la carpeta \textit{inc}. A continuación se detalla una lista (respecto la version 0.3.0) de éstos modulos:
 \begin{enumerate}
 \item[•]\textit{sAPI$\_$AnalogIO.h}
 \item[•]\textit{sAPI$\_$Board.h}
@@ -1122,8 +1119,7 @@ Debido a que no todos los módulos que integra la librería \textit{sAPI} son co
 \item[•]\textit{sAPI.h}
 \end{enumerate}
 En particular el módulo \textit{sAPI$\_$Uart} puede ser compatible en el caso que se borren los Handler de interrupción. Para ello, el usuario puede comentar la sección del código (ilustrado sobre la Figura \ref{modificacionuart}) sobre \textit{sAPI$\_$Uart.h}.
-
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=8 cm]{figuras/f29.png}
 \caption{Modificación para compatibilidad de módulo sAPI$\_$Uart.Parte 1}
@@ -1131,31 +1127,37 @@ En particular el módulo \textit{sAPI$\_$Uart} puede ser compatible en el caso q
 \end{figure}
 
 Sobre el archivo \textit{sAPI$\_$Uart.c}, debe realizar las modificaciones que se muestran en las Figuras \ref{modificacionuart2} y \ref{modificacionuart3}.
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=8 cm]{figuras/f30.png}
 \caption{Modificación para compatibilidad de módulo sAPI$\_$Uart.Parte 2}
 \label{modificacionuart2}
 \end{figure}
-Para finalizar la inclusión de dichos módulos, el usuario debe eliminar las inclusiones realizadas sobre el archivo cabecera \textit{sAPI.h}. La Figura \ref{ejemploinclusion} ejemplifica la inclusión de el módulo \textit{sAPI$\_$DigitalIO.h}.
-
-Debe destacarse que es necesaria la inclusión de las librerias \textit{sAPI$\_$Board.h},\textit{sAPI$\_$DataTypes.h} y \textit{sAPI$\_$PeripheralMap.h}. En primer lugar para la definición de la placa a utilizar, en segundo lugar los tipos de datos definidos por la librería, y por último para la inclusión de las definiciónes de los terminales para los periféricos.\\
-\underline{Generación de archivo OIL}:
-
-A través del \textit{Bloc de Notas} o a través de cualquier editor de texto,debe almacenarse el archivo de configuracion de tipo \textit{OIL} sobre la carpeta \textit{etc} previamente creada sobre el directorio del proyecto, en dicho archivo, debe iniciar la configuración a través de la sintaxis \textit{OSEK OSEK} y sobre los simbolos $\lbrace$ y $\rbrace$ ,se determinarán los restantes aspectos que tendra el OS. La Figura \ref{Fig35} ilustra lo mencionado anteriormente.
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=9 cm]{figuras/f31.png}
 \caption{Modificación para compatibilidad de módulo sAPI$\_$Uart.Parte 3}
 \label{modificacionuart3}
 \end{figure}
 
-\begin{figure}[!h]
+\item[•]Para finalizar la inclusión de dichos módulos, el usuario debe eliminar las inclusiones realizadas sobre el archivo cabecera \textit{sAPI.h}. La Figura \ref{ejemploinclusion} ejemplifica la inclusión de el módulo \textit{sAPI$\_$DigitalIO.h}.
+
+\begin{figure}[H]
 \centering
 \includegraphics[width=6 cm]{figuras/f32.png}
 \caption{Ejemplo de inclusion de módulo de entradas y salidas digitales.}
 \label{ejemploinclusion}
 \end{figure}
+Debe destacarse que es necesaria la inclusión de las librerias \textit{sAPI$\_$Board.h},\textit{sAPI$\_$DataTypes.h} y \textit{sAPI$\_$PeripheralMap.h}. En primer lugar para la definición de la placa a utilizar, en segundo lugar los tipos de datos definidos por la librería, y por último para la inclusión de las definiciónes de los terminales para los periféricos.\\
+\end{enumerate}
+
+
+\underline{Generación de archivo OIL}:
+
+A través del \textit{Bloc de Notas} o a través de cualquier editor de texto,debe almacenarse el archivo de configuracion de tipo \textit{OIL} sobre la carpeta \textit{etc} previamente creada sobre el directorio del proyecto, en dicho archivo, debe iniciar la configuración a través de la sintaxis \textit{OSEK OSEK} y sobre los simbolos $\lbrace$ y $\rbrace$ ,se determinarán los restantes aspectos que tendra el OS. La Figura \ref{Fig35} ilustra lo mencionado anteriormente.
+
+
+
 
 \begin{center}
 \begin{figure}[!h]
