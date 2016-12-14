@@ -26,25 +26,32 @@
 
 \section{Introducci\'on}
 En este trabajo se pretende desarrollar un tutorial que permita al usuario poder iniciar sus primeros proyectos usando RTOS y comprender la arquitectura de los procesadores Cortex.
+  \\
+  
 Este estudio aborda en primer lugar, las características principales de la placa y la correcta instalación del software sobre Windows para permitir el desarrollo de códigos sobre ella; además se incluyen posibles problemas que puedan suceder en el proceso junto con sus soluciones.
+  \\
 
 La siguiente sección comienza introduciendo al usuario en el uso de la placa a través de la biblioteca \textit{sAPI} (realizada por Eric Pernia) ésta nos permite el desarrollo de programas utilizando lenguaje C. La idea es brindar una explicación simple de la arquitectura de los procesadores Cortex y a su vez brindar una base para la siguiente sección del informe.
+  \\
 
 Luego, se introduce al usuario en la programación a través de el sistema operativo \textit{OSEK OS}, el cual es el método de programación en el que se proyectó cuando se realizó el diseño de la placa. Nuestra meta es fijar las bases conceptuales principales de los sistemas operativos en tiempo real, e introducir al usuario a la programación de códigos simples y alentar al usuario a profundizar sobre este estudio.
 
 \subsection{Origen del proyecto CIAA}
 Sobre julio de 2013, la Secretaría de Planeamiento Estratégico Industrial del Ministerio de Industria de la Nación (SPEI) y la Secretaría de Políticas Universitarias del Ministerio de Educación de la Nación (SPU) convocaron a la Asociación Civil para la Investigación, Promoción y Desarrollo de los Sistemas Electrónicos Embebidos (ACSE) y a la Cámara de Industrias Electrónicas, Electromecánicas y Luminotécnicas (CADIEEL) a participar en el "Plan Estratégico Industrial 2020". A partir de dicha convocatoria se inició el desarrollo de la Computadora Industrial Abierta Argentina (CIAA).
+  \\
 
 El pedido inicial fue que desde el sector académico (ACSE) y desde el sector industrial (CADIEEL) se presenten propuestas para agregar valor en distintas ramas de la economía (maquinaria agrícola, bienes de capital, forestal, textil, alimentos, etc.) a través de la incorporación de sistemas electrónicos en procesos productivos y en productos de fabricación nacional. Debe destacarse que muchas empresas argentinas de diversos sectores productivos no incorporaban electrónica en sus procesos productivos o en sus productos, otras utilizaban sistemas electrónicos obsoletos, muchas utilizaban sistemas importados y sólo unas pocas utilizaban diseños propios basados en tecnologías vigentes y competitivas.
+  \\
 
 A partir de esta situación, la ACSE y CADIEEL propusieron desarrollar un sistema electrónico abierto de uso general, donde toda su documentación y el material para su fabricación estuviera libremente disponible en internet, con el objetivo de que dicho sistema pueda ser fabricado por la mayoría de las empresas PyMEs nacionales, y realizar modificaciónes en base a las necesidades específicas que puedan tener.
+  \\
 
 Hoy en día la CIAA está disponible en la versión CIAA-NXP y otras seis versiones están en elaboración: CIAA-ATMEL, CIAA-FSL, CIAA-PIC, CIAA-RX, CIAA-ST, CIAA-TI. Además, se está trabajando en el firmware y en el software, para que la CIAA se pueda programar en lenguaje C utilizando una API especialmente diseñada para ser compatible con los estándares POSIX y que sea portable a diversos sistemas operativos de tiempo real.
+  \\
 
 Desde la concepción del proyecto, el diseño de la placa se encuentra pensada para soportar las condiciones hostiles de los ambientes industriales los que abundan ruidos, vibraciones, temperaturas extremas, picos de tensión e interferencias electromagnéticas, y además se diseñó de modo tal que pueda ser fabricada en Argentina\cite{origeneduciaa}.
 
 \subsection{Descripción de la placa}
-
 
 La CIAA es una plaqueta electrónica provista de un microcontrolador y puertos de entrada y salida, cuyo diseño se encuentra disponible en Internet. Esta placa fue concebida para ser utilizada para sistemas de control de procesos productivos, agroindustria, automatización, entre otras; es importante destacar que gracias a la posibilidad del acceso a la información de dicha plataforma, cualquier empresa que desee utilizarla para la elaboración de sus productos puede rediseñarla; de modo que esto fomenta el diseño y la fabricación nacional de sistemas electrónicos.
 
@@ -59,25 +66,22 @@ La CIAA es una plaqueta electrónica provista de un microcontrolador y puertos d
 
 
 La placa EDU CIAA es la versión educativa de ésta, la cual se encuentra diseñada con el propósito de conseguir una plataforma base para el desarrollo de proyectos educativos, en este caso, se busca proporcionar las bases del desarrollo de códigos utilizando RTOS.
-
-
-\begin{figure}[!h]
-\centering
-\includegraphics[width=8 cm]{figuras/diagramaenbloques.jpg}
-\caption{Diagrama en bloques de EDU CIAA basado en LPC4337.}
-\label{Fig1}
-\end{figure}
-
+  \\
 
 El procesador que utiliza es el LPC4337, basado en el  ARM Cortex M4, utilizado para aplicaciones en sistemas embebidos, dicho sistemas incluyen el procesador Cortex M0. Utiliza una memoria flash de 1Mb, memoria de 264 kB de SRAM, memoria ROM de 64 kB, E2PROM de 16kB, y una memoria OTP de 64 bit.
+  \\
 
 La frecuencia de trabajo del procesador alcanza los 204 Mhz. Una característica vital del procesador, es que provee soporte para la depuración en JTAG, con posibilidad de incluir hasta 8 breakpoints, y 4 watchpoints.
+  \\
 
 Dicho procesador brinda una interface que hace posible extender hasta 164 pines de entrada-salida de propósito general (GPIO), provee una interface USB Host/Device 2.0 de alta velocidad con soporte para acceso directo de memoria, una interface UART 550 con soporte DMA , tres USART 550 con soporte para DMA\cite{descripcionenhojadatos}.
+  \\
 
 Como perifericos analógicos, debe destacarse la inclusión de un DAC de 10 bits, con soporte DMA y frecuencia de conversión de 400000 muestras por segundo. Dos ADC's con soporte DMA, y frecuencia de conversión de 400000 muestras por segundo, con un numero máximo de 8 canales sobre cada ADC. Y un ADC de 12 bits de 6 canales con soporte DMA, y frecuencia de conversión que puede alcanzar hasta los $80 . 10^6$ muestras por segundo.
+  \\
 
 El cristal oscilador posee un rango de operación desde 1 Mhz hasta 25 Mhz, este procesador incluye un reloj de tiempo real de baja potencia, el cual utiliza un oscilador de cristal.
+  \\
 
 La placa provee alimentación de 3,3 V (cuyo rango oscila entre 2,2 V hasta 3,6 V), y es capaz de operar en cuatro modos, los cuales se denominan \textit{sleep}, \textit{deep-sleep}, \textit{power-down},y \textit{deep power-down}.Es posible restablecer la operación de la placa desde los modos \textit{deep-sleep}, \textit{power-down}, y \textit{deep power-down}, a través de interrupciones externas.
 
@@ -89,27 +93,37 @@ La placa provee alimentación de 3,3 V (cuyo rango oscila entre 2,2 V hasta 3,6 
 \label{Fig2}
 \end{figure}
 
-Sobre la Figura  \ref{Fig1} se proporciona el diagrama en bloques de la placa\cite{diagramaenbloquesdeplaca}, puede observarse que la placa cuenta con 2 puertos micro-USB (uno para aplicaciones y debugging, otro para alimentación); 4 salidas digitales implementadas con leds RGB, 4 entradas digitales con pulsadores; 1 puerto de comunicaciones RS485 con bornera. La Figura  \ref{Fig2} nos muestra  una imagen frontal de la placa; nótese la presencia de dos puertos sobre los cuales se ubican los pines correspondientes a la placa, la Figura  \ref{distribucionpines} ilustra el distribución de dichos pines sobre cada puerto.
+Sobre la Figura  \ref{diagramaenbloques} se proporciona el diagrama en bloques de la placa\cite{diagramaenbloquesdeplaca}, puede observarse que la placa cuenta con 2 puertos micro-USB (uno para aplicaciones y debugging, otro para alimentación); 4 salidas digitales implementadas con leds RGB, 4 entradas digitales con pulsadores; 1 puerto de comunicaciones RS485 con bornera. La Figura  \ref{Fig2} nos muestra  una imagen frontal de la placa; nótese la presencia de dos puertos sobre los cuales se ubican los pines correspondientes a la placa, la Figura  \ref{distribucionpines} ilustra el distribución de dichos pines sobre cada puerto.
+  \\
 
 Sobre el puerto P1, se ubican los siguientes módulos:
 
 \begin{enumerate}
-\item 3 entradas analógicas ($ADC0,1,2 y 3$)
-\item 1 salida analógica (DAC0).
-\item 1 puerto I2C.
-\item 1 puerto asincrónico full duplex (para RS-232).
-\item 1 puerto CAN.
-\item 1 conexión para un teclado 3x4.
+\item[•] 3 entradas analógicas (ADC0,1,2 y 3)
+\item[•] 1 salida analógica (DAC0).
+\item[•] 1 puerto I2C.
+\item[•] 1 puerto asincrónico full duplex (para RS-232).
+\item[•] 1 puerto CAN.
+\item[•] 1 conexión para un teclado 3x4.
 \end{enumerate}
 
 Sobre el puerto P1, se ubican los siguientes módulos:
 
 \begin{enumerate}
-\item 1 puerto Ethernet
-\item 1 puerto SPI
-\item 1 puerto para Display LCD con 4 bits de datos, Enable y RS.
-\item pines genéricos de I/0.
+\item[•] 1 puerto Ethernet
+\item[•] 1 puerto SPI
+\item[•] 1 puerto para Display LCD con 4 bits de datos, Enable y RS.
+\item[•] pines genéricos de I/0.
 \end{enumerate}
+
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/diagramaenbloques.jpg}
+\caption{Diagrama en bloques de EDU CIAA basado en LPC4337.}
+\label{diagramaenbloques}
+\end{figure}
+
 
 \begin{figure}[h]
 \centering
@@ -122,23 +136,29 @@ Sobre el puerto P1, se ubican los siguientes módulos:
 
 \subsection{Conceptos previos}
 El desarrollo de codigos para sistemas embebidos tiene ciertas semejanzas con el desarrollo de aplicaciones en las PC, en este caso particular se utiliza un compilador llamado \textit{GCC} con soporte para la compilación de proyectos sobre los procesadores basados en la arquitectura ARM. En este caso particular, el compilador utilizado para el procesador de la EDU CIAA (el LPC4337) se lo denomina \textit{arm-none-eabi-gcc}.
-
+ \\
+ 
 Para la ejecución de la depuración de algun programa previamente compilado, el hardware de la CIAA viene provisto con el chip \textit{FT2232H}, que se encarga de hacer un puente entre la interfase JTAG del microcontrolador, y el USB que conecta a la PC en el puerto USB dedicado al debug. Mediante la herramienta de código abierto \textit{OpenOCD (On Chip Debugger)} se controla el chip \textit{FT2232H} por el USB y ademas todo lo referido al JTAG. Luego la herramienta de depuración \textit{GDB} utilizado en el IDE-Eclipse que se instala, se comunica sobre el puerto 3333 (TCP) que el \textit{Open OCD} tiene en escucha esperando la conexión\cite{descripcionopenocd}.
-
+ \\
+ 
 Debe tenerse en cuenta que el chip \textit{FT2232H} posee 2 canales de comunicación independientes (A y B), sin embargo, ambos salen por el mismo USB, de modo que la PC detecta 2 dispositivos distintos (en realidad es uno compuesto). Uno de ellos, se conecta al JTAG manejado por \textit{OpenOCD} como fue mencionado, mientras que el otro se ve como un puerto virtual COM. Este último sirve principalmente para la depuración.
-%%CONSIDERAR SI CIERTA PARTE VA A IR A SECCION INSTALACION
+ \\
 
 Dado que al funcionar como dos dispositivos distintos, para cada uno de ellos debe realizarse la instalación de un driver adecuado, en principio debe optarse por realizar la instalación de los drivers por defecto del fabricante FTDI para puerto virtual. %Considerar%
 
 \subsection{Firmware de la EDU CIAA}
 Considerando que el usuario previamente ha trabajado sobre placas de desarrollo tales como la MCE Debug, etc, y sobre microcontroladores PIC. Es necesario destacar un concepto teórico que brinda la posibilidad de fundamentar el trabajo sobre la placa EDU CIAA. Al trabajar sobre los otros dispositivos, es común la utilización de programas tales como \textit{MPLABX}, o \textit{PICC} a través del compilador \textit{CCS Compiler}; puntualmente; cuando se inicia un nuevo proyecto a traves de la herramienta de creación de la misma, es usual configurar este proyecto de manera que el software IDE genera un archivo \textit{makefile} para la compilación del proyecto.
-
+ \\
+ 
 En este caso, el software IDE de la EDU CIAA trabaja de forma ligeramente distinta, el usuario debe modificar un archivo \textit{makefile} (basándose en un archivo proporcionado previamente, denominado \textit{Makefile.config}) para poder efectuar la compilación del archivo y lograr la correcta configuración del programa, sobre la placa EDU CIAA. Dentro de él se establece la configuracion para la arquitectura del procesador utilizado.
-%%CONSIDERAR POSICION DEL SIGUIENTE PARRAFO%%
+ \\
+ 
 Cuando se desea realizar el primer proyecto sobre la placa, el usuario debe crear su propio archivo \textit{Makefile.mine}, de manera que éste se encuentra basada en \textit{Makefile.config} brindado previamente al momento de establecer un nuevo proyecto añadiendo un Firmware que ha sido diseñado para el funcionamiento de la placa.
-
+ \\
+ 
 Debe tenerse en cuenta que la dinámica de trabajo sobre la placa se encuentra pensada para trabajar sobre la plataforma de versionado \textit{Git}; en este caso en particular, el archivo \textit{Makefile.mine} se encuentra diseñado de forma tal que dicho archivo sea ignorado al sincronizar su repositorio local, con su repositorio remoto (ubicado sobre \textit{Github}).
-
+ \\
+ 
 En \textit{Makefile.mine} se pueden editar y configurar los siguientes parámetros\cite{parametrosdelmakefile}:
 \begin{enumerate}
 \item \textbf{ARCH}  indica la arquitectura del hardware para la cual se desea compilar. Ej: x86, cortexM4.
@@ -149,11 +169,14 @@ En \textit{Makefile.mine} se pueden editar y configurar los siguientes parámetr
 \item \textbf{PROJECT }es el Path al proyecto a compilar. Ej: examples$\$(DS)blinking_base$.
 \end{enumerate}
 Se utiliza la variable \$(DS) para indicar el separador de directorios (de manera automática se usa '/' para linux y \textbackslash{} para windows).
-
+ \\
+ 
 En el mismo Makefile aparecen al comienzo comentarios donde se indican los valores que pueden tomar estos parámetros.
-
+ \\
+ 
 Otro concepto importante que se tiene en cuenta cuando se desarrollan proyectos propios, es que cada proyecto tiene también su propio archivo \textit{Makefile}.El mismo se encuentra bajo el directorio \textbf{mak} en el directorio principal del proyecto o ejemplo. En el ejemplo \textbf{examples/blinking} el makefile del ejemplo se encuentra en \textbf{examples/blinking/mak} y se llama \textbf{Makefile}.
-
+ \\
+ 
 Sobre este archivo \textit{Makefile} contiene las siguientes definiciones:
 
 \begin{enumerate}
@@ -163,7 +186,6 @@ Sobre este archivo \textit{Makefile} contiene las siguientes definiciones:
 \item \textbf{SRC$\_$FILES} archivos a compilar ya sean archivos c como c++.
 \item \textbf{OIL$\_$FILES} configuración del sistema operativo (si es utilizado).
 \end{enumerate}
-
 Cada proyecto incluye en su Makefile los módulos a compilar en una variable llamada MODS, por ejemplo:
 
 MODS += modules$\$(DS)posix$ \  
@@ -175,6 +197,7 @@ MODS += modules$\$(DS)posix$ \
         modules$\$(DS)bsp $\	
         
         modules$\$(DS)platforms$
+ \\
 
 Es recomendable utilizar \$(DS) en vez de / o \textbackslash{} para mantener la compatibilidad entre sistemas operativos (Linux, Windows, MAC OS).
 {
@@ -190,8 +213,10 @@ En el directorio principal luego de hacer un git clone o al bajar una release of
 \end{figure}
 
 \textbf{Directorio $"externals"$(Software y Tools Externos)}\\
-Este directorio contiene el Software y Tools externos al CIAA-Firmware, que son necesarios para compilar, testear, etc. el Firmware. Tenga en cuenta que el Software y Tools en esta carpeta no son parte de CIAA-Firmware y pueden contener otras licencias. Sobre el Cuadro \ref{Tab1} se ilustra los contenidos del directorio y su descripción. La Figura 3 ilustra los contenidos de la estructura de directorios.
+Este directorio contiene el Software y Tools externos al CIAA-Firmware, que son necesarios para compilar, testear, etc. el Firmware. Tenga en cuenta que el Software y Tools en esta carpeta no son parte de CIAA-Firmware y pueden contener otras licencias. Sobre el Cuadro \ref{Tab1} se ilustra los contenidos del directorio y su descripción. La Figura \ref{Fig3} ilustra los contenidos de la estructura de directorios.
+ \\
 
+El Cuadro \ref{Tab2} contiene todos los archivos generados por el CIAA-Firmware:
 \begin{table}
 \begin{center}
 \resizebox{18cm}{!}{
@@ -207,7 +232,6 @@ drivers & Drivers provistos por el proveedor del chip, los cuales son luego adap
 \end{center}
 \end{table}
 
-El Cuadro \ref{Tab2} contiene todos los archivos generados por el CIAA-Firmware:
 
 \begin{table}[h]
 \begin{center}
@@ -228,11 +252,13 @@ obj & Todos los archivos fuentes son compilados a object files y almacenados en 
 }
 \subsection{Iniciación a través de ejemplos}
 En el Firmware de la placa se pueden varios ejemplos, estos se encuentran en la carpeta \textbf{examples} y pueden ser utilizados como base para iniciar cualquier proyecto.
-
+ \\
+ 
 Cualquiera de los ejemplos puede ser copiado y utilizado de base para nuevos proyectos. Por ejemplo con el siguiente comando:	\textit{cp -r $examples/blinking projects/my$\_$proyect$} y adaptando el Makefile.mine indicado: $PROJECT$\_$PATH = projects/my$\_$project$.
 \subsection{Instalación de IDE}
 El entorno de desarrollo integrado (IDE) posibilita el trabajo en un ambiente ameno, además provee las herramientas necesarias para el desarrollo de aplicaciones en el Firmware de forma automatica. La CIAA utiliza una version modificada de la plataforma de software (IDE)  \textit{Eclipse}, denominada \textit{CIAA-Software-IDE} ,la cual contiene herramientas de programación tales como editor de texto, compilador,plataforma para depuración, etc.
-Sobre la página web del proyecto, se provee un instalador llamado \textit{CIAA-IDE-SUITE}, desde donde se puede configurar automáticamente todas las herramientas necesarias para trabajar con la placa. Este instalador solamente es para los usuarios que poseen Windows XP o superior.\\
+Sobre la página web del proyecto, se provee un instalador llamado \textit{CIAA-IDE-SUITE}, desde donde se puede configurar automáticamente todas las herramientas necesarias para trabajar con la placa. Este instalador solamente es para los usuarios que poseen Windows XP o superior.
+ \\
 
 El paquete de instalación incluye:
 \begin{enumerate}
@@ -274,7 +300,8 @@ Sobre la ventana siguiente deben elegirse cuáles componentes se desea instalar,
 \end{figure}
 
 A continuación debe  establecerse la dirección en donde se desea instalar el entorno. La ventana que corresponde a este proceso se ilustra en la Figura \ref{Fig7}. En caso de que se desee cambiar dicha dirección,debe tenerse la precaución de no elegir una dirección donde los directorios posean espacios en sus nombres. Es recomendable no cambiar la unidad de instalación, pues en los siguientes pasos del documento se utilizarán direcciones que harán referencia a esta carpeta de instalación, y si se cambia, se deberán cambiar consecuentemente dichas direcciones.
-
+ \\
+ 
 Luego de dicha configuración, se inicia automáticamente el proceso de instalación.En un momento aparecerá una ventana emergente, similar a la que se muestra en la Figura \ref{Fig8}, en donde el programa pregunta si se dispone del hardware, pues para la instalación del driver es necesario conectar la placa. De no  ser así, aún puede continuar la instalación haciendo click en 'No'. Por el contrario, si se dispone de la EDU-CIAA, se debe hacer click en 'Yes', y emergerá otra ventana, como se muestra en la Figura \ref{Fig9}.
 
 \begin{center}
@@ -332,7 +359,8 @@ Una vez finalizada esta etapa, se procede a la instalación de los drivers por d
 \label{Fig13}
 \end{figure}
 Una de las posibles fallas que pueden surgir a través de este proceso, se presenta al producirse una falla en la comunicación a través del puerto virtual FTDI, que impide la correcta comunicación entre la placa y el entorno IDE. Su corrección debe efectuarse manualmente, fuera del instalador, y es posible la aparición de una ventana de error emergente como la que se muestra en la Figura \ref{Fig13}.
-
+ \\
+ 
 El instalador incluye en la carpeta donde se instaló el software (Por defecto, $ C:/CIAA $ ) un programa que configura el driver del controlador serie,emulado por la placa, para que uno de ellos pueda ser utilizado como interfaz JTAG. Dicho programa se llama $ Zadig\_Win\_7\_2\_1\_1.exe $, la Figura \ref{Fig14} muestra una ilustración de la ubicación del programa.
 
 \begin{figure}[!h]
@@ -350,7 +378,8 @@ Al abrir la aplicación, se presenta la Figura \ref{Fig15}. Antes de proceder, e
 \label{Fig15}
 \end{figure}
 Aparecerá una lista de dispositivos de comunicación relacionados al USB. Se tiene que buscar aquellos cuyos nombres tengan relación con el puerto serie (puede aparecer Dual RS232-HS, USB Serial Converter, o algo similar).
-
+ \\
+ 
 Por lo general, aparecerán 2 con el mismo nombre, excepto que uno es Interface 0 y el otro Interface 1, como se muestra en la Figura \ref{Fig16} (la lista de drivers que se muestra puede diferir, dependiendo de la computadora que se utilice).
 
 \begin{figure}[!h]
@@ -386,12 +415,14 @@ elimina el directorio y todo su contenido.
 
 \section{Primeros Pasos con la EDU-CIAA}
 
-\subsection{Programacion en Baremetal a través de libreria sAPI}\label{programacionbaremetal}
+\subsection{Programacion en Baremetal a través de libreria sAPI}\label{sec:programacionbaremetal}
 Debido a que la programación de la placa en Baremetal puede tornarse un tanto engorrosa en principio, es posible utilizar una libreria diseñada para la implementación de proyectos en Baremetal con la placa EDU CIAA, dicha librería se la denomina \textit{sAPI}. Esta biblioteca implementa una API simple para la programación de dicha placa, es necesario comentar que una API es una interfaz de programación de aplicaciones, y consta de un conjunto de subrutinas, funciones y procedimientos (o métodos, en la programación orientada a objetos) que ofrece cierta biblioteca; para permitir ser utilizada por otro software como una capa de abstracción en la programación (aunque no necesariamente) entre los niveles o capas inferiores y las superiores del software\cite{sapi}.
-
+ \\
+ 
 La motivación para el desarrollo de la biblioteca sAPI surge de la necesidad de manejar los periféricos directamente desde una máquina virtual de Java para el desarrollo de Java sobre la CIAA y corresponde a la parte de bajo nivel de las clases de periféricos en Java que básicamente bindea a funciones escritas en C.
 Luego se extendió la misma para facilitar el uso de la EDU-CIAA-NXP a personas no expertas en la arquitectura del LPC4337 facilitando el uso de esta plataforma.
-
+ \\
+ 
 La idea es tener periféricos abstractos y lo más genéricos posibles. Que sea bien independiente de la arquitectura y en lo posible que las funciones sean todas del tipo:
 \begin{enumerate}
 \item[$\bullet$]	moduloConfig();
@@ -409,7 +440,9 @@ Los siguientes módulos estan incluidos:
 \item[$\bullet$]E/S Analógica.
 \item[$\bullet$]Uart.
 \end{enumerate}
- Es necesario destacar que actualmente se encuentra disponible para las plataformas EDU CIAA NXP (microcontrolador NXP LPC4337) y para la plataforma CIAA NXP (microcontrolador NXP LPC4337). La Figura \ref{Fig18} ilustra como son las distintas capas de software y la correspondiente ubicación de la \textit{sAPI}.\\
+ Es necesario destacar que actualmente se encuentra disponible para las plataformas EDU CIAA NXP (microcontrolador NXP LPC4337) y para la plataforma CIAA NXP (microcontrolador NXP LPC4337). La Figura \ref{Fig18} ilustra como son las distintas capas de software y la correspondiente ubicación de la \textit{sAPI}.
+ \\
+ 
 \underline{Breve descripcion de los modulos de la biblioteca}:
 \begin{enumerate}
 \item[•]\textbf{sAPI$\_$Config}: Contiene configuraciones de la biblioteca.
@@ -436,15 +469,20 @@ Los siguientes módulos estan incluidos:
 \underline{Utilización de librería sAPI}:
 
 Es posible descargar la version más reciente de dicha biblioteca, a traves del repositorio de la misma, ubicado en la pagina web (especificar la referencia a la pagina web del repositorio).
-
+ \\
+ 
 Luego de haber descargado la versión actual de  sAPI se procede a copiar la carpeta \textit{sapi$\_$bm} y pegarla en \textit{C$:/$CIAA$/$Firmware$/$modules}.
-
+ \\
+ 
 A continuación, el usuario debe crear un directorio el cual contiene al proyecto, y sobre el mismo, deben realizarse los directorios que contengan las cabeceras, el \textit{Makefile}, y los archivos fuentes.
-
+ \\
+ 
 Al utilizar la biblioteca \textit{sAPI} para un proyecto en Baremetal, se debe modificar el makefile del mismo dentro de la carpeta mak y cambiar la última línea de: \textbf{MODS += externals \$(DS)drivers}, y reemplazarla por:  \textbf{MODS += modules \$ (DS)sapi$\_$bm}.
-
+ \\
+ 
 Luego, sobre cada archivo fuente en la que se ejecuten instrucciones que contenga esta librería, se debe realizar la inclusión del mismo mediante la instruccion: \textbf{\# include “sAPI.h”}. Debe aclararse que en la versión 0.3.0 no es necesario incluir el archivo \textit{chip.h} dado que la propia biblioteca lo incluye, además, esta librería maneja el vector de interrupción, por lo tanto, para el usuario que haya trabajado anteriormente con proyectos escritos en instrucciones de \textit{LPCOpen}, debe tenerse en cuenta que ya no se necesita realizar el archivo que contenga las direcciones de las subrutinas para la atención de las interrupciones. El ejemplo \textit{"baremetal"} del Firmware en el que se realiza este tutorial, trae consigo dicho archivo.
-
+ \\
+ 
 Es importante tener en cuenta que para la compilación y depuración del programa mediante el IDE del Firmware, se debe colocar sobre la carpeta Firmware y mediante click derecho, el usuario debe ubicarse en \textit{Propiedades}$\rightarrow$\textit{C/C++ Build}$\rightarrow$\textit{Behaviour}. A continuación debe modificar sobre la rama \textit{Clean}, y reemplazar la palabra \textit{Clean\_ generate} por la palabra \textit{clean}, como puede apreciarse en la Figura \ref{Fig19}.
 \begin{center}
 \begin{figure}[!h]
@@ -456,9 +494,11 @@ Es importante tener en cuenta que para la compilación y depuración del program
 \end{center} 
 \subsubsection{Implementacion de ejemplo N$^{\circ}$1: Salidas Digitales}
 El primer ejemplo aborda las salidas digitales, a través de los leds que provee la placa EDU-CIAA.
-
+ \\
+ 
 Este programa enciende los leds de la placa en forma secuencial, de izquierda a la derecha. Luego de finalizar esta secuencia, se apagan de derecha a izquierda.
-
+ \\
+ 
 Debe destacarse que sobre el inicio del programa fuente se realizan las inclusiones de el archivo cabecera del proyecto y la biblioteca \textit{sAPI}.La Figura \ref{Fig20} ilustra lo explicado anteriormente.
 
 \begin{center}
@@ -480,12 +520,12 @@ el mòdulo delay o para lo que se requiera.
 \item[•]\textbf{DigitalWrite()}:Esta función se encarga de la escritura de salida digital, en este caso encienden los leds.
 \item[•]\textbf{Delay()}:Esta función  realiza los retardos (con excepción del retardo inexacto) siempre y cuando peviamente se haya configurado el tick en el codigo.
 \end{enumerate}
-Para la compilación de dicho proyecto, debe tenerse en cuenta lo mencionado sobre la seccion \ref{sec:programacionbaremetal}, mientras que para implementar la depuración sobre la placa, el usuario debe seleccionar el archivo \textit{axf} que resulta de la compilación del proyecto.La Figura \ref{Fig21} ilustra la ventana resultante para la carga del programa.Este procedimiento, se repite para la implementación de todos los ejemplos. 
+Para la compilación de dicho proyecto,asi como los demás proyectos en Baremetal, debe tenerse en cuenta lo mencionado sobre la seccion \ref{sec:programacionbaremetal}, mientras que para implementar la depuración sobre la placa, el usuario debe seleccionar el archivo \textit{axf} que resulta de la compilación del proyecto.La Figura \ref{Fig21} ilustra la ventana resultante para la carga del programa.Este procedimiento se repite para la implementación de todos los ejemplos. Cabe destacar que el proceso de depuración sobre los ejemplos implementados en RTOS es similar, la única diferencia reside en que sobre la rama \textit{Clean} de la pestaña \textit{Behaviour} (ver Sección \ref{sec:programacionbaremetal}) debe escribirse \textit{clean$\_$generate}.
 
 \begin{center}
 \begin{figure}[!h]
 \centering
-\includegraphics[width=6 cm]{figuras/f3.png}\\
+\includegraphics[width=6 cm]{figuras/f3.png}
 \caption{Inclusión de archivo cabecera y libreria}
 \label{Fig21}
 \end{figure}
@@ -531,7 +571,7 @@ La Figura \ref{Fig22} especifica el diagrama de estados del ejemplo:
 \label{Fig22}
 \end{figure}
 \end{center}
-\subsubsection{Implementacion de ejemplo N$^{\circ}$3: Entradas Analógicas y Uso de Display 7 segmentos}
+\subsubsection{Implementacion de ejemplo N$^{\circ}$3: Entradas Analógicas y Uso de Display 7 Segmentos}
 En este ejemplo se realizan dos tareas distintas, dependiendo de la tecla pulsada (\textit{TEC1} y \textit{TEC2}).Si se pulsa la tecla \textit{TEC1}, se encienden los Leds en una secuencia determinada. Mientras que si se pulsa la tecla \textit{TEC2}, se realiza una muestra de los dígitos desde 1 hasta 9 a través del display 7 segmentos. 
 
 Se implementa una maquina de estados en donde se establecen los prototipos de funciones que corresponden a los eventos y las acciones que acontecen. 
@@ -577,9 +617,9 @@ La Figura \ref{Fig27}, ilustra el diagrama de estados de este ejemplo:
 \underline{Uso de Entradas Analógicas}:
 
 En este código se hará uso del conversor analógico digital que posee esta placa. La idea es introducir una tensión analógica mediante la entrada CH1 y luego convertirla en un valor digital, para que posteriormente dentro del código, mediante operaciones matemáticas, poder mostrar dicho valor por el display.
-En la figura 5.4 se muestra un extracto del código principal donde se hace uso del ADC. Como se ver en esta figura, se utiliza la función analogRead (AIO), la cual se encarga de tomar el valor de tensión ingresado por la entrada analógica y convertirla a un valor digital. 
 
-\subsubsection{Implementacion de ejemplo N$^{\circ}$4: Conversor Digital/Analógico (DAC)}
+
+\subsubsection{Implementacion de ejemplo N$^{\circ}$4: Conversor Digital/Analógico (DAC)}\label{sec:dac}
 
 Un convertidor Digital/Analógico (DAC), es un dispositivo electrónico que recibe como dato de entrada un valor digital (en forma de una palabra de "n" bits) y lo transforma a una señal analógica. Cada una de las combinaciones binarias de entrada es convertida en niveles lógicos de tensión de salida. Un DAC transfiere información expresada en forma digital a una forma analógica. Para ubicar la función de este dispositivo conviene recordar que un sistema combina y relaciona diversos subsistemas que trabajan diferentes tipos de información analógica, como son; magnitudes eléctricas, mecánicas, etc.
 
@@ -707,7 +747,7 @@ Si bien ofrece distintas herramientas para la programación de sistemas embebido
 \end{figure}
 \end{center}
 
-\item[•]Sobre la sección \textit{Puerto Serial} debe identificarse sobre el menú desplegable \textit{Nombre}, el puerto COM asociado a la placa. La figura \ref{Fig30} ilustra dicho concepto
+\item[•]Sobre la sección \textit{Puerto Serial} debe identificarse sobre el menú desplegable \textit{Nombre}, el puerto COM asociado a la placa. La Figura \ref{Fig30} ilustra dicho concepto
 
 \begin{center}
 \begin{figure}[!h]
@@ -718,7 +758,7 @@ Si bien ofrece distintas herramientas para la programación de sistemas embebido
 \end{figure}
 \end{center}
 \item[•]Debe tenerse en cuenta sobre la instrucción \textit{uartConfig()}, perteneciente a la librería \textit{sAPI}, deben asignarse dos parámetros de entrada, uno de ellos indica el módulo de la UART sobre la cual se desea trabajar, en este caso el parámetro es \textit{UART$\_$USB}. El segundo parámetro que debe asignarse a dicha instrucción es la velocidad de transmisión en baudios. El valor de la velocidad previamente configurada sobre el programa debe ser configurado sobre el menú desplegable \textit{BaudRate}, ubicado sobre el costado derecho del menú desplegable \textit{Nombre}.Por ejemplo, si la velocidad configurada es igual a 9600 baudios, entonces sobre dicho menú debe seleccionarse 9600, como lo ilustra la Figura \ref{Fig30}.
-\item[•]Al realizar la depuración, el usuario debe seleccionar el boton \textit{Abrir/Cerrar puerto COM}, el cual se encuentra sobre la derecha del menú desplegable \textit{BaudRate},como lo ilustra la \ref{Fig29}.
+\item[•]Al realizar la depuración, el usuario debe seleccionar el boton \textit{Abrir/Cerrar puerto COM}, el cual se encuentra sobre la derecha del menú desplegable \textit{BaudRate},como lo ilustra la Figura \ref{Fig29}.
 \item[•]Para efectuar transmisiones sobre el puerto COM seleccionado, el usuario debe ingresar el dato sobre el cuadro de texto asociado al mismo y apretar el boton asociado a dicho cuadro.
 \end{enumerate}
 
@@ -924,11 +964,11 @@ Debe destacarse que cuando una Tarea tipo \textit{EXTENDED}, se encuentra en est
 \subsection{Clases de Conformidad}
 Con la finalidad de permitir que OSEK-OS pueda ser utilizado en una gran variedad de sistemas con diferentes capacidades y demandas (por ejemplo memoria, capacidad de procesamiento, etc.) es que OSEK-OS define 4 clases de conformidad (CC).
 
-Las diferentes clases existen para poder comparar entre sistemas, agrupar las interfaces según la clase de conformidad y facilitar la certificación de conformidad.Las clases de conformidad se determinan según los siguientes atributos: 
+Las diferentes clases existen para poder comparar entre sistemas, agrupar las interfaces según la clase de conformidad y facilitar la certificación de conformidad. Las clases de conformidad se determinan según los siguientes atributos: 
 
 \begin{enumerate}
 \item[•]Múltiple activaciónde tareas básicas.
-\item[•]Tipos de tareas aceptadas: básicasy extendidas.
+\item[•]Tipos de tareas aceptadas: básicas y extendidas.
 \item[•]Cantidad de tareas por prioridad.
 \end{enumerate}
 
@@ -1032,17 +1072,17 @@ Para finalizar la inclusión de dichos módulos, el usuario debe eliminar las in
 Debe destacarse que es necesaria la inclusión de las librerias \textit{sAPI$\_$Board.h},\textit{sAPI$\_$DataTypes.h} y \textit{sAPI$\_$PeripheralMap.h}. En primer lugar para la definición de la placa a utilizar, en segundo lugar los tipos de datos definidos por la librería, y por último para la inclusión de las definiciónes de los terminales para los periféricos.\\
 \underline{Generación de archivo OIL}:
 
-A través del \textit{Bloc de Notas} o a través de cualquier editor de texto, debe iniciar la configuración a través de la sintaxis \textit{OSEK OSEK} y sobre los simbolos $\lbrace$ y $\rbrace$ ,se determinarán los restantes aspectos que tendra el OS. La Figura \ref{Fig35} ilustra lo mencionado anteriormente.
+A través del \textit{Bloc de Notas} o a través de cualquier editor de texto,debe almacenarse el archivo de configuracion de tipo \textit{OIL} sobre la carpeta \textit{etc} previamente creada sobre el directorio del proyecto, en dicho archivo, debe iniciar la configuración a través de la sintaxis \textit{OSEK OSEK} y sobre los simbolos $\lbrace$ y $\rbrace$ ,se determinarán los restantes aspectos que tendra el OS. La Figura \ref{Fig35} ilustra lo mencionado anteriormente.
 \begin{figure}[!h]
 \centering
-\includegraphics[width=8 cm]{figuras/f31.png}
+\includegraphics[width=9 cm]{figuras/f31.png}
 \caption{Modificación para compatibilidad de módulo sAPI$\_$Uart.Parte 3}
 \label{modificacionuart3}
 \end{figure}
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=8 cm]{figuras/f32.png}
+\includegraphics[width=6 cm]{figuras/f32.png}
 \caption{Ejemplo de inclusion de módulo de entradas y salidas digitales.}
 \label{ejemploinclusion}
 \end{figure}
@@ -1084,7 +1124,7 @@ A continuación debe definirse las siguientes configuraciones para el OS del eje
 \label{Fig36}
 \end{figure}
 
-La Figura \ref{Fig37} ilustra un OS configurado de forma que el nivel de chequeo de errores sea el mínimo,no se determine el uso del \textit{Scheduler},y no se utilize una cantidad específica de memoria,por último solamente se define una función en caso de un error producido en el OS.
+La Figura \ref{Fig37} ilustra un OS configurado de forma que el nivel de chequeo de errores sea el mínimo, no se determine el uso del \textit{Scheduler},y no se utilize una cantidad específica de memoria,por último solamente se define una función en caso de un error producido en el OS.
 
 \begin{figure}[!h]
 \centering
@@ -1092,7 +1132,7 @@ La Figura \ref{Fig37} ilustra un OS configurado de forma que el nivel de chequeo
 \caption{Ejemplo de especificación de OS sobre archivo OIL}
 \label{Fig37}
 \end{figure}
-A continuación se define una Tarea que efectua la configuración inicial de la placa, y de los puertos GPIO utilizados para el display 7 segmentos. La instrucción que permite la definición de una Tarea sobre el archivo de configuracion \textit{OIL} es \textit{TASK}, la Figura \ref{Fig38} ilustra el proceso llevado a cabo para dicho proceso.
+A continuación se define una Tarea que efectua la configuración inicial de la placa, y de los puertos GPIO utilizados para el Display 7 Segmentos. La instrucción que permite la definición de una Tarea sobre el archivo de configuracion \textit{OIL} es \textit{TASK}, la Figura \ref{Fig38} ilustra el proceso llevado a cabo para dicho proceso. El usuario debe tener en cuenta que se lleva a cabo este proceso para cada uno de los proyectos implementados sobre este Tutorial.
 
 \begin{figure}[!h]
 \centering
@@ -1130,20 +1170,30 @@ Es importante destacar que las Tareas \textbf{LEDB,LED1,LED2,LED3}, no son inter
 
 \subsubsection{Implementacion de ejemplo N$^{\circ}$3: Eventos en OSEK}
 Este ejemplo pretende brindar al usuario una introducción al manejo de las Tareas del tipo \textit{EXTENDED} a través de los Eventos. Se pretende encender el \textit{LED1} de la placa en el instante en que el usuario oprima la tecla \textit{TEC1}, a continuación, se desea encender el \textit{LED2} de la placa oprimiento la tecla \textit{TEC2}.
-
-Se realiza la definición de dos Tareas, denominadas \textit{LED$\_$1} y \textit{LED$\_$2}. La primera de ellas produce el encendido del \textit{LED1} en caso de que se oprima \textit{TEC1}, a continuación realiza la activación de la Tarea \textit{LED$\_$2}. En el instante en que se aprete la tecla \textit{TEC2}, se produce el encendido del del \textit{LED2}, a continuación realiza la activación de la Tarea \textit{LED$\_$1}.
-
-La Figura \ref{Fig41} ilustra la transición que se produce entre las Tareas a través de los Eventos.   
-
 \begin{center}
 \begin{figure}[!h]
 \centering
-\includegraphics[width=10 cm]{figuras/f26.png}
+\includegraphics[width=10 cm]{figuras/f41.png}
+\caption{Transición de las Tareas mediante Eventos en Ejemplo N$^{\circ}$3}
+\label{ejemplo3}
+\end{figure}
+\end{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=9 cm]{figuras/f26.png}
 \caption{Transición de las Tareas mediante Eventos en Ejemplo N$^{\circ}$3}
 \label{Fig41}
 \end{figure}
-\end{center}
+Se realiza la definición de dos Tareas, denominadas \textit{LED$\_$1} y \textit{LED$\_$2}. La primera de ellas produce el encendido del \textit{LED1} en caso de que se oprima \textit{TEC1}, a continuación realiza la activación de la Tarea \textit{LED$\_$2}. En el instante en que se aprete la tecla \textit{TEC2}, se produce el encendido del del \textit{LED2}, a continuación realiza la activación de la Tarea \textit{LED$\_$1}.
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/f42.png}
+\caption{Transición de las Tareas mediante Eventos en Ejemplo N$^{\circ}$3}
+\label{ejemplo3transicion}
+\end{figure}
+Para efectuar este ejemplo se utilizo la estructura condicional \textit{while} para detener el flujo de la Tarea \textit{LED$\_$1} y \textit{LED$\_$2}, mientras se no se opriman las teclas \textit{TEC1} o \textit{TEC2} según corresponda. La Figura \ref{ejemplo3} ilustra el concepto explicado anteriormente.
 
+La Figura \ref{Fig41} ilustra la transición que se produce entre las Tareas a través de los Eventos.La Figura \ref{ejemplo3transicion} ilustra la transición entre las Tareas \textit{LED$\_$1} y \textit{LED$\_$2}, cuando se oprime alguna de las teclas correspondientes.
 \subsection{Alarmas}
 Las alarmas son herramientas que proporciona el Sistema Operativo \textit{OSEK} para la ejecución de una acción luego de determinado tiempo \cite{libroosekcerdeiro}.Éstas pueden realizar tres tipos de acciones:
 \begin{enumerate}
@@ -1179,9 +1229,6 @@ En caso de que haya ocurrido el Evento \textit{primersecuencia} o \textit{segsec
 
 \subsubsection{Implementacion de ejemplo N$^{\circ}$5: Alarmas en OSEK}
 En este ejemplo se utilizan las Alarmas para permitir la activación de una Tarea en forma periódica. En particular, esta Alarma activa una Tarea la cual permite la lectura analógica sobre el canal 1 del \textit{ADC0} de la placa.
-
-Se realiza la definición de la Tarea \textit{lectura$\_$periodica}, la cuál se activa cada 500[ms], gracias a la previa activación de la Alarma \textit{Activa$\_$lecturaperiodica} mediante la instrucción \textit{SetRelAlarm()}. En caso que la lectura sea igual a 1[V], 2[V], 3[V], 4[V] o 5[V]; se efectúa la muestra sobre el Display 7 Segmentos del valor correspondiente. La Figura \ref{estructuraej5} ilustra la estructura del archivo fuente de este ejemplo:
-
 \begin{center}
 \begin{figure}[!h]
 \centering
@@ -1190,6 +1237,8 @@ Se realiza la definición de la Tarea \textit{lectura$\_$periodica}, la cuál se
 \label{estructuraej5}
 \end{figure}
 \end{center}
+Se realiza la definición de la Tarea \textit{lectura$\_$periodica}, la cuál se activa cada 500[ms], gracias a la previa activación de la Alarma \textit{Activa$\_$lecturaperiodica} mediante la instrucción \textit{SetRelAlarm()}. En caso que la lectura sea igual a 1[V], 2[V], 3[V], 4[V] o 5[V]; se efectúa la muestra sobre el Display 7 Segmentos del valor correspondiente. La Figura \ref{estructuraej5} ilustra la estructura del archivo fuente de este ejemplo.
+
 \subsection{Interrupciones}
 Las funciones para realizar la atención de las distintas interrupciones sobre el programa se pueden subdividir en 2 categorías\cite{libroosekcerdeiro}:
 \begin{enumerate}
@@ -1241,21 +1290,15 @@ Puede observarse los nombres de las interrupciónes asociadas en esta implementa
 Cuando la interrupción externa se produce el establecimiento de una tensión de salida analógica a través del uso del DAC, la magnitud de la tensión es igual a 1[V],2[V] o 3.3[V], según se aprete una, dos o tres veces la tecla asignada a la interrupción externa (\textit{TEC4}). La Figura \ref{estructuraej6} ilustra el funcionamiento y la estructura del archivo fuente del ejemplo.
 
 \subsubsection{Implementacion de ejemplo N$^{\circ}$7: Interrupciones en OSEK}
-En este ejemplo se implementa comunicación serial mediante la interrupción sobre el módulo UART del microprocesador. Para la inclusión del módulo \textit{sAPI$\_$Uart} debe realizarse los procedimientos explicados en la sección \ref{sec:tareasOSEK}. 
-
-En particular este ejemplo realiza la recepción a través de una Interrupción producida por la UART, de manera tal que provoque un Evento denominado \textit{palabra}. A continuación la Tarea asociada a dicho Evento identifica si el caracter recibido es igual a "L", en cuyo caso, se establece el envío de la palabra "\textit{Recibido caracter deseado}". Sobre el archivo de configuración se define la interrupción \textit{UART2}, la cual se ilustra sobre la Figura \ref{Fig44}. Es importante destacar que el nombre utilizado en la interrupción puede definirse arbitrariamente, mientras que el nombre de la interrupción establecido sobre el parámetro \textit{INTERRUPT} es \textit{UART2}, el cuál es el nombre que esta implementación de \textit{OSEK} ha utilizado.
-
-\begin{center}
 \begin{figure}[!h]
 \centering
 \includegraphics[width=5 cm]{figuras/f35.png}
 \caption{Definición de Interrupción sobre Ejemplo N$^{\circ}$7}
 \label{Fig44}
 \end{figure}
-\end{center}
+En este ejemplo se implementa comunicación serial mediante la interrupción sobre el módulo UART del microprocesador. Para la inclusión del módulo \textit{sAPI$\_$Uart} debe realizarse los procedimientos explicados en la sección \ref{sec:tareasOSEK}. 
 
-La Figura \ref{Fig45} ilustra la estructura y el funcionamiento del ejemplo.
-
+En particular este ejemplo realiza la recepción a través de una Interrupción producida por la UART, de manera tal que provoque un Evento denominado \textit{palabra}. A continuación la Tarea asociada a dicho Evento identifica si el caracter recibido es igual a "L", en cuyo caso, se establece el envío de la palabra "\textit{Recibido caracter deseado}". Sobre el archivo de configuración se define la interrupción \textit{UART2}, la cual se ilustra sobre la Figura \ref{Fig44}.
 \begin{center}
 \begin{figure}[!h]
 \centering
@@ -1264,14 +1307,14 @@ La Figura \ref{Fig45} ilustra la estructura y el funcionamiento del ejemplo.
 \label{Fig45}
 \end{figure}
 \end{center}
+Es importante destacar que el nombre utilizado en la interrupción puede definirse arbitrariamente, mientras que el nombre de la interrupción establecido sobre el parámetro \textit{INTERRUPT} es \textit{UART2}, el cuál es el nombre que esta implementación de \textit{OSEK} ha utilizado.La Figura \ref{Fig45} ilustra la estructura y el funcionamiento del ejemplo.
+
 \subsubsection{Implementacion de ejemplo N$^{\circ}$8: Interrupciones en OSEK}
 El siguiente ejemplo permite mostrar como puede implementarse la interrupción por recepción de datos sobre el módulo UART, de manera tal que el usuario pueda interactuar con el programa, a través del envío de datos sobre el puerto serial con el programa \textit{Octoplus}. Para efectuar la implementación de este ejemplo, el usuario puede recurrir a la sección \ref{sec:serial} para repasar el modo de utilización de dicho programa.
 
 Sobre el archivo de configuración se efectúa la definición de una Tarea denominada \textit{BLINKING}, en la cuál se realiza la identificación del evento establecido y su posterior acción de manera similar a la que se aplica sobre el ejemplo N$^{\circ}$4. 
 
 Dicha Tarea realiza un blinkeo del \textit{LED1} de la placa, igual a un numero de veces determinado por un solo caracter recibido sobre el puerto serial. De modo que el \textit{LED1} puede ejecutar el blinkeo entre 1 y 9 veces.
-
-Para efectuar la recepción del caracter se implementa una interrupción del tipo \textit{ISR2} denominada \textit{UART2} en la cual se efectúa la lectura del caracter recibido a través de la función \textit{leerUART()}. A continuación, se produce el pasaje hacia el número entero asociado a dicha letra recibida. Finalmente se realiza la activación de la Tarea \textit{BLINKING} y el establecimiento del evento \textit{recepcion}, el cual esta asociado a dicha Tarea. Es necesario destacar la utilización de la variable global \textit{conversion} para el control de la cantidad de veces que debe realizarse el blinking. La Figura  ilustra esquemáticamente la estructura y el comportamiento del archivo fuente del ejemplo.
 \begin{center}
 \begin{figure}[!h]
 \centering
@@ -1280,8 +1323,27 @@ Para efectuar la recepción del caracter se implementa una interrupción del tip
 \label{Fig46}
 \end{figure}
 \end{center}
-\subsubsection{Implementacion de ejemplo N$^{\circ}$9: Interrupciones en OSEK}
-El siguiente ejemplo tiene como objetivo efectuar la medición de una tensión de entrada sobre el 
+Para efectuar la recepción del caracter se implementa una interrupción del tipo \textit{ISR2} denominada \textit{UART2} en la cual se efectúa la lectura del caracter recibido a través de la función \textit{leerUART()}. A continuación, se produce el pasaje hacia el número entero asociado a dicha letra recibida. Finalmente se realiza la activación de la Tarea \textit{BLINKING} y el establecimiento del evento \textit{recepcion}, el cual esta asociado a dicha Tarea. Es necesario destacar la utilización de la variable global \textit{conversion} para el control de la cantidad de veces que debe realizarse el blinking. La Figura  ilustra esquemáticamente la estructura y el comportamiento del archivo fuente del ejemplo.
+
+\section{Implementacion de ejemplo N$^{\circ}$9: Inclusión de librería LCD y formación de librerias propias para trabajar}
+El siguiente ejemplo tiene como objetivo ilustrar al usuario como puede implementarse librerías propias para la agilización de proyectos y proveer una forma de clarificar la visualización del programa.
+
+En este ejemplo se realiza la lectura analógica de una tensión de entrada sobre el canal 1 del puerto ADC0 de la placa. El usuario puede recurrir a la Figura \ref{Fig24} de la sección \ref{sec:dac} para repasar el diagrama de conexión.
+
+Para comenzar la implementación de una librería propia se procede de forma similar a la que se estableció para la generación de un archivo cabecera y un archivo fuente sobre la sección \ref{sec:tareasOSEK}. En este caso en particular se implemeta una librería propia que tiene como propósito configurar la placa, las teclas y los leds incorporados; facilitar el encendido de un solo Led en particular (a través de una sola instrucción creada en la librería); facilitar la conversión de la lectura analógica realizada por el ADC; simplificar la inicialización del Display LCD 16x2 mediante las instrucciones propias de la librería de Matias Ferraro \cite{repositoriomatiasferraro}; y generar instrucciones de utilización propia en particular.
+
+Debe tenerse en cuenta que al utilizar instrucciones propias de la librería \textit{sAPI} y la del Display LCD, sobre el archivo cabecera de la biblioteca propia, debe incluirse los archivos cabecera de las librerías listadas anteriormente. La Figura \ref{Fig47} ilustra el concepto explicado.
+
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=8 cm]{figuras/f40.png}
+\caption{Inclusión de librerias \textit{sAPI} y libreria de Display LCD sobre librería propia}
+\label{Fig47}
+\end{figure}
+\end{center}
+
+Este ejemplo en particular realiza la lectura analógica e imprime sobre la pantalla del display el resultado de dicha lectura, al oprimir la tecla \textit{TEC1}. La Figura  ilustra el funcionamiento de dicho Ejemplo 
 \begin{thebibliography}{}
 \bibitem{origeneduciaa} {\footnotesize http://proyecto-ciaa.com.ar/devwiki/doku.php?id=proyecto:origen$\_$ciaa}
 
