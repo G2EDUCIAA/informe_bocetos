@@ -578,7 +578,7 @@ La Figura \ref{Fig22} especifica el diagrama de estados del ejemplo:
 
 
 
-\subsubsection{Implementacion de ejemplo N$^{\circ}$3: Entradas Analógicas y Uso de Display 7 Segmentos}
+\subsection{Implementacion de ejemplo N$^{\circ}$3: Entradas Analógicas y Uso de Display 7 Segmentos}\label{sec:ej3sapi}
 En este ejemplo se realizan dos tareas distintas, dependiendo de la tecla pulsada (\textit{TEC1} y \textit{TEC2}).Si se pulsa la tecla \textit{TEC1}, se encienden los Leds en una secuencia determinada. Mientras que si se pulsa la tecla \textit{TEC2}, se realiza una muestra de los dígitos desde 1 hasta 9 a través del display 7 segmentos. 
 
 Se implementa una maquina de estados en donde se establecen los prototipos de funciones que corresponden a los eventos y las acciones que acontecen. 
@@ -595,8 +595,15 @@ En este tutorial se realiza el manejo de un display de 7 segmentos del tipo cát
 \label{Fig23}
 \end{figure}
 \end{center}
+\underline{Uso de Entradas Analógicas}:
 
-A continuación se realiza una breve descripción de los estados, eventos y acciones que contiene este programa.
+En este código se hará uso del conversor analógico digital que posee esta placa. La idea es introducir una tensión analógica mediante la entrada CH1 y luego convertirla en un valor digital, para que posteriormente dentro del código, mediante operaciones matemáticas, poder mostrar dicho valor por el display.
+
+\begin{enumerate}
+\item[•]Realizar la generación de los archivos cabecera y fuente como se establece sobre la seccion \ref{sec:ej1sapi}.
+
+\item[•] A través del programa \textit{uModel Factory}, implementar la siguiente Maquina de Estado Finita:
+
 \begin{enumerate}
 \item[•]\underline{Estados}:
 \begin{enumerate}
@@ -613,20 +620,22 @@ A continuación se realiza una breve descripción de los estados, eventos y acci
 \end{enumerate}
 La Figura \ref{Fig27}, ilustra el diagrama de estados de este ejemplo:
 
-\begin{center}
-\begin{figure}[!h]
+
+\begin{figure}[H]
 \centering
 \includegraphics[width=6 cm]{figuras/f9.png}\\
 \caption{Diagrama de estados de ejemplo N$^{\circ}$3.}
 \label{Fig27}
 \end{figure}
-\end{center}
-\underline{Uso de Entradas Analógicas}:
 
-En este código se hará uso del conversor analógico digital que posee esta placa. La idea es introducir una tensión analógica mediante la entrada CH1 y luego convertirla en un valor digital, para que posteriormente dentro del código, mediante operaciones matemáticas, poder mostrar dicho valor por el display.
+\item[•] Incluir sobre el archivo fuente, el archivo cabecera \textit{funciones.h}
 
+\item[•] Incluir sobre el archivo fuente \textit{funciones.c} el archivo cabecera de la libreria \textit{sAPI} y el archivo cabecera del proyecto.
 
-\subsubsection{Implementacion de ejemplo N$^{\circ}$4: Conversor Digital/Analógico (DAC)}\label{sec:dac}
+\end{enumerate}
+
+\subsection{Implementacion de ejemplo N$^{\circ}$4: Conversor Digital/Analógico (DAC)}\label{sec:ej4sapi}
+%\label{sec:dac}
 
 Un convertidor Digital/Analógico (DAC), es un dispositivo electrónico que recibe como dato de entrada un valor digital (en forma de una palabra de "n" bits) y lo transforma a una señal analógica. Cada una de las combinaciones binarias de entrada es convertida en niveles lógicos de tensión de salida. Un DAC transfiere información expresada en forma digital a una forma analógica. Para ubicar la función de este dispositivo conviene recordar que un sistema combina y relaciona diversos subsistemas que trabajan diferentes tipos de información analógica, como son; magnitudes eléctricas, mecánicas, etc.
 
@@ -643,19 +652,14 @@ La placa EDU-CIAA posee un DAC de 10 bits de resolución ,por lo tanto,el númer
 
 Para la implementación del ejemplo, es posible realizar la lectura del terminal medio de un potenciómetro, la Figura \ref{Fig24} ilustra la conexión realizada.Debe tenerse en cuenta que es posible realizar la conexión del potenciómetro a partir de la terminal de 5[V] y la terminal GNDA que ofrece la placa.
 
-Este ejemplo utiliza maquinas de estado para poder establecer un orden sobre los eventos y las acciones que debe ejecutar el procesador.La Figura \ref{Fig25} especifica el diagrama de estados del ejemplo. A continuación se realiza una breve descripción de los estados, eventos y acciones que contiene este programa.
+Este ejemplo utiliza maquinas de estado para poder establecer un orden sobre los eventos y las acciones que debe ejecutar el procesador.
 
 La instrucción \textit{analogConfig( ENABLE$\_$ANALOG$\_$INPUTS )} se encarga de habilitar las entradas analógicas. Mientras que \textit{analogConfig( ENABLE$\_$ANALOG$\_$OUTPUTS )} se encarga de habilitar las salidas analógicas, con las que trabajara el DAC.
 
-\begin{center}
-\begin{figure}[!h]
-\centering
-\includegraphics[width=10 cm]{figuras/f7.png}\\
-\caption{Diagrama de estados de ejemplo N$^{\circ}$4.}
-\label{Fig25}
-\end{figure}
-\end{center}
+\begin{enumerate}
+\item[•]Realizar la generación de los archivos cabecera y fuente como se establece sobre la seccion \ref{sec:ej1sapi}.
 
+\item[•] A través del programa \textit{uModel Factory}, implementar la siguiente Maquina de Estado Finita:
 
 \begin{enumerate}
 \item[•]\underline{Estados}:
@@ -682,7 +686,24 @@ La instrucción \textit{analogConfig( ENABLE$\_$ANALOG$\_$INPUTS )} se encarga d
 \end{enumerate}
 \end{enumerate}
 
-\subsubsection{Implementacion de ejemplo N$^{\circ}$5: Uso de UART y Display LCD 16x2}
+La Figura \ref{Fig25}, ilustra el diagrama de estados de este ejemplo:
+\begin{center}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=10 cm]{figuras/f7.png}\\
+\caption{Diagrama de estados de ejemplo N$^{\circ}$4.}
+\label{Fig25}
+\end{figure}
+\end{center}
+
+\item[•] Incluir sobre el archivo fuente, el archivo cabecera \textit{funciones.h}
+
+\item[•] Incluir sobre el archivo fuente \textit{funciones.c} el archivo cabecera de la libreria \textit{sAPI} y el archivo cabecera del proyecto.
+
+\end{enumerate}
+
+
+\subsection{Implementacion de ejemplo N$^{\circ}$5: Uso de UART y Display LCD 16x2}\label{sec:ej5sapi}
 En este código se utiliza el modulo conversor analógico digital de la placa, para efectuar la lectura de una entrada analógica sobre esta. En el caso que dicha medición sea superior a 2[V], se establece una salida analógica de 2[V] utilizando el módulo conversor digital analógico. De forma similar, si la tensión de entrada resulta mayor a 4[V], se define una salida analógica de 3[V].
 Es necesario destacar que la placa ya integra internamente el conversor digital analógico, de modo que no es necesario realizar una interfaz para la ejecución de dicha salida, además, es necesario destacar que la tensión de referencia interna se encuentra establecida, y adquiere un valor igual a 3.3[V]. La Figura \ref{Fig26} ilustra el esquemático que muestra dicho concepto.
 
@@ -697,7 +718,12 @@ Es necesario destacar que la placa ya integra internamente el conversor digital 
 
 La instrucción \textit{analogRead()}, permite realizar la lectura de la tensión aplicada sobre el canal 1 del modulo ADC0 de la placa. A partir de la conversión a tensión, el programa aplica la tensión de salida correspondiente.
 
-Este ejemplo también utiliza maquina de estado para establecer un orden sobre los eventos y las acciones que debe ejecutar el procesador.A continuación se realiza una breve descripción de los estados, eventos y acciones que contiene este programa.
+Este ejemplo también utiliza maquina de estado para establecer un orden sobre los eventos y las acciones que debe ejecutar el procesador.
+
+\begin{enumerate}
+\item[•]Realizar la generación de los archivos cabecera y fuente como se establece sobre la seccion \ref{sec:ej1sapi}.
+
+\item[•] A través del programa \textit{uModel Factory}, implementar la siguiente Maquina de Estado Finita:
 
 \begin{enumerate}
 \item[•]\underline{Estados}:
@@ -733,26 +759,44 @@ La Figura \ref{Fig28} ilustra el diagrama de estados que corresponde al ejemplo
 \end{center}
 
 
+\end{enumerate}
 
-\subsubsection{Implementacion de ejemplo N$^{\circ}$6: Comunicación Serial}\label{sec:serial}
+
+
+
+\subsection{Implementacion de ejemplo N$^{\circ}$6: Comunicación Serial}\label{sec:serial}
 El siguiente ejemplo introduce al usuario en la utilización de comunicación serial, es necesario destacar que para la implementación del ejemplo se utiliza el programa \textit{Octoplus Terminal} para la visualización y simulación del envío y transmisión de datos a través del terminal conectado sobre el puerto USB.
 
 El programa se encuentra disponible de forma gratuita en la dirección web \textit{http://octoplus-terminal.software.informer.com/download/}. La instalación de dicho programa es simple, sin embargo, es necesario destacar que durante dicho proceso, el usuario debe obviar la instalación de los drivers que provee dicho programa.
 
 Si bien ofrece distintas herramientas para la programación de sistemas embebidos, este tutorial se centra en la utilización de dicho programa para el envío y la recepción de datos sobre el terminal perteneciente a la placa. Para ello, a continuación se realizará una serie de pasos para la utilización de \textit{Octoplus} junto con la placa:
 
+Es necesario mencionar que si existe un programa ya cargado previamente, también es posible utilizar \textit{Octoplus} de forma similar.
+
+En este apartado se verá un código base para utilizar la UART del LPC4337 mediante las funciones que incluye la librería sAPI. Las funciones provistas por esta biblioteca son las encargadas de realizar los siguientes pasos básicos para poder utilizar la UART0 \cite{manuallpcuart}.
+
+\begin{enumerate}
+\item[•]Habilitar la alimentación del periférico.
+\item[•]Habilitar el clock al periférico.
+\item[•]Configurar la velocidad de transmisión.
+\item[•]Habilitar las FIFO del transmisor y el receptor.
+\item[•]Configurar la función de los pines para utilizarlo con la UART0.
+\item[•]Habilitar la interrupción.
+\end{enumerate}
+
+El usuario debe seguir los siguientes pasos para implementar este ejemplo:
 \begin{enumerate}
 \item[•]Suponiendo que el usuario ya se encuentran instalados los drivers para la placa, y las herramientas de depuración para la misma, luego de realizar la conexión entre la placa y la computadora a través de \textit{OpenOCD} (sobre la consola \textit{cygwin}), el usuario debe iniciar \textit{Octoplus}.
 \item[•]A continuación se presenta una pantalla similar a la Figura \ref{Fig29}
 
-\begin{center}
-\begin{figure}[!h]
+
+\begin{figure}[H]
 \centering
 \includegraphics[width=6 cm]{figuras/f11.png}
 \caption{Panel principal de \textit{Octoplus}}
 \label{Fig29}
 \end{figure}
-\end{center}
+
 
 \item[•]Sobre la sección \textit{Puerto Serial} debe identificarse sobre el menú desplegable \textit{Nombre}, el puerto COM asociado a la placa. La Figura \ref{Fig30} ilustra dicho concepto
 
@@ -769,27 +813,28 @@ Si bien ofrece distintas herramientas para la programación de sistemas embebido
 \item[•]Para efectuar transmisiones sobre el puerto COM seleccionado, el usuario debe ingresar el dato sobre el cuadro de texto asociado al mismo y apretar el boton asociado a dicho cuadro.
 \end{enumerate}
 
-Es necesario mencionar que si existe un programa ya cargado previamente, también es posible utilizar \textit{Octoplus} de forma similar.
-
-En este apartado se verá un código base para utilizar la UART del LPC4337 mediante las funciones que incluye la librería sAPI. Las funciones provistas por esta biblioteca son las encargadas de realizar los siguientes pasos básicos para poder utilizar la UART0 \cite{manuallpcuart}.
-
-\begin{enumerate}
-\item[•]Habilitar la alimentación del periférico.
-\item[•]Habilitar el clock al periférico.
-\item[•]Configurar la velocidad de transmisión.
-\item[•]Habilitar las FIFO del transmisor y el receptor.
-\item[•]Configurar la función de los pines para utilizarlo con la UART0.
-\item[•]Habilitar la interrupción.
-\end{enumerate}
-
-\subsubsection{Implementacion de ejemplo N$^{\circ}$7:Comunicación Serial-Utilización Display LCD 16x2}
+\subsection{Implementacion de ejemplo N$^{\circ}$7:Comunicación Serial-Utilización Display LCD 16x2}
 El siguiente ejemplo utiliza los leds incorporados en la placa, de forma tal que el numero de leds encendidos corresponda al caracter enviado. Por ejemplo, si se envía el caracter '3', entonces se encienden 3 leds.
 
 En este ejemplo también se utiliza un display LCD 16x2. Para el manejo del mismo fue necesario utilizar una libreria no perteneciente a \textit{sAPI}, la cual fue diseñada por Matias Ferraro\cite{repositoriomatiasferraro}.
-
-Para la implementación de la misma, se procede de forma similar a la realizada para el display de 7 segmentos, explicado anteriormente sobre la sección \ref{sec:ej2BM} .
-
-Sobre la Figura \ref{Fig31} se ilustra el diagrama esquemático para el conexionado.
+\begin{enumerate}
+\item[•]Realizar la generación de los archivos cabecera y fuente como se establece sobre la seccion \ref{sec:ej1sapi}.
+\item[•]Realizar la inclusión de los siguientes archivos cabecera y fuente para la utilización del Display LCD:
+\begin{enumerate}
+\item[•]\underline{Archivos Cabecera}:
+\begin{enumerate}
+\item[•]\textit{font8x8h.h}
+\item[•]\textit{font8x16.h}
+\item[•]\textit{lcd.h}
+\item[•]\textit{puertos.h}
+\end{enumerate}
+\item[•]\underline{Archivos Fuente:}
+\begin{enumerate}
+\item[•]\textit{lcd.c}
+\item[•]\textit{puertos.c}
+\end{enumerate}
+\end{enumerate}
+\item[•]Sobre la Figura \ref{Fig31} se ilustra el diagrama esquemático para el conexionado del Display sobre la placa.
 
 \begin{center}
 \begin{figure}[!h]
@@ -799,6 +844,13 @@ Sobre la Figura \ref{Fig31} se ilustra el diagrama esquemático para el conexion
 \label{Fig31}
 \end{figure}
 \end{center}
+
+\item[•]Implementar la conexión que se indica sobre la Sección \ref{sec:ej3sapi} para el Display 7 Segmentos.
+
+\end{enumerate}
+
+
+
 
 \section{Sistemas Operativos en Tiempo Real}
 Un Sistema Operativo es un conjunto de programas que ayuda al programador de aplicaciones a gestionar recursos de hardware disponible, entre ellos el tiempo del procesador y la memoria \cite{sase2011}.
@@ -1335,7 +1387,7 @@ Para efectuar la recepción del caracter se implementa una interrupción del tip
 \section{Implementacion de ejemplo N$^{\circ}$9: Inclusión de librería LCD y formación de librerias propias para trabajar}
 El siguiente ejemplo tiene como objetivo ilustrar al usuario como puede implementarse librerías propias para la agilización de proyectos y proveer una forma de clarificar la visualización del programa.
 
-En este ejemplo se realiza la lectura analógica de una tensión de entrada sobre el canal 1 del puerto ADC0 de la placa. El usuario puede recurrir a la Figura \ref{Fig24} de la sección \ref{sec:dac} para repasar el diagrama de conexión.
+En este ejemplo se realiza la lectura analógica de una tensión de entrada sobre el canal 1 del puerto ADC0 de la placa. El usuario puede recurrir a la Figura \ref{Fig24} de la sección \ref{sec:ej4sapi} para repasar el diagrama de conexión.
 
 Para comenzar la implementación de una librería propia se procede de forma similar a la que se estableció para la generación de un archivo cabecera y un archivo fuente sobre la sección \ref{sec:tareasOSEK}. En este caso en particular se implemeta una librería propia que tiene como propósito configurar la placa, las teclas y los leds incorporados; facilitar el encendido de un solo Led en particular (a través de una sola instrucción creada en la librería); facilitar la conversión de la lectura analógica realizada por el ADC; simplificar la inicialización del Display LCD 16x2 mediante las instrucciones propias de la librería de Matias Ferraro \cite{repositoriomatiasferraro}; y generar instrucciones de utilización propia en particular.
 
