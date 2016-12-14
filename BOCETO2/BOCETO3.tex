@@ -126,7 +126,7 @@ Sobre el puerto P1, se ubican los siguientes módulos:
 \end{figure}
 
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=8 cm]{figuras/f16.png}
 \caption{Distribución de pines de la placa}
@@ -203,22 +203,19 @@ MODS += modules$\$(DS)posix$ \
 Es recomendable utilizar \$(DS) en vez de / o \textbackslash{} para mantener la compatibilidad entre sistemas operativos (Linux, Windows, MAC OS).
 {
 \subsection{Estructura de Directorios de Firmware de EDU CIAA}
-En el directorio principal luego de hacer un git clone o al bajar una release oficial se pueden encontrar los siguientes Directorios y Archivos\cite{estructuradedirectorios}:
-
-
-\begin{figure}[!h]
+La Figura \ref{Fig3} ilustra los contenidos de la estructura de directorios.
+\begin{figure}[H]
 \centering
 \includegraphics[width=8 cm]{figuras/est_directorios_ciaa.png}\\
 \caption{Estructura de directorios del Firmware}
 \label{Fig3}
 \end{figure}
 
-\textbf{Directorio $"externals"$(Software y Tools Externos)}\\
-Este directorio contiene el Software y Tools externos al CIAA-Firmware, que son necesarios para compilar, testear, etc. el Firmware. Tenga en cuenta que el Software y Tools en esta carpeta no son parte de CIAA-Firmware y pueden contener otras licencias. Sobre el Cuadro \ref{Tab1} se ilustra los contenidos del directorio y su descripción. La Figura \ref{Fig3} ilustra los contenidos de la estructura de directorios.
- \\
+En el directorio principal luego de hacer un git clone o al bajar una release oficial se pueden encontrar los siguientes Directorios y Archivos\cite{estructuradedirectorios}:
 
-El Cuadro \ref{Tab2} contiene todos los archivos generados por el CIAA-Firmware:
-\begin{table}
+\textbf{Directorio $"externals"$(Software y Tools Externos)}\\
+Este directorio contiene el Software y Tools externos al CIAA-Firmware, que son necesarios para compilar, testear, etc. el Firmware. Tenga en cuenta que el Software y Tools en esta carpeta no son parte de CIAA-Firmware y pueden contener otras licencias. Sobre el Cuadro \ref{Tab1} se ilustra los contenidos del directorio y su descripción,mientras que el Cuadro \ref{Tab2} contiene todos los archivos generados por el CIAA-Firmware.
+\begin{table}[h]
 \begin{center}
 \resizebox{18cm}{!}{
 \begin{tabular}{|l|l|}
@@ -232,8 +229,6 @@ drivers & Drivers provistos por el proveedor del chip, los cuales son luego adap
 \label{Tab1}
 \end{center}
 \end{table}
-
-
 \begin{table}[h]
 \begin{center}
 \resizebox{18cm}{!}{
@@ -251,6 +246,7 @@ obj & Todos los archivos fuentes son compilados a object files y almacenados en 
 \end{table}
 
 }
+
 \subsection{Iniciación a través de ejemplos}
 En el Firmware de la placa se pueden varios ejemplos, estos se encuentran en la carpeta \textbf{examples} y pueden ser utilizados como base para iniciar cualquier proyecto.
  \\
@@ -268,31 +264,29 @@ El paquete de instalación incluye:
 \item \textbf{Cygwin} es una consola que se ejecuta en Windows, de modo de emular la consola de comandos de Linux. Cuenta con todos los comandos, y el compilador GCC, propio del sistema operativo libre.
 \end{enumerate}
 
-Una vez realizada la descarga del instalador, se ejecuta dicha aplicación, la figura \ref{Fig4} muestra el arranque del instalador, sobre ella, debe seleccionarse \textit{Siguiente}.A continuación deben aceptarse los términos de uso: 
-
+\begin{enumerate}
+\item[•]Una vez realizada la descarga del instalador, se ejecuta dicha aplicación, la Figura \ref{Fig4} muestra el arranque del instalador, sobre ella, debe seleccionarse \textit{Siguiente}.A continuación deben aceptarse los términos de uso.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=8 cm]{figuras/instalacion1.png}\\
 \caption{Arranque del instalador del software IDE}
 \label{Fig4}
 \end{figure}
-
+\item[•]Sobre la ventana siguiente deben elegirse cuáles componentes se desea instalar, en el caso que el usuario no posea  la placa disponible, no es necesario instalar los drivers, si se adquiere dicha placa en un momento posterior,dado que los drivers se instalan junto con el IDE, los mismos quedarán en la carpeta de destino para su instalación en forma manual; otra forma de instalar los  los controladores es ejecutar el instalador del CIAA-IDE Suite y tildar únicamente la opción \textbf{drivers} al momento de seleccionar los componentes a instalar.La Figura \ref{Fig5} ilustra lo explicado anteriormente.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=8 cm]{figuras/instalacion2.png}\\
 \caption{Arranque del instalador del software IDE}
 \label{Fig5}
 \end{figure}
-
-Sobre la ventana siguiente deben elegirse cuáles componentes se desea instalar, en el caso que el usuario no posea  la placa disponible, no es necesario instalar los drivers, si se adquiere dicha placa en un momento posterior,dado que los drivers se instalan junto con el IDE, los mismos quedarán en la carpeta de destino para su instalación en forma manual; otra forma de instalar los  los controladores es ejecutar el instalador del CIAA-IDE Suite y tildar únicamente la opción \textbf{drivers} al momento de seleccionar los componentes a instalar.La Figura \ref{Fig5} ilustra lo explicado anteriormente. Sobre la Figura \ref{Fig6}, se deben seleccionar los componentes a instalar.
-
-\begin{figure}[!h]
+\item[•]Sobre la Figura \ref{Fig6}, se deben seleccionar los componentes a instalar.
+\begin{figure}[H]
 \centering
 \includegraphics[width=8 cm]{figuras/instalacion3.png}\\
 \caption{Selección de componentes del instalador}
 \label{Fig6}
 \end{figure}
-
+\item[•]A continuación debe  establecerse la dirección en donde se desea instalar el entorno. La ventana que corresponde a este proceso se ilustra en la Figura \ref{Fig7}.En caso de que se desee cambiar dicha dirección,debe tenerse la precaución de no elegir una dirección donde los directorios posean espacios en sus nombres. Es recomendable no cambiar la unidad de instalación, pues en los siguientes pasos del documento se utilizarán direcciones que harán referencia a esta carpeta de instalación, y si se cambia, se deberán cambiar consecuentemente dichas direcciones.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=8 cm]{figuras/instalacion4.png}\\
@@ -300,74 +294,73 @@ Sobre la ventana siguiente deben elegirse cuáles componentes se desea instalar,
 \label{Fig7}
 \end{figure}
 
-A continuación debe  establecerse la dirección en donde se desea instalar el entorno. La ventana que corresponde a este proceso se ilustra en la Figura \ref{Fig7}. En caso de que se desee cambiar dicha dirección,debe tenerse la precaución de no elegir una dirección donde los directorios posean espacios en sus nombres. Es recomendable no cambiar la unidad de instalación, pues en los siguientes pasos del documento se utilizarán direcciones que harán referencia a esta carpeta de instalación, y si se cambia, se deberán cambiar consecuentemente dichas direcciones.
- \\
- 
-Luego de dicha configuración, se inicia automáticamente el proceso de instalación.En un momento aparecerá una ventana emergente, similar a la que se muestra en la Figura \ref{Fig8}, en donde el programa pregunta si se dispone del hardware, pues para la instalación del driver es necesario conectar la placa. De no  ser así, aún puede continuar la instalación haciendo click en 'No'. Por el contrario, si se dispone de la EDU-CIAA, se debe hacer click en 'Yes', y emergerá otra ventana, como se muestra en la Figura \ref{Fig9}.Una vez finalizada esta etapa, se procede a la instalación de los drivers por defecto del fabricante FTDI para puerto virtual. Este proceso se ilustra en las figuras \ref{driversFTDI} ,\ref{Fig10},\ref{Fig11},\ref{Fig12} y \ref{Fig13}.
+\item[•]Luego de dicha configuración, se inicia automáticamente el proceso de instalación.En un momento aparecerá una ventana emergente, similar a la que se muestra en la Figura \ref{Fig8}, en donde el programa pregunta si se dispone del hardware, pues para la instalación del driver es necesario conectar la placa.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=6 cm]{figuras/instalacion5.png}\\
 \caption{Instalación de los drivers: primera instancia}
 \label{Fig8}
 \end{figure}
+\begin{enumerate}
+\item[•]De no  ser así, aún puede continuar la instalación haciendo click en 'No'. Por el contrario, si se dispone de la EDU-CIAA, se debe hacer click en 'Yes', y emergerá otra ventana, como se muestra en la Figura \ref{Fig9}.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=6 cm]{figuras/instalacion6.png}\\
 \caption{Instalación de drivers si se dispone del hardware}
 \label{Fig9}
 \end{figure}
-\begin{figure}[!h]
+\end{enumerate}
+\item[•]Una vez finalizada esta etapa, se procede a la instalación de los drivers por defecto del fabricante FTDI para puerto virtual. Este proceso se ilustra en las figuras \ref{driversFTDI} ,\ref{Fig10},\ref{Fig11},\ref{Fig12} y \ref{Fig13}.
+\begin{figure}[H]
 \centering
 \includegraphics[width=6 cm]{figuras/instalacion7.png}\\
 \caption{Instalador de drivers FTDI parte 1}
 \label{driversFTDI}
 \end{figure}
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=5 cm]{figuras/instalacion8.png}\\
 \caption{Instalador de drivers FTDI parte 2}
 \label{Fig10}
 \end{figure}
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=6 cm]{figuras/instalacion9.png}\\
 \caption{Instalador de drivers FTDI parte 3}
 \label{Fig11}
 \end{figure}
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=6 cm]{figuras/instalacion10.png}\\
 \caption{Instalador de drivers FTDI parte 4}
 \label{Fig12}
 \end{figure}
+\item[•]Una de las posibles fallas que pueden surgir a través de este proceso, se presenta al producirse una falla en la comunicación a través del puerto virtual FTDI, que impide la correcta comunicación entre la placa y el entorno IDE. Su corrección debe efectuarse manualmente, fuera del instalador, y es posible la aparición de una ventana de error emergente como la que se muestra en la Figura \ref{Fig13}.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=9 cm]{figuras/instalacion11.png}\\
 \caption{Instalador de drivers FTDI parte 5}
 \label{Fig13}
 \end{figure}
-Una de las posibles fallas que pueden surgir a través de este proceso, se presenta al producirse una falla en la comunicación a través del puerto virtual FTDI, que impide la correcta comunicación entre la placa y el entorno IDE. Su corrección debe efectuarse manualmente, fuera del instalador, y es posible la aparición de una ventana de error emergente como la que se muestra en la Figura \ref{Fig13}.
- \\
- 
-El instalador incluye en la carpeta donde se instaló el software (Por defecto, $ C:/CIAA $ ) un programa que configura el driver del controlador serie,emulado por la placa, para que uno de ellos pueda ser utilizado como interfaz JTAG. Dicho programa se llama $ Zadig\_Win\_7\_2\_1\_1.exe $, la Figura \ref{Fig14} muestra una ilustración de la ubicación del programa.
 
+\item[•]El instalador incluye en la carpeta donde se instaló el software (Por defecto, $ C:/CIAA $ ) un programa que configura el driver del controlador serie,emulado por la placa, para que uno de ellos pueda ser utilizado como interfaz JTAG. Dicho programa se llama $ Zadig\_Win\_7\_2\_1\_1.exe $, la Figura \ref{Fig14} muestra una ilustración de la ubicación del programa.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=6 cm]{figuras/instalacion12.png}\\
 \caption{Instalador de drivers FTDI parte 6}
 \label{Fig14}
 \end{figure}
-Al abrir la aplicación, se presenta la Figura \ref{Fig15}. Antes de proceder, el usuario debe conectar la placa, posteriormente, debe abrir el menú contextual \textit{Options} y presionar sobre \textit{List all devices}
 
+\item[•]Al abrir la aplicación, se presenta la Figura \ref{Fig15}. Antes de proceder, el usuario debe conectar la placa, posteriormente, debe abrir el menú contextual \textit{Options} y presionar sobre \textit{List all devices}
 \begin{figure}[!h]
 \centering
 \includegraphics[width=6 cm]{figuras/instalacion13.png}\\
 \caption{Entorno del software corrector Zadig para Windows}
 \label{Fig15}
 \end{figure}
-Aparecerá una lista de dispositivos de comunicación relacionados al USB. Se tiene que buscar aquellos cuyos nombres tengan relación con el puerto serie (puede aparecer Dual RS232-HS, USB Serial Converter, o algo similar).
- \\
- 
+
+\item[•]Aparecerá una lista de dispositivos de comunicación relacionados al USB. Se tiene que buscar aquellos cuyos nombres tengan relación con el puerto serie (puede aparecer Dual RS232-HS, USB Serial Converter, o algo similar).
+
 Por lo general, aparecerán 2 con el mismo nombre, excepto que uno es Interface 0 y el otro Interface 1, como se muestra en la Figura \ref{Fig16} (la lista de drivers que se muestra puede diferir, dependiendo de la computadora que se utilice).
 
 \begin{figure}[!h]
@@ -376,14 +369,14 @@ Por lo general, aparecerán 2 con el mismo nombre, excepto que uno es Interface 
 \caption{Lista de dispositivos vinculados a USB}
 \label{Fig16}
 \end{figure}
-Para configurar el driver:
+
+\item[•]Para configurar el driver:
 
 \begin{enumerate}
 \item[1]seleccionar la \textbf{Interfase 0}
 \item[2]elegir el \textbf{“WinUSB v6.1”}
 \item[2]hacer click en el botón \textbf{“Replace Driver”}.
 \end{enumerate}
-
 La Figura \ref{Fig17} muestra la ventana ya configurada:
 
 
@@ -393,6 +386,9 @@ La Figura \ref{Fig17} muestra la ventana ya configurada:
 \caption{Configuración del Zadig para el reemplazo del driver}
 \label{Fig17}
 \end{figure}
+
+\end{enumerate}
+
 
 
 \section{Desinstalación}
@@ -487,24 +483,23 @@ El primer ejemplo aborda las salidas digitales, a través de los leds que provee
 \item[•]Sobre el IDE de la placa, debe agregarse un nuevo directorio, realizando click derecho sobre \textit{Firmware}, luego se selecciona la opción \textit{New} $\rightarrow$ \textit{Folder}; a continuación se abre una ventana que permite designar el nombre de dicho directorio, en el cual se ubica el proyecto que se implementa. El usuario debe recordar que para compilar dicho proyecto debe establecer la ruta que le corresponde sobre el archivo \textit{Makefile}. Asimismo, deben agregarse los directorios \textit{etc}, \textit{mak}, \textit{inc}, y \textit{src}, sobre el directorio creado recientemente.
  \\
  
-Para generar el archivo cabecera, el usuario debe ubicarse sobre la carpeta \textit{inc}, y luego oprimiendo click derecho, debe seleccionar la opción \textit{New} $\rightarrow$ \textit{Header File}. A continuación se abre una ventana cuyo aspecto es similar al de la Figura \ref{archivocabecerasapi1}, en ella, se debe establecer el nombre del archivo cabecera. Al terminar la escritura de su nombre, debe escribirse la terminación \textit{.h}, y oprimir el boton \textit{Finish}, para concluir la generacion de dicho archivo.
-
-\begin{figure}[!h]
+Para generar el archivo cabecera, el usuario debe ubicarse sobre la carpeta \textit{inc}, y luego oprimiendo click derecho, debe seleccionar la opción \textit{New} $\rightarrow$ \textit{Header File}. A continuación se abre una ventana cuyo aspecto es similar al de la Figura \ref{archivocabecerasapi1}.
+\begin{figure}[H]
 \centering
 \includegraphics[width=8 cm]{figuras/f27.png}
 \caption{Generación de archivo cabecera para implementación de proyecto.}
 \label{archivocabecerasapi1}
 \end{figure}
+En ella, se debe establecer el nombre del archivo cabecera. Al terminar la escritura de su nombre, debe escribirse la terminación \textit{.h}, y oprimir el boton \textit{Finish}, para concluir la generacion de dicho archivo.
+En este caso, el archivo cabecera se define como \textit{Ejemplo$\_$1.h}.
 
-En este caso, el archivo cabecera se define como \textit{Ejemplo$\_$1.h}.Para generar el archivo fuente, el usuario debe ubicarse sobre la carpeta \textit{inc}, y luego oprimiendo click derecho, debe seleccionar la opción \textit{New} $\rightarrow$ \textit{Source File}. A continuación se abre una ventana cuyo aspecto es similar al de la Figura \ref{archivofuentesapi1}, en ella, se debe establecer el nombre del archivo fuente,el cual en este caso es \textit{Ejemplo$\_$1.c}. Al terminar la escritura de su nombre, debe escribirse la terminación \textit{.c},y oprimir el boton \textit{Finish}, para concluir la generacion de dicho archivo.
-
-\begin{figure}[H]
+\item[•] Para generar el archivo fuente, el usuario debe ubicarse sobre la carpeta \textit{inc}, y luego oprimiendo click derecho, debe seleccionar la opción \textit{New} $\rightarrow$ \textit{Source File}. A continuación se abre una ventana cuyo aspecto es similar al de la Figura \ref{archivofuentesapi1}, en ella, se debe establecer el nombre del archivo fuente,el cual en este caso es \textit{Ejemplo$\_$1.c}. Al terminar la escritura de su nombre, debe escribirse la terminación \textit{.c},y oprimir el boton \textit{Finish}, para concluir la generacion de dicho archivo.
+\begin{figure}[!h]
 \centering
 \includegraphics[width=8 cm]{figuras/f28.png}
 \caption{Generación de archivo fuente para implementación de proyecto.}
 \label{archivofuentesapi1}
 \end{figure}
-
 \item[•]Ingresar el archivo cabecera de la librería \textit{sAPI} para poder referenciar los módulos a utilizar y referenciar el archivo cabecera del proyecto en caso de que el usuario desee declarar de forma directa alguna función o algún identificador. La Figura \ref{inclusionsapi1} ilustra dicho concepto.
 
 \begin{figure}[!h]
