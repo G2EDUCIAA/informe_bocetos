@@ -522,35 +522,33 @@ En este caso, el archivo cabecera se define como \textit{Ejemplo$\_$1.h}.Para ge
 \item[•]\textit{delay()}: Permite implementar una temporización en ms sobre el parámetro de dicha función.
 \end{enumerate}
 
-
-
-
-
-
-
-\end{enumerate}
-\subsubsection{Implementacion de ejemplo N$^{\circ}$2: Entradas y Salidas Digitales}\label{sec:ej2BM}
+\item[•]Para realizar la compilación debe seleccionarse el directorio \textit{Firmware} y posteriormente hacer click sobre el botón \textit{Build}.\end{enumerate}
+\subsection{Implementacion de ejemplo N$^{\circ}$2: Entradas y Salidas Digitales}\label{sec:ej2sapi}
 
 El siguiente ejemplo tiene como objetivo el manejo de las entradas y salidas digitales, dicho programa enciende los leds instalados sobre la placa, de acuerdo con la cantidad de veces que se oprime la tecla \textit{TEC1}. Sobre dicho ejemplo se implemento una maquina de estado, a través del programa \textit{uModel Factory} para poder establecer un orden sobre los eventos y las acciones que debe ejecutar el procesador. Debe tenerse en cuenta que se implementan multiples archivos fuentes y cabeceras, en particular, el archivo fuente \textit{FUNC$\_$EJ2$\_$BM.c} define las acciones y la evaluación de los eventos y \textit{FUNC$\_$EJ2$\_$BM.h} establece la declaración de dichas funciones y de los estados.
 
 La funcion \textit{digitalRead} se encarga de las entradas digitales. En este caso se pregunta  si se ha oprimido la tecla 1, como se puede apreciar esta misma se activa por bajo, por eso se pregunta si la lectura es igual a OFF.
 
+\begin{enumerate}
+\item[•] A través del programa \textit{uModel Factory}, implementar la siguiente Maquina de Estado Finita:
+\end{enumerate}
+
 A continuación se realiza una breve descripción de los estados, eventos y acciones que contiene este programa.
 \begin{enumerate}
 \item[•]\underline{Estados}:
 \begin{enumerate}
-\item[•]Estado \textit{\textbf{INICIAL}}: Estado inicial en el cual, si se oprime la tecla \textit{TEC1}, se ejecuta la acción \textit{LED$\_$R}.
-\item[•]Estado \textit{\textbf{ROJO}}: El codigo establece que al oprimir la tecla \textit{TEC1}, se ejecuta la acción \textit{P$\_$LED1}. 
-\item[•]Estado \textit{\textbf{LED$\_$1}}: El codigo establece que al oprimir la tecla \textit{TEC1}, se ejecuta la acción \textit{P$\_$LED2}.
-\item[•]Estado \textit{\textbf{LED$\_$2}}: El codigo establece que al oprimir la tecla \textit{TEC1}, se ejecuta la acción \textit{P$\_$LED3}.
-\item[•]Estado \textit{\textbf{LED$\_$3}}: El codigo establece que al oprimir la tecla \textit{TEC1}, se ejecuta la acción \textit{P$\_$LED3}.  
+\item[•]Estado \textit{\textbf{INICIAL}}: Contexto en el cual, si se oprime la tecla \textit{TEC1}, se enciende un color del led RGB.
+\item[•]Estado \textit{\textbf{ROJO}}: Contexto en el cual, si se oprime la tecla \textit{TEC1}, se enciende \textit{LED1}. 
+\item[•]Estado \textit{\textbf{ENCENDIDO1}}: Contexto en el cual, si se oprime la tecla \textit{TEC1}, se enciende \textit{LED2}.
+\item[•]Estado \textit{\textbf{ENCENDIDO2}}: Contexto en el cual, si se oprime la tecla \textit{TEC1}, se enciende \textit{LED3}.
+\item[•]Estado \textit{\textbf{ENCENDIDO3}}: Contexto en el cual, si se oprime la tecla \textit{TEC1}, se enciende un color del led RGB.
 \end{enumerate}
 \item[•]\underline{Eventos}:
 \begin{enumerate}
-\item[•]Evento \textit{\textbf{PRESIONO}}: Identifica si se oprime la tecla \textit{TEC1}.
-\item[•]Evento \textit{\textbf{PRESIONO$\_$4}}: Identifica si se oprime la tecla \textit{TEC1} en la primer secuencia.
-\item[•]Evento \textit{\textbf{PRESIONO$\_$7}}: Identifica si se oprime la tecla \textit{TEC1} en la segunda secuencia.
-\item[•]Evento \textit{\textbf{PRESIONO$\_$10}}: Identifica si se oprime la tecla \textit{TEC1} en la tercer y ultima secuencia.
+\item[•]Evento \textit{\textbf{PRESIONO}}: Se ha oprimido la tecla \textit{TEC1}.
+\item[•]Evento \textit{\textbf{PRESIONO$\_$4}}: Se ha realizado la primer secuencia apretando la tecla \textit{TEC1}.
+\item[•]Evento \textit{\textbf{PRESIONO$\_$7}}: Se ha realizado la segunda secuencia apretando la tecla \textit{TEC1}.
+\item[•]Evento \textit{\textbf{PRESIONO$\_$10}}: Se ha realizado la tercer y última secuencia apretando \textit{TEC1}.
 \end{enumerate}
 \item[•]\underline{Acciones}:
 \begin{enumerate}
@@ -558,6 +556,7 @@ A continuación se realiza una breve descripción de los estados, eventos y acci
 \item[•]Accion \textit{\textbf{P$\_$LED$\_$1}}: Encendido de \textit{LED1}.
 \item[•]Accion \textit{\textbf{P$\_$LED$\_$2}}: Encendido de \textit{LED2}.
 \item[•]Accion \textit{\textbf{P$\_$LED$\_$3}}: Encendido de \textit{LED3}.
+\item[•]Accion \textit{\textbf{BORRO}}: Renuevo contador de control.
 \end{enumerate}
 \end{enumerate}
 
