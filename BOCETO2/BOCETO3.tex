@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{amsmath}
+\usepackage{float}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
@@ -302,56 +303,43 @@ Sobre la ventana siguiente deben elegirse cuáles componentes se desea instalar,
 A continuación debe  establecerse la dirección en donde se desea instalar el entorno. La ventana que corresponde a este proceso se ilustra en la Figura \ref{Fig7}. En caso de que se desee cambiar dicha dirección,debe tenerse la precaución de no elegir una dirección donde los directorios posean espacios en sus nombres. Es recomendable no cambiar la unidad de instalación, pues en los siguientes pasos del documento se utilizarán direcciones que harán referencia a esta carpeta de instalación, y si se cambia, se deberán cambiar consecuentemente dichas direcciones.
  \\
  
-Luego de dicha configuración, se inicia automáticamente el proceso de instalación.En un momento aparecerá una ventana emergente, similar a la que se muestra en la Figura \ref{Fig8}, en donde el programa pregunta si se dispone del hardware, pues para la instalación del driver es necesario conectar la placa. De no  ser así, aún puede continuar la instalación haciendo click en 'No'. Por el contrario, si se dispone de la EDU-CIAA, se debe hacer click en 'Yes', y emergerá otra ventana, como se muestra en la Figura \ref{Fig9}.
-
-\begin{center}
+Luego de dicha configuración, se inicia automáticamente el proceso de instalación.En un momento aparecerá una ventana emergente, similar a la que se muestra en la Figura \ref{Fig8}, en donde el programa pregunta si se dispone del hardware, pues para la instalación del driver es necesario conectar la placa. De no  ser así, aún puede continuar la instalación haciendo click en 'No'. Por el contrario, si se dispone de la EDU-CIAA, se debe hacer click en 'Yes', y emergerá otra ventana, como se muestra en la Figura \ref{Fig9}.Una vez finalizada esta etapa, se procede a la instalación de los drivers por defecto del fabricante FTDI para puerto virtual. Este proceso se ilustra en las figuras \ref{driversFTDI} ,\ref{Fig10},\ref{Fig11},\ref{Fig12} y \ref{Fig13}.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=6 cm]{figuras/instalacion5.png}\\
 \caption{Instalación de los drivers: primera instancia}
 \label{Fig8}
 \end{figure}
-\end{center}
 \begin{figure}[!h]
 \centering
 \includegraphics[width=6 cm]{figuras/instalacion6.png}\\
 \caption{Instalación de drivers si se dispone del hardware}
 \label{Fig9}
 \end{figure}
-\begin{center}
 \begin{figure}[!h]
 \centering
 \includegraphics[width=6 cm]{figuras/instalacion7.png}\\
 \caption{Instalador de drivers FTDI parte 1}
 \label{driversFTDI}
 \end{figure}
-\end{center}
-Una vez finalizada esta etapa, se procede a la instalación de los drivers por defecto del fabricante FTDI para puerto virtual. Este proceso se ilustra en las figuras \ref{driversFTDI} ,\ref{Fig10},\ref{Fig11},\ref{Fig12} y \ref{Fig13}.
-
-\begin{center}
 \begin{figure}[!h]
 \centering
 \includegraphics[width=5 cm]{figuras/instalacion8.png}\\
 \caption{Instalador de drivers FTDI parte 2}
 \label{Fig10}
 \end{figure}
-\end{center}
-\begin{center}
 \begin{figure}[!h]
 \centering
 \includegraphics[width=6 cm]{figuras/instalacion9.png}\\
 \caption{Instalador de drivers FTDI parte 3}
 \label{Fig11}
 \end{figure}
-\end{center}
-\begin{center}
 \begin{figure}[!h]
 \centering
 \includegraphics[width=6 cm]{figuras/instalacion10.png}\\
 \caption{Instalador de drivers FTDI parte 4}
 \label{Fig12}
 \end{figure}
-\end{center}
 \begin{figure}[!h]
 \centering
 \includegraphics[width=9 cm]{figuras/instalacion11.png}\\
@@ -442,6 +430,13 @@ Los siguientes módulos estan incluidos:
 \end{enumerate}
  Es necesario destacar que actualmente se encuentra disponible para las plataformas EDU CIAA NXP (microcontrolador NXP LPC4337) y para la plataforma CIAA NXP (microcontrolador NXP LPC4337). La Figura \ref{Fig18} ilustra como son las distintas capas de software y la correspondiente ubicación de la \textit{sAPI}.
  \\
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=12 cm]{figuras/primer_proy18.png}\\
+\caption{Capas de abstracción de software}
+\label{Fig18}
+\end{figure}
  
 \underline{Breve descripcion de los modulos de la biblioteca}:
 \begin{enumerate}
@@ -459,12 +454,6 @@ Los siguientes módulos estan incluidos:
 \item[•]\textbf{sAPI$\_$DigitalIO}: Utilizada para el manejo de entradas y salidas digitales.
 \end{enumerate}
  
-\begin{figure}[!h]
-\centering
-\includegraphics[width=12 cm]{figuras/primer_proy18.png}\\
-\caption{Capas de abstracción de software}
-\label{Fig18}
-\end{figure}
 
 \underline{Utilización de librería sAPI}:
 
@@ -483,53 +472,63 @@ Al utilizar la biblioteca \textit{sAPI} para un proyecto en Baremetal, se debe m
 Luego, sobre cada archivo fuente en la que se ejecuten instrucciones que contenga esta librería, se debe realizar la inclusión del mismo mediante la instruccion: \textbf{\# include “sAPI.h”}. Debe aclararse que en la versión 0.3.0 no es necesario incluir el archivo \textit{chip.h} dado que la propia biblioteca lo incluye, además, esta librería maneja el vector de interrupción, por lo tanto, para el usuario que haya trabajado anteriormente con proyectos escritos en instrucciones de \textit{LPCOpen}, debe tenerse en cuenta que ya no se necesita realizar el archivo que contenga las direcciones de las subrutinas para la atención de las interrupciones. El ejemplo \textit{"baremetal"} del Firmware en el que se realiza este tutorial, trae consigo dicho archivo.
  \\
  
-Es importante tener en cuenta que para la compilación y depuración del programa mediante el IDE del Firmware, se debe colocar sobre la carpeta Firmware y mediante click derecho, el usuario debe ubicarse en \textit{Propiedades}$\rightarrow$\textit{C/C++ Build}$\rightarrow$\textit{Behaviour}. A continuación debe modificar sobre la rama \textit{Clean}, y reemplazar la palabra \textit{Clean\_ generate} por la palabra \textit{clean}, como puede apreciarse en la Figura \ref{Fig19}.
-\begin{center}
-\begin{figure}[!h]
+Para la compilación y depuración del programa mediante el IDE del Firmware, se debe colocar sobre la carpeta Firmware y mediante click derecho, el usuario debe ubicarse en \textit{Propiedades}$\rightarrow$\textit{C/C++ Build}$\rightarrow$\textit{Behaviour}. A continuación debe modificar sobre la rama \textit{Clean}, y reemplazar la palabra \textit{Clean\_ generate} por la palabra \textit{clean}, como puede apreciarse en la Figura \ref{Fig19}.
+\begin{figure}[H]
 \centering
 \includegraphics[width=8 cm]{figuras/f1.png}\\
 \caption{Cambio de “clean\_ generate” a “clean”.}
 \label{Fig19}
 \end{figure}
-\end{center} 
-\subsubsection{Implementacion de ejemplo N$^{\circ}$1: Salidas Digitales}
-El primer ejemplo aborda las salidas digitales, a través de los leds que provee la placa EDU-CIAA.
- \\
- 
-Este programa enciende los leds de la placa en forma secuencial, de izquierda a la derecha. Luego de finalizar esta secuencia, se apagan de derecha a izquierda.
- \\
- 
-Debe destacarse que sobre el inicio del programa fuente se realizan las inclusiones de el archivo cabecera del proyecto y la biblioteca \textit{sAPI}.La Figura \ref{Fig20} ilustra lo explicado anteriormente.
 
-\begin{center}
-\begin{figure}[!h]
-\centering
-\includegraphics[width=6 cm]{figuras/f2.png}\\
-\caption{Inclusión de archivo cabecera y libreria}
-\label{Fig20}
-\end{figure}
-\end{center}
-	
-Sobre el código del programa, es importante destacar algunas funciones utilizadas:
 
+\subsection{Implementacion de ejemplo N$^{\circ}$1: Salidas Digitales}\label{sec:ej1sapi}
+El primer ejemplo aborda las salidas digitales, a través de los leds que provee la placa EDUCIAA.Este programa enciende los leds de la placa en forma secuencial, de izquierda a la derecha.Luego de finalizar esta secuencia, se apagan de derecha a izquierda.
 \begin{enumerate}
-\item[•]\textbf{Boardconfig()}: Esta función se encarga de la configuración para inicializar la plataforma del hardware.
-\item[•]\textbf{Tickconfig()}:Configura una interrupción periódica de temporizador cada tickRateMSvalue milisegundos para utilizar de base de tiempo del sistema.El primer parámetro es el tiempo en milisegundos en el que se desee interrumpir el perifèrico Systick y aumente un contador que se usa para
-el mòdulo delay o para lo que se requiera. 
-\item[•]\textbf{Digitalconfig()}: Configuración inicial y modo de una entrada o salida.
-\item[•]\textbf{DigitalWrite()}:Esta función se encarga de la escritura de salida digital, en este caso encienden los leds.
-\item[•]\textbf{Delay()}:Esta función  realiza los retardos (con excepción del retardo inexacto) siempre y cuando peviamente se haya configurado el tick en el codigo.
-\end{enumerate}
-Para la compilación de dicho proyecto,asi como los demás proyectos en Baremetal, debe tenerse en cuenta lo mencionado sobre la seccion \ref{sec:programacionbaremetal}, mientras que para implementar la depuración sobre la placa, el usuario debe seleccionar el archivo \textit{axf} que resulta de la compilación del proyecto.La Figura \ref{Fig21} ilustra la ventana resultante para la carga del programa.Este procedimiento se repite para la implementación de todos los ejemplos. Cabe destacar que el proceso de depuración sobre los ejemplos implementados en RTOS es similar, la única diferencia reside en que sobre la rama \textit{Clean} de la pestaña \textit{Behaviour} (ver Sección \ref{sec:programacionbaremetal}) debe escribirse \textit{clean$\_$generate}.
+\item[•]Sobre el IDE de la placa, debe agregarse un nuevo directorio, realizando click derecho sobre \textit{Firmware}, luego se selecciona la opción \textit{New} $\rightarrow$ \textit{Folder}; a continuación se abre una ventana que permite designar el nombre de dicho directorio, en el cual se ubica el proyecto que se implementa. El usuario debe recordar que para compilar dicho proyecto debe establecer la ruta que le corresponde sobre el archivo \textit{Makefile}. Asimismo, deben agregarse los directorios \textit{etc}, \textit{mak}, \textit{inc}, y \textit{src}, sobre el directorio creado recientemente.
 
-\begin{center}
+Para generar el archivo cabecera, el usuario debe ubicarse sobre la carpeta \textit{inc}, y luego oprimiendo click derecho, debe seleccionar la opción \textit{New} $\rightarrow$ \textit{Header File}. A continuación se abre una ventana cuyo aspecto es similar al de la Figura \ref{archivocabecerasapi1}, en ella, se debe establecer el nombre del archivo cabecera. Al terminar la escritura de su nombre, debe escribirse la terminación \textit{.h}, y oprimir el boton \textit{Finish}, para concluir la generacion de dicho archivo.
+
 \begin{figure}[!h]
 \centering
-\includegraphics[width=6 cm]{figuras/f3.png}
-\caption{Inclusión de archivo cabecera y libreria}
-\label{Fig21}
+\includegraphics[width=8 cm]{figuras/f27.png}
+\caption{Generación de archivo cabecera para implementación de proyecto.}
+\label{archivocabecerasapi1}
 \end{figure}
-\end{center}
+
+En este caso, el archivo cabecera se define como \textit{Ejemplo$\_$1.h}.Para generar el archivo fuente, el usuario debe ubicarse sobre la carpeta \textit{inc}, y luego oprimiendo click derecho, debe seleccionar la opción \textit{New} $\rightarrow$ \textit{Source File}. A continuación se abre una ventana cuyo aspecto es similar al de la Figura \ref{archivofuentesapi1}, en ella, se debe establecer el nombre del archivo fuente,el cual en este caso es \textit{Ejemplo$\_$1.c}. Al terminar la escritura de su nombre, debe escribirse la terminación \textit{.c},y oprimir el boton \textit{Finish}, para concluir la generacion de dicho archivo.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8 cm]{figuras/f28.png}
+\caption{Generación de archivo fuente para implementación de proyecto.}
+\label{archivofuentesapi1}
+\end{figure}
+
+\item[•]Ingresar el archivo cabecera de la librería \textit{sAPI} para poder referenciar los módulos a utilizar y referenciar el archivo cabecera del proyecto en caso de que el usuario desee declarar de forma directa alguna función o algún identificador. La Figura \ref{inclusionsapi1} ilustra dicho concepto.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=15 cm]{figuras/f2.png}
+\caption{Generación de archivo fuente para implementación de proyecto.}
+\label{inclusionsapi1}
+\end{figure}
+
+\item[•]Una vez declarada la función principal \textit{main()}, es importante destacar algunas funciones utilizadas:
+\begin{enumerate}
+\item[•]\textit{boardconfig()}: Esta función se encarga de la configuración para inicializar la plataforma del hardware. No se debe especificar ningún parámetro.
+\item[•]\textit{tickconfig()}: Configura una interrupción periódica de temporizador cada tickRateMSvalue milisegundos para utilizar de base de tiempo del sistema. El primer parámetro es el tiempo en milisegundos en el que se desee interrumpir el periférico Systick y aumente un contador que se usa para el módulo delay o para lo que se requiera.
+\item[•]\textit{digitalConfig()}: Inicializa los puertos GPIO de la placa y define sus funciones como entradas y salidas digitales. El primér parametro debe ser 0, mientras que el segundo debe ser \textit{ENABLE$\_$DIGITAL$\_$IO}.
+\item[•]\textit{digitalWrite()}: Permite el establecimiento en \textit{ALTO} o en \textit{BAJO} de un pin configurado como salida digital. Sobre el primer parámetro de la funcion debe establecerse el nombre del PIN, teniendo en cuenta la definición realizada sobre el módulo \textit{sAPI$\_$PeripheralMap}. El segundo parámetro que debe determinarse es el estado funcional \textit{ON} u \textit{OFF}.
+\item[•]\textit{delay()}: Permite implementar una temporización en ms sobre el parámetro de dicha función.
+\end{enumerate}
+
+
+
+
+
+
+
+\end{enumerate}
 \subsubsection{Implementacion de ejemplo N$^{\circ}$2: Entradas y Salidas Digitales}\label{sec:ej2BM}
 
 El siguiente ejemplo tiene como objetivo el manejo de las entradas y salidas digitales, dicho programa enciende los leds instalados sobre la placa, de acuerdo con la cantidad de veces que se oprime la tecla \textit{TEC1}. Sobre dicho ejemplo se implemento una maquina de estado, a través del programa \textit{uModel Factory} para poder establecer un orden sobre los eventos y las acciones que debe ejecutar el procesador. Debe tenerse en cuenta que se implementan multiples archivos fuentes y cabeceras, en particular, el archivo fuente \textit{FUNC$\_$EJ2$\_$BM.c} define las acciones y la evaluación de los eventos y \textit{FUNC$\_$EJ2$\_$BM.h} establece la declaración de dichas funciones y de los estados.
