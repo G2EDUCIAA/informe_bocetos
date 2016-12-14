@@ -215,7 +215,7 @@ En el directorio principal luego de hacer un git clone o al bajar una release of
 
 \textbf{Directorio $"externals"$(Software y Tools Externos)}\\
 Este directorio contiene el Software y Tools externos al CIAA-Firmware, que son necesarios para compilar, testear, etc. el Firmware. Tenga en cuenta que el Software y Tools en esta carpeta no son parte de CIAA-Firmware y pueden contener otras licencias. Sobre el Cuadro \ref{Tab1} se ilustra los contenidos del directorio y su descripción,mientras que el Cuadro \ref{Tab2} contiene todos los archivos generados por el CIAA-Firmware.
-\begin{table}[h]
+\begin{table}[H]
 \begin{center}
 \resizebox{18cm}{!}{
 \begin{tabular}{|l|l|}
@@ -229,7 +229,7 @@ drivers & Drivers provistos por el proveedor del chip, los cuales son luego adap
 \label{Tab1}
 \end{center}
 \end{table}
-\begin{table}[h]
+\begin{table}[H]
 \begin{center}
 \resizebox{18cm}{!}{
 \begin{tabular}{|l|l|}
@@ -266,7 +266,7 @@ El paquete de instalación incluye:
 
 \begin{enumerate}
 \item[•]Una vez realizada la descarga del instalador, se ejecuta dicha aplicación, la Figura \ref{Fig4} muestra el arranque del instalador, sobre ella, debe seleccionarse \textit{Siguiente}.A continuación deben aceptarse los términos de uso.
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=8 cm]{figuras/instalacion1.png}\\
 \caption{Arranque del instalador del software IDE}
@@ -425,8 +425,6 @@ Los siguientes módulos estan incluidos:
 \item[$\bullet$]Uart.
 \end{enumerate}
  Es necesario destacar que actualmente se encuentra disponible para las plataformas EDU CIAA NXP (microcontrolador NXP LPC4337) y para la plataforma CIAA NXP (microcontrolador NXP LPC4337). La Figura \ref{Fig18} ilustra como son las distintas capas de software y la correspondiente ubicación de la \textit{sAPI}.
- \\
-
 \begin{figure}[H]
 \centering
 \includegraphics[width=12 cm]{figuras/primer_proy18.png}\\
@@ -521,7 +519,7 @@ En este caso, el archivo cabecera se define como \textit{Ejemplo$\_$1.h}.
 \item[•]Para realizar la compilación debe seleccionarse el directorio \textit{Firmware} y posteriormente hacer click sobre el botón \textit{Build}.\end{enumerate}
 \subsection{Implementacion de ejemplo N$^{\circ}$2: Entradas y Salidas Digitales}\label{sec:ej2sapi}
 
-El siguiente ejemplo tiene como objetivo el manejo de las entradas y salidas digitales, dicho programa enciende los leds instalados sobre la placa, de acuerdo con la cantidad de veces que se oprime la tecla \textit{TEC1}. Sobre dicho ejemplo se implemento una maquina de estado, a través del programa \textit{uModel Factory} para poder establecer un orden sobre los eventos y las acciones que debe ejecutar el procesador. Debe tenerse en cuenta que se implementan multiples archivos fuentes y cabeceras, en particular, el archivo fuente \textit{FUNC$\_$EJ2$\_$BM.c} define las acciones y la evaluación de los eventos y \textit{FUNC$\_$EJ2$\_$BM.h} establece la declaración de dichas funciones y de los estados.
+El siguiente ejemplo tiene como objetivo el manejo de las entradas y salidas digitales, dicho programa enciende los leds instalados sobre la placa, de acuerdo con la cantidad de veces que se oprime la tecla \textit{TEC1}. Sobre dicho ejemplo se implemento una maquina de estado, a través del programa \textit{uModel Factory} para poder establecer un orden sobre los eventos y las acciones que debe ejecutar el procesador. Debe tenerse en cuenta que se implementan multiples archivos fuentes y cabeceras, en particular, el archivo fuente \textit{funciones.c} define las acciones y la evaluación de los eventos y \textit{funciones.h} establece la declaración de dichas funciones y de los estados.
  \\
  
 La funcion \textit{digitalRead} se encarga de las entradas digitales. En este caso se pregunta  si se ha oprimido la tecla 1, como se puede apreciar esta misma se activa por bajo, por eso se pregunta si la lectura es igual a OFF.
@@ -558,14 +556,14 @@ La funcion \textit{digitalRead} se encarga de las entradas digitales. En este ca
 \end{enumerate}
 
 La Figura \ref{Fig22} especifica el diagrama de estados del ejemplo:
-\begin{center}
+
 \begin{figure}[!h]
 \centering
 \includegraphics[width=7 cm]{figuras/f4.png}\\
 \caption{Diagrama de estados de ejemplo N$^{\circ}$2}
 \label{Fig22}
 \end{figure}
-\end{center}
+
 
 \item[•] Incluir sobre el archivo fuente, el archivo cabecera \textit{funciones.h}
 
@@ -587,14 +585,14 @@ Para el manejo del display se utiliza una biblioteca. Para ello, deben generarse
  
 En este tutorial se realiza el manejo de un display de 7 segmentos del tipo cátodo común, de manera que para provocar el encendido de un led perteneciente al arreglo, se debe establecer en alto la salida de el pin conectado a dicho led. La biblioteca que provee este tutorial determina el conexionado de los pines del display, sobre los correspondientes terminales GPIO ubicados en la placa EDU CIAA. La Figura \ref{Fig23} ilustra los terminales de la placa y del display utilizados para la conexión del dispositivo.
 
-\begin{center}
+
 \begin{figure}[!h]
 \centering
 \includegraphics[width=10 cm]{figuras/f5.png}\\
 \caption{Diagrama de conexión display 7 segmentos.}
 \label{Fig23}
 \end{figure}
-\end{center}
+
 \underline{Uso de Entradas Analógicas}:
 
 En este código se hará uso del conversor analógico digital que posee esta placa. La idea es introducir una tensión analógica mediante la entrada CH1 y luego convertirla en un valor digital, para que posteriormente dentro del código, mediante operaciones matemáticas, poder mostrar dicho valor por el display.
@@ -691,14 +689,14 @@ La instrucción \textit{analogConfig( ENABLE$\_$ANALOG$\_$INPUTS )} se encarga d
 \end{enumerate}
 
 La Figura \ref{Fig25}, ilustra el diagrama de estados de este ejemplo:
-\begin{center}
+
 \begin{figure}[!h]
 \centering
 \includegraphics[width=10 cm]{figuras/f7.png}\\
 \caption{Diagrama de estados de ejemplo N$^{\circ}$4.}
 \label{Fig25}
 \end{figure}
-\end{center}
+
 
 \item[•] Incluir sobre el archivo fuente, el archivo cabecera \textit{funciones.h}
 
@@ -754,14 +752,14 @@ Este ejemplo también utiliza maquina de estado para establecer un orden sobre l
 
 La Figura \ref{Fig28} ilustra el diagrama de estados que corresponde al ejemplo
 
-\begin{center}
+
 \begin{figure}[!h]
 \centering
 \includegraphics[width=6 cm]{figuras/f10.png}\\
 \caption{Diagrama de estados de ejemplo N$^{\circ}$5}
 \label{Fig28}
 \end{figure}
-\end{center}
+
 
 \item[•] Incluir sobre el archivo fuente, el archivo cabecera \textit{funciones.h}
 
@@ -813,14 +811,14 @@ El usuario debe seguir los siguientes pasos para implementar este ejemplo:
 
 \item[•]Sobre la sección \textit{Puerto Serial} debe identificarse sobre el menú desplegable \textit{Nombre}, el puerto COM asociado a la placa. La Figura \ref{Fig30} ilustra dicho concepto
 
-\begin{center}
+
 \begin{figure}[!h]
 \centering
 \includegraphics[width=4 cm]{figuras/f12.png}
 \caption{Seleccion de puerto COM asociado a la placa}
 \label{Fig30}
 \end{figure}
-\end{center}
+
 \item[•]Debe tenerse en cuenta sobre la instrucción \textit{uartConfig()}, perteneciente a la librería \textit{sAPI}, deben asignarse dos parámetros de entrada, uno de ellos indica el módulo de la UART sobre la cual se desea trabajar, en este caso el parámetro es \textit{UART$\_$USB}. El segundo parámetro que debe asignarse a dicha instrucción es la velocidad de transmisión en baudios. El valor de la velocidad previamente configurada sobre el programa debe ser configurado sobre el menú desplegable \textit{BaudRate}, ubicado sobre el costado derecho del menú desplegable \textit{Nombre}.Por ejemplo, si la velocidad configurada es igual a 9600 baudios, entonces sobre dicho menú debe seleccionarse 9600, como lo ilustra la Figura \ref{Fig30}.
 \item[•]Al realizar la depuración, el usuario debe seleccionar el boton \textit{Abrir/Cerrar puerto COM}, el cual se encuentra sobre la derecha del menú desplegable \textit{BaudRate},como lo ilustra la Figura \ref{Fig29}.
 \item[•]Para efectuar transmisiones sobre el puerto COM seleccionado, el usuario debe ingresar el dato sobre el cuadro de texto asociado al mismo y apretar el boton asociado a dicho cuadro.
