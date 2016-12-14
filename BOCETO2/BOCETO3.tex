@@ -431,7 +431,7 @@ Los siguientes módulos estan incluidos:
  Es necesario destacar que actualmente se encuentra disponible para las plataformas EDU CIAA NXP (microcontrolador NXP LPC4337) y para la plataforma CIAA NXP (microcontrolador NXP LPC4337). La Figura \ref{Fig18} ilustra como son las distintas capas de software y la correspondiente ubicación de la \textit{sAPI}.
  \\
 
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=12 cm]{figuras/primer_proy18.png}\\
 \caption{Capas de abstracción de software}
@@ -485,7 +485,8 @@ Para la compilación y depuración del programa mediante el IDE del Firmware, se
 El primer ejemplo aborda las salidas digitales, a través de los leds que provee la placa EDUCIAA.Este programa enciende los leds de la placa en forma secuencial, de izquierda a la derecha.Luego de finalizar esta secuencia, se apagan de derecha a izquierda.
 \begin{enumerate}
 \item[•]Sobre el IDE de la placa, debe agregarse un nuevo directorio, realizando click derecho sobre \textit{Firmware}, luego se selecciona la opción \textit{New} $\rightarrow$ \textit{Folder}; a continuación se abre una ventana que permite designar el nombre de dicho directorio, en el cual se ubica el proyecto que se implementa. El usuario debe recordar que para compilar dicho proyecto debe establecer la ruta que le corresponde sobre el archivo \textit{Makefile}. Asimismo, deben agregarse los directorios \textit{etc}, \textit{mak}, \textit{inc}, y \textit{src}, sobre el directorio creado recientemente.
-
+ \\
+ 
 Para generar el archivo cabecera, el usuario debe ubicarse sobre la carpeta \textit{inc}, y luego oprimiendo click derecho, debe seleccionar la opción \textit{New} $\rightarrow$ \textit{Header File}. A continuación se abre una ventana cuyo aspecto es similar al de la Figura \ref{archivocabecerasapi1}, en ella, se debe establecer el nombre del archivo cabecera. Al terminar la escritura de su nombre, debe escribirse la terminación \textit{.h}, y oprimir el boton \textit{Finish}, para concluir la generacion de dicho archivo.
 
 \begin{figure}[!h]
@@ -526,7 +527,8 @@ En este caso, el archivo cabecera se define como \textit{Ejemplo$\_$1.h}.Para ge
 \subsection{Implementacion de ejemplo N$^{\circ}$2: Entradas y Salidas Digitales}\label{sec:ej2sapi}
 
 El siguiente ejemplo tiene como objetivo el manejo de las entradas y salidas digitales, dicho programa enciende los leds instalados sobre la placa, de acuerdo con la cantidad de veces que se oprime la tecla \textit{TEC1}. Sobre dicho ejemplo se implemento una maquina de estado, a través del programa \textit{uModel Factory} para poder establecer un orden sobre los eventos y las acciones que debe ejecutar el procesador. Debe tenerse en cuenta que se implementan multiples archivos fuentes y cabeceras, en particular, el archivo fuente \textit{FUNC$\_$EJ2$\_$BM.c} define las acciones y la evaluación de los eventos y \textit{FUNC$\_$EJ2$\_$BM.h} establece la declaración de dichas funciones y de los estados.
-
+ \\
+ 
 La funcion \textit{digitalRead} se encarga de las entradas digitales. En este caso se pregunta  si se ha oprimido la tecla 1, como se puede apreciar esta misma se activa por bajo, por eso se pregunta si la lectura es igual a OFF.
 
 \begin{enumerate}
@@ -580,11 +582,14 @@ La Figura \ref{Fig22} especifica el diagrama de estados del ejemplo:
 
 \subsection{Implementacion de ejemplo N$^{\circ}$3: Entradas Analógicas y Uso de Display 7 Segmentos}\label{sec:ej3sapi}
 En este ejemplo se realizan dos tareas distintas, dependiendo de la tecla pulsada (\textit{TEC1} y \textit{TEC2}).Si se pulsa la tecla \textit{TEC1}, se encienden los Leds en una secuencia determinada. Mientras que si se pulsa la tecla \textit{TEC2}, se realiza una muestra de los dígitos desde 1 hasta 9 a través del display 7 segmentos. 
-
+ \\
+ 
 Se implementa una maquina de estados en donde se establecen los prototipos de funciones que corresponden a los eventos y las acciones que acontecen. 
-
+ \\
+ 
 Para el manejo del display se utiliza una biblioteca. Para ello, deben generarse dos archivos los cuales pertenecen a la cabecera y a la fuente de dicha biblioteca. Sobre la cabecera deben establecerse las inclusiones de la biblioteca \textit{sAPI} y las declaraciones de las funciones que corresponden con el manejo del dispositivo.
-
+ \\
+ 
 En este tutorial se realiza el manejo de un display de 7 segmentos del tipo cátodo común, de manera que para provocar el encendido de un led perteneciente al arreglo, se debe establecer en alto la salida de el pin conectado a dicho led. La biblioteca que provee este tutorial determina el conexionado de los pines del display, sobre los correspondientes terminales GPIO ubicados en la placa EDU CIAA. La Figura \ref{Fig23} ilustra los terminales de la placa y del display utilizados para la conexión del dispositivo.
 
 \begin{center}
@@ -638,22 +643,26 @@ La Figura \ref{Fig27}, ilustra el diagrama de estados de este ejemplo:
 %\label{sec:dac}
 
 Un convertidor Digital/Analógico (DAC), es un dispositivo electrónico que recibe como dato de entrada un valor digital (en forma de una palabra de "n" bits) y lo transforma a una señal analógica. Cada una de las combinaciones binarias de entrada es convertida en niveles lógicos de tensión de salida. Un DAC transfiere información expresada en forma digital a una forma analógica. Para ubicar la función de este dispositivo conviene recordar que un sistema combina y relaciona diversos subsistemas que trabajan diferentes tipos de información analógica, como son; magnitudes eléctricas, mecánicas, etc.
-
+ \\
+ 
 El siguiente ejemplo muestra al usuario como realizar el uso del módulo ADC de la placa, para realizar la lectura de una entrada analógica. Este programa enciende algunos de los leds de la placa, en función a la magnitud de la tensión leída. Por ejemplo, si la tensión leída es 2[V], entonces se encienden dos leds.
-
+ \\
+ 
 La placa EDU-CIAA posee un DAC de 10 bits de resolución ,por lo tanto,el número de niveles de voltaje de salida analógico que es capaz de generar es de $2^{n}=2^{10}=1024$.
+ \\
+ 
+Para la implementación del ejemplo, es posible realizar la lectura del terminal medio de un potenciómetro, la Figura \ref{Fig24} ilustra la conexión realizada.Debe tenerse en cuenta que es posible realizar la conexión del potenciómetro a partir de la terminal de 5[V] y la terminal GNDA que ofrece la placa.
 
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=6 cm]{figuras/f6.png}\\
 \caption{Diagrama de conexión potenciómetro para lectura analógica.}
 \label{Fig24}
 \end{figure}
 
-Para la implementación del ejemplo, es posible realizar la lectura del terminal medio de un potenciómetro, la Figura \ref{Fig24} ilustra la conexión realizada.Debe tenerse en cuenta que es posible realizar la conexión del potenciómetro a partir de la terminal de 5[V] y la terminal GNDA que ofrece la placa.
-
 Este ejemplo utiliza maquinas de estado para poder establecer un orden sobre los eventos y las acciones que debe ejecutar el procesador.
-
+ \\
+ 
 La instrucción \textit{analogConfig( ENABLE$\_$ANALOG$\_$INPUTS )} se encarga de habilitar las entradas analógicas. Mientras que \textit{analogConfig( ENABLE$\_$ANALOG$\_$OUTPUTS )} se encarga de habilitar las salidas analógicas, con las que trabajara el DAC.
 
 \begin{enumerate}
@@ -707,17 +716,18 @@ La Figura \ref{Fig25}, ilustra el diagrama de estados de este ejemplo:
 En este código se utiliza el modulo conversor analógico digital de la placa, para efectuar la lectura de una entrada analógica sobre esta. En el caso que dicha medición sea superior a 2[V], se establece una salida analógica de 2[V] utilizando el módulo conversor digital analógico. De forma similar, si la tensión de entrada resulta mayor a 4[V], se define una salida analógica de 3[V].
 Es necesario destacar que la placa ya integra internamente el conversor digital analógico, de modo que no es necesario realizar una interfaz para la ejecución de dicha salida, además, es necesario destacar que la tensión de referencia interna se encuentra establecida, y adquiere un valor igual a 3.3[V]. La Figura \ref{Fig26} ilustra el esquemático que muestra dicho concepto.
 
-\begin{center}
-\begin{figure}[!h]
+
+\begin{figure}[H]
 \centering
 \includegraphics[width=8 cm]{figuras/f8.png}\\
 \caption{Ilustración de tensión de referencia de DAC.}
 \label{Fig26}
 \end{figure}
-\end{center}
+
 
 La instrucción \textit{analogRead()}, permite realizar la lectura de la tensión aplicada sobre el canal 1 del modulo ADC0 de la placa. A partir de la conversión a tensión, el programa aplica la tensión de salida correspondiente.
-
+ \\
+ 
 Este ejemplo también utiliza maquina de estado para establecer un orden sobre los eventos y las acciones que debe ejecutar el procesador.
 
 \begin{enumerate}
@@ -758,6 +768,9 @@ La Figura \ref{Fig28} ilustra el diagrama de estados que corresponde al ejemplo
 \end{figure}
 \end{center}
 
+\item[•] Incluir sobre el archivo fuente, el archivo cabecera \textit{funciones.h}
+
+\item[•] Incluir sobre el archivo fuente \textit{funciones.c} el archivo cabecera de la libreria \textit{sAPI} y el archivo cabecera del proyecto.
 
 \end{enumerate}
 
@@ -766,13 +779,17 @@ La Figura \ref{Fig28} ilustra el diagrama de estados que corresponde al ejemplo
 
 \subsection{Implementacion de ejemplo N$^{\circ}$6: Comunicación Serial}\label{sec:serial}
 El siguiente ejemplo introduce al usuario en la utilización de comunicación serial, es necesario destacar que para la implementación del ejemplo se utiliza el programa \textit{Octoplus Terminal} para la visualización y simulación del envío y transmisión de datos a través del terminal conectado sobre el puerto USB.
-
+ \\
+ 
 El programa se encuentra disponible de forma gratuita en la dirección web \textit{http://octoplus-terminal.software.informer.com/download/}. La instalación de dicho programa es simple, sin embargo, es necesario destacar que durante dicho proceso, el usuario debe obviar la instalación de los drivers que provee dicho programa.
-
-Si bien ofrece distintas herramientas para la programación de sistemas embebidos, este tutorial se centra en la utilización de dicho programa para el envío y la recepción de datos sobre el terminal perteneciente a la placa. Para ello, a continuación se realizará una serie de pasos para la utilización de \textit{Octoplus} junto con la placa:
-
+ \\
+ 
+Si bien ofrece distintas herramientas para la programación de sistemas embebidos, este tutorial se centra en la utilización de dicho programa para el envío y la recepción de datos sobre el terminal perteneciente a la placa. Para ello, a continuación se realizará una serie de pasos para la utilización de \textit{Octoplus} junto con la placa.
+ \\
+ 
 Es necesario mencionar que si existe un programa ya cargado previamente, también es posible utilizar \textit{Octoplus} de forma similar.
-
+ \\
+ 
 En este apartado se verá un código base para utilizar la UART del LPC4337 mediante las funciones que incluye la librería sAPI. Las funciones provistas por esta biblioteca son las encargadas de realizar los siguientes pasos básicos para poder utilizar la UART0 \cite{manuallpcuart}.
 
 \begin{enumerate}
@@ -786,6 +803,7 @@ En este apartado se verá un código base para utilizar la UART del LPC4337 medi
 
 El usuario debe seguir los siguientes pasos para implementar este ejemplo:
 \begin{enumerate}
+\item[•]Realizar la generación de los archivos cabecera y fuente como se establece sobre la seccion \ref{sec:ej1sapi}.
 \item[•]Suponiendo que el usuario ya se encuentran instalados los drivers para la placa, y las herramientas de depuración para la misma, luego de realizar la conexión entre la placa y la computadora a través de \textit{OpenOCD} (sobre la consola \textit{cygwin}), el usuario debe iniciar \textit{Octoplus}.
 \item[•]A continuación se presenta una pantalla similar a la Figura \ref{Fig29}
 
@@ -836,14 +854,14 @@ En este ejemplo también se utiliza un display LCD 16x2. Para el manejo del mism
 \end{enumerate}
 \item[•]Sobre la Figura \ref{Fig31} se ilustra el diagrama esquemático para el conexionado del Display sobre la placa.
 
-\begin{center}
-\begin{figure}[!h]
+
+\begin{figure}[H]
 \centering
 \includegraphics[width=8 cm]{figuras/f13.png}
 \caption{Diagrama esquematico de conexion display LCD 16x2}
 \label{Fig31}
 \end{figure}
-\end{center}
+
 
 \item[•]Implementar la conexión que se indica sobre la Sección \ref{sec:ej3sapi} para el Display 7 Segmentos.
 
