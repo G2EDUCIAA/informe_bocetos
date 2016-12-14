@@ -906,14 +906,14 @@ El modelo de las Tareas Basicas es similar al de las Tareas Extendidas, excepto 
 \item[•]\textbf{\emph{Suspended}}: En este estado, la Tarea se encuentra en estado pasivo y puede ser activada.
 \end{enumerate}
 La Figura \ref{Fig32} ilustra los conceptos explicados previamente.
-\begin{center}
-\begin{figure}[!h]
+
+\begin{figure}[H]
 \centering
 \includegraphics[width=8 cm]{figuras/f14.png}
 \caption{Modelo de las Tareas del tipo \textit{BASIC}}
 \label{Fig32}
 \end{figure}
-\end{center}
+
 \end{enumerate}
 
 El Cuadro \ref{Tab3} explica los diferentes eventos que provocan las transiciones entre los estados. 
@@ -1068,7 +1068,7 @@ Es necesario destacar que para la utilización de \textit{RTOS OSEK} utilizando 
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=16 cm]{figuras/f24.png}
+\includegraphics[width=18 cm]{figuras/f24.png}
 \caption{Mensaje de consola de error por conflicto de definiciones de valores lógicos}
 \label{errorboolean}
 \end{figure}
@@ -1076,11 +1076,11 @@ Para solventar dicho error, una alternativa propuesta es la siguiente:
 \begin{enumerate}
 \item[•]Sobre el \textit{Firmware} del proyecto, el usuario debe dirigirse hacia:
 
-{\footnotesize \textit{Firmware/externals/drivers/cortexM4/lpc43xx/inc/lpc$\_$types.h}}.
+\textit{Firmware/externals/drivers/cortexM4/lpc43xx/inc/lpc$\_$types.h}.
 \item[•]Comentar la instrucción \textit{typedef enum {FALSE =0, TRUE=!FALSE} Bool}. La Figura \ref{eliminacion} ilustra dicha instrucción comentada:
 \begin{figure}[!h]
 \centering
-\includegraphics[width=8 cm]{figuras/f25.png}
+\includegraphics[width=12 cm]{figuras/f25.png}
 \caption{Eliminación de definición de variables lógicas en \textit{LPCOpen}}
 \label{eliminacion}
 \end{figure}
@@ -1149,28 +1149,23 @@ Sobre el archivo \textit{sAPI$\_$Uart.c}, debe realizar las modificaciones que s
 \label{ejemploinclusion}
 \end{figure}
 Debe destacarse que es necesaria la inclusión de las librerias \textit{sAPI$\_$Board.h},\textit{sAPI$\_$DataTypes.h} y \textit{sAPI$\_$PeripheralMap.h}. En primer lugar para la definición de la placa a utilizar, en segundo lugar los tipos de datos definidos por la librería, y por último para la inclusión de las definiciónes de los terminales para los periféricos.\\
-\end{enumerate}
 
-
-\underline{Generación de archivo OIL}:
-
-A través del \textit{Bloc de Notas} o a través de cualquier editor de texto,debe almacenarse el archivo de configuracion de tipo \textit{OIL} sobre la carpeta \textit{etc} previamente creada sobre el directorio del proyecto, en dicho archivo, debe iniciar la configuración a través de la sintaxis \textit{OSEK OSEK} y sobre los simbolos $\lbrace$ y $\rbrace$ ,se determinarán los restantes aspectos que tendra el OS. La Figura \ref{Fig35} ilustra lo mencionado anteriormente.
-
-
-
-
-\begin{center}
-\begin{figure}[!h]
+\item[•]A través del \textit{Bloc de Notas} o a través de cualquier editor de texto,debe almacenarse el archivo de configuracion de tipo \textit{OIL} sobre la carpeta \textit{etc} previamente creada sobre el directorio del proyecto, en dicho archivo, debe iniciar la configuración a través de la sintaxis \textit{OSEK OSEK} y sobre los simbolos $\lbrace$ y $\rbrace$ ,se determinarán los restantes aspectos que tendra el OS. La Figura \ref{Fig35} ilustra lo mencionado anteriormente.
+\begin{figure}[H]
 \centering
 \includegraphics[width=5 cm]{figuras/f18.png}
 \caption{Inicio de Archivo de Configuración.}
 \label{Fig35}
 \end{figure}
-\end{center}
-Luego debe definirse mediante la sintaxis \textit{OS}, el nombre del sistema operativo (el cual es arbitrario, dado que se ha especificado en la instruccion anterior que se implementa un sistema operativo OSEK), la Figura \ref{Fig36} ilustra el concepto explicado anteriormente.
+\item[•]Luego debe definirse mediante la sintaxis \textit{OS}, el nombre del sistema operativo (el cual es arbitrario, dado que se ha especificado en la instruccion anterior que se implementa un sistema operativo OSEK), la Figura \ref{Fig36} ilustra el concepto explicado anteriormente.
+\begin{figure}[H]
+\centering
+\includegraphics[width=5 cm]{figuras/f19.png}
+\caption{Archivo de Configuración.Comienzo de especificación}
+\label{Fig36}
+\end{figure}
 
-A continuación debe definirse las siguientes configuraciones para el OS del ejemplo:
-
+\item[•]A continuación debe definirse las siguientes configuraciones para el OS del ejemplo:
 \begin{enumerate}
 \item[•]El nivel de chequeo de errores que se pueden producir. Existen dos niveles que pueden determinarse:
 \begin{enumerate}
@@ -1188,40 +1183,35 @@ A continuación debe definirse las siguientes configuraciones para el OS del eje
 \item[•]Uso del \textit{Scheduler} como recurso.
 \item[•]Uso del mapa de memoria.
 \end{enumerate}
-
-\begin{figure}[!h]
-\centering
-\includegraphics[width=5 cm]{figuras/f19.png}
-\caption{Archivo de Configuración.Comienzo de especificación}
-\label{Fig36}
-\end{figure}
-
 La Figura \ref{Fig37} ilustra un OS configurado de forma que el nivel de chequeo de errores sea el mínimo, no se determine el uso del \textit{Scheduler},y no se utilize una cantidad específica de memoria,por último solamente se define una función en caso de un error producido en el OS.
-
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
-\includegraphics[width=5 cm]{figuras/f20.png}
+\includegraphics[width=12 cm]{figuras/f20.png}
 \caption{Ejemplo de especificación de OS sobre archivo OIL}
 \label{Fig37}
 \end{figure}
-A continuación se define una Tarea que efectua la configuración inicial de la placa, y de los puertos GPIO utilizados para el Display 7 Segmentos. La instrucción que permite la definición de una Tarea sobre el archivo de configuracion \textit{OIL} es \textit{TASK}, la Figura \ref{Fig38} ilustra el proceso llevado a cabo para dicho proceso. El usuario debe tener en cuenta que se lleva a cabo este proceso para cada uno de los proyectos implementados sobre este Tutorial.
 
-\begin{figure}[!h]
+\item[•]A continuación se define una Tarea que efectua la configuración inicial de la placa, y de los puertos GPIO utilizados para el Display 7 Segmentos. La instrucción que permite la definición de una Tarea sobre el archivo de configuracion \textit{OIL} es \textit{TASK}, la Figura \ref{Fig38} ilustra el proceso llevado a cabo para dicho proceso. El usuario debe tener en cuenta que se lleva a cabo este proceso para cada uno de los proyectos implementados sobre este Tutorial.
+\begin{figure}[H]
 \centering
-\includegraphics[width=15 cm]{figuras/f21.png}
+\includegraphics[width=17 cm]{figuras/f21.png}
 \caption{Definición de Tarea sobre archivo de configuración}
 \label{Fig38}
 \end{figure}
 
-En este caso en particular, la tarea que se desea definir en primer lugar, necesita activarse en el momento de inicio del programa. Teniendo en cuenta los atributos que se explican sobre la figura \ref{Fig38} ,se determina que el atributo \textit{AUTOSTART} adquiera el valor \textit{TRUE}. Debe considerarse que no se prevee que dicha Tarea vuelva a ejecutarse durante el desarrollo del programa, por ese motivo, se asigna una prioridad baja y su tipo designado es \textit{BASIC}.
+\item[•]En este caso en particular, la tarea que se desea definir en primer lugar, necesita activarse en el momento de inicio del programa. Teniendo en cuenta los atributos que se explican sobre la figura \ref{Fig38} ,se determina que el atributo \textit{AUTOSTART} adquiera el valor \textit{TRUE}. Debe considerarse que no se prevee que dicha Tarea vuelva a ejecutarse durante el desarrollo del programa, por ese motivo, se asigna una prioridad baja y su tipo designado es \textit{BASIC}.
 
-La siguiente Tarea realiza la muestra de los digitos sobre los leds incorporados en la placa (forma binaria) y sobre el Display 7 Segmentos. Es importante destacar que esta Tarea se ejecuta constantemente, debido a que no existe otra Tarea de mayor prioridad que se active e interrumpa su ejecución. Para permitir esta ejecución constante es necesario la instrucción propia del SO (también denominada Servicio del Sistema) \textit{ChainTask()} para permitir que esta Tarea se reactive a si misma.La Figura \ref{Fig39} ilustra las definiciones de las dos Tareas descriptas anteriormente.
-\begin{figure}[!h]
+\item[•]La siguiente Tarea realiza la muestra de los digitos sobre los leds incorporados en la placa (forma binaria) y sobre el Display 7 Segmentos. Es importante destacar que esta Tarea se ejecuta constantemente, debido a que no existe otra Tarea de mayor prioridad que se active e interrumpa su ejecución. Para permitir esta ejecución constante es necesario la instrucción propia del SO (también denominada Servicio del Sistema) \textit{ChainTask()} para permitir que esta Tarea se reactive a si misma.La Figura \ref{Fig39} ilustra las definiciones de las dos Tareas descriptas anteriormente.
+\begin{figure}[H]
 \centering
 \includegraphics[width=8 cm]{figuras/f22.png}
 \caption{Ilustración de definición de Tareas de Ejemplo N$^{\circ}$1}
 \label{Fig39}
 \end{figure}
+
+
+\end{enumerate}
+%\underline{Generación de archivo OIL}:
 
 \subsubsection{Implementacion de ejemplo N$^{\circ}$2: Múltiples Tareas en OSEK}
 

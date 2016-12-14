@@ -24,7 +24,7 @@
 \contentsline {subsubsection}{\numberline {5.1.2}Modelo de Tareas Extendidas}{32}
 \contentsline {subsection}{\numberline {5.2}Scheduler}{34}
 \contentsline {subsection}{\numberline {5.3}Modos de Aplicaci\IeC {\'o}n}{34}
-\contentsline {subsection}{\numberline {5.4}Eventos}{35}
+\contentsline {subsection}{\numberline {5.4}Eventos}{34}
 \contentsline {subsection}{\numberline {5.5}Clases de Conformidad}{35}
 \contentsline {subsection}{\numberline {5.6}Configuraci\IeC {\'o}n y Generaci\IeC {\'o}n}{36}
 \contentsline {subsubsection}{\numberline {5.6.1}Implementacion de ejemplo N$^{\circ }$1: Tareas en OSEK}{37}
@@ -32,9 +32,9 @@
 \contentsline {subsubsection}{\numberline {5.6.3}Implementacion de ejemplo N$^{\circ }$3: Eventos en OSEK}{44}
 \contentsline {subsection}{\numberline {5.7}Alarmas}{45}
 \contentsline {subsubsection}{\numberline {5.7.1}Implementacion de ejemplo N$^{\circ }$4: Eventos y Alarmas en OSEK}{45}
-\contentsline {subsubsection}{\numberline {5.7.2}Implementacion de ejemplo N$^{\circ }$5: Alarmas en OSEK}{45}
-\contentsline {subsection}{\numberline {5.8}Interrupciones}{46}
+\contentsline {subsubsection}{\numberline {5.7.2}Implementacion de ejemplo N$^{\circ }$5: Alarmas en OSEK}{46}
+\contentsline {subsection}{\numberline {5.8}Interrupciones}{47}
 \contentsline {subsubsection}{\numberline {5.8.1}Implementacion de ejemplo N$^{\circ }$6: Interrupciones en OSEK}{47}
-\contentsline {subsubsection}{\numberline {5.8.2}Implementacion de ejemplo N$^{\circ }$7: Interrupciones en OSEK}{48}
-\contentsline {subsubsection}{\numberline {5.8.3}Implementacion de ejemplo N$^{\circ }$8: Interrupciones en OSEK}{49}
-\contentsline {section}{\numberline {6}Implementacion de ejemplo N$^{\circ }$9: Inclusi\IeC {\'o}n de librer\IeC {\'\i }a LCD y formaci\IeC {\'o}n de librerias propias para trabajar}{50}
+\contentsline {subsubsection}{\numberline {5.8.2}Implementacion de ejemplo N$^{\circ }$7: Interrupciones en OSEK}{49}
+\contentsline {subsubsection}{\numberline {5.8.3}Implementacion de ejemplo N$^{\circ }$8: Interrupciones en OSEK}{50}
+\contentsline {section}{\numberline {6}Implementacion de ejemplo N$^{\circ }$9: Inclusi\IeC {\'o}n de librer\IeC {\'\i }a LCD y formaci\IeC {\'o}n de librerias propias para trabajar}{51}
