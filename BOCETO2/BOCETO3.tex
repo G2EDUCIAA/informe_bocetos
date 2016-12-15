@@ -1127,12 +1127,12 @@ La Figura \ref{Fig37} ilustra un OS configurado de forma que el nivel de chequeo
 \begin{enumerate}
 \item[•]\textbf{Paso 4.1}: Declarar el recurso utilizado por el módulo \textit{POSIX} del Firmware de la CIAA, mediante la sintaxis \textit{POSIXR}.
 \item[•]\textbf{Paso 4.2}: Declarar el evento utilizado por el módulo \textit{POSIX} del Firmware de la CIAA, mediante la sintaxis \textit{POSIXE}.
-La Figura  ilustra las declaraciónes realizadas:
+La Figura \ref{paso42} ilustra las declaraciónes realizadas:
 \begin{figure}[H]
 \centering
 \includegraphics[width=4 cm]{figuras/f48.png}
 \caption{Definición de APPMODE, Recurso POSIXE, Recurso POSIXR.}
-\label{inicializar}
+\label{paso42}
 \end{figure}
 \end{enumerate}
 
@@ -1351,27 +1351,112 @@ En caso de que haya ocurrido el Evento \textit{primersecuencia} o \textit{segsec
 \end{enumerate}
 \item[•]\textbf{Paso 7}: Realizar la creación de la Tarea SECUENCIA1, que presenta las siguientes características:
 \begin{enumerate}
-\item[•]Prioridad: 10
-\item[•]Número máximo de activaciones múltiples: 1
+\item[•]Prioridad: 9.
+\item[•]Número máximo de activaciones múltiples: 1.
 \item[•]Asignación de memoria de programa: 256 Bytes.
-\item[•]Tipo de Tarea: BASIC
-\item[•]Sin interrupciones por activación de otra Tarea de mayor prioridad.
-\item[•]Recurso: POSIXR
+\item[•]Tipo de Tarea: EXTENDED.
+\item[•]Con interrupciones por activación de otra Tarea de mayor prioridad.
+\item[•]Recurso: secuencia$\_$res.
+\item[•]Evento: primersecuencia.
 \end{enumerate}
+\item[•]\textbf{Paso 8}: Realizar la creación de la Tarea SECUENCIA2, que presenta las siguientes características:
+\begin{enumerate}
+\item[•]Prioridad: 9.
+\item[•]Número máximo de activaciones múltiples: 1.
+\item[•]Asignación de memoria de programa: 256 Bytes.
+\item[•]Tipo de Tarea: EXTENDED.
+\item[•]Con interrupciones por activación de otra Tarea de mayor prioridad.
+\item[•]Recurso: secuencia$\_$res.
+\item[•]Evento: segsecuencia.
+\end{enumerate}
+\item[•]\textbf{Paso 9}: Realizar la creación de la Alarma \textit{Set$\_$Event$\_$tiempo1} con las siguientes características
+\begin{enumerate}
+\item[•]Contador: Contador$\_$software.
+\item[•]Acción: Establece Evento tiempo1, pertenenciente a Tarea SECUENCIA1.
+\item[•]Sin inicio automático. La Figura \ref{alarmaej4} ilustra la declaración de dicha alarma.
+\begin{figure}[H]
+\centering
+\includegraphics[width=5 cm]{figuras/f50.png}
+\caption{Alarma implementada en Ejemplo N$^{\circ}$4}
+\label{alarmaej4}
+\end{figure}
+\end{enumerate}
+\item[•]\textbf{Paso 10}: Realizar la creación de la Alarma \textit{Set$\_$Event$\_$tiempo2} con las siguientes características
+\begin{enumerate}
+\item[•]Contador: Contador$\_$software.
+\item[•]Acción: Establece Evento tiempo2, pertenenciente a Tarea SECUENCIA2.
+\item[•]Sin inicio automático. La Figura \ref{alarma2ej4} ilustra la declaración de dicha alarma.
+\begin{figure}[H]
+\centering
+\includegraphics[width=5 cm]{figuras/f51.png}
+\caption{Segunda Alarma implementada en Ejemplo N$^{\circ}$4}
+\label{alarma2ej4}
+\end{figure}
+\end{enumerate}
+\item[•]\textbf{Paso 11}: Realizar la creación del contador denominado \textit{Contador$\_$software} con los siguientes parámetros:
+\begin{enumerate}
+\item[•]Máximo valor de conteo: 500 ticks. Se realiza a través de la sintaxis \textit{MAXALLOWEDVALUE}, sobre dicho atributo se determina un número entero, en este caso en particular se ingresa el número 500.
+\item[•]Número de ticks por conteo: 1. Se realiza a través de la sintaxis \textit{TICKSPERBASE}, sobre dicho atributo se determina un número entero.
+\item[•]Tipo de contador: SOFTWARE. Este atributo establece un timer implementado por software.
+\item[•]Ciclo Mínimo: 1. Éste atributo determina el número mínimo permitido de ticks del Contador para una Alarma que se encuentra relacionada con éste. La Figura \ref{contadorej4} ilustra la definición de dicho contador: 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=5 cm]{figuras/f52.png}
+\caption{Contador implementado sobre Ejemplo N$^{\circ}$4}
+\label{contadorej4}
+\end{figure}
+
 \end{enumerate}
 
-\subsubsection{Implementación de ejemplo N$^{\circ}$5: Alarmas en OSEK}
+\item[•]\textbf{Paso 12}: Realizar la creación del directorio tal como se establece sobre el paso 8 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 13}: Incluir los módulos compatibles de la \textit{sAPI}, como se establece sobre los pasos 9 y 10 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 14}: Sobre el archivo fuente del proyecto, ingresar el código proporcionado por el tutorial.
+
+\end{enumerate}
+\subsection{Implementación de ejemplo N$^{\circ}$5: Alarmas en OSEK}
 En este ejemplo se utilizan las Alarmas para permitir la activación de una Tarea en forma periódica. En particular, esta Alarma activa una Tarea la cual permite la lectura analógica sobre el canal 1 del \textit{ADC0} de la placa.
-\begin{center}
-\begin{figure}[!h]
+  \\
+  
+Se realiza la definición de la Tarea \textit{lectura$\_$periodica}, la cuál se activa cada 500[ms], gracias a la previa activación de la Alarma \textit{Activa$\_$lecturaperiodica} mediante la instrucción \textit{SetRelAlarm()}. En caso que la lectura sea igual a 1[V], 2[V], 3[V], 4[V] o 5[V]; se efectúa la muestra sobre el Display 7 Segmentos del valor correspondiente. La Figura \ref{estructuraej5} ilustra la estructura del archivo fuente de este ejemplo.
+\begin{figure}[H]
 \centering
 \includegraphics[width=15 cm]{figuras/f36.png}
 \caption{Estructura y funcionamiento de archivo fuente en Ejemplo N$^{\circ}$5}
 \label{estructuraej5}
 \end{figure}
-\end{center}
-Se realiza la definición de la Tarea \textit{lectura$\_$periodica}, la cuál se activa cada 500[ms], gracias a la previa activación de la Alarma \textit{Activa$\_$lecturaperiodica} mediante la instrucción \textit{SetRelAlarm()}. En caso que la lectura sea igual a 1[V], 2[V], 3[V], 4[V] o 5[V]; se efectúa la muestra sobre el Display 7 Segmentos del valor correspondiente. La Figura \ref{estructuraej5} ilustra la estructura del archivo fuente de este ejemplo.
+\begin{enumerate}
+\item[•]\textbf{Paso 1}: Realizar la creación del archivo de configuración OIL siguiendo los pasos 1, 2 y 3 de la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 2}: Definir los Eventos, Recursos y Modo de Aplicación que se determina sobre el paso 5 de la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 3}: Definir el recurso \textit{recurso$\_$adc} de forma similar a la que se realiza sobre el paso anterior.
+\item[•]\textbf{Paso 4}: Realizar la creación de la Tarea INICIALIZAR, cuyos atributos y variables asignadas son las mismas que las implementadas sobre el Ejemplo N$^{\circ}$1.
+\item[•]\textbf{Paso 5}: Realizar la creación de la Tarea lectura$\_$periodica, que presenta las siguientes características:
+\begin{enumerate}
+\item[•]Prioridad: 2
+\item[•]Número máximo de activaciones múltiples: 1
+\item[•]Asignación de memoria de programa: 256 Bytes.
+\item[•]Tipo de Tarea: BASIC
+\item[•]Sin interrupciones por activación de otra Tarea de mayor prioridad.
+\item[•]Recurso: recurso$\_$adc
+\end{enumerate}
+\item[•]\textbf{Paso 6}:Realizar la creación de la Alarma \textit{Activa$\_$lecturaperiodica} con las siguientes características
+\begin{enumerate}
+\item[•]Contador: HardwareCounter.
+\item[•]Acción: Activa Tarea lectura$\_$periodica.
+\end{enumerate}
+\item[•]\textbf{Paso 7}: Realizar la creación del contador denominado \textit{Contador$\_$software} con los siguientes parámetros:
+\begin{enumerate}
+\item[•]Máximo valor de conteo: 500 ticks.
+\item[•]Número de ticks por conteo: 1. 
+\item[•]Ciclo Mínimo: 1.
+\item[•]Tipo: Software.
+\end{enumerate}
+\item[•]\textbf{Paso 8}: Realizar la creación del directorio tal como se establece sobre el paso 8 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 9}: Incluir los módulos compatibles de la \textit{sAPI}, como se establece sobre los pasos 9 y 10 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 10}: Sobre el archivo fuente del proyecto, ingresar el código proporcionado por el tutorial.
 
+
+\end{enumerate}
 \subsection{Interrupciones}
 Las funciones para realizar la atención de las distintas interrupciones sobre el programa se pueden subdividir en 2 categorías\cite{libroosekcerdeiro}:
 \begin{enumerate}
@@ -1390,15 +1475,9 @@ interfaces para desactivar las interrupciones:
 \item[•]\textit{ResumeOSInterrupts}
 \end{enumerate}
 
-\subsubsection{Implementación de ejemplo N$^{\circ}$6: Interrupciones en OSEK}
-En este ejemplo se busca ilustrar al usuario a la utilización de Interrupciones en \textit{OSEK}. En particular, este ejemplo implementa una interrupción externa, a través de la utilización de una librería creada por Pablo Ridolfi\cite{enlacelibreriainterrupcion}. Para la inclusión de dicha librería, se debe proceder de forma similar que la explicada en la sección \ref{sec:tareasOSEK}.
+\subsection{Implementación de ejemplo N$^{\circ}$6: Interrupciones en OSEK}
+En este ejemplo se busca ilustrar al usuario a la utilización de Interrupciones en \textit{OSEK}. En particular, este ejemplo implementa una interrupción externa, a través de la utilización de una librería creada por Pablo Ridolfi\cite{enlacelibreriainterrupcion}.
 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=5 cm]{figuras/f34.png}
-\caption{Definición de Interrupción sobre Ejemplo N$^{\circ}$6}
-\label{Fig43}
-\end{figure}
 Sobre la Tarea \textit{Inicializar} se realiza la habilitación de la interrupción a través del GPIO0 (el cuál se encuentra configurado sobre el pin perteneciente a la tecla \textit{TEC4} incorporada a la placa) mediante la instrucción (previamente definida sobre el archivo cabecera que pertenece a la librería) \textit{ciaaGpioIntEnable(0, appIrqHandler)}.
 
 Sobre el primer parámetro de dicha instrucción se especifica el canal utilizado. En este caso la librería utiliza el canal 0, el cual indica que se trabaja sobre el Registro de selección de Pines de Interrupción N$^{\circ}$0 (denominado registro \textit{PINTSEL 0}).
@@ -1408,7 +1487,7 @@ Sobre el segundo parámetro utilizado se especifica el \textit{Handler} de inter
 Sobre el archivo de configuración del Sistema Operativo se define una Interrupción denominada \textit{GPIOINTHandler0}. La Figura \ref{Fig43} ilustra dicha definición sobre el archivo \textit{OIL} y la interpretación de los parámetros establecidos sobre dicha Interrupción.
 
 Es importante aclarar en esta instancia que es conveniente definir para los nombres de las interrupciones, nombres distintos a las definiciones de interrupciones previamente declaradas sobre el Firmware, dado que se genera conflictos. Es posible ver que sobre el parámetro \textit{CATEGORY} se debe establecer el tipo de Interrupción a implementar, en caso de que la interrupción sea del tipo \textit{ISR1} debe asignarse el valor 1 sobre este atributo, en cambio, si dicha Interrupción es del tipo \textit{ISR2} debe asignarse el valor 2.
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=12 cm]{figuras/f37.png}
 \caption{Estructura de archivo fuente en Ejemplo N$^{\circ}$6}
@@ -1422,7 +1501,44 @@ Puede observarse los nombres de las interrupciónes asociadas en esta implementa
 
 Cuando la interrupción externa se produce el establecimiento de una tensión de salida analógica a través del uso del DAC, la magnitud de la tensión es igual a 1[V],2[V] o 3.3[V], según se aprete una, dos o tres veces la tecla asignada a la interrupción externa (\textit{TEC4}). La Figura \ref{estructuraej6} ilustra el funcionamiento y la estructura del archivo fuente del ejemplo.
 
-\subsubsection{Implementación de ejemplo N$^{\circ}$7: Interrupciones en OSEK}
+\begin{enumerate}
+\item[•]\textbf{Paso 1}: Realizar la creación del archivo de configuración OIL siguiendo los pasos 1, 2 y 3 de la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 2}: Definir los Eventos, Recursos y Modo de Aplicación que se determina sobre el paso 5 de la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 3}: Definir el recurso \textit{dac$\_$res} de forma similar a la que se realiza sobre el paso anterior.
+\item[•]\textbf{Paso 4}: Definir el evento \textit{dac$\_$event}.
+\item[•]\textbf{Paso 5}: Realizar la creación de la Tarea INICIALIZAR, cuyos atributos y variables asignadas son las mismas que las implementadas sobre el Ejemplo N$^{\circ}$1.
+
+\item[•]\textbf{Paso 5}: Realizar la creación de la Tarea SALIDA$\_$DAC, que presenta las siguientes características:
+\begin{enumerate}
+\item[•]Prioridad: 9
+\item[•]Número máximo de activaciones múltiples: 1
+\item[•]Asignación de memoria de programa: 256 Bytes.
+\item[•]Tipo de Tarea: EXTENDED.
+\item[•]Con interrupciones por activación de otra Tarea de mayor prioridad.
+\item[•]Recurso: dac$\_$res.
+\item[•]Evento: dac$\_$event.
+\end{enumerate}
+
+\item[•]\textbf{Paso 6}: Realizar la creación de la Alarma \textit{Set$\_$Event$\_$dac} con las siguientes características
+\begin{enumerate}
+\item[•]Contador: Contador$\_$software.
+\item[•]Acción: Establece Evento dac$\_$event, pertenenciente a Tarea SALIDA$\_$DAC.
+\item[•]Sin inicio automático.
+\end{enumerate}
+
+\item[•]\textbf{Paso 7}: Realizar la creación del contador denominado \textit{Contador$\_$software} con los siguientes parámetros:
+\begin{enumerate}
+\item[•]Máximo valor de conteo: 500 ticks.
+\item[•]Número de ticks por conteo: 1. 
+\item[•]Ciclo Mínimo: 1.
+\end{enumerate}
+
+\item[•]\textbf{Paso 8}: Realizar la definición del ISR denominado GPIOINTHandler0, 
+
+\end{enumerate}
+
+
+\subsection{Implementación de ejemplo N$^{\circ}$7: Interrupciones en OSEK}
 \begin{figure}[!h]
 \centering
 \includegraphics[width=5 cm]{figuras/f35.png}

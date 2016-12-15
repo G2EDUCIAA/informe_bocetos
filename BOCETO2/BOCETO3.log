@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  15 DEC 2016 11:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  15 DEC 2016 14:02
 entering extended mode
 **./BOCETO3.tex
 (BOCETO3.tex
@@ -516,10 +516,6 @@ Package: fancyhdr 2016/09/06 3.8 Extensive control of page headers and footers
 ) (BOCETO3.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
-
-
-LaTeX Warning: Label `inicializar' multiply defined.
-
 )
 \openout1 = `BOCETO3.aux'.
 
@@ -537,8 +533,8 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 22.
 LaTeX Font Info:    ... okay on input line 22.
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
- ("C:\Users\hp\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.mkii
-"
+
+("C:\Users\hp\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count114
 \scratchdimen=\dimen129
@@ -1826,7 +1822,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 [46]
 File: figuras/unsl.png Graphic file (type png)
  <use figuras/unsl.png>
-Package pdftex.def Info: figuras/unsl.png used on input line 1349.
+Package pdftex.def Info: figuras/unsl.png used on input line 1348.
 (pdftex.def)             Requested size: 22.76228pt x 28.57912pt.
 
 
@@ -1835,73 +1831,15 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[47] <figuras/f36.png, id=237, 696.35156pt x 360.59718pt>
-File: figuras/f36.png Graphic file (type png)
-
-<use figuras/f36.png>
-Package pdftex.def Info: figuras/f36.png used on input line 1360.
-(pdftex.def)             Requested size: 426.79134pt x 221.00938pt.
-File: figuras/unsl.png Graphic file (type png)
- <use figuras/unsl.png>
-Package pdftex.def Info: figuras/unsl.png used on input line 1372.
-(pdftex.def)             Requested size: 22.76228pt x 28.57912pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 32.92915pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[48 <./figuras/f36.png>] <figuras/f34.png, id=241, 120.45pt x 59.47218pt>
-File: figuras/f34.png Graphic file (type png)
-
-<use figuras/f34.png>
-Package pdftex.def Info: figuras/f34.png used on input line 1390.
-(pdftex.def)             Requested size: 142.26378pt x 70.24915pt.
- <figuras/f37.png, id=242, 754.31813pt x 365.11406pt>
-File: figuras/f37.png Graphic file (type png)
-
-<use figuras/f37.png>
-Package pdftex.def Info: figuras/f37.png used on input line 1405.
-(pdftex.def)             Requested size: 341.43306pt x 165.26361pt.
-File: figuras/unsl.png Graphic file (type png)
- <use figuras/unsl.png>
-Package pdftex.def Info: figuras/unsl.png used on input line 1410.
-(pdftex.def)             Requested size: 22.76228pt x 28.57912pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 32.92915pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[49 <./figuras/f34.png>] <figuras/f35.png, id=247, 115.93312pt x 59.47218pt>
-File: figuras/f35.png Graphic file (type png)
-
-<use figuras/f35.png>
-Package pdftex.def Info: figuras/f35.png used on input line 1420.
-(pdftex.def)             Requested size: 142.26378pt x 72.98608pt.
-File: figuras/unsl.png Graphic file (type png)
- <use figuras/unsl.png>
-Package pdftex.def Info: figuras/unsl.png used on input line 1427.
-(pdftex.def)             Requested size: 22.76228pt x 28.57912pt.
-
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 32.92915pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[50 <./figuras/f37.png> <./figuras/f35.png>]
-<figuras/f38.png, id=252, 645.91313pt x 431.36156pt>
-File: figuras/f38.png Graphic file (type png)
- <use figuras/f38.png>
-Package pdftex.def Info: figuras/f38.png used on input line 1430.
-(pdftex.def)             Requested size: 426.79134pt x 285.02202pt.
+[47] <figuras/f50.png, id=237, 170.13562pt x 89.58469pt>
+File: figuras/f50.png Graphic file (type png)
+ <use figuras/f50.png>
+Package pdftex.def Info: figuras/f50.png used on input line 1379.
+(pdftex.def)             Requested size: 142.26378pt x 74.91298pt.
 File: figuras/unsl.png Graphic file (type png)
 
 <use figuras/unsl.png>
-Package pdftex.def Info: figuras/unsl.png used on input line 1443.
+Package pdftex.def Info: figuras/unsl.png used on input line 1387.
 (pdftex.def)             Requested size: 22.76228pt x 28.57912pt.
 
 
@@ -1910,15 +1848,56 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[51 <./figuras/f38.png>] <figuras/f39.png, id=256, 672.26157pt x 405.01312pt>
-File: figuras/f39.png Graphic file (type png)
+[48 <./figuras/f50.png>] <figuras/f51.png, id=241, 173.89969pt x 90.3375pt>
+File: figuras/f51.png Graphic file (type png)
 
-<use figuras/f39.png>
-Package pdftex.def Info: figuras/f39.png used on input line 1446.
-(pdftex.def)             Requested size: 426.79134pt x 257.12485pt.
+<use figuras/f51.png>
+Package pdftex.def Info: figuras/f51.png used on input line 1391.
+(pdftex.def)             Requested size: 142.26378pt x 73.90628pt.
+ <figuras/f52.png, id=242, 146.79843pt x 67.75313pt>
+File: figuras/f52.png Graphic file (type png)
+
+<use figuras/f52.png>
+Package pdftex.def Info: figuras/f52.png used on input line 1405.
+(pdftex.def)             Requested size: 142.26378pt x 65.66048pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1418--1420
+
+ []
+
+File: figuras/unsl.png Graphic file (type png)
+<use figuras/unsl.png>
+Package pdftex.def Info: figuras/unsl.png used on input line 1420.
+(pdftex.def)             Requested size: 22.76228pt x 28.57912pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 32.92915pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[49 <./figuras/f51.png> <./figuras/f52.png>]
+<figuras/f36.png, id=247, 696.35156pt x 360.59718pt>
+File: figuras/f36.png Graphic file (type png)
+ <use figuras/f36.png>
+Package pdftex.def Info: figuras/f36.png used on input line 1424.
+(pdftex.def)             Requested size: 426.79134pt x 221.00938pt.
+File: figuras/unsl.png Graphic file (type png)
+
+<use figuras/unsl.png>
+Package pdftex.def Info: figuras/unsl.png used on input line 1439.
+(pdftex.def)             Requested size: 22.76228pt x 28.57912pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 32.92915pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[50 <./figuras/f36.png>]
 File: figuras/unsl.png Graphic file (type png)
  <use figuras/unsl.png>
-Package pdftex.def Info: figuras/unsl.png used on input line 1459.
+Package pdftex.def Info: figuras/unsl.png used on input line 1474.
 (pdftex.def)             Requested size: 22.76228pt x 28.57912pt.
 
 
@@ -1927,21 +1906,94 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[52 <./figuras/f39.png>] <figuras/f40.png, id=260, 277.035pt x 24.09pt>
+[51]
+
+LaTeX Warning: Reference `Fig43' on page 52 undefined on input line 1487.
+
+<figuras/f37.png, id=254, 754.31813pt x 365.11406pt>
+File: figuras/f37.png Graphic file (type png)
+ <use figuras/f37.png>
+Package pdftex.def Info: figuras/f37.png used on input line 1492.
+(pdftex.def)             Requested size: 341.43306pt x 165.26361pt.
+File: figuras/unsl.png Graphic file (type png)
+
+<use figuras/unsl.png>
+Package pdftex.def Info: figuras/unsl.png used on input line 1497.
+(pdftex.def)             Requested size: 22.76228pt x 28.57912pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 32.92915pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[52 <./figuras/f37.png>] <figuras/f35.png, id=258, 115.93312pt x 59.47218pt>
+File: figuras/f35.png Graphic file (type png)
+
+<use figuras/f35.png>
+Package pdftex.def Info: figuras/f35.png used on input line 1544.
+(pdftex.def)             Requested size: 142.26378pt x 72.98608pt.
+File: figuras/unsl.png Graphic file (type png)
+ <use figuras/unsl.png>
+Package pdftex.def Info: figuras/unsl.png used on input line 1547.
+(pdftex.def)             Requested size: 22.76228pt x 28.57912pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 32.92915pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[53] <figuras/f38.png, id=263, 645.91313pt x 431.36156pt>
+File: figuras/f38.png Graphic file (type png)
+
+<use figuras/f38.png>
+Package pdftex.def Info: figuras/f38.png used on input line 1554.
+(pdftex.def)             Requested size: 426.79134pt x 285.02202pt.
+File: figuras/unsl.png Graphic file (type png)
+ <use figuras/unsl.png>
+Package pdftex.def Info: figuras/unsl.png used on input line 1561.
+(pdftex.def)             Requested size: 22.76228pt x 28.57912pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 32.92915pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[54 <./figuras/f35.png> <./figuras/f38.png>]
+<figuras/f39.png, id=267, 672.26157pt x 405.01312pt>
+File: figuras/f39.png Graphic file (type png)
+ <use figuras/f39.png>
+Package pdftex.def Info: figuras/f39.png used on input line 1570.
+(pdftex.def)             Requested size: 426.79134pt x 257.12485pt.
+File: figuras/unsl.png Graphic file (type png)
+
+<use figuras/unsl.png>
+Package pdftex.def Info: figuras/unsl.png used on input line 1579.
+(pdftex.def)             Requested size: 22.76228pt x 28.57912pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 32.92915pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[55 <./figuras/f39.png>] <figuras/f40.png, id=272, 277.035pt x 24.09pt>
 File: figuras/f40.png Graphic file (type png)
 
 <use figuras/f40.png>
-Package pdftex.def Info: figuras/f40.png used on input line 1465.
+Package pdftex.def Info: figuras/f40.png used on input line 1589.
 (pdftex.def)             Requested size: 227.62204pt x 19.79323pt.
 
-Overfull \hbox (17.2392pt too wide) in paragraph at lines 1488--1489
+Overfull \hbox (17.2392pt too wide) in paragraph at lines 1612--1613
 []\OT1/cmr/m/n/10 http://proyecto-ciaa.com.ar/devwiki/doku.php?id=docu:fw:bm:es
 tructura$&$s[]=estructura$&$s[]=de$&$s[]=directorios
  []
 
 File: figuras/unsl.png Graphic file (type png)
 <use figuras/unsl.png>
-Package pdftex.def Info: figuras/unsl.png used on input line 1503.
+Package pdftex.def Info: figuras/unsl.png used on input line 1613.
 (pdftex.def)             Requested size: 22.76228pt x 28.57912pt.
 
 
@@ -1950,21 +2002,21 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[53 <./figuras/f40.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 1503--1505
+[56 <./figuras/f40.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 1627--1629
 []\OT1/cmr/m/it/12 Introduccion a RTOS \OT1/cmr/m/n/12 por Ale-jan-dro Ce-lery.
  SA-SE 2011.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1514--1515
+Underfull \hbox (badness 10000) in paragraph at lines 1638--1639
 []\OT1/cmr/m/n/10 https://groups.google.com/forum/$#$!searchin/ciaa-firmware/bo
 olean$ $%7Csort:relevance/ciaa-
  []
 
 File: figuras/unsl.png Graphic file (type png)
 <use figuras/unsl.png>
-Package pdftex.def Info: figuras/unsl.png used on input line 1521.
+Package pdftex.def Info: figuras/unsl.png used on input line 1645.
 (pdftex.def)             Requested size: 22.76228pt x 28.57912pt.
 
 
@@ -1973,19 +2025,22 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[54] (BOCETO3.aux
+[57] (BOCETO3.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 )
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 5668 strings out of 493634
- 77831 string characters out of 3136463
- 156674 words of memory out of 3000000
- 8884 multiletter control sequences out of 15000+200000
+ 5681 strings out of 493634
+ 78040 string characters out of 3136463
+ 156655 words of memory out of 3000000
+ 8895 multiletter control sequences out of 15000+200000
  18388 words of font info for 68 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  37i,18n,43p,815b,555s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2005,9 +2060,9 @@ lic/amsfonts/cm/cmsy8.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/
 type1/public/amsfonts/cm/cmti10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX 
 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/hp/AppData/Local/Progra
 ms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti7.pfb>
-Output written on BOCETO3.pdf (54 pages, 4299631 bytes).
+Output written on BOCETO3.pdf (57 pages, 4314191 bytes).
 PDF statistics:
- 315 PDF objects out of 1000 (max. 8388607)
+ 327 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 336 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 346 words of extra memory for PDF output out of 10000 (max. 10000000)
 
