@@ -537,40 +537,22 @@ La funcion \textit{digitalRead(A)} permite determinar el estado funcional de un 
 \item[•]\textbf{Paso 2}: A través del programa \textit{uModel Factory}, implementar la siguiente Maquina de Estado Finita:
 
 \begin{enumerate}
-\item[•]\underline{Estados}:
-\begin{enumerate}
-\item[•]Estado \textit{\textbf{INICIAL}}: Contexto en el cual, si se oprime la tecla \textit{TEC1}, ocurre una transicion al estado ROJO.
-\item[•]Estado \textit{\textbf{ROJO}}: Contexto en el cual, si se oprime la tecla \textit{TEC1}, ocurre una transicion al estado ENCENDIDO1.
-\item[•]Estado \textit{\textbf{ENCENDIDO1}}: Contexto en el cual, si se oprime la tecla \textit{TEC1}, ocurre una transicion al estado ENCENDIDO2.
-\item[•]Estado \textit{\textbf{ENCENDIDO2}}: Contexto en el cual, si se oprime la tecla \textit{TEC1}, ocurre una transicion al estado ENCENDIDO3.
-\item[•]Estado \textit{\textbf{ENCENDIDO3}}: Contexto en el cual, si se oprime la tecla \textit{TEC1}, ocurre una transicion al estado ROJO.
-\end{enumerate}
-\item[•]\underline{Eventos}:
-\begin{enumerate}
-\item[•]Evento \textit{\textbf{PRESIONO}}: Se ha oprimido la tecla \textit{TEC1}.
-\item[•]Evento \textit{\textbf{PRESIONO$\_$4}}: Se ha realizado la primer secuencia apretando la tecla \textit{TEC1}.
-\item[•]Evento \textit{\textbf{PRESIONO$\_$7}}: Se ha realizado la segunda secuencia apretando la tecla \textit{TEC1}.
-\item[•]Evento \textit{\textbf{PRESIONO$\_$10}}: Se ha realizado la tercer y última secuencia apretando \textit{TEC1}.
-\end{enumerate}
-\item[•]\underline{Acciones}:
-\begin{enumerate}
-\item[•]Accion \textit{\textbf{LED$\_$R}}: Encendido de \textit{LEDR},\textit{LEDB},\textit{LEDG} según corresponda.
-\item[•]Accion \textit{\textbf{P$\_$LED$\_$1}}: Encendido de \textit{LED1}.
-\item[•]Accion \textit{\textbf{P$\_$LED$\_$2}}: Encendido de \textit{LED2}.
-\item[•]Accion \textit{\textbf{P$\_$LED$\_$3}}: Encendido de \textit{LED3}.
-\item[•]Accion \textit{\textbf{BORRO}}: Renuevo contador de control.
-\end{enumerate}
-\end{enumerate}
-
-La Figura \ref{Fig22} especifica el diagrama de estados del ejemplo:
-
-\begin{figure}[!h]
+\item[•]\textbf{Paso 2.1}: La Figura \ref{tablatransicionej2} especifica la Tabla de Transiciónes de la MEF.
+\begin{figure}[H]
 \centering
-\includegraphics[width=7 cm]{figuras/f4.png}\\
+\includegraphics[width=8 cm]{figuras/f45.png}\\
+\caption{Tabla de Transiciónes de N$^{\circ}$2}
+\label{tablatransicionej2}
+\end{figure}
+\item[•]\textbf{Paso 2.2}: La Figura \ref{Fig22} especifica el diagrama de estados del ejemplo:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8 cm]{figuras/f4.png}\\
 \caption{Diagrama de estados de ejemplo N$^{\circ}$2}
 \label{Fig22}
 \end{figure}
-
+\end{enumerate}
 
 \item[•]\textbf{Paso 3}: Incluir sobre el archivo fuente, el archivo cabecera \textit{funciones.h}
 
@@ -605,7 +587,7 @@ En este tutorial se realiza el manejo de un display de 7 segmentos del tipo cát
 En este código se hará uso del conversor analógico digital que posee esta placa. La idea es introducir una tensión analógica mediante la entrada CH1 y luego convertirla en un valor digital, para que posteriormente dentro del código, mediante operaciones matemáticas, poder mostrar dicho valor por el display.
  \\
  
-La instrucción que implementa la biblioteca \textit{sAPI} para la lectura analógica es \textit{analogRead()}, sobre dicha función no debe especificarse ningún parámetro de entrada, sin embargo, debe tenerse en cuenta que retorna un valor de salida, el cual debe almacenarse sobre una variable del tipo \textit{uint16_t}.
+La instrucción que implementa la biblioteca \textit{sAPI} para la lectura analógica es \textit{analogRead()}, sobre dicha función no debe especificarse ningún parámetro de entrada, sin embargo, debe tenerse en cuenta que retorna un valor de salida, el cual debe almacenarse sobre una variable del tipo \textit{uint16$\_$t}.
 
 \begin{enumerate}
 \item[•]\textbf{Paso 1}:Realizar la generación de los archivos cabecera y fuente como se establece sobre la seccion \ref{sec:ej1sapi}.
@@ -1096,7 +1078,7 @@ Para solventar dicho error, una alternativa propuesta es la siguiente:
 \end{figure}
 \end{enumerate}\underline{Archivos Makefile utilizados sobre cada ejemplo}: \\
 Otro aspecto que es necesario destacar es que para la implementación de los siguientes ejemplos se utiliza el archivo \textit{Makefile} proporcionado en los ejemplos del \textit{Firmware} de la \textit{CIAA}.
-\subsubsection{Implementación de ejemplo N$^{\circ}$1: Tareas en OSEK}\label{sec:tareasOSEK}
+\subsection{Implementación de ejemplo N$^{\circ}$1: Tareas en OSEK}\label{sec:tareasOSEK}
 Este ejemplo utiliza los leds de la placa y un Display 7 Segmentos, para implementar un contador de numeros decimales, a través de una sola Tarea del tipo \textit{BASIC}.
 \begin{enumerate}
 \item[•]En primer lugar es necesario generar el archivo OIL para configurar el Sistema Operativo OSEK. Sobre el IDE de la placa, debe agregarse un nuevo directorio, realizando click derecho sobre \textit{Firmware}, luego se selecciona la opción \textit{New} $\rightarrow$ \textit{Folder}.
