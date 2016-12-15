@@ -1607,18 +1607,48 @@ Es importante destacar que el nombre utilizado en la interrupción puede definir
 \subsection{Implementación de ejemplo N$^{\circ}$8: Interrupciones en OSEK}
 El siguiente ejemplo permite mostrar como puede implementarse la interrupción por recepción de datos sobre el módulo UART, de manera tal que el usuario pueda interactuar con el programa, a través del envío de datos sobre el puerto serial con el programa \textit{Octoplus}. Para efectuar la implementación de este ejemplo, el usuario puede recurrir a la sección \ref{sec:serial} para repasar el modo de utilización de dicho programa.
 
-Sobre el archivo de configuración se efectúa la definición de una Tarea denominada \textit{BLINKING}, en la cuál se realiza la identificación del evento establecido y su posterior acción de manera similar a la que se aplica sobre el ejemplo N$^{\circ}$4. 
+Se desea realizar un blinkeo del \textit{LED1} de la placa, igual a un numero de veces determinado por un solo caracter recibido sobre el puerto serial. De modo que el \textit{LED1} puede ejecutar el blinkeo entre 1 y 9 veces.
 
-Dicha Tarea realiza un blinkeo del \textit{LED1} de la placa, igual a un numero de veces determinado por un solo caracter recibido sobre el puerto serial. De modo que el \textit{LED1} puede ejecutar el blinkeo entre 1 y 9 veces.
+Para efectuar la recepción del caracter se implementa una interrupción del tipo \textit{ISR2} denominada \textit{UART2} en la cual se efectúa la lectura del caracter recibido a través de la función \textit{leerUART()}. A continuación, se produce el pasaje hacia el número entero asociado a dicha letra recibida. Finalmente se realiza la activación de la Tarea \textit{BLINKING} y el establecimiento del evento \textit{recepcion}, el cual esta asociado a dicha Tarea. Es necesario destacar la utilización de la variable global \textit{conversion} para el control de la cantidad de veces que debe realizarse el blinking. La Figura  ilustra esquemáticamente la estructura y el comportamiento del archivo fuente del ejemplo.
 \begin{center}
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=15 cm]{figuras/f39.png}
 \caption{Estructura y funcionamiento de archivo fuente sobre Ejemplo N$^{\circ}$8}
 \label{Fig46}
 \end{figure}
 \end{center}
-Para efectuar la recepción del caracter se implementa una interrupción del tipo \textit{ISR2} denominada \textit{UART2} en la cual se efectúa la lectura del caracter recibido a través de la función \textit{leerUART()}. A continuación, se produce el pasaje hacia el número entero asociado a dicha letra recibida. Finalmente se realiza la activación de la Tarea \textit{BLINKING} y el establecimiento del evento \textit{recepcion}, el cual esta asociado a dicha Tarea. Es necesario destacar la utilización de la variable global \textit{conversion} para el control de la cantidad de veces que debe realizarse el blinking. La Figura  ilustra esquemáticamente la estructura y el comportamiento del archivo fuente del ejemplo.
+\begin{enumerate}
+
+\item[•]\textbf{Paso 1}: Realizar la creación del archivo de configuración OIL siguiendo los pasos 1, 2 y 3 de la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 2}: Definir los Eventos, Recursos y Modo de Aplicación que se determina sobre el paso 5 de la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 3}: Definir el recurso \textit{recepcionrec} de forma similar a la que se realiza sobre el paso anterior. Este recurso se define por propósito ilustrativo, dado que se pretende mostrar como puede asignarse un recurso para una Tarea.
+\item[•]\textbf{Paso 4}: Definir el evento \textit{recepcion}.
+\item[•]\textbf{Paso 5}: Realizar la creación de la Tarea INICIALIZAR, cuyos atributos y variables asignadas son las mismas que las implementadas sobre el Ejemplo N$^{\circ}$1.
+
+\item[•]\textbf{Paso 5}: Realizar la creación de la Tarea BLINKING, que presenta las siguientes características:
+\begin{enumerate}
+\item[•]Prioridad: 10
+\item[•]Número máximo de activaciones múltiples: 1
+\item[•]Asignación de memoria de programa: 256 Bytes.
+\item[•]Tipo de Tarea: EXTENDED.
+\item[•]Con interrupciones por activación de otra Tarea de mayor prioridad.
+\item[•]Recurso: recepcionrec.
+\item[•]Evento: recepcion.
+\end{enumerate}
+
+\item[•]\textbf{Paso 8}: Realizar la definición del ISR denominado UART2, con los siguientes atributos:
+\begin{enumerate}
+\item[•]Interrupción: UART2.
+\item[•]Categoria:2.
+\item[•]Prioridad:0.
+\end{enumerate}
+
+\item[•]\textbf{Paso 9}: Realizar la creación del directorio tal como se establece sobre el paso 8 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 10}: Incluir los módulos compatibles de la \textit{sAPI}, como se establece sobre los pasos 9 y 10 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 11}: Sobre el archivo fuente del proyecto, ingresar el código proporcionado por el tutorial.
+
+\end{enumerate}
 
 \section{Implementación de ejemplo N$^{\circ}$9: Inclusión de librería LCD y formación de librerias propias para trabajar}
 El siguiente ejemplo tiene como objetivo ilustrar al usuario como puede implementarse librerías propias para la agilización de proyectos y proveer una forma de clarificar la visualización del programa.
