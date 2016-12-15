@@ -1449,7 +1449,7 @@ Se realiza la definición de la Tarea \textit{lectura$\_$periodica}, la cuál se
 \item[•]Máximo valor de conteo: 500 ticks.
 \item[•]Número de ticks por conteo: 1. 
 \item[•]Ciclo Mínimo: 1.
-\item[•]Tipo: Software.
+\item[•]Tipo: SOFTWARE.
 \end{enumerate}
 \item[•]\textbf{Paso 8}: Realizar la creación del directorio tal como se establece sobre el paso 8 en la Sección \ref{sec:tareasOSEK}.
 \item[•]\textbf{Paso 9}: Incluir los módulos compatibles de la \textit{sAPI}, como se establece sobre los pasos 9 y 10 en la Sección \ref{sec:tareasOSEK}.
@@ -1484,7 +1484,7 @@ Sobre el primer parámetro de dicha instrucción se especifica el canal utilizad
 
 Sobre el segundo parámetro utilizado se especifica el \textit{Handler} de interrupción utilizado, en este caso la librería la denomina \textit{appIrqHandler}.
 
-Sobre el archivo de configuración del Sistema Operativo se define una Interrupción denominada \textit{GPIOINTHandler0}. La Figura \ref{Fig43} ilustra dicha definición sobre el archivo \textit{OIL} y la interpretación de los parámetros establecidos sobre dicha Interrupción.
+Sobre el archivo de configuración del Sistema Operativo se define una Interrupción denominada \textit{GPIOINTHandler0}.
 
 Es importante aclarar en esta instancia que es conveniente definir para los nombres de las interrupciones, nombres distintos a las definiciones de interrupciones previamente declaradas sobre el Firmware, dado que se genera conflictos. Es posible ver que sobre el parámetro \textit{CATEGORY} se debe establecer el tipo de Interrupción a implementar, en caso de que la interrupción sea del tipo \textit{ISR1} debe asignarse el valor 1 sobre este atributo, en cambio, si dicha Interrupción es del tipo \textit{ISR2} debe asignarse el valor 2.
 \begin{figure}[H]
@@ -1531,34 +1531,80 @@ Cuando la interrupción externa se produce el establecimiento de una tensión de
 \item[•]Máximo valor de conteo: 500 ticks.
 \item[•]Número de ticks por conteo: 1. 
 \item[•]Ciclo Mínimo: 1.
+\item[•]Tipo: SOFTWARE.
 \end{enumerate}
 
-\item[•]\textbf{Paso 8}: Realizar la definición del ISR denominado GPIOINTHandler0, 
+\item[•]\textbf{Paso 8}: Realizar la definición del ISR denominado GPIOINTHandler0, con los siguientes atributos:
+\begin{enumerate}
+\item[•]Interrupción: GPIO0.
+\item[•]Categoria:2.
+\item[•]Prioridad:0. Es importante destacar que esta implementación de OSEK no maneja prioridades en las interrupciones. La Figura \ref{defintej6} ilustra la definición de la interrupción sobre el archivo de configuración.
+\begin{figure}[H]
+\centering
+\includegraphics[width=5 cm]{figuras/f34.png}
+\caption{Definición de Interrupción sobre Ejemplo N$^{\circ}$6}
+\label{defintej6}
+\end{figure}
+\end{enumerate}
+\item[•]\textbf{Paso 9}: Realizar la creación del directorio tal como se establece sobre el paso 8 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 10}: Incluir los módulos compatibles de la \textit{sAPI}, como se establece sobre los pasos 9 y 10 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 11}: Realizar la inclusión de las bibliotecas \textit{ciaaGPIOINT} y \textit{digitos}, de la misma forma que se realiza sobre el paso 10.
+\item[•]\textbf{Paso 12}: Sobre el archivo fuente del proyecto, ingresar el código proporcionado por el tutorial.
 
 \end{enumerate}
 
 
 \subsection{Implementación de ejemplo N$^{\circ}$7: Interrupciones en OSEK}
-\begin{figure}[!h]
-\centering
-\includegraphics[width=5 cm]{figuras/f35.png}
-\caption{Definición de Interrupción sobre Ejemplo N$^{\circ}$7}
-\label{Fig44}
-\end{figure}
+
 En este ejemplo se implementa comunicación serial mediante la interrupción sobre el módulo UART del microprocesador. Para la inclusión del módulo \textit{sAPI$\_$Uart} debe realizarse los procedimientos explicados en la sección \ref{sec:tareasOSEK}. 
 
-En particular este ejemplo realiza la recepción a través de una Interrupción producida por la UART, de manera tal que provoque un Evento denominado \textit{palabra}. A continuación la Tarea asociada a dicho Evento identifica si el caracter recibido es igual a "L", en cuyo caso, se establece el envío de la palabra "\textit{Recibido caracter deseado}". Sobre el archivo de configuración se define la interrupción \textit{UART2}, la cual se ilustra sobre la Figura \ref{Fig44}.
-\begin{center}
-\begin{figure}[!h]
+En particular este ejemplo realiza la recepción a través de una Interrupción producida por la UART, de manera tal que provoque un Evento denominado \textit{palabra}. A continuación la Tarea asociada a dicho Evento identifica si el caracter recibido es igual a "L", en cuyo caso, se establece el envío de la palabra "\textit{Recibido caracter deseado}".
+
+Es importante destacar que el nombre utilizado en la interrupción puede definirse arbitrariamente, mientras que el nombre de la interrupción establecido sobre el parámetro \textit{INTERRUPT} es \textit{UART2}, el cuál es el nombre que esta implementación de \textit{OSEK} ha utilizado.La Figura \ref{Fig45} ilustra la estructura y el funcionamiento del ejemplo.
+
+\begin{figure}[H]
 \centering
 \includegraphics[width=15 cm]{figuras/f38.png}
 \caption{Estructura y funcionamiento de archivo fuente sobre Ejemplo N$^{\circ}$7}
 \label{Fig45}
 \end{figure}
-\end{center}
-Es importante destacar que el nombre utilizado en la interrupción puede definirse arbitrariamente, mientras que el nombre de la interrupción establecido sobre el parámetro \textit{INTERRUPT} es \textit{UART2}, el cuál es el nombre que esta implementación de \textit{OSEK} ha utilizado.La Figura \ref{Fig45} ilustra la estructura y el funcionamiento del ejemplo.
+\begin{enumerate}
 
-\subsubsection{Implementación de ejemplo N$^{\circ}$8: Interrupciones en OSEK}
+\item[•]\textbf{Paso 1}: Realizar la creación del archivo de configuración OIL siguiendo los pasos 1, 2 y 3 de la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 2}: Definir los Eventos, Recursos y Modo de Aplicación que se determina sobre el paso 5 de la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 3}: Definir el recurso \textit{palabrarec} de forma similar a la que se realiza sobre el paso anterior. Este recurso se define por propósito ilustrativo, dado que se pretende mostrar como puede asignarse un recurso para una Tarea.
+\item[•]\textbf{Paso 4}: Definir el evento \textit{palabra}.
+\item[•]\textbf{Paso 5}: Realizar la creación de la Tarea INICIALIZAR, cuyos atributos y variables asignadas son las mismas que las implementadas sobre el Ejemplo N$^{\circ}$1.
+
+\item[•]\textbf{Paso 5}: Realizar la creación de la Tarea RECEPCION, que presenta las siguientes características:
+\begin{enumerate}
+\item[•]Prioridad: 3
+\item[•]Número máximo de activaciones múltiples: 1
+\item[•]Asignación de memoria de programa: 256 Bytes.
+\item[•]Tipo de Tarea: EXTENDED.
+\item[•]Con interrupciones por activación de otra Tarea de mayor prioridad.
+\item[•]Recurso: palabrarec.
+\item[•]Evento: palabra.
+\end{enumerate}
+
+\item[•]\textbf{Paso 8}: Realizar la definición del ISR denominado UART2, con los siguientes atributos:
+\begin{enumerate}
+\item[•]Interrupción: UART2.
+\item[•]Categoria:2.
+\item[•]Prioridad:0. La Figura \ref{Fig44} ilustra la definición de la interrupción sobre el archivo de configuración.
+\begin{figure}[H]
+\centering
+\includegraphics[width=5 cm]{figuras/f35.png}
+\caption{Definición de Interrupción sobre Ejemplo N$^{\circ}$7}
+\label{Fig44}
+\end{figure}
+\end{enumerate}
+
+\item[•]\textbf{Paso 9}: Realizar la creación del directorio tal como se establece sobre el paso 8 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 10}: Incluir los módulos compatibles de la \textit{sAPI}, como se establece sobre los pasos 9 y 10 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 11}: Sobre el archivo fuente del proyecto, ingresar el código proporcionado por el tutorial.
+\end{enumerate}
+\subsection{Implementación de ejemplo N$^{\circ}$8: Interrupciones en OSEK}
 El siguiente ejemplo permite mostrar como puede implementarse la interrupción por recepción de datos sobre el módulo UART, de manera tal que el usuario pueda interactuar con el programa, a través del envío de datos sobre el puerto serial con el programa \textit{Octoplus}. Para efectuar la implementación de este ejemplo, el usuario puede recurrir a la sección \ref{sec:serial} para repasar el modo de utilización de dicho programa.
 
 Sobre el archivo de configuración se efectúa la definición de una Tarea denominada \textit{BLINKING}, en la cuál se realiza la identificación del evento establecido y su posterior acción de manera similar a la que se aplica sobre el ejemplo N$^{\circ}$4. 
