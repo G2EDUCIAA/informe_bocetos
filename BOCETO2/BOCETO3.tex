@@ -159,11 +159,11 @@ Debe tenerse en cuenta que la dinámica de trabajo sobre la placa se encuentra p
  
 En \textit{Makefile.mine} se pueden editar y configurar los siguientes parámetros\cite{parametrosdelmakefile}:
 \begin{enumerate}
-\item \textbf{ARCH}  indica la arquitectura del hardware para la cual se desea compilar. Ej: x86, cortexM4.
-\item \textbf{CPUTYPE} indica el tipo de CPU. Ej: none, ia32, ia64, lpc43xx.
-\item \textbf{CPU} indica la CPU para la que se desea compilar. Ej: none, lpc4337.
-\item \textbf{COMPILER }es el compilador a utilizar. Ej: gcc.
-\item \textbf{BOARD }es la placa sobre la cual se trabajaca (CIAA-NXP, EDU-CIAA-NXP, etc.)
+\item[•] \textbf{ARCH}  indica la arquitectura del hardware para la cual se desea compilar. Ej: x86, cortexM4.
+\item[•] \textbf{CPUTYPE} indica el tipo de CPU. Ej: none, ia32, ia64, lpc43xx.
+\item[•] \textbf{CPU} indica la CPU para la que se desea compilar. Ej: none, lpc4337.
+\item[•] \textbf{COMPILER }es el compilador a utilizar. Ej: gcc.
+\item[•] \textbf{BOARD }es la placa sobre la cual se trabajaca (CIAA-NXP, EDU-CIAA-NXP, etc.)
 \item \textbf{PROJECT }es el Path al proyecto a compilar. Ej: examples$\$(DS)blinking_base$.
 \end{enumerate}
 Se utiliza la variable \$(DS) para indicar el separador de directorios (de manera automática se usa '/' para linux y \textbackslash{} para windows).
@@ -178,11 +178,11 @@ Otro concepto importante que se tiene en cuenta cuando se desarrollan proyectos 
 Sobre este archivo \textit{Makefile} contiene las siguientes definiciones:
 
 \begin{enumerate}
-\item \textbf{PROJECT} el nombre del proyecto y por ende nombre del ejecutable.
-\item \textbf{\$(PROJECT)$\_$PATH} es el directorio del proyecto.
-\item \textbf{INCLUDE} los paths a indicar al compilador para buscar includes files.
-\item \textbf{SRC$\_$FILES} archivos a compilar ya sean archivos c como c++.
-\item \textbf{OIL$\_$FILES} configuración del sistema operativo (si es utilizado).
+\item[•] \textbf{PROJECT} el nombre del proyecto y por ende nombre del ejecutable.
+\item[•] \textbf{\$(PROJECT)$\_$PATH} es el directorio del proyecto.
+\item[•] \textbf{INCLUDE} los paths a indicar al compilador para buscar includes files.
+\item[•] \textbf{SRC$\_$FILES} archivos a compilar ya sean archivos c como c++.
+\item[•] \textbf{OIL$\_$FILES} configuración del sistema operativo (si es utilizado).
 \end{enumerate}
 Cada proyecto incluye en su Makefile los módulos a compilar en una variable llamada MODS, por ejemplo:
 
@@ -1081,24 +1081,86 @@ Otro aspecto que es necesario destacar es que para la implementación de los sig
 \subsection{Implementación de ejemplo N$^{\circ}$1: Tareas en OSEK}\label{sec:tareasOSEK}
 Este ejemplo utiliza los leds de la placa y un Display 7 Segmentos, para implementar un contador de numeros decimales, a través de una sola Tarea del tipo \textit{BASIC}.
 \begin{enumerate}
-\item[•]En primer lugar es necesario generar el archivo OIL para configurar el Sistema Operativo OSEK. Sobre el IDE de la placa, debe agregarse un nuevo directorio, realizando click derecho sobre \textit{Firmware}, luego se selecciona la opción \textit{New} $\rightarrow$ \textit{Folder}.
-\item[•]A continuación se abre una ventana que permite designar el nombre de dicho directorio, en el cual se ubica el proyecto que se implementa. El usuario debe recordar que para compilar dicho proyecto debe establecer la ruta que le corresponde sobre el archivo \textit{Makefile}. Asimismo, deben agregarse los directorios \textit{etc}, \textit{mak}, \textit{inc}, y \textit{src}, sobre el directorio creado recientemente.
-\item[•]Para generar el archivo cabecera, el usuario debe ubicarse sobre la carpeta \textit{inc}, y luego oprimiendo click derecho, debe seleccionar la opción \textit{New} $\rightarrow$ \textit{Header File}. A continuación se abre una ventana cuyo aspecto es similar al de la Figura \ref{archivocabecera}, en ella, se debe establecer el nombre del archivo cabecera. Al terminar la escritura de su nombre, debe escribirse la terminación \textit{.h}, y oprimir el boton \textit{Finish}, para concluir la generacion de dicho archivo.
+
+\item[•]\textbf{Paso 1}: En primer lugar es necesario generar el archivo OIL para configurar el Sistema Operativo OSEK. A través del \textit{Bloc de Notas} o a través de cualquier editor de texto,debe almacenarse el archivo de configuracion de tipo \textit{OIL} sobre la carpeta \textit{etc} previamente creada sobre el directorio del proyecto, en dicho archivo, debe iniciar la configuración a través de la sintaxis \textit{OSEK OSEK} y sobre los simbolos $\lbrace$ y $\rbrace$ ,se determinarán los restantes aspectos que tendra el OS. La Figura \ref{Fig35} ilustra lo mencionado anteriormente.
 \begin{figure}[H]
 \centering
-\includegraphics[width=8 cm]{figuras/f27.png}
-\caption{Generación de archivo cabecera para implementación de proyecto.}
-\label{archivocabecera}
+\includegraphics[width=5 cm]{figuras/f18.png}
+\caption{Inicio de Archivo de Configuración.}
+\label{Fig35}
+\end{figure}
+\item[•]\textbf{Paso 2}: Luego debe definirse mediante la sintaxis \textit{OS}, el nombre del sistema operativo (el cual es arbitrario, dado que se ha especificado en la instruccion anterior que se implementa un sistema operativo OSEK), la Figura \ref{Fig36} ilustra el concepto explicado anteriormente.
+\begin{figure}[H]
+\centering
+\includegraphics[width=5 cm]{figuras/f19.png}
+\caption{Archivo de Configuración.Comienzo de especificación}
+\label{Fig36}
 \end{figure}
 
-\item[•]Para generar el archivo fuente, el usuario debe ubicarse sobre la carpeta \textit{inc}, y luego oprimiendo click derecho, debe seleccionar la opción \textit{New} $\rightarrow$ \textit{Source File}. A continuación se abre una ventana cuyo aspecto es similar al de la Figura \ref{archivofuente}, en ella, se debe establecer el nombre del archivo cabecera. Al terminar la escritura de su nombre, debe escribirse la terminación \textit{.c},y oprimir el boton \textit{Finish}, para concluir la generacion de dicho archivo.
+\item[•]\textbf{Paso 3}: A continuación debe definirse las siguientes configuraciones para el OS del ejemplo:
+\begin{enumerate}
+\item[•]\textbf{Paso 3.1}: El nivel de chequeo de errores que se pueden producir. Existen dos niveles que pueden determinarse:
+\begin{enumerate}
+\item[•]\textit{STANDARD}: Implica un chequeo mínimo de errores, se encuentra pensado para el empleo en sistemas que deben producirse en masa.La instrucción utilizada es \textit{OS = STANDARD}. 
+\item[•]\textit{EXTENDED}: Implica un chequeo máximo de errores y \textit{debug hooks}.La instrucción utilizada es \textit{OS = EXTENDED}.
+\end{enumerate}
+\item[•]\textbf{Paso 3.2}: Funciones implementadas por el usuario que el OS llamará en circunstancias específicas, tales como:
+\begin{enumerate}
+\item[•]\textit{Startuphook}: es  llamada  durante  la  inicialización  del  sistema  operativo,  antes  de  ser completada. En caso de utilizarla se debe escribir la instrucción \textit{STARTUPHOOK = TRUE}; en caso contrario se debe asignar \textit{FALSE}.
+\item[•]\textit{Shutdownhook}: es llamada al finalizar el apagado del sistema operativo.En caso de utilizarla se debe escribir la instrucción \textit{SHUTDOWNHOOK = TRUE}; en caso contrario se debe asignar \textit{FALSE}.
+\item[•]\textit{Pretaskhook}: es llamada antes de proceder a ejecutar una tarea.En caso de utilizarla se debe escribir la instrucción \textit{PRETASKHOOK = TRUE}; en caso contrario se debe asignar \textit{FALSE}.
+\item[•]\textit{Posttaskhook}:es llamada al finalizar la ejecución de una tarea.En caso de utilizarla se debe escribir la instrucción \textit{POSTTASKHOOK = TRUE}; en caso contrario se debe asignar \textit{FALSE}.
+\item[•]\textit{Errorhook}:es llamada en caso de que alguna de las interfaces del sistema operativo retorne un valor distinto a E$\_$OK.En caso de utilizarla se debe escribir la instrucción \textit{ERRORHOOK = TRUE}; en caso contrario se debe asignar \textit{FALSE}.
+\end{enumerate}
+\item[•]\textbf{Paso 3.3}: Uso del \textit{Scheduler} como recurso mediante el atributo \textit{USERESSCHEDULER}.
+\item[•]\textbf{Paso 3.4}: Uso del mapa de memoria mediante el atributo \textit{MEMMAP}.
+\end{enumerate}
+La Figura \ref{Fig37} ilustra un OS configurado de forma que el nivel de chequeo de errores sea el mínimo, no se determine el uso del \textit{Scheduler},y no se utilize una cantidad específica de memoria,por último solamente se define una función en caso de un error producido en el OS.
 \begin{figure}[H]
 \centering
-\includegraphics[width=8 cm]{figuras/f28.png}
-\caption{Generación de archivo fuente para implementación de proyecto.}
-\label{archivofuente}
+\includegraphics[width=8 cm]{figuras/f20.png}
+\caption{Ejemplo de especificación de OS sobre archivo OIL}
+\label{Fig37}
 \end{figure}
-\item[•]Debido a que no todos los módulos que integra la librería \textit{sAPI} son compatibles con el Sistema Operativo, debemos especificar sobre el proyecto cuáles son los módulos a utilizar. En primer lugar debemos copiar y pegar aquellos archivos cabeceras de los módulos (compatibles) sobre la carpeta \textit{inc}. A continuación se detalla una lista (respecto la version 0.3.0) de éstos modulos:
+
+\item[•]\textbf{Paso 4}: Luego de la configuración inicial del Sistema Operativo debe determinarse una variable denominada "Modo de aplicación", ésta define diferentes modos de operación para la aplicación. No existen atributos estándares definidos para esta variable, por lo que comúnmente se lo define en el archivo de configuración OIL como \textit{APPMODE=AppMode1}.
+\begin{enumerate}
+\item[•]\textbf{Paso 4.1}: Declarar el recurso utilizado por el módulo \textit{POSIX} del Firmware de la CIAA, mediante la sintaxis \textit{POSIXR}.
+\item[•]\textbf{Paso 4.2}: Declarar el evento utilizado por el módulo \textit{POSIX} del Firmware de la CIAA, mediante la sintaxis \textit{POSIXE}.
+La Figura  ilustra las declaraciónes realizadas:
+\begin{figure}[H]
+\centering
+\includegraphics[width=4 cm]{figuras/f48.png}
+\caption{Definición de APPMODE, Recurso POSIXE, Recurso POSIXR.}
+\label{inicializar}
+\end{figure}
+\end{enumerate}
+
+\item[•]\textbf{Paso 5}: A continuación se define una Tarea que efectua la configuración inicial de la placa, y de los puertos GPIO utilizados para el Display 7 Segmentos. La instrucción que permite la definición de una Tarea sobre el archivo de configuracion \textit{OIL} es \textit{TASK}, la Figura \ref{Fig38} ilustra el proceso llevado a cabo para dicho proceso. 
+\begin{figure}[H]
+\centering
+\includegraphics[width=15 cm]{figuras/f21.png}
+\caption{Definición de Tarea sobre archivo de configuración}
+\label{Fig38}
+\end{figure}
+Debe destacarse que la implementación de OSEK que se utiliza en este caso, nos permite realizar la asignación de memoria de programa para una Tarea a través del atributo \textit{TASK}, el valor asignado es un número entero que representa la cantidad de memoria en Bytes. Si se define una cantidad de memoria demasiado chica, es posible generar un error grave en el código dado que el contador de programa puede direccionarse sobre zonas de la memoria que no fueron designadas para la Tarea creada, dicho problema se lo denomina \textit{stack overflow}.
+
+\item[•]\textbf{Paso 6}: La tarea que se desea definir en primer lugar, necesita activarse en el momento de inicio del programa. Teniendo en cuenta los atributos explicados sobre la figura \ref{Fig38} ,se determina que \textit{AUTOSTART} adquiera el valor \textit{TRUE}. Dado que no se prevee que dicha Tarea vuelva a ejecutarse durante el desarrollo del programa, se asigna una prioridad baja y su tipo designado es \textit{BASIC}. La Figura \ref{inicializar} ilustra la definición de dicha Tarea.
+\begin{figure}[H]
+\centering
+\includegraphics[width=4 cm]{figuras/f47.png}
+\caption{Definición de Tarea INICIALIZAR sobre Ejemplo N$^{\circ}$1}
+\label{inicializar}
+\end{figure}
+\item[•]\textbf{Paso 7}: La siguiente Tarea realiza la muestra de los digitos sobre los leds incorporados en la placa (forma binaria) y sobre el Display 7 Segmentos. Es importante destacar que esta Tarea se ejecuta constantemente, debido a que no existe otra Tarea de mayor prioridad que se active e interrumpa su ejecución. Para permitir esta ejecución constante es necesario la instrucción propia del SO (también denominada Servicio del Sistema) \textit{ChainTask()} para permitir que esta Tarea se reactive a si misma.La Figura \ref{Fig39} ilustra las definiciones de las dos Tareas descriptas anteriormente.
+\begin{figure}[H]
+\centering
+\includegraphics[width=8 cm]{figuras/f22.png}
+\caption{Ilustración de definición de Tareas de Ejemplo N$^{\circ}$1}
+\label{Fig39}
+\end{figure}
+\item[•]\textbf{Paso 8}: A continuación debe crearse el directorio que contiene el proyecto a implementar, para ello, es posible seguir los Pasos 1, 2 y 3 de la Seccion \ref{sec:ej1sapi}. Es necesario destacar la necesidad de crear un directorio adicional sobre el proyecto, cuyo nombre debe ser \textit{etc}. Sobre dicho directorio debe almacenarse el archivo de configuración OIL. 
+\item[•]\textbf{Paso 9}: Debido a que no todos los módulos que integra la librería \textit{sAPI} son compatibles con el Sistema Operativo, debemos especificar sobre el proyecto cuáles son los módulos a utilizar. En primer lugar debemos copiar y pegar aquellos archivos cabeceras de los módulos (compatibles) sobre la carpeta \textit{inc} y sus correspondientes archivos fuentes sobre la carpeta \textit{src}. A continuación se detalla una lista (respecto la version 0.3.0) de éstos modulos:
 \begin{enumerate}
 \item[•]\textit{sAPI$\_$AnalogIO.h}
 \item[•]\textit{sAPI$\_$Board.h}
@@ -1132,7 +1194,7 @@ Sobre el archivo \textit{sAPI$\_$Uart.c}, debe realizar las modificaciones que s
 \label{modificacionuart3}
 \end{figure}
 
-\item[•]Para finalizar la inclusión de dichos módulos, el usuario debe eliminar las inclusiones realizadas sobre el archivo cabecera \textit{sAPI.h}. La Figura \ref{ejemploinclusion} ejemplifica la inclusión de el módulo \textit{sAPI$\_$DigitalIO.h}.
+\item[•]\textbf{Paso 10}: Para finalizar la inclusión de dichos módulos, el usuario debe eliminar las inclusiones realizadas sobre el archivo cabecera \textit{sAPI.h}. La Figura \ref{ejemploinclusion} ejemplifica la inclusión de el módulo \textit{sAPI$\_$DigitalIO.h}.
 
 \begin{figure}[H]
 \centering
@@ -1141,88 +1203,71 @@ Sobre el archivo \textit{sAPI$\_$Uart.c}, debe realizar las modificaciones que s
 \label{ejemploinclusion}
 \end{figure}
 Debe destacarse que es necesaria la inclusión de las librerias \textit{sAPI$\_$Board.h},\textit{sAPI$\_$DataTypes.h} y \textit{sAPI$\_$PeripheralMap.h}. En primer lugar para la definición de la placa a utilizar, en segundo lugar los tipos de datos definidos por la librería, y por último para la inclusión de las definiciónes de los terminales para los periféricos.\\
+\item[•]\textbf{Paso 11}: Realizar la inclusión de las bibliotecas \textit{dsp7seg} y \textit{digitos}, de la misma forma que se realiza sobre el paso 9.
+\item[•]\textbf{Paso 12}: Sobre el archivo fuente del proyecto debe especificarse dentro de la función principal \textit{main ()}, el inicio del Sistema Operativo. Esto se realiza a través de la instrucción \textit{StartOs(A)}, sobre el parámetro A, el usuario debe ingresar el modo de aplicación definido en el archivo de configuración (en este caso \textit{AppMode1}).
 
-\item[•]A través del \textit{Bloc de Notas} o a través de cualquier editor de texto,debe almacenarse el archivo de configuracion de tipo \textit{OIL} sobre la carpeta \textit{etc} previamente creada sobre el directorio del proyecto, en dicho archivo, debe iniciar la configuración a través de la sintaxis \textit{OSEK OSEK} y sobre los simbolos $\lbrace$ y $\rbrace$ ,se determinarán los restantes aspectos que tendra el OS. La Figura \ref{Fig35} ilustra lo mencionado anteriormente.
+\item[•] \textbf{Paso 13}: Para declarar cada Tarea sobre el archivo fuente, se debe ingresar una sintaxis similar a la que se realiza sobre el archivo de configuración. La Figura \ref{tareaenarchfuente} ilustra la declaración de la Tarea INICIALIZAR sobre el archivo de configuración.
 \begin{figure}[H]
 \centering
-\includegraphics[width=5 cm]{figuras/f18.png}
-\caption{Inicio de Archivo de Configuración.}
-\label{Fig35}
+\includegraphics[width=5 cm]{figuras/f49.png}
+\caption{Ejemplo de definición de Tarea sobre archivo fuente.}
+\label{tareaenarchfuente}
 \end{figure}
-\item[•]Luego debe definirse mediante la sintaxis \textit{OS}, el nombre del sistema operativo (el cual es arbitrario, dado que se ha especificado en la instruccion anterior que se implementa un sistema operativo OSEK), la Figura \ref{Fig36} ilustra el concepto explicado anteriormente.
-\begin{figure}[H]
-\centering
-\includegraphics[width=5 cm]{figuras/f19.png}
-\caption{Archivo de Configuración.Comienzo de especificación}
-\label{Fig36}
-\end{figure}
-
-\item[•]A continuación debe definirse las siguientes configuraciones para el OS del ejemplo:
-\begin{enumerate}
-\item[•]El nivel de chequeo de errores que se pueden producir. Existen dos niveles que pueden determinarse:
-\begin{enumerate}
-\item[•]\textit{STANDARD}: Implica un chequeo mínimo de errores, se encuentra pensado para el empleo en sistemas que deben producirse en masa.La instrucción utilizada es \textit{OS = STANDARD}. 
-\item[•]\textit{EXTENDED}: Implica un chequeo máximo de errores y \textit{debug hooks}.La instrucción utilizada es \textit{OS = EXTENDED}.
-\end{enumerate}
-\item[•]Funciones implementadas por el usuario que el OS llamará en circunstancias específicas, tales como:
-\begin{enumerate}
-\item[•]\textit{Startuphook}: es  llamada  durante  la  inicialización  del  sistema  operativo,  antes  de  ser completada. En caso de utilizarla se debe escribir la instrucción \textit{STARTUPHOOK = TRUE}; en caso contrario se debe asignar \textit{FALSE}.
-\item[•]\textit{Shutdownhook}: es llamada al finalizar el apagado del sistema operativo.En caso de utilizarla se debe escribir la instrucción \textit{SHUTDOWNHOOK = TRUE}; en caso contrario se debe asignar \textit{FALSE}.
-\item[•]\textit{Pretaskhook}: es llamada antes de proceder a ejecutar una tarea.En caso de utilizarla se debe escribir la instrucción \textit{PRETASKHOOK = TRUE}; en caso contrario se debe asignar \textit{FALSE}.
-\item[•]\textit{Posttaskhook}:es llamada al finalizar la ejecución de una tarea.En caso de utilizarla se debe escribir la instrucción \textit{POSTTASKHOOK = TRUE}; en caso contrario se debe asignar \textit{FALSE}.
-\item[•]\textit{Errorhook}:es llamada en caso de que alguna de las interfaces del sistema operativo retorne un valor distinto a E$\_$OK.En caso de utilizarla se debe escribir la instrucción \textit{ERRORHOOK = TRUE}; en caso contrario se debe asignar \textit{FALSE}.
-\end{enumerate}
-\item[•]Uso del \textit{Scheduler} como recurso.
-\item[•]Uso del mapa de memoria.
-\end{enumerate}
-La Figura \ref{Fig37} ilustra un OS configurado de forma que el nivel de chequeo de errores sea el mínimo, no se determine el uso del \textit{Scheduler},y no se utilize una cantidad específica de memoria,por último solamente se define una función en caso de un error producido en el OS.
-\begin{figure}[H]
-\centering
-\includegraphics[width=8 cm]{figuras/f20.png}
-\caption{Ejemplo de especificación de OS sobre archivo OIL}
-\label{Fig37}
-\end{figure}
-
-\item[•]A continuación se define una Tarea que efectua la configuración inicial de la placa, y de los puertos GPIO utilizados para el Display 7 Segmentos. La instrucción que permite la definición de una Tarea sobre el archivo de configuracion \textit{OIL} es \textit{TASK}, la Figura \ref{Fig38} ilustra el proceso llevado a cabo para dicho proceso. El usuario debe tener en cuenta que se lleva a cabo este proceso para cada uno de los proyectos implementados sobre este Tutorial.
-\begin{figure}[H]
-\centering
-\includegraphics[width=15 cm]{figuras/f21.png}
-\caption{Definición de Tarea sobre archivo de configuración}
-\label{Fig38}
-\end{figure}
-
-\item[•]En este caso en particular, la tarea que se desea definir en primer lugar, necesita activarse en el momento de inicio del programa. Teniendo en cuenta los atributos que se explican sobre la figura \ref{Fig38} ,se determina que el atributo \textit{AUTOSTART} adquiera el valor \textit{TRUE}. Debe considerarse que no se prevee que dicha Tarea vuelva a ejecutarse durante el desarrollo del programa, por ese motivo, se asigna una prioridad baja y su tipo designado es \textit{BASIC}.
-
-\item[•]La siguiente Tarea realiza la muestra de los digitos sobre los leds incorporados en la placa (forma binaria) y sobre el Display 7 Segmentos. Es importante destacar que esta Tarea se ejecuta constantemente, debido a que no existe otra Tarea de mayor prioridad que se active e interrumpa su ejecución. Para permitir esta ejecución constante es necesario la instrucción propia del SO (también denominada Servicio del Sistema) \textit{ChainTask()} para permitir que esta Tarea se reactive a si misma.La Figura \ref{Fig39} ilustra las definiciones de las dos Tareas descriptas anteriormente.
-\begin{figure}[H]
-\centering
-\includegraphics[width=8 cm]{figuras/f22.png}
-\caption{Ilustración de definición de Tareas de Ejemplo N$^{\circ}$1}
-\label{Fig39}
-\end{figure}
-
 
 \end{enumerate}
 %\underline{Generación de archivo OIL}:
 
-\subsubsection{Implementación de ejemplo N$^{\circ}$2: Múltiples Tareas en OSEK}
+\subsection{Implementación de ejemplo N$^{\circ}$2: Múltiples Tareas en OSEK}
 
 El siguiente ejemplo pretende demostrar como pueden implementarse varias Tareas del Tipo \textit{BASIC} a través de las instrucciónes del Sistema Operativo \textit{TerminateTask()} y \textit{ChainTask()}.
 
 En este caso, se desea implementar un programa que  permita encender los leds incorporados en la placa de izquierda a derecha, oprimiendo \textit{TEC1,TEC2,TEC3,TEC4} en el mismo orden.
+\begin{enumerate}
+\item[•]\textbf{Paso 1}: Realizar la creación del archivo de configuración OIL siguiendo los pasos 1, 2 y 3 de la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 2}: Definir los Eventos, Recursos y Modo de Aplicación que se determina sobre el paso 5 de la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 3}: Definir el recurso \textit{tecla$\_$recurso} de forma similar a la que se realiza sobre el paso anterior. Este recurso se define por propósito ilustrativo, dado que se pretende mostrar como puede asignarse un recurso para una Tarea.
+\item[•]\textbf{Paso 4}: Realizar la creación de la Tarea INICIALIZAR, cuyos atributos y variables asignadas son las mismas que las implementadas sobre el Ejemplo N$^{\circ}$1.
+\item[•]\textbf{Paso 5}: Realizar la creación de la Tarea LEDRGB, que presenta las siguientes características:
+\begin{enumerate}
+\item[•]Prioridad: 5
+\item[•]Número máximo de activaciones múltiples: 1
+\item[•]Asignación de memoria de programa: 256 Bytes.
+\item[•]Tipo de Tarea: BASIC
+\item[•]Sin interrupciones por activación de otra Tarea de mayor prioridad.
+\item[•]Recurso: POSIXR
+\end{enumerate}
+\item[•]\textbf{Paso 6}: Realizar la creación de la Tarea LEDUNO, que presenta las siguientes características:
+\begin{enumerate}
+\item[•]Prioridad: 4
+\item[•]Número máximo de activaciones múltiples: 1
+\item[•]Asignación de memoria de programa: 256 Bytes.
+\item[•]Tipo de Tarea: BASIC
+\item[•]Sin interrupciones por activación de otra Tarea de mayor prioridad.
+\item[•]Recurso: tecla$\_$recurso
+\end{enumerate}
+\item[•]\textbf{Paso 7}: Realizar la creación de la Tarea LEDDOS, que presenta las siguientes características:
+\begin{enumerate}
+\item[•]Prioridad: 3
+\item[•]Número máximo de activaciones múltiples: 1
+\item[•]Asignación de memoria de programa: 256 Bytes.
+\item[•]Tipo de Tarea: BASIC
+\item[•]Sin interrupciones por activación de otra Tarea de mayor prioridad.
+\item[•]Recurso: tecla$\_$recurso
+\end{enumerate}
+\item[•]\textbf{Paso 8}: Realizar la creación de la Tarea LEDTRES, que presenta las siguientes características:
+\begin{enumerate}
+\item[•]Prioridad: 3
+\item[•]Número máximo de activaciones múltiples: 1
+\item[•]Asignación de memoria de programa: 256 Bytes.
+\item[•]Tipo de Tarea: BASIC
+\item[•]Sin interrupciones por activación de otra Tarea de mayor prioridad.
+\item[•]Recurso: tecla$\_$recurso
+\end{enumerate}
+\item[•]\textbf{Paso 9}: Realizar la creación del directorio tal como se establece sobre el paso 8 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 10}: Incluir los módulos compatibles de la \textit{sAPI}, como se establece sobre los pasos 9 y 10 en la Sección \ref{sec:tareasOSEK}.
+\end{enumerate}
 
-Se realiza la definición de una Tarea que establece la configuración inicial de la placa, de forma similar al ejemplo anterior, sin embargo, dicha Tarea produce la activación de otra denominada \textit{LEDUNO}, la cual permite el encendido del LED1 (es importante aclarar en esta instancia para evitar posibles problemas al usuario, que para la implementación de otros programas, es recomendable que al definir nombres para las Tareas, éstos sean distintos a definiciones o nombres de funciones de librería incorporadas ).
-\begin{figure}[!h]
-\centering
-\includegraphics[width=5 cm]{figuras/f23.png}
-\caption{Estructura general de archivo fuente de Ejemplo N$^{\circ}$2}
-\label{Fig40}
-\end{figure}
-La tarea \textit{LEDB} se reactiva automáticamente a través de la instrucción del Sistema Operativo \textit{ChainTask()}, salvo que se oprima la tecla \textit{TEC1}, en cuyo caso el código procede a encender el \textit{LEDB}, y posteriormente activa la Tarea siguiente y finaliza la que se encuentra ejecutando, a través de las instrucciones \textit{ActivateTask()} y \textit{TerminateTask()}. Las siguientes Tareas poseen una estructura similar.
-
-Es importante destacar que las Tareas \textbf{LEDB,LED1,LED2,LED3}, no son interrumpidas  en el momento de la activación de la posterior Tarea que le corresponde, debido a que en el archivo de configuración se establece el valor \textit{NON} sobre el atributo \textit{SCHEDULE}(Es posible consultar la Figura \ref{Fig38}). La Figura \ref{Fig40} ilustra la estructura de este ejemplo.
-
-\subsubsection{Implementación de ejemplo N$^{\circ}$3: Eventos en OSEK}
+\subsection{Implementación de ejemplo N$^{\circ}$3: Eventos en OSEK}
 Este ejemplo pretende brindar al usuario una introducción al manejo de las Tareas del tipo \textit{EXTENDED} a través de los Eventos. Se pretende encender el \textit{LED1} de la placa en el instante en que el usuario oprima la tecla \textit{TEC1}, a continuación, se desea encender el \textit{LED2} de la placa oprimiento la tecla \textit{TEC2}.
 \begin{center}
 \begin{figure}[!h]
