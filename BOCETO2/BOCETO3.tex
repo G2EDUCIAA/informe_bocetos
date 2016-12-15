@@ -577,7 +577,7 @@ En este tutorial se realiza el manejo de un display de 7 segmentos del tipo cát
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=10 cm]{figuras/f5.png}\\
+\includegraphics[width=10 cm]{figuras/dsp7seg.png}\\
 \caption{Diagrama de conexión display 7 segmentos.}
 \label{Fig23}
 \end{figure}
@@ -634,13 +634,11 @@ El siguiente ejemplo muestra al usuario como realizar el uso del módulo ADC de 
  \\
  
 La placa EDU-CIAA posee un DAC de 10 bits de resolución ,por lo tanto,el número de niveles de voltaje de salida analógico que es capaz de generar es de $2^{n}=2^{10}=1024$.
- \\
- 
 Para la implementación del ejemplo, es posible realizar la lectura del terminal medio de un potenciómetro, la Figura \ref{Fig24} ilustra la conexión realizada.Debe tenerse en cuenta que es posible realizar la conexión del potenciómetro a partir de la terminal de 5[V] y la terminal GNDA que ofrece la placa.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=6 cm]{figuras/f6.png}\\
+\includegraphics[width=5 cm]{figuras/potenciometro_ejemplo_4_baremetal.png}\\
 \caption{Diagrama de conexión potenciómetro para lectura analógica.}
 \label{Fig24}
 \end{figure}
@@ -1489,7 +1487,7 @@ Sobre el archivo de configuración del Sistema Operativo se define una Interrupc
 Es importante aclarar en esta instancia que es conveniente definir para los nombres de las interrupciones, nombres distintos a las definiciones de interrupciones previamente declaradas sobre el Firmware, dado que se genera conflictos. Es posible ver que sobre el parámetro \textit{CATEGORY} se debe establecer el tipo de Interrupción a implementar, en caso de que la interrupción sea del tipo \textit{ISR1} debe asignarse el valor 1 sobre este atributo, en cambio, si dicha Interrupción es del tipo \textit{ISR2} debe asignarse el valor 2.
 \begin{figure}[H]
 \centering
-\includegraphics[width=12 cm]{figuras/f37.png}
+\includegraphics[width=15 cm]{figuras/f37.png}
 \caption{Estructura de archivo fuente en Ejemplo N$^{\circ}$6}
 \label{estructuraej6}
 \end{figure}
@@ -1738,23 +1736,81 @@ Sobre este ejemplo se desea establecer la recepción de 3 caracteres sobre la UA
 Se utiliza un Display LCD 16x2 para mostrar al usuario los caracteres enviados. El usuario puede repasar la Sección \ref{sec:serial} para realizar la comunicación serial utilizando \textit{Octoplus}
  \\
  
-De la misma forma que en el ejemplo 8, para la recepción del caracter se implementa una interrupción del tipo ISR2, sobre ella se efectúa la lectura del caracter a través de la función \textit{leerUART()}. En el caso que se reciban tres caracteres, la subrutina de interrupción establece el Evento y activa la Tarea que evalúa la palabra ingresada y realiza la acción que corresponda. La siguiente Figura representa la estructura y el comportamiento general del archivo fuente del ejemplo.
+De la misma forma que en el ejemplo 8, para la recepción del caracter se implementa una interrupción del tipo ISR2, sobre ella se efectúa la lectura del caracter a través de la función \textit{leerUART()}. En el caso que se reciban tres caracteres, la subrutina de interrupción establece el Evento y activa la Tarea que evalúa la palabra ingresada y realiza la acción que corresponda. La  Figura \ref{estructej10} representa la estructura y el comportamiento general del archivo fuente del ejemplo.
 
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=18 cm]{figuras/f53.png}
 \caption{Estructura y funcionamiento de archivo fuente sobre Ejemplo N$^{\circ}$10}
-\label{Fig46}
+\label{estructej10}
 \end{figure}
 \begin{enumerate}
 
 \item[•]\textbf{Paso 1}: Realizar la creación del archivo de configuración OIL siguiendo los pasos 1, 2 y 3 de la Sección \ref{sec:tareasOSEK}.
 \item[•]\textbf{Paso 2}: Definir los Eventos, Recursos y Modo de Aplicación que se determina sobre el paso 5 de la Sección \ref{sec:tareasOSEK}.
 \item[•]\textbf{Paso 3}: Definir el recurso \textit{dac$\_$recurso} y \textit{recursocontrol} de forma similar a la que se realiza sobre el paso anterior. Este recurso se define por propósito ilustrativo, dado que se pretende mostrar como puede asignarse un recurso para una Tarea.
-\item[•]\textbf{Paso 4}: Realizar la creación de la Tarea INICIALIZAR, cuyos atributos y variables asignadas son las mismas que las implementadas sobre el Ejemplo N$^{\circ}$1.
+\item[•]\textbf{Paso 4}: Definir los eventos \textit{recepcion} y \textit{luces}. 
+\item[•]\textbf{Paso 5}: Realizar la creación de la Tarea INICIALIZAR, cuyos atributos y variables asignadas son las mismas que las implementadas sobre el Ejemplo N$^{\circ}$1.
 
+\item[•]\textbf{Paso 6}: Realizar la creación de la Tarea CONTROLENVIO, que presenta las siguientes características:
+\begin{enumerate}
+\item[•]Prioridad: 9
+\item[•]Número máximo de activaciones múltiples: 1
+\item[•]Asignación de memoria de programa: 256 Bytes.
+\item[•]Tipo de Tarea: BASIC.
+\item[•]Sin interrupciones por activación de otra Tarea de mayor prioridad.
+\item[•]Recurso: recursocontrol.
 
+\end{enumerate}
+
+\item[•]\textbf{Paso 7}: Realizar la creación de la Tarea SALIDA$\_$DAC, que presenta las siguientes características:
+\begin{enumerate}
+\item[•]Prioridad: 10
+\item[•]Número máximo de activaciones múltiples: 1
+\item[•]Asignación de memoria de programa: 256 Bytes.
+\item[•]Tipo de Tarea: EXTENDED.
+\item[•]Con interrupciones por activación de otra Tarea de mayor prioridad.
+\item[•]Recurso: dac$\_$recurso.
+\item[•]Evento: recepcion,luces.
+\end{enumerate}
+
+\item[•]\textbf{Paso 8}: Realizar la definición del ISR denominado UART2, con los siguientes atributos:
+\begin{enumerate}
+\item[•]Interrupción: UART2.
+\item[•]Categoria:2.
+\item[•]Prioridad:0.
+\end{enumerate}
+
+\item[•]\textbf{Paso 9}: Realizar la creación de la Alarma \textit{Controlador$\_$envio} con las siguientes características
+\begin{enumerate}
+\item[•]Contador: Contador$\_$software.
+\item[•]Acción: Active Tarea CONTROLENVIO
+\item[•]Sin inicio automático.
+\end{enumerate}
+
+\item[•]\textbf{Paso 10}: Realizar la creación de la Alarma \textit{Set$\_$Event$\_$dac} con las siguientes características
+\begin{enumerate}
+\item[•]Contador: Contador$\_$software.
+\item[•]Acción: Establece Evento luces, pertenenciente a Tarea SALIDA$\_$DAC.
+\item[•]Sin inicio automático.
+\end{enumerate}
+
+\item[•]\textbf{Paso 11}: Realizar la creación del contador denominado \textit{Contador$\_$software} con los siguientes parámetros:
+\begin{enumerate}
+\item[•]Máximo valor de conteo: 500 ticks.
+\item[•]Número de ticks por conteo: 1. 
+\item[•]Ciclo Mínimo: 1.
+\item[•]Tipo: SOFTWARE.
+\end{enumerate}
+
+\item[•]\textbf{Paso 12}: Realizar la creación del directorio tal como se establece sobre el paso 8 en la Sección \ref{sec:tareasOSEK}.
+
+\item[•]\textbf{Paso 13}: Incluir los módulos compatibles de la \textit{sAPI}, como se establece sobre los pasos 9 y 10 en la Sección \ref{sec:tareasOSEK}.
+
+\item[•]\textbf{Paso 14}: Realizar la inclusión de las bibliotecas \textit{font8x16}, \textit{font8x8},\textit{lcd},\textit{puertos} y \textit{libreria$\_$propia} de la misma forma que se realiza sobre el paso 12.
+
+\item[•]\textbf{Paso 15}: Sobre el archivo fuente del proyecto, ingresar el código proporcionado por el tutorial.
 
 \end{enumerate}
 
