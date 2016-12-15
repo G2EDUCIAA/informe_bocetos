@@ -516,19 +516,20 @@ En este caso, el archivo cabecera se define como \textit{Ejemplo$\_$1.h}.
 \item[•]\textbf{Paso 5}:Una vez declarada la función principal \textit{main()}, es importante destacar algunas funciones utilizadas:
 \begin{enumerate}
 \item[•]\textit{boardconfig()}: Esta función se encarga de la configuración para inicializar la plataforma del hardware. No se debe especificar ningún parámetro.
-\item[•]\textit{tickconfig()}: Configura una interrupción periódica de temporizador cada tickRateMSvalue milisegundos para utilizar de base de tiempo del sistema. El primer parámetro es el tiempo en milisegundos en el que se desee interrumpir el periférico Systick y aumente un contador que se usa para el módulo delay o para lo que se requiera.
-\item[•]\textit{digitalConfig()}: Inicializa los puertos GPIO de la placa y define sus funciones como entradas y salidas digitales. El primér parametro debe ser 0, mientras que el segundo debe ser \textit{ENABLE$\_$DIGITAL$\_$IO}.
-\item[•]\textit{digitalWrite()}: Permite el establecimiento en \textit{ALTO} o en \textit{BAJO} de un pin configurado como salida digital. Sobre el primer parámetro de la funcion debe establecerse el nombre del PIN, teniendo en cuenta la definición realizada sobre el módulo \textit{sAPI$\_$PeripheralMap}. El segundo parámetro que debe determinarse es el estado funcional \textit{ON} u \textit{OFF}.
-\item[•]\textit{delay()}: Permite implementar una temporización en ms sobre el parámetro de dicha función.
+\item[•]\textit{tickconfig(A,B)}: Configura una interrupción periódica de temporizador cada tickRateMSvalue milisegundos para utilizar de base de tiempo del sistema. El parámetro A es el tiempo en milisegundos en el que se desee interrumpir el periférico Systick y aumente un contador que se usa para el módulo delay o para lo que se requiera. Sobre el parámetro B se especifica la función a ejecutar en cada tick.
+\item[•]\textit{digitalConfig(A,B)}: Inicializa los puertos GPIO de la placa y define sus funciones como entradas y salidas digitales. El parametro A debe ser 0, mientras que el parámetro B debe ser \textit{ENABLE$\_$DIGITAL$\_$IO}.
+\item[•]\textit{digitalWrite(A,B)}: Permite el establecimiento en \textit{ALTO} o en \textit{BAJO} de un pin configurado como salida digital. Sobre el parámetro A de la funcion debe establecerse el nombre del PIN, teniendo en cuenta la definición realizada sobre el módulo \textit{sAPI$\_$PeripheralMap}. Sobre el parámetro B debe determinarse es el estado funcional \textit{ON} u \textit{OFF}.
+\item[•]\textit{delay(A)}: Permite implementar una temporización en ms sobre el parámetro A de dicha función.
 \end{enumerate}
 
-\item[•]\textbf{Paso 6}:Para realizar la compilación debe seleccionarse el directorio \textit{Firmware} y posteriormente hacer click sobre el botón \textit{Build}.\end{enumerate}
+\item[•]\textbf{Paso 6}:Para realizar la compilación debe seleccionarse el directorio \textit{Firmware} y posteriormente hacer click sobre el botón \textit{Build}.
+\end{enumerate}
 \subsection{Implementación de ejemplo N$^{\circ}$2: Entradas y Salidas Digitales}\label{sec:ej2sapi}
 
 El siguiente ejemplo tiene como objetivo el manejo de las entradas y salidas digitales, dicho programa enciende los leds instalados sobre la placa, de acuerdo con la cantidad de veces que se oprime la tecla \textit{TEC1}. Sobre dicho ejemplo se implemento una maquina de estado, a través del programa \textit{uModel Factory} para poder establecer un orden sobre los eventos y las acciones que debe ejecutar el microcontrolador. Debe tenerse en cuenta que se implementan multiples archivos fuentes y cabeceras, en particular, el archivo fuente \textit{funciones.c} define las acciones y la evaluación de los eventos y \textit{funciones.h} establece la declaración de dichas funciones y de los estados.
  \\
  
-La funcion \textit{digitalRead} se encarga de las entradas digitales. En este caso se pregunta  si se ha oprimido la tecla 1, como se puede apreciar esta misma se activa por bajo, por eso se pregunta si la lectura es igual a OFF.
+La funcion \textit{digitalRead(A)} permite determinar el estado funcional de un pin configurado como entrada digital, sobre el parámetro A debe determinarse el nombre del pin sobre el cual se desea efectuar la lectura. Debe tenerse en cuenta que dicho nombre debe corresponder al que se encuentra definido sobre el módulo \textit{sAPI$\_$PeripheralMap.h}.
 
 \begin{enumerate}
 \item[•]\textbf{Paso 1}:Realizar la generación de los archivos cabecera y fuente como se establecen en los Pasos 1, 2 y 3 sobre la seccion \ref{sec:ej1sapi}.
@@ -604,7 +605,7 @@ En este tutorial se realiza el manejo de un display de 7 segmentos del tipo cát
 En este código se hará uso del conversor analógico digital que posee esta placa. La idea es introducir una tensión analógica mediante la entrada CH1 y luego convertirla en un valor digital, para que posteriormente dentro del código, mediante operaciones matemáticas, poder mostrar dicho valor por el display.
  \\
  
-La instrucción que implementa la biblioteca \textit{sAPI} para la lectura analógica es \textit{analogRead()}.
+La instrucción que implementa la biblioteca \textit{sAPI} para la lectura analógica es \textit{analogRead()}, sobre dicha función no debe especificarse ningún parámetro de entrada, sin embargo, debe tenerse en cuenta que retorna un valor de salida, el cual debe almacenarse sobre una variable del tipo \textit{uint16_t}.
 
 \begin{enumerate}
 \item[•]\textbf{Paso 1}:Realizar la generación de los archivos cabecera y fuente como se establece sobre la seccion \ref{sec:ej1sapi}.
