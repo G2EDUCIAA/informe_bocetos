@@ -1204,15 +1204,7 @@ Sobre el archivo \textit{sAPI$\_$Uart.c}, debe realizar las modificaciones que s
 \end{figure}
 Debe destacarse que es necesaria la inclusión de las librerias \textit{sAPI$\_$Board.h},\textit{sAPI$\_$DataTypes.h} y \textit{sAPI$\_$PeripheralMap.h}. En primer lugar para la definición de la placa a utilizar, en segundo lugar los tipos de datos definidos por la librería, y por último para la inclusión de las definiciónes de los terminales para los periféricos.\\
 \item[•]\textbf{Paso 11}: Realizar la inclusión de las bibliotecas \textit{dsp7seg} y \textit{digitos}, de la misma forma que se realiza sobre el paso 9.
-\item[•]\textbf{Paso 12}: Sobre el archivo fuente del proyecto debe especificarse dentro de la función principal \textit{main ()}, el inicio del Sistema Operativo. Esto se realiza a través de la instrucción \textit{StartOs(A)}, sobre el parámetro A, el usuario debe ingresar el modo de aplicación definido en el archivo de configuración (en este caso \textit{AppMode1}).
-
-\item[•] \textbf{Paso 13}: Para declarar cada Tarea sobre el archivo fuente, se debe ingresar una sintaxis similar a la que se realiza sobre el archivo de configuración. La Figura \ref{tareaenarchfuente} ilustra la declaración de la Tarea INICIALIZAR sobre el archivo de configuración.
-\begin{figure}[H]
-\centering
-\includegraphics[width=5 cm]{figuras/f49.png}
-\caption{Ejemplo de definición de Tarea sobre archivo fuente.}
-\label{tareaenarchfuente}
-\end{figure}
+\item[•]\textbf{Paso 12}: Sobre el archivo fuente del proyecto, ingresar el código proporcionado en el tutorial.
 
 \end{enumerate}
 %\underline{Generación de archivo OIL}:
@@ -1265,34 +1257,59 @@ En este caso, se desea implementar un programa que  permita encender los leds in
 \end{enumerate}
 \item[•]\textbf{Paso 9}: Realizar la creación del directorio tal como se establece sobre el paso 8 en la Sección \ref{sec:tareasOSEK}.
 \item[•]\textbf{Paso 10}: Incluir los módulos compatibles de la \textit{sAPI}, como se establece sobre los pasos 9 y 10 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 11}: Sobre el archivo fuente del proyecto, ingresar el código proporcionado por el tutorial.
 \end{enumerate}
 
 \subsection{Implementación de ejemplo N$^{\circ}$3: Eventos en OSEK}
-Este ejemplo pretende brindar al usuario una introducción al manejo de las Tareas del tipo \textit{EXTENDED} a través de los Eventos. Se pretende encender el \textit{LED1} de la placa en el instante en que el usuario oprima la tecla \textit{TEC1}, a continuación, se desea encender el \textit{LED2} de la placa oprimiento la tecla \textit{TEC2}.
-\begin{center}
-\begin{figure}[!h]
+Este ejemplo pretende brindar al usuario una introducción al manejo de las Tareas del tipo \textit{EXTENDED} a través de los Eventos. Se desea encender el \textit{LED1} de la placa al presionar la tecla \textit{TEC1}, y posteriormente encender el \textit{LED2} al presionar la tecla \textit{TEC2}.
+ \\
+ 
+Para ello se definen dos Tareas, una de ellas se denomina \textit{LED$\_$1} y la otra \textit{LED$\_$2}. Cuando inicia el Sistema Operativo, luego de la configuración inicial (llevada a cabo por una Tarea denominada INICIALIZAR), se ingresa a la Tarea \textit{LED$\_$1}, sobre la cual se implementa una estructura condicional \textit{while}, en la cual el código ingresa cuando la tecla \textit{TEC1} no ha sido oprimida; dentro de dicha estructura lógica se realiza la reactivación de la Tarea \textit{LED$\_$1}.
+ \\
+ 
+Sin embargo, al apretar la tecla correspondiente, se realiza el encendido de \textit{LED1} y posteriormente se ejecuta la activación de la Tarea \textit{LED$\_$2}, luego se realiza el establecimiento de el Evento \textit{tecla$\_$1}. Esto provoca que se ejecuten las instrucciones llevadas a cabo en la Tarea \textit{LED$\_$2}, dichas instrucciones realizan una acción similar. Sobre la Figura \ref{ejemplo3} se ilustra el concepto anterior:
+
+\begin{figure}[H]
 \centering
-\includegraphics[width=10 cm]{figuras/f41.png}
+\includegraphics[width=10 cm]{figuras/f26.png}
 \caption{Transición de las Tareas mediante Eventos en Ejemplo N$^{\circ}$3}
 \label{ejemplo3}
 \end{figure}
-\end{center}
-\begin{figure}[!h]
-\centering
-\includegraphics[width=9 cm]{figuras/f26.png}
-\caption{Transición de las Tareas mediante Eventos en Ejemplo N$^{\circ}$3}
-\label{Fig41}
-\end{figure}
-Se realiza la definición de dos Tareas, denominadas \textit{LED$\_$1} y \textit{LED$\_$2}. La primera de ellas produce el encendido del \textit{LED1} en caso de que se oprima \textit{TEC1}, a continuación realiza la activación de la Tarea \textit{LED$\_$2}. En el instante en que se aprete la tecla \textit{TEC2}, se produce el encendido del del \textit{LED2}, a continuación realiza la activación de la Tarea \textit{LED$\_$1}.
-\begin{figure}[!h]
-\centering
-\includegraphics[width=8 cm]{figuras/f42.png}
-\caption{Transición de las Tareas mediante Eventos en Ejemplo N$^{\circ}$3}
-\label{ejemplo3transicion}
-\end{figure}
-Para efectuar este ejemplo se utilizo la estructura condicional \textit{while} para detener el flujo de la Tarea \textit{LED$\_$1} y \textit{LED$\_$2}, mientras se no se opriman las teclas \textit{TEC1} o \textit{TEC2} según corresponda. La Figura \ref{ejemplo3} ilustra el concepto explicado anteriormente.
 
-La Figura \ref{Fig41} ilustra la transición que se produce entre las Tareas a través de los Eventos.La Figura \ref{ejemplo3transicion} ilustra la transición entre las Tareas \textit{LED$\_$1} y \textit{LED$\_$2}, cuando se oprime alguna de las teclas correspondientes.
+\begin{enumerate}
+\item[•]\textbf{Paso 1}: Realizar la creación del archivo de configuración OIL siguiendo los pasos 1, 2 y 3 de la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 2}: Definir los Eventos, Recursos y Modo de Aplicación que se determina sobre el paso 5 de la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 3}: Definir el recurso \textit{tecla$\_$recurso} de forma similar a la que se realiza sobre el paso anterior. Este recurso se define por propósito ilustrativo, dado que se pretende mostrar como puede asignarse un recurso para una Tarea.
+\item[•]\textbf{Paso 4}: Definir los eventos \textit{tecla1} y \textit{tecla2}
+\item[•]\textbf{Paso 5}: Realizar la creación de la Tarea INICIALIZAR, cuyos atributos y variables asignadas son las mismas que las implementadas sobre el Ejemplo N$^{\circ}$1.
+
+\item[•]\textbf{Paso 6}: Realizar la creación de la Tarea LED$\_$1, que presenta las siguientes características:
+\begin{enumerate}
+\item[•]Prioridad: 3
+\item[•]Número máximo de activaciones múltiples: 1
+\item[•]Asignación de memoria de programa: 512 Bytes.
+\item[•]Tipo de Tarea: EXTENDED
+\item[•]Sin interrupciones por activación de otra Tarea de mayor prioridad.
+\item[•]Recurso: tecla$\_$recurso
+\item[•]Evento: tecla1
+\end{enumerate}
+
+\item[•]\textbf{Paso 7}: Realizar la creación de la Tarea LED$\_$2, que presenta las siguientes características:
+\begin{enumerate}
+\item[•]Prioridad: 3
+\item[•]Número máximo de activaciones múltiples: 1
+\item[•]Asignación de memoria de programa: 512 Bytes.
+\item[•]Tipo de Tarea: EXTENDED
+\item[•]Sin interrupciones por activación de otra Tarea de mayor prioridad.
+\item[•]Recurso: tecla$\_$recurso
+\item[•]Evento: tecla2
+\end{enumerate}
+\item[•]\textbf{Paso 8}: Realizar la creación del directorio tal como se establece sobre el paso 8 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 9}: Incluir los módulos compatibles de la \textit{sAPI}, como se establece sobre los pasos 9 y 10 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 10}: Sobre el archivo fuente del proyecto, ingresar el código proporcionado por el tutorial.
+
+\end{enumerate}
+
 \subsection{Alarmas}
 Las alarmas son herramientas que proporciona el Sistema Operativo \textit{OSEK} para la ejecución de una acción luego de determinado tiempo \cite{libroosekcerdeiro}.Éstas pueden realizar tres tipos de acciones:
 \begin{enumerate}
@@ -1308,23 +1325,40 @@ Luego de que dicha alarma expire, solo puede realizar una sola acción, la cual 
 \item[•]\textit{SETEVENT} Permite establecer un Evento (perteneciente a una Tarea) cuando dicha alarma expire.
 \item[•]\textit{ALARMCALLBACK} define el nombre de la rutina \textit{callback} cuando la alarma expira.
 \end{enumerate}
-\subsubsection{Implementación de ejemplo N$^{\circ}$4: Eventos y Alarmas en OSEK}
+\subsection{Implementación de ejemplo N$^{\circ}$4: Eventos y Alarmas en OSEK}
 Este ejemplo permite introducir al usuario en la utilización de alarmas para la temporización de acciones. Se pretende elaborar dos secuencias de luces a traves de los leds instalados en la placa, la primera de ellas se activa al oprimir la tecla \textit{TEC1}, mientras que la segunda se activa al oprimir \textit{TEC2}.
 
 Sobre el archivo de configuración se definen dos Tareas en particular: \textit{SECUENCIA1} y \textit{SECUENCIA2}. Dichas Tareas se activan y ejecutan sus correspondientes códigos a través del establecimiento del Evento \textit{primersecuencia} o \textit{segsecuencia}.
 
 Durante la ejecución de las Tareas \textit{SECUENCIA1} o \textit{SECUENCIA2} se identifica el Evento ocurrido, a través de las instrucciones \textit{WaitEvent()}y \textit{GetEvent()}. Definiendo como tipo de variable para la máscara de los Eventos de las Tareas, como \textit{Eventos1} y \textit{Eventos2} respectivamente.
 
-En caso de que haya ocurrido el Evento \textit{primersecuencia} o \textit{segsecuencia}, los códigos de las Tareas proceden a activar las Alarmas \textit{Set$\_$Event$\_$tiempo1} y \textit{Set$\_$Event$\_$tiempo2} respectivamente, para lograr la temporización deseada en las secuencias. La Figura \ref{Fig42} ilustra los conceptos explicados anteriormente.
+En caso de que haya ocurrido el Evento \textit{primersecuencia} o \textit{segsecuencia}, los códigos de las Tareas proceden a activar las Alarmas \textit{Set$\_$Event$\_$tiempo1} y \textit{Set$\_$Event$\_$tiempo2} respectivamente, para lograr la temporización deseada en las secuencias.
 
-\begin{center}
-\begin{figure}[!h]
-\centering
-\includegraphics[width=10 cm]{figuras/f33.png}
-\caption{Identificacion de Evento en Ejemplo N$^{\circ}$4}
-\label{Fig42}
-\end{figure}
-\end{center}
+\begin{enumerate}
+\item[•]\textbf{Paso 1}: Realizar la creación del archivo de configuración OIL siguiendo los pasos 1, 2 y 3 de la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 2}: Definir los Eventos, Recursos y Modo de Aplicación que se determina sobre el paso 5 de la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 3}: Definir el recurso \textit{secuencia$\_$res} de forma similar a la que se realiza sobre el paso anterior. Este recurso se define por propósito ilustrativo, dado que se pretende mostrar como puede asignarse un recurso para una Tarea.
+\item[•]\textbf{Paso 4}: Definir los eventos \textit{primersecuencia}, \textit{segsecuencia}, \textit{tiempo1} y \textit{tiempo2}.
+\item[•]\textbf{Paso 5}: Realizar la creación de la Tarea INICIALIZAR, cuyos atributos y variables asignadas son las mismas que las implementadas sobre el Ejemplo N$^{\circ}$1.
+\item[•]\textbf{Paso 6}: Realizar la creación de la Tarea TECLA, que presenta las siguientes características:
+\begin{enumerate}
+\item[•]Prioridad: 10
+\item[•]Número máximo de activaciones múltiples: 1
+\item[•]Asignación de memoria de programa: 256 Bytes.
+\item[•]Tipo de Tarea: BASIC
+\item[•]Sin interrupciones por activación de otra Tarea de mayor prioridad.
+\item[•]Recurso: POSIXR
+\end{enumerate}
+\item[•]\textbf{Paso 7}: Realizar la creación de la Tarea SECUENCIA1, que presenta las siguientes características:
+\begin{enumerate}
+\item[•]Prioridad: 10
+\item[•]Número máximo de activaciones múltiples: 1
+\item[•]Asignación de memoria de programa: 256 Bytes.
+\item[•]Tipo de Tarea: BASIC
+\item[•]Sin interrupciones por activación de otra Tarea de mayor prioridad.
+\item[•]Recurso: POSIXR
+\end{enumerate}
+\end{enumerate}
 
 \subsubsection{Implementación de ejemplo N$^{\circ}$5: Alarmas en OSEK}
 En este ejemplo se utilizan las Alarmas para permitir la activación de una Tarea en forma periódica. En particular, esta Alarma activa una Tarea la cual permite la lectura analógica sobre el canal 1 del \textit{ADC0} de la placa.
