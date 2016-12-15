@@ -32,7 +32,7 @@ En este trabajo se pretende desarrollar un tutorial que permita al usuario poder
 Este estudio aborda en primer lugar, las características principales de la placa y la correcta instalación del software sobre Windows 7, Windows 8, y Windows 10 para permitir el desarrollo de códigos sobre ella; además se incluyen posibles problemas que puedan suceder en el proceso junto con sus soluciones.
   \\
 
-La siguiente sección comienza introduciendo al usuario en el uso de la placa a través de la biblioteca \textit{sAPI} (realizada por Eric Pernia) ésta nos permite el desarrollo de programas utilizando lenguaje C. La idea es brindar una explicación simple de la arquitectura de los microcontroladores Cortex y a su vez brindar una base para la siguiente sección del informe.
+La siguiente sección comienza introduciendo al usuario en el uso de la placa a través de la librería \textit{sAPI} (realizada por Eric Pernia) ésta nos permite el desarrollo de programas utilizando lenguaje C. La idea es brindar una explicación simple de la arquitectura de los microcontroladores Cortex y a su vez brindar una base para la siguiente sección del informe.
   \\
 
 Luego, se introduce al usuario en la programación a través de el sistema operativo \textit{OSEK OS}, el cual es el método de programación en el que se proyectó cuando se realizó el diseño de la placa. Se pretende mostrar las bases conceptuales principales de los sistemas operativos en tiempo real, e introducir al usuario a la programación de códigos simples y alentar al usuario a profundizar sobre este estudio.
@@ -309,7 +309,7 @@ Para realizar la instalación del IDE, es necesario realizar los siguientes paso
 \label{Fig9}
 \end{figure}
 \end{enumerate}
-\item[•]Una vez finalizada esta etapa, se procede a la instalación de los drivers por defecto del fabricante FTDI para puerto virtual. Este proceso se ilustra en las figuras \ref{driversFTDI} , \ref{Fig10}, \ref{Fig11}, \ref{Fig12} y \ref{Fig13}.
+\item[•]Una vez finalizada esta etapa, se procede a la instalación de los drivers por defecto del fabricante FTDI para puerto virtual. Este proceso se ilustra en las figuras \ref{driversFTDI} , \ref{Fig10}, \ref{Fig11} y \ref{Fig12}.
 \begin{figure}[H]
 \centering
 \includegraphics[width=6 cm]{figuras/instalacion7.png}\\
@@ -341,7 +341,6 @@ Para realizar la instalación del IDE, es necesario realizar los siguientes paso
 \caption{Instalador de drivers FTDI parte 5}
 \label{Fig13}
 \end{figure}
-
 \item[•]El instalador incluye en la carpeta donde se instaló el software (Por defecto,C:/CIAA) un programa que configura el driver del controlador serie, emulado por la placa, para que uno de ellos pueda ser utilizado como interfaz JTAG. Dicho programa se llama $ Zadig\_Win\_7\_2\_1\_1.exe $, la Figura \ref{Fig14} muestra una ilustración de la ubicación del programa.
 \begin{figure}[!h]
 \centering
@@ -358,9 +357,7 @@ Para realizar la instalación del IDE, es necesario realizar los siguientes paso
 \label{Fig15}
 \end{figure}
 
-\item[•]Aparecerá una lista de dispositivos de comunicación relacionados al USB. Se tiene que buscar aquellos cuyos nombres tengan relación con el puerto serie (puede aparecer Dual RS232-HS, USB Serial Converter, o algo similar).
-
-Por lo general, aparecerán 2 con el mismo nombre, excepto que uno es Interface 0 y el otro Interface 1, como se muestra en la Figura \ref{Fig16} (la lista de drivers que se muestra puede diferir, dependiendo de la computadora que se utilice).
+\item[•]Aparecerá una lista de dispositivos de comunicación relacionados al USB. Se tiene que buscar aquellos cuyos nombres tengan relación con el puerto serie (puede aparecer Dual RS232-HS, USB Serial Converter, o algo similar).Por lo general, aparecerán 2 con el mismo nombre, excepto que uno es Interface 0 y el otro Interface 1, como se muestra en la Figura \ref{Fig16} (la lista de drivers que se muestra puede diferir, dependiendo de la computadora que se utilice).
 
 \begin{figure}[!h]
 \centering
@@ -372,9 +369,9 @@ Por lo general, aparecerán 2 con el mismo nombre, excepto que uno es Interface 
 \item[•]Para configurar el driver:
 
 \begin{enumerate}
-\item[1]seleccionar la \textbf{Interfase 0}
-\item[2]elegir el \textbf{“WinUSB v6.1”}
-\item[2]hacer click en el botón \textbf{“Replace Driver”}.
+\item[•]Seleccionar la \textbf{Interfase 0}.
+\item[•]Elegir el \textbf{“WinUSB v6.1”}.
+\item[•]Hacer click en el botón \textbf{“Replace Driver”}.
 \end{enumerate}
 La Figura \ref{Fig17} muestra la ventana ya configurada:
 
@@ -392,17 +389,15 @@ La Figura \ref{Fig17} muestra la ventana ya configurada:
 
 \section{Desinstalación}
 Si se instaló el Software de CIAA-IDE y luego se desea desinstalarlo, se debe tener especial
-cuidado en quitar cualquier contenido que se quiera conservar de la carpeta $C:\_\ CIAA$, o el
-directorio de instalación elegido. Esto se debe a que el desinstalador del Software CIAA-IDE
-elimina el directorio y todo su contenido.
+cuidado en quitar cualquier contenido que se quiera conservar de la carpeta C:$\setminus$CIAA, o el directorio de instalación elegido. Esto se debe a que el desinstalador del Software CIAA-IDE elimina el directorio y todo su contenido.
 
 \section{Primeros Pasos con la EDU-CIAA}
 
 \subsection{Programacion en Baremetal a través de libreria sAPI}\label{sec:programacionbaremetal}
-Debido a que la programación de la placa en Baremetal puede tornarse un tanto engorrosa en principio, es posible utilizar una libreria diseñada para la implementación de proyectos en Baremetal con la placa EDU CIAA, dicha librería se la denomina \textit{sAPI}. Esta biblioteca implementa una API simple para la programación de dicha placa, es necesario comentar que una API es una interfaz de programación de aplicaciones, y consta de un conjunto de subrutinas, funciones y procedimientos (o métodos, en la programación orientada a objetos) que ofrece cierta biblioteca; para permitir ser utilizada por otro software como una capa de abstracción en la programación (aunque no necesariamente) entre los niveles o capas inferiores y las superiores del software\cite{sapi}.
+Debido a que la programación de la placa en Baremetal puede tornarse un tanto engorrosa en principio, es posible utilizar una libreria diseñada para la implementación de proyectos en Baremetal con la placa EDU CIAA, dicha librería se la denomina \textit{sAPI}. Esta librería implementa una API simple para la programación de dicha placa, es necesario comentar que una API es una interfaz de programación de aplicaciones, y consta de un conjunto de subrutinas, funciones y procedimientos (o métodos, en la programación orientada a objetos) para permitir ser utilizada por otro software como una capa de abstracción en la programación (aunque no necesariamente) entre los niveles o capas inferiores y las superiores del software\cite{sapi}.
  \\
  
-La motivación para el desarrollo de la biblioteca sAPI surge de la necesidad de manejar los periféricos directamente desde una máquina virtual de Java para el desarrollo de Java sobre la CIAA y corresponde a la parte de bajo nivel de las clases de periféricos en Java que básicamente bindea a funciones escritas en C.
+La motivación para el desarrollo de la librería sAPI surge de la necesidad de manejar los periféricos directamente desde una máquina virtual de Java para el desarrollo de Java sobre la CIAA y corresponde a la parte de bajo nivel de las clases de periféricos en Java que básicamente bindea a funciones escritas en C.
 Luego se extendió la misma para facilitar el uso de la EDU-CIAA-NXP a personas no expertas en la arquitectura del LPC4337 facilitando el uso de esta plataforma.
  \\
  
@@ -412,6 +407,7 @@ La idea es tener periféricos abstractos y lo más genéricos posibles. Que sea 
 \item[$\bullet$]  moduloRead();
 \item[$\bullet$]  moduloWrite();
 \end{enumerate}
+
 Los siguientes módulos estan incluidos:
 \begin{enumerate}
 \item[$\bullet$]Tipos de datos.
@@ -422,18 +418,19 @@ Los siguientes módulos estan incluidos:
 \item[$\bullet$]E/S Digital.
 \item[$\bullet$]E/S Analógica.
 \item[$\bullet$]Uart.
-\end{enumerate}
- Es necesario destacar que actualmente se encuentra disponible para las plataformas EDU CIAA NXP (microcontrolador NXP LPC4337) y para la plataforma CIAA NXP (microcontrolador NXP LPC4337). La Figura \ref{Fig18} ilustra como son las distintas capas de software y la correspondiente ubicación de la \textit{sAPI}.
+\end{enumerate}   
+
+Es necesario destacar que actualmente se encuentra disponible para las plataformas EDU CIAA NXP (microcontrolador NXP LPC4337) y para la plataforma CIAA NXP (microcontrolador NXP LPC4337). La Figura \ref{Fig18} ilustra como son las distintas capas de software y la correspondiente ubicación de la \textit{sAPI}.
 \begin{figure}[H]
 \centering
 \includegraphics[width=12 cm]{figuras/primer_proy18.png}\\
 \caption{Capas de abstracción de software}
 \label{Fig18}
-\end{figure}
- 
-\underline{Breve descripcion de los modulos de la biblioteca}:
+\end{figure} 
+
+Breve descripcion de los modulos de la librería:
 \begin{enumerate}
-\item[•]\textbf{sAPI$\_$Config}: Contiene configuraciones de la biblioteca.
+\item[•]\textbf{sAPI$\_$Config}: Contiene configuraciones de la librería.
 \item[•]\textbf{sAPI$\_$DataTypes}:Define las siguientes constantes:
 \begin{enumerate}
 \item[•]Estados lógicos, \textit{TRUE} y \textit{FALSE}.
@@ -446,23 +443,20 @@ Los siguientes módulos estan incluidos:
 \item[•]\textbf{sAPI$\_$PeripheralMap}:Contiene el mapa de periféricos, para la interpretación de éste, el usuario debe utilizar el diagrama esquemático de la placa y el archivo \textit{PeripheralMap$.txt$} ubicado sobre el directorio \textit{sapi-bm}.
 \item[•]\textbf{sAPI$\_$DigitalIO}: Utilizada para el manejo de entradas y salidas digitales.
 \end{enumerate}
- 
 
-\underline{Utilización de librería sAPI}:
 
-Es posible descargar la version más reciente de dicha biblioteca, a traves del repositorio de la misma, ubicado en la pagina web (especificar la referencia a la pagina web del repositorio).
+Utilización de librería sAPI:
+
+Es posible descargar la version más reciente de dicha librería, a traves del repositorio de la misma, ubicado en la pagina web.
  \\
  
 Luego de haber descargado la versión actual de  sAPI se procede a copiar la carpeta \textit{sapi$\_$bm} y pegarla en \textit{C$:/$CIAA$/$Firmware$/$modules}.
  \\
  
-A continuación, el usuario debe crear un directorio el cual contiene al proyecto, y sobre el mismo, deben realizarse los directorios que contengan las cabeceras, el \textit{Makefile}, y los archivos fuentes.
+Al utilizar la librería \textit{sAPI} para un proyecto en Baremetal, se debe modificar el makefile del mismo dentro de la carpeta mak y cambiar la última línea de: \textbf{MODS += externals \$(DS)drivers}, y reemplazarla por:  \textbf{MODS += modules \$ (DS)sapi$\_$bm}.
  \\
  
-Al utilizar la biblioteca \textit{sAPI} para un proyecto en Baremetal, se debe modificar el makefile del mismo dentro de la carpeta mak y cambiar la última línea de: \textbf{MODS += externals \$(DS)drivers}, y reemplazarla por:  \textbf{MODS += modules \$ (DS)sapi$\_$bm}.
- \\
- 
-Luego, sobre cada archivo fuente en la que se ejecuten instrucciones que contenga esta librería, se debe realizar la inclusión del mismo mediante la instruccion: \textbf{\# include “sAPI.h”}. Debe aclararse que en la versión 0.3.0 no es necesario incluir el archivo \textit{chip.h} dado que la propia biblioteca lo incluye, además, esta librería maneja el vector de interrupción, por lo tanto, para el usuario que haya trabajado anteriormente con proyectos escritos en instrucciones de \textit{LPCOpen}, debe tenerse en cuenta que ya no se necesita realizar el archivo que contenga las direcciones de las subrutinas para la atención de las interrupciones. El ejemplo \textit{"baremetal"} del Firmware en el que se realiza este tutorial, trae consigo dicho archivo.
+Luego, sobre cada archivo fuente en la que se ejecuten instrucciones que contenga esta librería, se debe realizar la inclusión del mismo mediante la instruccion: \textbf{\# include “sAPI.h”}. Debe aclararse que en la versión 0.3.0 no es necesario incluir el archivo \textit{chip.h} dado que la propia librería lo incluye, además, esta librería maneja el vector de interrupción, por lo tanto, para el usuario que haya trabajado anteriormente con proyectos escritos en instrucciones de \textit{LPCOpen}, debe tenerse en cuenta que ya no se necesita realizar el archivo que contenga las direcciones de las subrutinas para la atención de las interrupciones. El ejemplo \textit{"baremetal"} del Firmware en el que se realiza este tutorial, trae consigo dicho archivo.
  \\
  
 Para la compilación y depuración del programa mediante el IDE del Firmware, se debe colocar sobre la carpeta Firmware y mediante click derecho, el usuario debe ubicarse en \textit{Propiedades}$\rightarrow$\textit{C/C++ Build}$\rightarrow$\textit{Behaviour}. A continuación debe modificar sobre la rama \textit{Clean}, y reemplazar la palabra \textit{Clean\_ generate} por la palabra \textit{clean}, como puede apreciarse en la Figura \ref{Fig19}.
@@ -477,8 +471,21 @@ Para la compilación y depuración del programa mediante el IDE del Firmware, se
 \subsection{Implementación de ejemplo N$^{\circ}$1: Salidas Digitales}\label{sec:ej1sapi}
 El primer ejemplo aborda las salidas digitales, a través de los leds que provee la placa EDUCIAA.Este programa enciende los leds de la placa en forma secuencial, de izquierda a la derecha.Luego de finalizar esta secuencia, se apagan de derecha a izquierda.
 \begin{enumerate}
-\item[•]Sobre el IDE de la placa, debe agregarse un nuevo directorio, realizando click derecho sobre \textit{Firmware}, luego se selecciona la opción \textit{New} $\rightarrow$ \textit{Folder}; a continuación se abre una ventana que permite designar el nombre de dicho directorio, en el cual se ubica el proyecto que se implementa. El usuario debe recordar que para compilar dicho proyecto debe establecer la ruta que le corresponde sobre el archivo \textit{Makefile}. Asimismo, deben agregarse los directorios \textit{etc}, \textit{mak}, \textit{inc}, y \textit{src}, sobre el directorio creado recientemente.
- \\
+\item[•]\textbf{Paso 1}: Sobre el IDE de la placa, debe agregarse un nuevo directorio, realizando click derecho sobre \textit{Firmware}, luego se selecciona la opción \textit{New} $\rightarrow$ \textit{Folder}.La Figura \ref{nuevodirectorio} ilustra lo explicado.
+\begin{figure}[H]
+\centering
+\includegraphics[width=8 cm]{figuras/f43.png}
+\caption{Creacion de Nuevo Directorio}
+\label{nuevodirectorio}
+\end{figure}
+\item[•]\textbf{Paso 2}: A continuación se abre una ventana como la Figura \ref{nuevodirectorio2} que permite designar el nombre de dicho directorio, en el cual se ubica el proyecto que se implementa. El usuario debe recordar que para compilar dicho proyecto debe establecer la ruta que le corresponde sobre el archivo \textit{Makefile}. Asimismo, deben agregarse los directorios \textit{etc}, \textit{mak}, \textit{inc}, y \textit{src}, sobre el directorio creado recientemente.
+\begin{figure}[H]
+\centering
+\includegraphics[width=8 cm]{figuras/f44.png}
+\caption{Creación de Nuevo Directorio.Ventana de Creación.}
+\label{nuevodirectorio2}
+\end{figure}
+
  
 Para generar el archivo cabecera, el usuario debe ubicarse sobre la carpeta \textit{inc}, y luego oprimiendo click derecho, debe seleccionar la opción \textit{New} $\rightarrow$ \textit{Header File}. A continuación se abre una ventana cuyo aspecto es similar al de la Figura \ref{archivocabecerasapi1}.
 \begin{figure}[H]
@@ -490,14 +497,14 @@ Para generar el archivo cabecera, el usuario debe ubicarse sobre la carpeta \tex
 En ella, se debe establecer el nombre del archivo cabecera. Al terminar la escritura de su nombre, debe escribirse la terminación \textit{.h}, y oprimir el boton \textit{Finish}, para concluir la generacion de dicho archivo.
 En este caso, el archivo cabecera se define como \textit{Ejemplo$\_$1.h}.
 
-\item[•] Para generar el archivo fuente, el usuario debe ubicarse sobre la carpeta \textit{inc}, y luego oprimiendo click derecho, debe seleccionar la opción \textit{New} $\rightarrow$ \textit{Source File}. A continuación se abre una ventana cuyo aspecto es similar al de la Figura \ref{archivofuentesapi1}, en ella, se debe establecer el nombre del archivo fuente,el cual en este caso es \textit{Ejemplo$\_$1.c}. Al terminar la escritura de su nombre, debe escribirse la terminación \textit{.c},y oprimir el boton \textit{Finish}, para concluir la generacion de dicho archivo.
+\item[•]\textbf{Paso 3}: Para generar el archivo fuente, el usuario debe ubicarse sobre la carpeta \textit{inc}, y luego oprimiendo click derecho, debe seleccionar la opción \textit{New} $\rightarrow$ \textit{Source File}. A continuación se abre una ventana cuyo aspecto es similar al de la Figura \ref{archivofuentesapi1}, en ella, se debe establecer el nombre del archivo fuente,el cual en este caso es \textit{Ejemplo$\_$1.c}. Al terminar la escritura de su nombre, debe escribirse la terminación \textit{.c},y oprimir el boton \textit{Finish}, para concluir la generacion de dicho archivo.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=8 cm]{figuras/f28.png}
 \caption{Generación de archivo fuente para implementación de proyecto.}
 \label{archivofuentesapi1}
 \end{figure}
-\item[•]Ingresar el archivo cabecera de la librería \textit{sAPI} para poder referenciar los módulos a utilizar y referenciar el archivo cabecera del proyecto en caso de que el usuario desee declarar de forma directa alguna función o algún identificador. La Figura \ref{inclusionsapi1} ilustra dicho concepto.
+\item[•]\textbf{Paso 4}: Ingresar el archivo cabecera de la librería \textit{sAPI} para poder referenciar los módulos a utilizar y referenciar el archivo cabecera del proyecto en caso de que el usuario desee declarar de forma directa alguna función o algún identificador. La Figura \ref{inclusionsapi1} ilustra dicho concepto.
 
 \begin{figure}[!h]
 \centering
@@ -506,7 +513,7 @@ En este caso, el archivo cabecera se define como \textit{Ejemplo$\_$1.h}.
 \label{inclusionsapi1}
 \end{figure}
 
-\item[•]Una vez declarada la función principal \textit{main()}, es importante destacar algunas funciones utilizadas:
+\item[•]\textbf{Paso 5}:Una vez declarada la función principal \textit{main()}, es importante destacar algunas funciones utilizadas:
 \begin{enumerate}
 \item[•]\textit{boardconfig()}: Esta función se encarga de la configuración para inicializar la plataforma del hardware. No se debe especificar ningún parámetro.
 \item[•]\textit{tickconfig()}: Configura una interrupción periódica de temporizador cada tickRateMSvalue milisegundos para utilizar de base de tiempo del sistema. El primer parámetro es el tiempo en milisegundos en el que se desee interrumpir el periférico Systick y aumente un contador que se usa para el módulo delay o para lo que se requiera.
@@ -515,7 +522,7 @@ En este caso, el archivo cabecera se define como \textit{Ejemplo$\_$1.h}.
 \item[•]\textit{delay()}: Permite implementar una temporización en ms sobre el parámetro de dicha función.
 \end{enumerate}
 
-\item[•]Para realizar la compilación debe seleccionarse el directorio \textit{Firmware} y posteriormente hacer click sobre el botón \textit{Build}.\end{enumerate}
+\item[•]\textbf{Paso 6}:Para realizar la compilación debe seleccionarse el directorio \textit{Firmware} y posteriormente hacer click sobre el botón \textit{Build}.\end{enumerate}
 \subsection{Implementación de ejemplo N$^{\circ}$2: Entradas y Salidas Digitales}\label{sec:ej2sapi}
 
 El siguiente ejemplo tiene como objetivo el manejo de las entradas y salidas digitales, dicho programa enciende los leds instalados sobre la placa, de acuerdo con la cantidad de veces que se oprime la tecla \textit{TEC1}. Sobre dicho ejemplo se implemento una maquina de estado, a través del programa \textit{uModel Factory} para poder establecer un orden sobre los eventos y las acciones que debe ejecutar el microcontrolador. Debe tenerse en cuenta que se implementan multiples archivos fuentes y cabeceras, en particular, el archivo fuente \textit{funciones.c} define las acciones y la evaluación de los eventos y \textit{funciones.h} establece la declaración de dichas funciones y de los estados.
@@ -524,18 +531,18 @@ El siguiente ejemplo tiene como objetivo el manejo de las entradas y salidas dig
 La funcion \textit{digitalRead} se encarga de las entradas digitales. En este caso se pregunta  si se ha oprimido la tecla 1, como se puede apreciar esta misma se activa por bajo, por eso se pregunta si la lectura es igual a OFF.
 
 \begin{enumerate}
-\item[•]Realizar la generación de los archivos cabecera y fuente como se establece sobre la seccion \ref{sec:ej1sapi}.
+\item[•]\textbf{Paso 1}:Realizar la generación de los archivos cabecera y fuente como se establecen en los Pasos 1, 2 y 3 sobre la seccion \ref{sec:ej1sapi}.
 
-\item[•] A través del programa \textit{uModel Factory}, implementar la siguiente Maquina de Estado Finita:
+\item[•]\textbf{Paso 2}: A través del programa \textit{uModel Factory}, implementar la siguiente Maquina de Estado Finita:
 
 \begin{enumerate}
 \item[•]\underline{Estados}:
 \begin{enumerate}
-\item[•]Estado \textit{\textbf{INICIAL}}: Contexto en el cual, si se oprime la tecla \textit{TEC1}, se enciende un color del led RGB.
-\item[•]Estado \textit{\textbf{ROJO}}: Contexto en el cual, si se oprime la tecla \textit{TEC1}, se enciende \textit{LED1}. 
-\item[•]Estado \textit{\textbf{ENCENDIDO1}}: Contexto en el cual, si se oprime la tecla \textit{TEC1}, se enciende \textit{LED2}.
-\item[•]Estado \textit{\textbf{ENCENDIDO2}}: Contexto en el cual, si se oprime la tecla \textit{TEC1}, se enciende \textit{LED3}.
-\item[•]Estado \textit{\textbf{ENCENDIDO3}}: Contexto en el cual, si se oprime la tecla \textit{TEC1}, se enciende un color del led RGB.
+\item[•]Estado \textit{\textbf{INICIAL}}: Contexto en el cual, si se oprime la tecla \textit{TEC1}, ocurre una transicion al estado ROJO.
+\item[•]Estado \textit{\textbf{ROJO}}: Contexto en el cual, si se oprime la tecla \textit{TEC1}, ocurre una transicion al estado ENCENDIDO1.
+\item[•]Estado \textit{\textbf{ENCENDIDO1}}: Contexto en el cual, si se oprime la tecla \textit{TEC1}, ocurre una transicion al estado ENCENDIDO2.
+\item[•]Estado \textit{\textbf{ENCENDIDO2}}: Contexto en el cual, si se oprime la tecla \textit{TEC1}, ocurre una transicion al estado ENCENDIDO3.
+\item[•]Estado \textit{\textbf{ENCENDIDO3}}: Contexto en el cual, si se oprime la tecla \textit{TEC1}, ocurre una transicion al estado ROJO.
 \end{enumerate}
 \item[•]\underline{Eventos}:
 \begin{enumerate}
@@ -564,9 +571,9 @@ La Figura \ref{Fig22} especifica el diagrama de estados del ejemplo:
 \end{figure}
 
 
-\item[•] Incluir sobre el archivo fuente, el archivo cabecera \textit{funciones.h}
+\item[•]\textbf{Paso 3}: Incluir sobre el archivo fuente, el archivo cabecera \textit{funciones.h}
 
-\item[•] Incluir sobre el archivo fuente \textit{funciones.c} el archivo cabecera de la libreria \textit{sAPI} y el archivo cabecera del proyecto.
+\item[•]\textbf{Paso 4}: Incluir sobre el archivo fuente \textit{funciones.c} el archivo cabecera de la libreria \textit{sAPI} y el archivo cabecera del proyecto.
 
 \end{enumerate}
 
@@ -579,10 +586,10 @@ En este ejemplo se realizan dos tareas distintas, dependiendo de la tecla pulsad
 Se implementa una maquina de estados en donde se establecen los prototipos de funciones que corresponden a los eventos y las acciones que acontecen. 
  \\
  
-Para el manejo del display se utiliza una biblioteca. Para ello, deben generarse dos archivos los cuales pertenecen a la cabecera y a la fuente de dicha biblioteca. Sobre la cabecera deben establecerse las inclusiones de la biblioteca \textit{sAPI} y las declaraciones de las funciones que corresponden con el manejo del dispositivo.
+Para el manejo del display se utiliza una librería. Para ello, deben generarse dos archivos los cuales pertenecen a la cabecera y a la fuente de dicha librería. Sobre la cabecera deben establecerse las inclusiones de la librería \textit{sAPI} y las declaraciones de las funciones que corresponden con el manejo del dispositivo.
  \\
  
-En este tutorial se realiza el manejo de un display de 7 segmentos del tipo cátodo común, de manera que para provocar el encendido de un led perteneciente al arreglo, se debe establecer en alto la salida de el pin conectado a dicho led. La biblioteca que provee este tutorial determina el conexionado de los pines del display, sobre los correspondientes terminales GPIO ubicados en la placa EDU CIAA. La Figura \ref{Fig23} ilustra los terminales de la placa y del display utilizados para la conexión del dispositivo.
+En este tutorial se realiza el manejo de un display de 7 segmentos del tipo cátodo común, de manera que para provocar el encendido de un led perteneciente al arreglo, se debe establecer en alto la salida de el pin conectado a dicho led. La librería que provee este tutorial determina el conexionado de los pines del display, sobre los correspondientes terminales GPIO ubicados en la placa EDU CIAA. La Figura \ref{Fig23} ilustra los terminales de la placa y del display utilizados para la conexión del dispositivo.
 
 
 \begin{figure}[H]
@@ -595,11 +602,14 @@ En este tutorial se realiza el manejo de un display de 7 segmentos del tipo cát
 \underline{Uso de Entradas Analógicas}:
 
 En este código se hará uso del conversor analógico digital que posee esta placa. La idea es introducir una tensión analógica mediante la entrada CH1 y luego convertirla en un valor digital, para que posteriormente dentro del código, mediante operaciones matemáticas, poder mostrar dicho valor por el display.
+ \\
+ 
+La instrucción que implementa la biblioteca \textit{sAPI} para la lectura analógica es \textit{analogRead()}.
 
 \begin{enumerate}
-\item[•]Realizar la generación de los archivos cabecera y fuente como se establece sobre la seccion \ref{sec:ej1sapi}.
+\item[•]\textbf{Paso 1}:Realizar la generación de los archivos cabecera y fuente como se establece sobre la seccion \ref{sec:ej1sapi}.
 
-\item[•] A través del programa \textit{uModel Factory}, implementar la siguiente Maquina de Estado Finita:
+\item[•]\textbf{Paso 2}: A través del programa \textit{uModel Factory}, implementar la siguiente Maquina de Estado Finita:
 
 \begin{enumerate}
 \item[•]\underline{Estados}:
@@ -625,9 +635,9 @@ La Figura \ref{Fig27}, ilustra el diagrama de estados de este ejemplo:
 \label{Fig27}
 \end{figure}
 
-\item[•] Incluir sobre el archivo fuente, el archivo cabecera \textit{funciones.h}
+\item[•]\textbf{Paso 3}: Incluir sobre el archivo fuente, el archivo cabecera \textit{funciones.h}
 
-\item[•] Incluir sobre el archivo fuente \textit{funciones.c} el archivo cabecera de la libreria \textit{sAPI} y el archivo cabecera del proyecto.
+\item[•]\textbf{Paso 4}: Incluir sobre el archivo fuente \textit{funciones.c} el archivo cabecera de la libreria \textit{sAPI} y el archivo cabecera del proyecto.
 
 \end{enumerate}
 
@@ -658,9 +668,9 @@ Este ejemplo utiliza maquinas de estado para poder establecer un orden sobre los
 La instrucción \textit{analogConfig( ENABLE$\_$ANALOG$\_$INPUTS )} se encarga de habilitar las entradas analógicas. Mientras que \textit{analogConfig( ENABLE$\_$ANALOG$\_$OUTPUTS )} se encarga de habilitar las salidas analógicas, con las que trabajara el DAC.
 
 \begin{enumerate}
-\item[•]Realizar la generación de los archivos cabecera y fuente como se establece sobre la seccion \ref{sec:ej1sapi}.
+\item[•]\textbf{Paso 1}: Realizar la generación de los archivos cabecera y fuente como se establecen en los Pasos 1, 2 y 3 sobre la seccion \ref{sec:ej1sapi}.
 
-\item[•] A través del programa \textit{uModel Factory}, implementar la siguiente Maquina de Estado Finita:
+\item[•]\textbf{Paso 2}: A través del programa \textit{uModel Factory}, implementar la siguiente Maquina de Estado Finita:
 
 \begin{enumerate}
 \item[•]\underline{Estados}:
@@ -697,9 +707,9 @@ La Figura \ref{Fig25}, ilustra el diagrama de estados de este ejemplo:
 \end{figure}
 
 
-\item[•] Incluir sobre el archivo fuente, el archivo cabecera \textit{funciones.h}
+\item[•]\textbf{Paso 3}: Incluir sobre el archivo fuente, el archivo cabecera \textit{funciones.h}
 
-\item[•] Incluir sobre el archivo fuente \textit{funciones.c} el archivo cabecera de la libreria \textit{sAPI} y el archivo cabecera del proyecto.
+\item[•]\textbf{Paso 4}: Incluir sobre el archivo fuente \textit{funciones.c} el archivo cabecera de la libreria \textit{sAPI} y el archivo cabecera del proyecto.
 
 \end{enumerate}
 
@@ -723,9 +733,9 @@ La instrucción \textit{analogRead()}, permite realizar la lectura de la tensió
 Este ejemplo también utiliza maquina de estado para establecer un orden sobre los eventos y las acciones que debe ejecutar el microcontrolador.
 
 \begin{enumerate}
-\item[•]Realizar la generación de los archivos cabecera y fuente como se establece sobre la seccion \ref{sec:ej1sapi}.
+\item[•]\textbf{Paso 1}: Realizar la generación de los archivos cabecera y fuente como se establecen en los Pasos 1, 2 y 3 sobre la seccion \ref{sec:ej1sapi}.
 
-\item[•] A través del programa \textit{uModel Factory}, implementar la siguiente Maquina de Estado Finita:
+\item[•]\textbf{Paso 2}: A través del programa \textit{uModel Factory}, implementar la siguiente Maquina de Estado Finita:
 
 \begin{enumerate}
 \item[•]\underline{Estados}:
@@ -760,9 +770,9 @@ La Figura \ref{Fig28} ilustra el diagrama de estados que corresponde al ejemplo
 \end{figure}
 
 
-\item[•] Incluir sobre el archivo fuente, el archivo cabecera \textit{funciones.h}
+\item[•]\textbf{Paso 3}: Incluir sobre el archivo fuente, el archivo cabecera \textit{funciones.h}
 
-\item[•] Incluir sobre el archivo fuente \textit{funciones.c} el archivo cabecera de la libreria \textit{sAPI} y el archivo cabecera del proyecto.
+\item[•]\textbf{Paso 4}: Incluir sobre el archivo fuente \textit{funciones.c} el archivo cabecera de la libreria \textit{sAPI} y el archivo cabecera del proyecto.
 
 \end{enumerate}
 
@@ -782,7 +792,7 @@ Si bien ofrece distintas herramientas para la programación de sistemas embebido
 Es necesario mencionar que si existe un programa ya cargado previamente, también es posible utilizar \textit{Octoplus} de forma similar.
  \\
  
-En este apartado se verá un código base para utilizar la UART del LPC4337 mediante las funciones que incluye la librería sAPI. Las funciones provistas por esta biblioteca son las encargadas de realizar los siguientes pasos básicos para poder utilizar la UART0 \cite{manuallpcuart}.
+En este apartado se verá un código base para utilizar la UART del LPC4337 mediante las funciones que incluye la librería sAPI. Las funciones provistas por esta librería son las encargadas de realizar los siguientes pasos básicos para poder utilizar la UART0 \cite{manuallpcuart}.
 
 \begin{enumerate}
 \item[•]Habilitar la alimentación del periférico.
@@ -795,9 +805,9 @@ En este apartado se verá un código base para utilizar la UART del LPC4337 medi
 
 El usuario debe seguir los siguientes pasos para implementar este ejemplo:
 \begin{enumerate}
-\item[•]Realizar la generación de los archivos cabecera y fuente como se establece sobre la seccion \ref{sec:ej1sapi}.
-\item[•]Suponiendo que el usuario ya se encuentran instalados los drivers para la placa, y las herramientas de depuración para la misma, luego de realizar la conexión entre la placa y la computadora a través de \textit{OpenOCD} (sobre la consola \textit{cygwin}), el usuario debe iniciar \textit{Octoplus}.
-\item[•]A continuación se presenta una pantalla similar a la Figura \ref{Fig29}
+\item[•]\textbf{Paso 1}: Realizar la generación de los archivos cabecera y fuente como se establecen en los Pasos 1, 2 y 3 sobre la seccion \ref{sec:ej1sapi}.
+\item[•]\textbf{Paso 2}: Suponiendo que el usuario ya se encuentran instalados los drivers para la placa, y las herramientas de depuración para la misma, luego de realizar la conexión entre la placa y la computadora a través de \textit{OpenOCD} (sobre la consola \textit{cygwin}), el usuario debe iniciar \textit{Octoplus}.
+\item[•]\textbf{Paso 3}: A continuación se presenta una pantalla similar a la Figura \ref{Fig29}
 
 
 \begin{figure}[H]
@@ -808,7 +818,7 @@ El usuario debe seguir los siguientes pasos para implementar este ejemplo:
 \end{figure}
 
 
-\item[•]Sobre la sección \textit{Puerto Serial} debe identificarse sobre el menú desplegable \textit{Nombre}, el puerto COM asociado a la placa. La Figura \ref{Fig30} ilustra dicho concepto
+\item[•]\textbf{Paso 4}: Sobre la sección \textit{Puerto Serial} debe identificarse sobre el menú desplegable \textit{Nombre}, el puerto COM asociado a la placa. La Figura \ref{Fig30} ilustra dicho concepto
 
 
 \begin{figure}[!h]
@@ -818,9 +828,9 @@ El usuario debe seguir los siguientes pasos para implementar este ejemplo:
 \label{Fig30}
 \end{figure}
 
-\item[•]Debe tenerse en cuenta sobre la instrucción \textit{uartConfig()}, perteneciente a la librería \textit{sAPI}, deben asignarse dos parámetros de entrada, uno de ellos indica el módulo de la UART sobre la cual se desea trabajar, en este caso el parámetro es \textit{UART$\_$USB}. El segundo parámetro que debe asignarse a dicha instrucción es la velocidad de transmisión en baudios. El valor de la velocidad previamente configurada sobre el programa debe ser configurado sobre el menú desplegable \textit{BaudRate}, ubicado sobre el costado derecho del menú desplegable \textit{Nombre}.Por ejemplo, si la velocidad configurada es igual a 9600 baudios, entonces sobre dicho menú debe seleccionarse 9600, como lo ilustra la Figura \ref{Fig30}.
-\item[•]Al realizar la depuración, el usuario debe seleccionar el boton \textit{Abrir/Cerrar puerto COM}, el cual se encuentra sobre la derecha del menú desplegable \textit{BaudRate},como lo ilustra la Figura \ref{Fig29}.
-\item[•]Para efectuar transmisiones sobre el puerto COM seleccionado, el usuario debe ingresar el dato sobre el cuadro de texto asociado al mismo y apretar el boton asociado a dicho cuadro.
+\item[•]\textbf{Paso 5}: Debe tenerse en cuenta sobre la instrucción \textit{uartConfig()}, perteneciente a la librería \textit{sAPI}, deben asignarse dos parámetros de entrada, uno de ellos indica el módulo de la UART sobre la cual se desea trabajar, en este caso el parámetro es \textit{UART$\_$USB}. El segundo parámetro que debe asignarse a dicha instrucción es la velocidad de transmisión en baudios. El valor de la velocidad previamente configurada sobre el programa debe ser configurado sobre el menú desplegable \textit{BaudRate}, ubicado sobre el costado derecho del menú desplegable \textit{Nombre}.Por ejemplo, si la velocidad configurada es igual a 9600 baudios, entonces sobre dicho menú debe seleccionarse 9600, como lo ilustra la Figura \ref{Fig30}.
+\item[•]\textbf{Paso 6}: Al realizar la depuración, el usuario debe seleccionar el boton \textit{Abrir/Cerrar puerto COM}, el cual se encuentra sobre la derecha del menú desplegable \textit{BaudRate},como lo ilustra la Figura \ref{Fig29}.
+\item[•]\textbf{Paso 7}: Para efectuar transmisiones sobre el puerto COM seleccionado, el usuario debe ingresar el dato sobre el cuadro de texto asociado al mismo y apretar el boton asociado a dicho cuadro.
 \end{enumerate}
 
 \subsection{Implementación de ejemplo N$^{\circ}$7: Comunicación Serial-Utilización Display LCD 16x2}
@@ -828,8 +838,8 @@ El siguiente ejemplo utiliza los leds incorporados en la placa, de forma tal que
 
 En este ejemplo también se utiliza un display LCD 16x2. Para el manejo del mismo fue necesario utilizar una libreria no perteneciente a \textit{sAPI}, la cual fue diseñada por Matias Ferraro\cite{repositoriomatiasferraro}.
 \begin{enumerate}
-\item[•]Realizar la generación de los archivos cabecera y fuente como se establece sobre la seccion \ref{sec:ej1sapi}.
-\item[•]Realizar la inclusión de los siguientes archivos cabecera y fuente para la utilización del Display LCD:
+\item[•]\textbf{Paso 1}: Realizar la generación de los archivos cabecera y fuente como se establecen en los Pasos 1, 2 y 3 sobre la seccion \ref{sec:ej1sapi}.
+\item[•]\textbf{Paso 2}: Realizar la inclusión de los siguientes archivos cabecera y fuente para la utilización del Display LCD:
 \begin{enumerate}
 \item[•]\underline{Archivos Cabecera}:
 \begin{enumerate}
@@ -844,7 +854,7 @@ En este ejemplo también se utiliza un display LCD 16x2. Para el manejo del mism
 \item[•]\textit{puertos.c}
 \end{enumerate}
 \end{enumerate}
-\item[•]Sobre la Figura \ref{Fig31} se ilustra el diagrama esquemático para el conexionado del Display sobre la placa.
+\item[•]\textbf{Paso 3}: Sobre la Figura \ref{Fig31} se ilustra el diagrama esquemático para el conexionado del Display sobre la placa.
 
 
 \begin{figure}[H]
@@ -855,7 +865,7 @@ En este ejemplo también se utiliza un display LCD 16x2. Para el manejo del mism
 \end{figure}
 
 
-\item[•]Implementar la conexión que se indica sobre la Sección \ref{sec:ej3sapi} para el Display 7 Segmentos.
+\item[•]\textbf{Paso 4}: Implementar la conexión que se indica sobre la Sección \ref{sec:ej3sapi} para el Display 7 Segmentos.
 
 \end{enumerate}
 
@@ -1218,7 +1228,7 @@ El siguiente ejemplo pretende demostrar como pueden implementarse varias Tareas 
 
 En este caso, se desea implementar un programa que  permita encender los leds incorporados en la placa de izquierda a derecha, oprimiendo \textit{TEC1,TEC2,TEC3,TEC4} en el mismo orden.
 
-Se realiza la definición de una Tarea que establece la configuración inicial de la placa, de forma similar al ejemplo anterior, sin embargo, dicha Tarea produce la activación de otra denominada \textit{LEDUNO}, la cual permite el encendido del LED1 (es importante aclarar en esta instancia para evitar posibles problemas al usuario, que para la implementación de otros programas, es recomendable que al definir nombres para las Tareas, éstos sean distintos a definiciones o nombres de funciones de bibliotecas incorporadas ).
+Se realiza la definición de una Tarea que establece la configuración inicial de la placa, de forma similar al ejemplo anterior, sin embargo, dicha Tarea produce la activación de otra denominada \textit{LEDUNO}, la cual permite el encendido del LED1 (es importante aclarar en esta instancia para evitar posibles problemas al usuario, que para la implementación de otros programas, es recomendable que al definir nombres para las Tareas, éstos sean distintos a definiciones o nombres de funciones de librería incorporadas ).
 \begin{figure}[!h]
 \centering
 \includegraphics[width=5 cm]{figuras/f23.png}
@@ -1393,7 +1403,7 @@ En este ejemplo se realiza la lectura analógica de una tensión de entrada sobr
 
 Para comenzar la implementación de una librería propia se procede de forma similar a la que se estableció para la generación de un archivo cabecera y un archivo fuente sobre la sección \ref{sec:tareasOSEK}. En este caso en particular se implemeta una librería propia que tiene como propósito configurar la placa, las teclas y los leds incorporados; facilitar el encendido de un solo Led en particular (a través de una sola instrucción creada en la librería); facilitar la conversión de la lectura analógica realizada por el ADC; simplificar la inicialización del Display LCD 16x2 mediante las instrucciones propias de la librería de Matias Ferraro \cite{repositoriomatiasferraro}; y generar instrucciones de utilización propia en particular.
 
-Debe tenerse en cuenta que al utilizar instrucciones propias de la librería \textit{sAPI} y la del Display LCD, sobre el archivo cabecera de la biblioteca propia, debe incluirse los archivos cabecera de las librerías listadas anteriormente. La Figura \ref{Fig47} ilustra el concepto explicado.
+Debe tenerse en cuenta que al utilizar instrucciones propias de la librería \textit{sAPI} y la del Display LCD, sobre el archivo cabecera de la misma, debe incluirse los archivos cabecera de las librerías listadas anteriormente. La Figura \ref{Fig47} ilustra el concepto explicado.
 
 \begin{center}
 \begin{figure}[!h]
