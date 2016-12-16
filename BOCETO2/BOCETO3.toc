@@ -9,33 +9,33 @@
 \contentsline {subsection}{\numberline {2.4}Iniciaci\IeC {\'o}n a trav\IeC {\'e}s de ejemplos}{10}
 \contentsline {subsection}{\numberline {2.5}Instalaci\IeC {\'o}n de IDE}{10}
 \contentsline {section}{\numberline {3}Desinstalaci\IeC {\'o}n}{16}
-\contentsline {section}{\numberline {4}Primeros Pasos con la EDU-CIAA}{16}
-\contentsline {subsection}{\numberline {4.1}Programacion en Baremetal a trav\IeC {\'e}s de libreria sAPI}{16}
-\contentsline {subsection}{\numberline {4.2}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$1: Salidas Digitales}{19}
-\contentsline {subsection}{\numberline {4.3}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$2: Entradas y Salidas Digitales}{22}
-\contentsline {subsection}{\numberline {4.4}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$3: Entradas Anal\IeC {\'o}gicas y Uso de Display 7 Segmentos}{23}
-\contentsline {subsection}{\numberline {4.5}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$4: Conversor Digital/Anal\IeC {\'o}gico (DAC)}{25}
-\contentsline {subsection}{\numberline {4.6}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$5: Uso de UART y Display LCD 16x2}{27}
-\contentsline {subsection}{\numberline {4.7}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$6: Comunicaci\IeC {\'o}n Serial}{29}
-\contentsline {subsection}{\numberline {4.8}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$7: Comunicaci\IeC {\'o}n Serial-Utilizaci\IeC {\'o}n Display LCD 16x2}{30}
-\contentsline {section}{\numberline {5}Sistema Operativo en Tiempo Real}{31}
-\contentsline {subsection}{\numberline {5.1}Tareas}{32}
-\contentsline {subsubsection}{\numberline {5.1.1}Modelo de Tareas B\IeC {\'a}sicas}{33}
-\contentsline {subsubsection}{\numberline {5.1.2}Modelo de Tareas Extendidas}{34}
-\contentsline {subsection}{\numberline {5.2}Scheduler}{35}
-\contentsline {subsection}{\numberline {5.3}Modos de Aplicaci\IeC {\'o}n}{36}
-\contentsline {subsection}{\numberline {5.4}Eventos}{36}
-\contentsline {subsection}{\numberline {5.5}Clases de Conformidad}{36}
-\contentsline {subsection}{\numberline {5.6}Configuraci\IeC {\'o}n y Generaci\IeC {\'o}n}{37}
-\contentsline {subsection}{\numberline {5.7}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$1: Tareas en OSEK}{38}
-\contentsline {subsection}{\numberline {5.8}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$2: M\IeC {\'u}ltiples Tareas en OSEK}{44}
-\contentsline {subsection}{\numberline {5.9}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$3: Eventos en OSEK}{45}
-\contentsline {subsection}{\numberline {5.10}Alarmas}{47}
-\contentsline {subsection}{\numberline {5.11}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$4: Eventos y Alarmas en OSEK}{47}
-\contentsline {subsection}{\numberline {5.12}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$5: Alarmas en OSEK}{50}
-\contentsline {subsection}{\numberline {5.13}Interrupciones}{52}
-\contentsline {subsection}{\numberline {5.14}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$6: Interrupciones en OSEK}{53}
-\contentsline {subsection}{\numberline {5.15}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$7: Interrupciones en OSEK}{55}
-\contentsline {subsection}{\numberline {5.16}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$8: Interrupciones en OSEK}{57}
-\contentsline {subsection}{\numberline {5.17}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$9: Inclusi\IeC {\'o}n de librer\IeC {\'\i }a LCD y formaci\IeC {\'o}n de librerias propias para trabajar}{59}
-\contentsline {subsection}{\numberline {5.18}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$10: Inclusi\IeC {\'o}n de librer\IeC {\'\i }a LCD y formaci\IeC {\'o}n de librerias propias para trabajar}{61}
+\contentsline {section}{\numberline {4}Primeros Pasos con la EDU-CIAA}{17}
+\contentsline {subsection}{\numberline {4.1}Programacion en Baremetal a trav\IeC {\'e}s de libreria sAPI}{17}
+\contentsline {subsection}{\numberline {4.2}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$1: Salidas Digitales}{20}
+\contentsline {subsection}{\numberline {4.3}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$2: Entradas y Salidas Digitales}{23}
+\contentsline {subsection}{\numberline {4.4}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$3: Entradas Anal\IeC {\'o}gicas y Uso de Display 7 Segmentos}{25}
+\contentsline {subsection}{\numberline {4.5}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$4: Conversor Digital/Anal\IeC {\'o}gico (DAC)}{27}
+\contentsline {subsection}{\numberline {4.6}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$5: Uso de UART y Display LCD 16x2}{29}
+\contentsline {subsection}{\numberline {4.7}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$6: Comunicaci\IeC {\'o}n Serial}{31}
+\contentsline {subsection}{\numberline {4.8}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$7: Comunicaci\IeC {\'o}n Serial-Utilizaci\IeC {\'o}n Display LCD 16x2}{32}
+\contentsline {section}{\numberline {5}Sistema Operativo en Tiempo Real}{34}
+\contentsline {subsection}{\numberline {5.1}Tareas}{34}
+\contentsline {subsubsection}{\numberline {5.1.1}Modelo de Tareas B\IeC {\'a}sicas}{35}
+\contentsline {subsubsection}{\numberline {5.1.2}Modelo de Tareas Extendidas}{36}
+\contentsline {subsection}{\numberline {5.2}Scheduler}{37}
+\contentsline {subsection}{\numberline {5.3}Modos de Aplicaci\IeC {\'o}n}{38}
+\contentsline {subsection}{\numberline {5.4}Eventos}{38}
+\contentsline {subsection}{\numberline {5.5}Clases de Conformidad}{38}
+\contentsline {subsection}{\numberline {5.6}Configuraci\IeC {\'o}n y Generaci\IeC {\'o}n}{40}
+\contentsline {subsection}{\numberline {5.7}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$1: Tareas en OSEK}{41}
+\contentsline {subsection}{\numberline {5.8}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$2: M\IeC {\'u}ltiples Tareas en OSEK}{46}
+\contentsline {subsection}{\numberline {5.9}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$3: Eventos en OSEK}{48}
+\contentsline {subsection}{\numberline {5.10}Alarmas}{49}
+\contentsline {subsection}{\numberline {5.11}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$4: Eventos y Alarmas en OSEK}{50}
+\contentsline {subsection}{\numberline {5.12}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$5: Alarmas en OSEK}{52}
+\contentsline {subsection}{\numberline {5.13}Interrupciones}{54}
+\contentsline {subsection}{\numberline {5.14}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$6: Interrupciones en OSEK}{55}
+\contentsline {subsection}{\numberline {5.15}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$7: Interrupciones en OSEK}{57}
+\contentsline {subsection}{\numberline {5.16}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$8: Interrupciones en OSEK}{59}
+\contentsline {subsection}{\numberline {5.17}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$9: Inclusi\IeC {\'o}n de librer\IeC {\'\i }a LCD y formaci\IeC {\'o}n de librerias propias para trabajar}{61}
+\contentsline {subsection}{\numberline {5.18}Implementaci\IeC {\'o}n de ejemplo N$^{\circ }$10: Inclusi\IeC {\'o}n de librer\IeC {\'\i }a LCD y formaci\IeC {\'o}n de librerias propias para trabajar}{63}

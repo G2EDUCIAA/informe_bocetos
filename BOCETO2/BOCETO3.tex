@@ -264,28 +264,28 @@ El paquete de instalación incluye:
 \end{enumerate}
 Para realizar la instalación del IDE, es necesario realizar los siguientes pasos:
 \begin{enumerate}
-\item[•]Una vez realizada la descarga del instalador, se ejecuta dicha aplicación, la Figura \ref{Fig4} muestra el arranque del instalador, sobre ella, debe seleccionarse \textit{Siguiente}. A continuación deben aceptarse los términos de uso.
+\item[•]Una vez realizada la descarga del instalador, se ejecuta dicha aplicación, la Figura \ref{Fig4} muestra el arranque del instalador, sobre ella, debe seleccionarse \textit{Siguiente}.
 \begin{figure}[H]
 \centering
 \includegraphics[width=8 cm]{figuras/instalacion1.png}\\
 \caption{Arranque del instalador del software IDE}
 \label{Fig4}
 \end{figure}
-\item[•]Sobre la ventana siguiente deben elegirse cuáles componentes se desea instalar, en el caso que el usuario no posea  la placa disponible, no es necesario instalar los drivers, si se adquiere dicha placa en un momento posterior,dado que los drivers se instalan junto con el IDE, los mismos quedarán en la carpeta de destino para su instalación en forma manual; otra forma de instalar los  los controladores es ejecutar el instalador del CIAA-IDE Suite y tildar únicamente la opción \textbf{drivers} al momento de seleccionar los componentes a instalar.La Figura \ref{Fig5} ilustra lo explicado anteriormente.
-\begin{figure}[!h]
+\item[•]A continuación, el usuario debe aceptar las licencias para la utilización del programa. Como se muestra en La Figura \ref{Fig5}.
+\begin{figure}[H]
 \centering
 \includegraphics[width=8 cm]{figuras/instalacion2.png}\\
 \caption{Arranque del instalador del software IDE}
 \label{Fig5}
 \end{figure}
-\item[•]Sobre la Figura \ref{Fig6}, se deben seleccionar los componentes a instalar.
+\item[•]Luego se presenta una ventana como la de la Figura \ref{Fig6}, sobre ella deben elegirse cuáles componentes se desean instalar. En el caso que el usuario no cuente con la placa, no es necesario instalar los drivers. En el momento de contar con ella, los drivers se instalan junto con el IDE, los mismos quedarán en la carpeta de destino para su instalación en forma manual; otra forma de instalar los  los controladores es ejecutar el instalador del CIAA-IDE Suite y tildar únicamente la opción \textbf{drivers} al momento de seleccionar los componentes a instalar. 
 \begin{figure}[H]
 \centering
 \includegraphics[width=8 cm]{figuras/instalacion3.png}\\
 \caption{Selección de componentes del instalador}
 \label{Fig6}
 \end{figure}
-\item[•]A continuación debe  establecerse la dirección en donde se desea instalar el entorno. La ventana que corresponde a este proceso se ilustra en la Figura \ref{Fig7}.En caso de que se desee cambiar dicha dirección,debe tenerse la precaución de no elegir una dirección donde los directorios posean espacios en sus nombres. Es recomendable no cambiar la unidad de instalación, pues en los siguientes pasos del documento se utilizarán direcciones que harán referencia a esta carpeta de instalación, y si se cambia, se deberán cambiar consecuentemente dichas direcciones.
+\item[•]A continuación debe  establecerse la dirección en donde se desea instalar el entorno. La ventana que corresponde a este proceso se ilustra en la Figura \ref{Fig7}. En caso de que se desee cambiar dicha dirección, debe tenerse la precaución de no elegir una dirección donde los directorios posean espacios en sus nombres. Es recomendable no cambiar la unidad de instalación, pues en los siguientes pasos del documento se utilizarán direcciones que harán referencia a esta carpeta de instalación, y si se modifica, se deberán cambiar consecuentemente dichas direcciones.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=8 cm]{figuras/instalacion4.png}\\
@@ -334,14 +334,14 @@ Para realizar la instalación del IDE, es necesario realizar los siguientes paso
 \caption{Instalador de drivers FTDI parte 4}
 \label{Fig12}
 \end{figure}
-\item[•]Una de las posibles fallas que pueden surgir a través de este proceso, se presenta al producirse una falla en la comunicación a través del puerto virtual FTDI, que impide la correcta comunicación entre la placa y el entorno IDE. Su corrección debe efectuarse manualmente, fuera del instalador, y es posible la aparición de una ventana de error emergente como la que se muestra en la Figura \ref{Fig13}.
+\item[•]Una posible falla que pueden surgir en esta instalación, es que puede presentarse un error en la comunicación a través del puerto virtual FTDI, que impide la correcta comunicación entre la placa y el entorno IDE. Su corrección debe efectuarse manualmente fuera del instalador, y es posible la aparición de una ventana de error emergente como la que se muestra en la Figura \ref{Fig13}.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=9 cm]{figuras/instalacion11.png}\\
 \caption{Instalador de drivers FTDI parte 5}
 \label{Fig13}
 \end{figure}
-\item[•]El instalador incluye en la carpeta donde se instaló el software (Por defecto,C:/CIAA) un programa que configura el driver del controlador serie, emulado por la placa, para que uno de ellos pueda ser utilizado como interfaz JTAG. Dicho programa se llama $ Zadig\_Win\_7\_2\_1\_1.exe $, la Figura \ref{Fig14} muestra una ilustración de la ubicación del programa.
+\item[•]El instalador incluye en la carpeta donde se instaló el software (Por defecto C:/CIAA) un programa que configura el driver del controlador serie, emulado por la placa, para que uno de ellos pueda ser utilizado como interfaz JTAG. Dicho programa se llama $ Zadig\_Win\_7\_2\_1\_1.exe $, la Figura \ref{Fig14} muestra la ubicación del programa.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=6 cm]{figuras/instalacion12.png}\\
@@ -357,7 +357,7 @@ Para realizar la instalación del IDE, es necesario realizar los siguientes paso
 \label{Fig15}
 \end{figure}
 
-\item[•]Aparecerá una lista de dispositivos de comunicación relacionados al USB. Se tiene que buscar aquellos cuyos nombres tengan relación con el puerto serie (puede aparecer Dual RS232-HS, USB Serial Converter, o algo similar).Por lo general, aparecerán 2 con el mismo nombre, excepto que uno es Interface 0 y el otro Interface 1, como se muestra en la Figura \ref{Fig16} (la lista de drivers que se muestra puede diferir, dependiendo de la computadora que se utilice).
+\item[•]Aparecerá una lista de dispositivos de comunicación relacionados al USB. Se tiene que buscar aquellos cuyos nombres tengan relación con el puerto serie (puede aparecer Dual RS232-HS, USB Serial Converter, o algo similar). Por lo general, aparecerán 2 con el mismo nombre, excepto que uno es Interface 0 y el otro Interface 1, como se muestra en la Figura \ref{Fig16} (la lista de drivers que se muestra puede diferir, dependiendo de la computadora que se utilice).
 
 \begin{figure}[!h]
 \centering
@@ -376,9 +376,9 @@ Para realizar la instalación del IDE, es necesario realizar los siguientes paso
 La Figura \ref{Fig17} muestra la ventana ya configurada:
 
 
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
-\includegraphics[width=8 cm]{figuras/instalacion15.png}\\
+\includegraphics[width=13 cm]{figuras/instalacion15.png}\\
 \caption{Configuración del Zadig para el reemplazo del driver}
 \label{Fig17}
 \end{figure}
@@ -390,14 +390,37 @@ La Figura \ref{Fig17} muestra la ventana ya configurada:
 \section{Desinstalación}
 Si se instaló el Software de CIAA-IDE y luego se desea desinstalarlo, se debe tener especial
 cuidado en quitar cualquier contenido que se quiera conservar de la carpeta C:$\setminus$CIAA, o el directorio de instalación elegido. Esto se debe a que el desinstalador del Software CIAA-IDE elimina el directorio y todo su contenido.
-
+\begin{enumerate}
+\item[•]Ejecutar el programa \textit{uninstall.exe} ubicado en el directorio de instalación del programa.
+\item[•]Luego se presenta la ventana de la Figura \ref{des1}. Hacer click en \textit{Siguiente}.
+\begin{figure}[H]
+\centering
+\includegraphics[width=8 cm]{figuras/des1.png}\\
+\caption{Desinstalación del programa.}
+\label{des1}
+\end{figure}
+\item[•]Seleccionar el directorio de instalación, en caso de haber instalado el programa en el directorio por defecto se tiene una ventana similar a la Figura \ref{des2}. Luego hacer click sobre \textit{Desinstalar}.
+\begin{figure}[H]
+\centering
+\includegraphics[width=8 cm]{figuras/des2.png}\\
+\caption{Desinstalación del programa.}
+\label{des2}
+\end{figure}
+\item[•]Finalmente se presenta una ventana como la Figura \ref{des3}. Sobre ella debe hacer click sobre \textit{Terminar}
+\begin{figure}[H]
+\centering
+\includegraphics[width=8 cm]{figuras/des3.png}\\
+\caption{Desinstalación del programa.}
+\label{des3}
+\end{figure}
+\end{enumerate}
 \section{Primeros Pasos con la EDU-CIAA}
 
 \subsection{Programacion en Baremetal a través de libreria sAPI}\label{sec:programacionbaremetal}
-Debido a que la programación de la placa en Baremetal puede tornarse un tanto engorrosa en principio, es posible utilizar una libreria diseñada para la implementación de proyectos en Baremetal con la placa EDU CIAA, dicha librería se la denomina \textit{sAPI}. Esta librería implementa una API simple para la programación de dicha placa, es necesario comentar que una API es una interfaz de programación de aplicaciones, y consta de un conjunto de subrutinas, funciones y procedimientos (o métodos, en la programación orientada a objetos) para permitir ser utilizada por otro software como una capa de abstracción en la programación (aunque no necesariamente) entre los niveles o capas inferiores y las superiores del software\cite{sapi}.
+La programación en Baremetal se refiere a la realizada cuando no se incluye un Sistema Operativo. Debido a que la programación de la placa en Baremetal puede tornarse un tanto engorrosa en principio, es posible utilizar una biblioteca, llamada \textit{sAPI}, diseñada para la implementación de proyectos en Baremetal con la placa EDU CIAA. Esta biblioteca implementa una API simple para la programación de la placa. Una API es una interfaz de programación de aplicaciones, y consta de un conjunto de subrutinas, funciones y procedimientos (o métodos, en la programación orientada a objetos) para permitir ser utilizada por otro software como una capa de abstracción en la programación (aunque no necesariamente) entre los niveles o capas inferiores y las superiores del software\cite{sapi}.
  \\
  
-La motivación para el desarrollo de la librería sAPI surge de la necesidad de manejar los periféricos directamente desde una máquina virtual de Java para el desarrollo de Java sobre la CIAA y corresponde a la parte de bajo nivel de las clases de periféricos en Java que básicamente bindea a funciones escritas en C.
+La motivación para el desarrollo de la biblioteca sAPI surge de la necesidad de manejar los periféricos directamente desde una máquina virtual de Java para el desarrollo de Java sobre la CIAA y corresponde a la parte de bajo nivel de las clases de periféricos en Java que básicamente bindea a funciones escritas en C.
 Luego se extendió la misma para facilitar el uso de la EDU-CIAA-NXP a personas no expertas en la arquitectura del LPC4337 facilitando el uso de esta plataforma.
  \\
  
@@ -428,38 +451,36 @@ Es necesario destacar que actualmente se encuentra disponible para las plataform
 \label{Fig18}
 \end{figure} 
 
-Breve descripcion de los modulos de la librería:
+Breve descripcion de los modulos de la biblioteca:
 \begin{enumerate}
-\item[•]\textbf{sAPI$\_$Config}: Contiene configuraciones de la librería.
-\item[•]\textbf{sAPI$\_$DataTypes}:Define las siguientes constantes:
+\item[•]\textbf{sAPI$\_$Config}: Contiene configuraciones de la biblioteca.
+\item[•]\textbf{sAPI$\_$DataTypes}: Define las siguientes constantes:
 \begin{enumerate}
 \item[•]Estados lógicos, \textit{TRUE} y \textit{FALSE}.
 \item[•]Estados funcionales \textit{ON} y \textit{OFF}
 \item[•]Estados electricos \textit{HIGH} y \textit{LOW}
 \item[•]Tipos de datos: Booleanos (\textit{bool$\_$t}), enteros sin signo(\textit{uint8$\_$t, uint16$\_$t, uint32$\_$t, uint64$\_$t}), enteros con signo (\textit{int8$\_$t, int16$\_$t, int32$\_$t, int64$\_$t}).
 \end{enumerate}
-\item[•]\textbf{sAPI$\_$IsrVector}:Contiene la tabla de vectores de interrupción.
-\item[•]\textbf{sAPI$\_$Board}:Contiene la función de configuración para inicialización de la plataforma de hardware.
-\item[•]\textbf{sAPI$\_$PeripheralMap}:Contiene el mapa de periféricos, para la interpretación de éste, el usuario debe utilizar el diagrama esquemático de la placa y el archivo \textit{PeripheralMap$.txt$} ubicado sobre el directorio \textit{sapi-bm}.
+\item[•]\textbf{sAPI$\_$IsrVector}: Contiene la tabla de vectores de interrupción.
+\item[•]\textbf{sAPI$\_$Board}: Contiene la función de configuración para inicialización de la plataforma de hardware.
+\item[•]\textbf{sAPI$\_$PeripheralMap}: Contiene el mapa de periféricos, para la interpretación de éste, el usuario debe utilizar el diagrama esquemático de la placa y el archivo \textit{PeripheralMap$.txt$} ubicado sobre el directorio \textit{sapi-bm}.
 \item[•]\textbf{sAPI$\_$DigitalIO}: Utilizada para el manejo de entradas y salidas digitales.
 \end{enumerate}
 
 
-Utilización de librería sAPI:
-
-Es posible descargar la version más reciente de dicha librería, a traves del repositorio de la misma, ubicado en la pagina web.
- \\
- 
-Luego de haber descargado la versión actual de  sAPI se procede a copiar la carpeta \textit{sapi$\_$bm} y pegarla en \textit{C$:/$CIAA$/$Firmware$/$modules}.
- \\
- 
-Al utilizar la librería \textit{sAPI} para un proyecto en Baremetal, se debe modificar el makefile del mismo dentro de la carpeta mak y cambiar la última línea de: \textbf{MODS += externals \$(DS)drivers}, y reemplazarla por:  \textbf{MODS += modules \$ (DS)sapi$\_$bm}.
- \\
- 
-Luego, sobre cada archivo fuente en la que se ejecuten instrucciones que contenga esta librería, se debe realizar la inclusión del mismo mediante la instruccion: \textbf{\# include “sAPI.h”}. Debe aclararse que en la versión 0.3.0 no es necesario incluir el archivo \textit{chip.h} dado que la propia librería lo incluye, además, esta librería maneja el vector de interrupción, por lo tanto, para el usuario que haya trabajado anteriormente con proyectos escritos en instrucciones de \textit{LPCOpen}, debe tenerse en cuenta que ya no se necesita realizar el archivo que contenga las direcciones de las subrutinas para la atención de las interrupciones. El ejemplo \textit{"baremetal"} del Firmware en el que se realiza este tutorial, trae consigo dicho archivo.
- \\
- 
-Para la compilación y depuración del programa mediante el IDE del Firmware, se debe colocar sobre la carpeta Firmware y mediante click derecho, el usuario debe ubicarse en \textit{Propiedades}$\rightarrow$\textit{C/C++ Build}$\rightarrow$\textit{Behaviour}. A continuación debe modificar sobre la rama \textit{Clean}, y reemplazar la palabra \textit{Clean\_ generate} por la palabra \textit{clean}, como puede apreciarse en la Figura \ref{Fig19}.
+Utilización de biblioteca sAPI:
+\begin{enumerate}
+\item[•]Descargar la version más reciente de dicha biblioteca, a traves del repositorio de la misma, ubicado en la pagina web.
+\item[•]Luego de haber descargado la versión actual de  sAPI se procede a copiar la carpeta \textit{sapi$\_$bm} y pegarla en \textit{C$:/$CIAA$/$Firmware$/$modules}. La Figura \ref{sapiuso} ilustra este proceso.
+\begin{figure}[H]
+\centering
+\includegraphics[width=8 cm]{figuras/sapiuso.png}\\
+\caption{Ubicación de módulo \textit{sAPI}.}
+\label{sapiuso}
+\end{figure} 
+\item[•]Al utilizar la biblioteca \textit{sAPI} para un proyecto en Baremetal, se debe modificar el makefile del mismo dentro de la carpeta mak y cambiar la última línea de: \textbf{MODS += externals \$(DS)drivers}, y reemplazarla por:  \textbf{MODS += modules \$ (DS)sapi$\_$bm}.
+\item[•]Luego, sobre cada archivo fuente en la que se ejecuten instrucciones que contenga esta biblieteca, se debe realizar la inclusión del mismo mediante la instruccion: \textbf{\# include “sAPI.h”}.Debe aclararse que en la versión 0.3.0 no es necesario incluir el archivo \textit{chip.h}.
+\item[•]Para la compilación y depuración del programa mediante el IDE del Firmware, se debe colocar sobre la carpeta Firmware y mediante click derecho, el usuario debe ubicarse en \textit{Propiedades}$\rightarrow$\textit{C/C++ Build}$\rightarrow$\textit{Behaviour}. A continuación debe modificar sobre la rama \textit{Clean}, y reemplazar la palabra \textit{Clean\_ generate} por  \textit{clean}, como puede apreciarse en la Figura \ref{Fig19}.
 \begin{figure}[H]
 \centering
 \includegraphics[width=8 cm]{figuras/f1.png}\\
@@ -468,17 +489,19 @@ Para la compilación y depuración del programa mediante el IDE del Firmware, se
 \end{figure}
 
 
+\end{enumerate}
+
 \subsection{Implementación de ejemplo N$^{\circ}$1: Salidas Digitales}\label{sec:ej1sapi}
-El primer ejemplo aborda las salidas digitales, a través de los leds que provee la placa EDUCIAA.Este programa enciende los leds de la placa en forma secuencial, de izquierda a la derecha.Luego de finalizar esta secuencia, se apagan de derecha a izquierda.
+El primer ejemplo aborda las salidas digitales, a través de los leds que provee la placa EDUCIAA. Este programa enciende los leds de la placa en forma secuencial, de izquierda a la derecha. Luego de finalizar esta secuencia, se apagan de derecha a izquierda.
 \begin{enumerate}
-\item[•]\textbf{Paso 1}: Sobre el IDE de la placa, debe agregarse un nuevo directorio, realizando click derecho sobre \textit{Firmware}, luego se selecciona la opción \textit{New} $\rightarrow$ \textit{Folder}.La Figura \ref{nuevodirectorio} ilustra lo explicado.
+\item[•]\textbf{Paso 1}: Sobre el IDE de la placa, debe agregarse un nuevo directorio, realizando click derecho sobre \textit{Firmware}, luego se selecciona la opción \textit{New} $\rightarrow$ \textit{Folder}. La Figura \ref{nuevodirectorio} ilustra lo explicado.
 \begin{figure}[H]
 \centering
 \includegraphics[width=8 cm]{figuras/f43.png}
 \caption{Creacion de Nuevo Directorio}
 \label{nuevodirectorio}
 \end{figure}
-\item[•]\textbf{Paso 2}: A continuación se abre una ventana como la Figura \ref{nuevodirectorio2} que permite designar el nombre de dicho directorio, en el cual se ubica el proyecto que se implementa. El usuario debe recordar que para compilar dicho proyecto debe establecer la ruta que le corresponde sobre el archivo \textit{Makefile}. Asimismo, deben agregarse los directorios \textit{etc}, \textit{mak}, \textit{inc}, y \textit{src}, sobre el directorio creado recientemente.
+\item[•]\textbf{Paso 2}: A continuación se abre una ventana como la que se muestra en la Figura \ref{nuevodirectorio2}, que permite designar el nombre del directorio donde se ubica el proyecto que se quiere implementar. El usuario debe recordar que para compilar dicho proyecto debe establecer la ruta que le corresponde sobre el archivo \textit{Makefile}. Asimismo, deben agregarse los directorios \textit{etc}, \textit{mak}, \textit{inc}, y \textit{src}, sobre el directorio creado recientemente.
 \begin{figure}[H]
 \centering
 \includegraphics[width=8 cm]{figuras/f44.png}
@@ -497,7 +520,7 @@ Para generar el archivo cabecera, el usuario debe ubicarse sobre la carpeta \tex
 En ella, se debe establecer el nombre del archivo cabecera. Al terminar la escritura de su nombre, debe escribirse la terminación \textit{.h}, y oprimir el boton \textit{Finish}, para concluir la generacion de dicho archivo.
 En este caso, el archivo cabecera se define como \textit{Ejemplo$\_$1.h}.
 
-\item[•]\textbf{Paso 3}: Para generar el archivo fuente, el usuario debe ubicarse sobre la carpeta \textit{inc}, y luego oprimiendo click derecho, debe seleccionar la opción \textit{New} $\rightarrow$ \textit{Source File}. A continuación se abre una ventana cuyo aspecto es similar al de la Figura \ref{archivofuentesapi1}, en ella, se debe establecer el nombre del archivo fuente,el cual en este caso es \textit{Ejemplo$\_$1.c}. Al terminar la escritura de su nombre, debe escribirse la terminación \textit{.c},y oprimir el boton \textit{Finish}, para concluir la generacion de dicho archivo.
+\item[•]\textbf{Paso 3}: Para generar el archivo fuente, el usuario debe ubicarse sobre la carpeta \textit{inc}, y luego oprimiendo click derecho, debe seleccionar la opción \textit{New} $\rightarrow$ \textit{Source File}. A continuación se abre una ventana cuyo aspecto es similar al de la Figura \ref{archivofuentesapi1}, en ella, se debe establecer el nombre del archivo fuente, el cual en este caso es \textit{Ejemplo$\_$1.c}. Al terminar la escritura de su nombre, debe escribirse la terminación \textit{.c}, y oprimir el boton \textit{Finish}, para concluir la generacion de dicho archivo.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=8 cm]{figuras/f28.png}
@@ -508,12 +531,12 @@ En este caso, el archivo cabecera se define como \textit{Ejemplo$\_$1.h}.
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=15 cm]{figuras/f2.png}
+\includegraphics[width=5 cm]{figuras/f2.png}
 \caption{Generación de archivo fuente para implementación de proyecto.}
 \label{inclusionsapi1}
 \end{figure}
 
-\item[•]\textbf{Paso 5}:Una vez declarada la función principal \textit{main()}, es importante destacar algunas funciones utilizadas:
+\item[•]\textbf{Paso 5}: Una vez declarada la función principal \textit{main()}, es importante destacar algunas funciones utilizadas:
 \begin{enumerate}
 \item[•]\textit{boardconfig()}: Esta función se encarga de la configuración para inicializar la plataforma del hardware. No se debe especificar ningún parámetro.
 \item[•]\textit{tickconfig(A,B)}: Configura una interrupción periódica de temporizador cada tickRateMSvalue milisegundos para utilizar de base de tiempo del sistema. El parámetro A es el tiempo en milisegundos en el que se desee interrumpir el periférico Systick y aumente un contador que se usa para el módulo delay o para lo que se requiera. Sobre el parámetro B se especifica la función a ejecutar en cada tick.
@@ -521,55 +544,73 @@ En este caso, el archivo cabecera se define como \textit{Ejemplo$\_$1.h}.
 \item[•]\textit{digitalWrite(A,B)}: Permite el establecimiento en \textit{ALTO} o en \textit{BAJO} de un pin configurado como salida digital. Sobre el parámetro A de la funcion debe establecerse el nombre del PIN, teniendo en cuenta la definición realizada sobre el módulo \textit{sAPI$\_$PeripheralMap}. Sobre el parámetro B debe determinarse es el estado funcional \textit{ON} u \textit{OFF}.
 \item[•]\textit{delay(A)}: Permite implementar una temporización en ms sobre el parámetro A de dicha función.
 \end{enumerate}
-
-\item[•]\textbf{Paso 6}:Para realizar la compilación debe seleccionarse el directorio \textit{Firmware} y posteriormente hacer click sobre el botón \textit{Build}.
+\item[•]\textbf{Paso 6}: Ingresar el código \textit{Ejemplo$\_$1.c} ubicado en la carpeta \textit{EJ$\_$1$\_$BM}. 
+\item[•]\textbf{Paso 7}:Para realizar la compilación debe seleccionarse el directorio \textit{Firmware} y posteriormente hacer click sobre el botón \textit{Build}.
 \end{enumerate}
 \subsection{Implementación de ejemplo N$^{\circ}$2: Entradas y Salidas Digitales}\label{sec:ej2sapi}
 
-El siguiente ejemplo tiene como objetivo el manejo de las entradas y salidas digitales, dicho programa enciende los leds instalados sobre la placa, de acuerdo con la cantidad de veces que se oprime la tecla \textit{TEC1}. Sobre dicho ejemplo se implemento una maquina de estado, a través del programa \textit{uModel Factory} para poder establecer un orden sobre los eventos y las acciones que debe ejecutar el microcontrolador. Debe tenerse en cuenta que se implementan multiples archivos fuentes y cabeceras, en particular, el archivo fuente \textit{funciones.c} define las acciones y la evaluación de los eventos y \textit{funciones.h} establece la declaración de dichas funciones y de los estados.
+El siguiente ejemplo tiene como objetivo el manejo de las entradas y salidas digitales, dicho programa enciende los leds incorporados sobre la placa, de acuerdo con la cantidad de veces que se oprime la tecla \textit{TEC1}. Sobre dicho ejemplo se implementó una maquina de estado, a través del programa \textit{uModel Factory} para poder establecer un orden sobre los eventos y las acciones que debe ejecutar el microcontrolador.
  \\
  
-La funcion \textit{digitalRead(A)} permite determinar el estado funcional de un pin configurado como entrada digital, sobre el parámetro A debe determinarse el nombre del pin sobre el cual se desea efectuar la lectura. Debe tenerse en cuenta que dicho nombre debe corresponder al que se encuentra definido sobre el módulo \textit{sAPI$\_$PeripheralMap.h}.
-
-\begin{enumerate}
-\item[•]\textbf{Paso 1}:Realizar la generación de los archivos cabecera y fuente como se establecen en los Pasos 1, 2 y 3 sobre la seccion \ref{sec:ej1sapi}.
-
-\item[•]\textbf{Paso 2}: A través del programa \textit{uModel Factory}, implementar la siguiente Maquina de Estado Finita:
-
-\begin{enumerate}
-\item[•]\textbf{Paso 2.1}: La Figura \ref{tablatransicionej2} especifica la Tabla de Transiciónes de la MEF.
+Debe tenerse en cuenta que se implementan multiples archivos fuentes y cabeceras, en particular, el archivo fuente \textit{funciones.c} define las acciones y la evaluación de los eventos y \textit{funciones.h} establece la declaración de dichas funciones y de los estados.
+ \\
+ 
+La Figura \ref{tablatransicionej2} especifica la Tabla de Transiciónes de la MEF.
 \begin{figure}[H]
 \centering
-\includegraphics[width=8 cm]{figuras/f45.png}\\
+\includegraphics[width=10 cm]{figuras/f45.png}\\
 \caption{Tabla de Transiciónes de N$^{\circ}$2}
 \label{tablatransicionej2}
 \end{figure}
-\item[•]\textbf{Paso 2.2}: La Figura \ref{Fig22} especifica el diagrama de estados del ejemplo:
+La Figura \ref{Fig22} especifica el diagrama de estados del ejemplo:
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=8 cm]{figuras/f4.png}\\
+\includegraphics[width=10 cm]{figuras/f4.png}\\
 \caption{Diagrama de estados de ejemplo N$^{\circ}$2}
 \label{Fig22}
 \end{figure}
-\end{enumerate}
 
-\item[•]\textbf{Paso 3}: Incluir sobre el archivo fuente, el archivo cabecera \textit{funciones.h}
+La funcion \textit{digitalRead(A)} permite determinar el estado funcional de un pin configurado como entrada digital, sobre el parámetro A debe determinarse el nombre del pin sobre el cual se desea efectuar la lectura. Debe tenerse en cuenta que dicho nombre debe corresponder al que se encuentra definido sobre el módulo \textit{sAPI$\_$PeripheralMap.h}.
 
-\item[•]\textbf{Paso 4}: Incluir sobre el archivo fuente \textit{funciones.c} el archivo cabecera de la libreria \textit{sAPI} y el archivo cabecera del proyecto.
+\begin{enumerate}
+\item[•]\textbf{Paso 1}: Realizar la generación de los archivos cabecera y fuente como se establecen en los Pasos 1, 2 y 3 sobre la seccion \ref{sec:ej1sapi}.
 
+\item[•]\textbf{Paso 2}: Realizar la generación de los archivos cabecera \textit{funciones.h} y archivos fuente \textit{funciones.c} de la misma forma que que el paso anterior.
+
+\item[•]\textbf{Paso 3}: Ingresar sobre el archivo cabecera creado en el paso anterior, el código que contiene el archivo \textit{funciones.h}, ubicado sobre la carpeta \textit{EJ$\_$2$\_$BM}.
+
+\item[•]\textbf{Paso 4}: Ingresar sobre el archivo fuente creado en el paso anterior, el código que contiene el archivo \textit{funciones.c}, ubicado sobre la carpeta \textit{EJ$\_$2$\_$BM}.
+
+\item[•]\textbf{Paso 5}: Ingresar sobre el archivo fuente creado en el paso 1, el código que contiene el archivo \textit{Ejemplo$\_$2.c}, ubicado sobre la carpeta \textit{EJ$\_$2$\_$BM}.
+
+\item[•]Realizar la compilación y depuración del programa.
 \end{enumerate}
 
 
 
 \subsection{Implementación de ejemplo N$^{\circ}$3: Entradas Analógicas y Uso de Display 7 Segmentos}\label{sec:ej3sapi}
-En este ejemplo se realizan dos tareas distintas, dependiendo de la tecla pulsada (\textit{TEC1} y \textit{TEC2}).Si se pulsa la tecla \textit{TEC1}, se encienden los Leds en una secuencia determinada. Mientras que si se pulsa la tecla \textit{TEC2}, se realiza una muestra de los dígitos desde 1 hasta 9 a través del display 7 segmentos. 
+En este ejemplo se realizan dos tareas distintas, dependiendo de la tecla pulsada (\textit{TEC1} y \textit{TEC2}). Si se pulsa la tecla \textit{TEC1}, se encienden los leds en una secuencia determinada. Mientras que si se pulsa la tecla \textit{TEC2}, se realiza una muestra de los dígitos desde 1 hasta 9 a través del Display 7 Segmentos. 
  \\
  
 Se implementa una maquina de estados en donde se establecen los prototipos de funciones que corresponden a los eventos y las acciones que acontecen. 
- \\
- 
-Para el manejo del display se utiliza una librería. Para ello, deben generarse dos archivos los cuales pertenecen a la cabecera y a la fuente de dicha librería. Sobre la cabecera deben establecerse las inclusiones de la librería \textit{sAPI} y las declaraciones de las funciones que corresponden con el manejo del dispositivo.
+La Figura \ref{tablatransicionej3} especifica la Tabla de Transiciónes de la MEF.
+\begin{figure}[H]
+\centering
+\includegraphics[width=10 cm]{figuras/IMAGEN-EJEMPLO3.png}\\
+\caption{Tabla de Transiciónes de N$^{\circ}$3}
+\label{tablatransicionej3}
+\end{figure}
+
+La Figura \ref{diagramaej3} especifica el diagrama de estados del ejemplo:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8 cm]{figuras/ejemplo-3.png}\\
+\caption{Diagrama de estados de ejemplo N$^{\circ}$3}
+\label{diagramaej3}
+\end{figure}
+Para el manejo del display se utiliza una biblioteca. Para ello, deben generarse dos archivos los cuales pertenecen a la cabecera y a la fuente de dicha librería. Sobre la cabecera deben establecerse las inclusiones de la librería \textit{sAPI} y las declaraciones de las funciones que corresponden con el manejo del dispositivo.
  \\
  
 En este tutorial se realiza el manejo de un display de 7 segmentos del tipo cátodo común, de manera que para provocar el encendido de un led perteneciente al arreglo, se debe establecer en alto la salida de el pin conectado a dicho led. La librería que provee este tutorial determina el conexionado de los pines del display, sobre los correspondientes terminales GPIO ubicados en la placa EDU CIAA. La Figura \ref{Fig23} ilustra los terminales de la placa y del display utilizados para la conexión del dispositivo.
@@ -577,7 +618,7 @@ En este tutorial se realiza el manejo de un display de 7 segmentos del tipo cát
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=10 cm]{figuras/dsp7seg.png}\\
+\includegraphics[width=12 cm]{figuras/dsp7seg.png}\\
 \caption{Diagrama de conexión display 7 segmentos.}
 \label{Fig23}
 \end{figure}
@@ -590,108 +631,68 @@ En este código se hará uso del conversor analógico digital que posee esta pla
 La instrucción que implementa la biblioteca \textit{sAPI} para la lectura analógica es \textit{analogRead()}, sobre dicha función no debe especificarse ningún parámetro de entrada, sin embargo, debe tenerse en cuenta que retorna un valor de salida, el cual debe almacenarse sobre una variable del tipo \textit{uint16$\_$t}.
 
 \begin{enumerate}
-\item[•]\textbf{Paso 1}:Realizar la generación de los archivos cabecera y fuente como se establece sobre la seccion \ref{sec:ej1sapi}.
+\item[•]\textbf{Paso 1}: Realizar la generación de los archivos cabecera y fuente como se establecen en los Pasos 1, 2 y 3 sobre la seccion \ref{sec:ej1sapi}.
 
-\item[•]\textbf{Paso 2}: A través del programa \textit{uModel Factory}, implementar la siguiente Maquina de Estado Finita:
+\item[•]\textbf{Paso 2}: Realizar la generación de los archivos cabecera \textit{funciones.h} y archivos fuente \textit{funciones.c} de la misma forma que que el paso anterior.
 
-\begin{enumerate}
-\item[•]\underline{Estados}:
-\begin{enumerate}
-\item[•]Estado \textit{\textbf{INICIAL}}: Estado inicial en el cual, en presencia del evento \textit{NO$\_$APRETO}, el programa se establece en el mismo estado; mientras que para el caso que suceda evento \textit{APRETO1}, el programa se establece en el estado \textit{ESTADO1}; en el caso de la ocurrencia del evento \textit{APRETO2}, el programa se establece en el estado \textit{ESTADO2}. 
-\item[•]Estado \textit{\textbf{ESTADO1}}: Sobre dicho estado se realiza la secuencia de luces y la muestra de los digitos decimales sobre el display.
-\item[•]Estado \textit{\textbf{ESTADO2}}: Sobre dicho estado se muestra de un digito decimal en caso de que se oprima la tecla \textit{TEC2}.
-\end{enumerate}
-\item[•]\underline{Eventos}:
-\begin{enumerate}
-\item[•]Evento \textit{\textbf{NO$\_$APRETO}}: Identifica si no se ha oprimido la tecla \textit{TEC1} o la tecla \textit{TEC2}.
-\item[•]Evento \textit{\textbf{APRETO1}}: Identifica si se oprime la tecla \textit{TEC1}.
-\item[•]Evento \textit{\textbf{APRETO2}}: Identifica si se oprime la tecla \textit{TEC2}.
-\end{enumerate}
-\end{enumerate}
-La Figura \ref{Fig27}, ilustra el diagrama de estados de este ejemplo:
+\item[•]\textbf{Paso 3}: Ingresar sobre el archivo cabecera creado en el paso anterior, el código que contiene el archivo \textit{funciones.h}, ubicado sobre la carpeta \textit{EJ$\_$3$\_$BM}.
 
+\item[•]\textbf{Paso 4}: Ingresar sobre el archivo fuente creado en el paso anterior, el código que contiene el archivo \textit{funciones.c}, ubicado sobre la carpeta \textit{EJ$\_$3$\_$BM}.
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=6 cm]{figuras/f9.png}\\
-\caption{Diagrama de estados de ejemplo N$^{\circ}$3.}
-\label{Fig27}
-\end{figure}
+\item[•]\textbf{Paso 5}: Ingresar sobre el archivo fuente creado en el paso 1, el código que contiene el archivo \textit{Ejemplo$\_$3.c}, ubicado sobre la carpeta \textit{EJ$\_$3$\_$BM}.
 
-\item[•]\textbf{Paso 3}: Incluir sobre el archivo fuente, el archivo cabecera \textit{funciones.h}
-
-\item[•]\textbf{Paso 4}: Incluir sobre el archivo fuente \textit{funciones.c} el archivo cabecera de la libreria \textit{sAPI} y el archivo cabecera del proyecto.
-
+\item[•]Realizar la compilación y depuración del programa.
 \end{enumerate}
 
 \subsection{Implementación de ejemplo N$^{\circ}$4: Conversor Digital/Analógico (DAC)}\label{sec:ej4sapi}
 %\label{sec:dac}
 
-Un convertidor Digital/Analógico (DAC), es un dispositivo electrónico que recibe como dato de entrada un valor digital (en forma de una palabra de "n" bits) y lo transforma a una señal analógica. Cada una de las combinaciones binarias de entrada es convertida en niveles lógicos de tensión de salida. Un DAC transfiere información expresada en forma digital a una forma analógica. Para ubicar la función de este dispositivo conviene recordar que un sistema combina y relaciona diversos subsistemas que trabajan diferentes tipos de información analógica, como son; magnitudes eléctricas, mecánicas, etc.
+Un convertidor Digital/Analógico (DAC), es un dispositivo electrónico que recibe como dato de entrada un valor digital (en forma de una palabra de "n" bits) y lo transforma a una señal analógica. Cada una de las combinaciones binarias de entrada es convertida en niveles lógicos de tensión de salida. Un DAC transfiere información expresada en forma digital a una forma analógica. Para ubicar la función de este dispositivo conviene recordar que un sistema combina y relaciona diversos subsistemas que trabajan diferentes con tipos de información analógica, como son: Magnitudes eléctricas, mecánicas, etc.
  \\
  
 El siguiente ejemplo muestra al usuario como realizar el uso del módulo ADC de la placa, para realizar la lectura de una entrada analógica. Este programa enciende algunos de los leds de la placa, en función a la magnitud de la tensión leída. Por ejemplo, si la tensión leída es 2[V], entonces se encienden dos leds.
  \\
  
 La placa EDU-CIAA posee un DAC de 10 bits de resolución ,por lo tanto,el número de niveles de voltaje de salida analógico que es capaz de generar es de $2^{n}=2^{10}=1024$.
-Para la implementación del ejemplo, es posible realizar la lectura del terminal medio de un potenciómetro, la Figura \ref{Fig24} ilustra la conexión realizada.Debe tenerse en cuenta que es posible realizar la conexión del potenciómetro a partir de la terminal de 5[V] y la terminal GNDA que ofrece la placa.
+Para la implementación del ejemplo, es posible realizar la lectura del terminal medio de un potenciómetro, la Figura \ref{Fig24} ilustra la conexión realizada. Debe tenerse en cuenta que es posible realizar la conexión del potenciómetro a partir de la terminal de 5[V] y la terminal GNDA que ofrece la placa.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=5 cm]{figuras/potenciometro_ejemplo_4_baremetal.png}\\
+\includegraphics[width=10 cm]{figuras/potenciometro_ejemplo_4_baremetal.png}\\
 \caption{Diagrama de conexión potenciómetro para lectura analógica.}
 \label{Fig24}
 \end{figure}
 
 Este ejemplo utiliza maquinas de estado para poder establecer un orden sobre los eventos y las acciones que debe ejecutar el microcontrolador.
- \\
- 
+La Figura \ref{tablatransicionej4} especifica la Tabla de Transiciónes de la MEF.
+\begin{figure}[H]
+\centering
+\includegraphics[width=8 cm]{figuras/IMAGEN-EJEMPLO4.png}\\
+\caption{Tabla de Transiciónes de N$^{\circ}$4}
+\label{tablatransicionej4}
+\end{figure}
+La Figura \ref{diagramaej4} especifica el diagrama de estados del ejemplo:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8 cm]{figuras/ejemplo-4.png}\\
+\caption{Diagrama de estados de ejemplo N$^{\circ}$4}
+\label{diagramaej4}
+\end{figure}
 La instrucción \textit{analogConfig( ENABLE$\_$ANALOG$\_$INPUTS )} se encarga de habilitar las entradas analógicas. Mientras que \textit{analogConfig( ENABLE$\_$ANALOG$\_$OUTPUTS )} se encarga de habilitar las salidas analógicas, con las que trabajara el DAC.
 
 \begin{enumerate}
 \item[•]\textbf{Paso 1}: Realizar la generación de los archivos cabecera y fuente como se establecen en los Pasos 1, 2 y 3 sobre la seccion \ref{sec:ej1sapi}.
 
-\item[•]\textbf{Paso 2}: A través del programa \textit{uModel Factory}, implementar la siguiente Maquina de Estado Finita:
+\item[•]\textbf{Paso 2}: Realizar la generación de los archivos cabecera \textit{funciones.h} y archivos fuente \textit{funciones.c} de la misma forma que que el paso anterior.
 
-\begin{enumerate}
-\item[•]\underline{Estados}:
-\begin{enumerate}
-\item[•]Estado \textit{\textbf{UN$\_$VOLT}}: Estado en el cual, la tensión leída es igual a 1[V].
-\item[•]Estado \textit{\textbf{DOS$\_$VOLT}}: Estado en el cual, la tensión leída es igual a 2[V].
-\item[•]Estado \textit{\textbf{TRES$\_$VOLT}}: Estado en el cual, la tensión leída es igual a 3[V].
-\item[•]Estado \textit{\textbf{CUATRO$\_$VOLT}}: Estado en el cual, la tensión leída es igual a 4[V].
-\item[•]Estado \textit{\textbf{INTERMEDIO}}: Estado inicial en el cual, la tensión leída no es igual a 1[V],2[V],3[V],4[V],o 5[V].
-\end{enumerate}
-\item[•]\underline{Eventos}:
-\begin{enumerate}
-\item[•]Evento \textit{\textbf{LEYO$\_$1}}: Identifica si la lectura realizada sobre el ADC corresponde a 1[V].
-\item[•]Evento \textit{\textbf{LEYO$\_$2}}: Identifica si la lectura realizada sobre el ADC corresponde a 2[V].
-\item[•]Evento \textit{\textbf{LEYO$\_$3}}: Identifica si la lectura realizada sobre el ADC corresponde a 3[V].
-\item[•]Evento \textit{\textbf{LEYO$\_$4}}: Identifica si la lectura realizada sobre el ADC corresponde a 4[V].
-\item[•]Evento \textit{\textbf{LEYO$\_$5}}: Identifica si la lectura realizada sobre el ADC corresponde a 5[V].
-\item[•]Evento \textit{\textbf{NOES1}}: Identifica si la lectura realizada sobre el ADC es distinto a 1[V].
-\item[•]Evento \textit{\textbf{NOES2}}: Identifica si la lectura realizada sobre el ADC es distinto a 2[V].
-\item[•]Evento \textit{\textbf{NOES3}}: Identifica si la lectura realizada sobre el ADC es distinto a 3[V].
-\item[•]Evento \textit{\textbf{NOES4}}: Identifica si la lectura realizada sobre el ADC es distinto a 4[V].
-\item[•]Evento \textit{\textbf{NOES5}}: Identifica si la lectura realizada sobre el ADC es distinto a 5[V].
-\item[•]Evento \textit{\textbf{NOESNINGUNO}}: Identifica si la lectura realizada sobre el ADC no corresponde a 1[V],2[V],3[V],4[V] y 5[V].
-\end{enumerate}
-\end{enumerate}
+\item[•]\textbf{Paso 3}: Ingresar sobre el archivo cabecera creado en el paso anterior, el código que contiene el archivo \textit{funciones.h}, ubicado sobre la carpeta \textit{EJ$\_$4$\_$BM}.
 
-La Figura \ref{Fig25}, ilustra el diagrama de estados de este ejemplo:
+\item[•]\textbf{Paso 4}: Ingresar sobre el archivo fuente creado en el paso anterior, el código que contiene el archivo \textit{funciones.c}, ubicado sobre la carpeta \textit{EJ$\_$4$\_$BM}.
 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=10 cm]{figuras/f7.png}\\
-\caption{Diagrama de estados de ejemplo N$^{\circ}$4.}
-\label{Fig25}
-\end{figure}
+\item[•]\textbf{Paso 5}: Ingresar sobre el archivo fuente creado en el paso 1, el código que contiene el archivo \textit{Ejemplo$\_$4.c}, ubicado sobre la carpeta \textit{EJ$\_$4$\_$BM}.
 
-
-\item[•]\textbf{Paso 3}: Incluir sobre el archivo fuente, el archivo cabecera \textit{funciones.h}
-
-\item[•]\textbf{Paso 4}: Incluir sobre el archivo fuente \textit{funciones.c} el archivo cabecera de la libreria \textit{sAPI} y el archivo cabecera del proyecto.
-
+\item[•]Realizar la compilación y depuración del programa.
 \end{enumerate}
 
 
@@ -702,7 +703,7 @@ Es necesario destacar que la placa ya integra internamente el conversor digital 
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=8 cm]{figuras/f8.png}\\
+\includegraphics[width=10 cm]{figuras/f8.png}\\
 \caption{Ilustración de tensión de referencia de DAC.}
 \label{Fig26}
 \end{figure}
@@ -711,50 +712,35 @@ Es necesario destacar que la placa ya integra internamente el conversor digital 
 La instrucción \textit{analogRead()}, permite realizar la lectura de la tensión aplicada sobre el canal 1 del modulo ADC0 de la placa. A partir de la conversión a tensión, el programa aplica la tensión de salida correspondiente.
  \\
  
-Este ejemplo también utiliza maquina de estado para establecer un orden sobre los eventos y las acciones que debe ejecutar el microcontrolador.
+Este ejemplo también utiliza maquina de estado para establecer un orden sobre los eventos y las acciones que debe ejecutar el microcontrolador. La Figura \ref{tablatransicionej5} especifica la Tabla de Transiciónes de la MEF.
+\begin{figure}[H]
+\centering
+\includegraphics[width=10 cm]{figuras/IMAGEN-EJEMPLO5.png}\\
+\caption{Tabla de Transiciónes de N$^{\circ}$5}
+\label{tablatransicionej5}
+\end{figure}
+
+La Figura \ref{diagramaej5} especifica el diagrama de estados del ejemplo:
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=10 cm]{figuras/f10.png}\\
+\caption{Diagrama de estados de ejemplo N$^{\circ}$5}
+\label{diagramaej5}
+\end{figure}
 
 \begin{enumerate}
 \item[•]\textbf{Paso 1}: Realizar la generación de los archivos cabecera y fuente como se establecen en los Pasos 1, 2 y 3 sobre la seccion \ref{sec:ej1sapi}.
 
-\item[•]\textbf{Paso 2}: A través del programa \textit{uModel Factory}, implementar la siguiente Maquina de Estado Finita:
+\item[•]\textbf{Paso 2}: Realizar la generación de los archivos cabecera \textit{funciones.h} y archivos fuente \textit{funciones.c} de la misma forma que que el paso anterior.
 
-\begin{enumerate}
-\item[•]\underline{Estados}:
-\begin{enumerate}
-\item[•]Estado \textit{\textbf{LEO$\_$POTENCIOMETRO}}: Estado inicial, en el cual se determina la lectura analógica.
-\item[•]Estado \textit{\textbf{SALIDA$\_$2}}: Estado en el cual se realiza una salida analógica igual a 2[V], en el caso que la lectura realizada sea superior a 2[V].
-\item[•]Estado \textit{\textbf{SALIDA$\_$3}}: Estado en el cual se realiza una salida analógica igual a 3[V], en el caso que la lectura realizada sea superior a 4[V].
-\end{enumerate}
-\item[•]\underline{Eventos}:
-\begin{enumerate}
-\item[•]Evento \textit{\textbf{MAYOR$\_$2}}: Identifica si la lectura realizada sobre el ADC es superior a 2[V].
-\item[•]Evento \textit{\textbf{MAYOR$\_$4}}: Identifica si la lectura realizada sobre el ADC es superior a 4[V].
-\item[•]Evento \textit{\textbf{MENOR$\_$4}}: Identifica si la lectura realizada sobre el ADC es inferior a 4[V].
-\item[•]Evento \textit{\textbf{NINGUNO}}: Identifica si la lectura realizada sobre el ADC es inferior a 2[V].
-\end{enumerate}
-\item[•]\underline{Acciones}
-\begin{enumerate}
-\item[•]Accion \textit{\textbf{APAGAR$\_$DAC}}: Establece una salida de 0 [V] sobre el terminal del DAC.
-\item[•]Accion \textit{\textbf{DAC$\_$2}}: Establece una salida de 2 [V] sobre el terminal del DAC.
-\item[•]Accion \textit{\textbf{DAC$\_$3}}: Establece una salida de 3 [V] sobre el terminal del DAC.
-\end{enumerate}
-\end{enumerate}
+\item[•]\textbf{Paso 3}: Ingresar sobre el archivo cabecera creado en el paso anterior, el código que contiene el archivo \textit{funciones.h}, ubicado sobre la carpeta \textit{EJ$\_$5$\_$BM}.
 
-La Figura \ref{Fig28} ilustra el diagrama de estados que corresponde al ejemplo
+\item[•]\textbf{Paso 4}: Ingresar sobre el archivo fuente creado en el paso anterior, el código que contiene el archivo \textit{funciones.c}, ubicado sobre la carpeta \textit{EJ$\_$5$\_$BM}.
 
+\item[•]\textbf{Paso 5}: Ingresar sobre el archivo fuente creado en el paso 1, el código que contiene el archivo \textit{Ejemplo$\_$5.c}, ubicado sobre la carpeta \textit{EJ$\_$5$\_$BM}.
 
-\begin{figure}[!h]
-\centering
-\includegraphics[width=6 cm]{figuras/f10.png}\\
-\caption{Diagrama de estados de ejemplo N$^{\circ}$5}
-\label{Fig28}
-\end{figure}
-
-
-\item[•]\textbf{Paso 3}: Incluir sobre el archivo fuente, el archivo cabecera \textit{funciones.h}
-
-\item[•]\textbf{Paso 4}: Incluir sobre el archivo fuente \textit{funciones.c} el archivo cabecera de la libreria \textit{sAPI} y el archivo cabecera del proyecto.
-
+\item[•]Realizar la compilación y depuración del programa.
 \end{enumerate}
 
 
@@ -812,6 +798,8 @@ El usuario debe seguir los siguientes pasos para implementar este ejemplo:
 \item[•]\textbf{Paso 5}: Debe tenerse en cuenta sobre la instrucción \textit{uartConfig()}, perteneciente a la librería \textit{sAPI}, deben asignarse dos parámetros de entrada, uno de ellos indica el módulo de la UART sobre la cual se desea trabajar, en este caso el parámetro es \textit{UART$\_$USB}. El segundo parámetro que debe asignarse a dicha instrucción es la velocidad de transmisión en baudios. El valor de la velocidad previamente configurada sobre el programa debe ser configurado sobre el menú desplegable \textit{BaudRate}, ubicado sobre el costado derecho del menú desplegable \textit{Nombre}.Por ejemplo, si la velocidad configurada es igual a 9600 baudios, entonces sobre dicho menú debe seleccionarse 9600, como lo ilustra la Figura \ref{Fig30}.
 \item[•]\textbf{Paso 6}: Al realizar la depuración, el usuario debe seleccionar el boton \textit{Abrir/Cerrar puerto COM}, el cual se encuentra sobre la derecha del menú desplegable \textit{BaudRate},como lo ilustra la Figura \ref{Fig29}.
 \item[•]\textbf{Paso 7}: Para efectuar transmisiones sobre el puerto COM seleccionado, el usuario debe ingresar el dato sobre el cuadro de texto asociado al mismo y apretar el boton asociado a dicho cuadro.
+\item[•]\textbf{Paso 8}: Ingresar sobre el archivo fuente creado en el paso 1, el código que contiene el archivo \textit{Ejemplo$\_$6.c}, ubicado sobre la carpeta \textit{EJ$\_$6$\_$BM}.
+\item[•]\textbf{Paso 9}: Realizar la compilación y depuración del programa.
 \end{enumerate}
 
 \subsection{Implementación de ejemplo N$^{\circ}$7: Comunicación Serial-Utilización Display LCD 16x2}
@@ -835,19 +823,20 @@ En este ejemplo también se utiliza un display LCD 16x2. Para el manejo del mism
 \item[•]\textit{puertos.c}
 \end{enumerate}
 \end{enumerate}
-\item[•]\textbf{Paso 3}: Sobre la Figura \ref{Fig31} se ilustra el diagrama esquemático para el conexionado del Display sobre la placa.
+
+\item[•]\textbf{Paso 3}: Sobre la Figura \ref{Fig31} se ilustra el diagrama esquemático para el conexionado del Display sobre la placa.Implementar la conexión que se indica sobre la Sección \ref{sec:ej3sapi} para el Display 7 Segmentos.
 
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=8 cm]{figuras/f13.png}
+\includegraphics[width=12 cm]{figuras/lcd16x2.png}
 \caption{Diagrama esquematico de conexion display LCD 16x2}
 \label{Fig31}
 \end{figure}
 
 
-\item[•]\textbf{Paso 4}: Implementar la conexión que se indica sobre la Sección \ref{sec:ej3sapi} para el Display 7 Segmentos.
-
+\item[•]\textbf{Paso 4}: Ingresar sobre el archivo fuente creado en el paso 1, el código que contiene el archivo \textit{Ejemplo$\_$6.c}, ubicado sobre la carpeta \textit{EJ$\_$6$\_$BM}.
+\item[•]\textbf{Paso 5}: Realizar la compilación y depuración del programa.
 \end{enumerate}
 
 
@@ -856,34 +845,41 @@ En este ejemplo también se utiliza un display LCD 16x2. Para el manejo del mism
 \section{Sistema Operativo en Tiempo Real}
 Un Sistema Operativo es un conjunto de programas que ayuda al programador de aplicaciones a gestionar recursos de hardware disponible, entre ellos el tiempo del procesador y la memoria \cite{sase2011}.
 Una parte del OS se encarga de asignar el tiempo de ejecución a todos los programas que tiene cargados en base a un juego de reglas conocido de antemano. A dichos subprogramas se los denomina Tareas.
-
 Con esto se logra aparentar que múltiples programas se están ejecutando simultaneamente, sin embargo solo pueden hacerlo de uno a la vez.
-
+ \\
+ 
 El encargado de realizar esta gestión es un componente del sistema operativo denominado Scheduler o Programador de Tareas. La función de éste es determinar que tarea debe estar en ejecución a cada momento.
-
+ \\
+ 
 Ante la ocurrencia de ciertos eventos el Scheduler revisa si la tarea en ejecución debe reemplazarse por alguna otra tarea. A este reemplazo se lo denomina cambio de contexto de ejecución.
-
+ \\
+ 
 Debido a que el OS debe guardar el contexto completo de la tarea actual, y reemplazarlo por la tarea reentrante, debe reservarse un bloque de la memoria de datos para cada tarea. Lo cual limita el número de tareas que pueden ejecutarse de forma simultánea.Los cambios de contexto que se realizan cuando se reemplaza una tarea por otra no agregan trabajo al programador, de modo que al retornar a dicha tarea, el programador no observa ningún sintoma de haberla pausado alguna vez.
-
+ \\
+ 
 Un RTOS (sigla de \textit{Real Time Operating System}) realiza la misma función que un OS común, sin embargo agrega herramientas para que los programas de aplicación puedan cumplir compromisos temporales definidos por el programador. De modo que se encuentran diseñados para la administración de varias tareas simultáneas con plazos de tiempo estrictos.
-
+ \\
+ 
 El RTOS ofrece funcionalidad para asegurar que una vez ocurrido un evento, la respuesta ocurra en un tiempo acotado.Es necesario destacar que esto no lo hace por si solo sino que brinda al programador herramientas para implemetarlo de forma mas simple.
 
 \subsection{Tareas}\label{sec:tareas}
 El bloque básico de software escrito sobre un RTOS es la Tarea, sobre la mayoria de las RTOS que se ofrecen en el mercado, una Tarea es una simple subrutina\cite{librodertoseningles}.
-
+ \\
+ 
 Una Tarea provee un contexto en el cual se ejecuten las funciones.Mientras que el Scheduler organiza la secuencia de ejecución de las tareas\cite{os223}.
 En algún punto del programa se produce el llamado a alguna función que produzca la ejecución de dicha tarea\cite{librodertoseningles}.
-
+ \\
+ 
 En el sistema operativo OSEK las Tareas deben ser definidas en la configuración, de manera que no es posible crear Tareas de forma dinámica (a diferencia de los Sistemas Operativos de escritorio)\cite{libroosekcerdeiro}. En el momento de la compilación se genera el código del sistema operativo y se definen la cantidad de Tareas y sus características. Además deben utilizarse macros para las definiciones y las funciones (a dichas funciones se las suele denominar Servicios del Sistema ) que ofrece este Sistema Operativo, para ello, debe incluirse sobre el programa, el archivo cabecera \textit{os.h}.
-
+ \\
+ 
 Este sistema operativo ofrece dos conceptos distintos de Tareas\cite{os223}:
 \begin{enumerate}
 \item[•]Tareas del tipo \emph{BASIC}:Este tipo de Tareas solamente libera al procesador en los siguientes casos:
 \begin{enumerate}
-\item[1]Cuando terminan.
-\item[2]Cuando son interrumpidas por acción del Scheduler, al realizar la activación de una Tarea que posea mayor prioridad (caracteristica propia de los Sistemas Operativos del tipo \textit{preemptive}).
-\item[3]Ocurre una interrupción que causa que el procesador acuda a una subrutina de atencion de interrupción.
+\item[•]Cuando terminan.
+\item[•]Cuando son interrumpidas por acción del Scheduler, al realizar la activación de una Tarea que posea mayor prioridad (caracteristica propia de los Sistemas Operativos del tipo \textit{preemptive}).
+\item[•]Ocurre una interrupción que causa que el procesador acuda a una subrutina de atencion de interrupción.
 \end{enumerate}
 \item[•]Tareas del tipo \emph{EXTENDED}: Se distinguen de las Tareas extendidas por el hecho de que pueden utilizar una funcion propia de este OS, denominado \textit{WaitEvent()}. Este tipo de Tareas permite liberar el procesador y ser relevado hacia Tareas de menor prioridad, sin la necesidad de que finalize la Tarea que se encuentra esperando.
 %DECIDIR SI ESTO VA O NO..DADO QUE NO ENCUENTRO DE DONDE LO SAQUE%
@@ -945,7 +941,7 @@ La Figura \ref{Fig33} ilustra los conceptos explicados previamente.
 \end{center}
 
 El Cuadro \ref{Tab4} explica los diferentes eventos que provocan las transiciones entre los estados.
-\begin{table}[h]
+\begin{table}[H]
 \begin{center}
 \resizebox{18cm}{!}{
 \begin{tabular}{|l|l|l|l|}
@@ -963,7 +959,7 @@ El Cuadro \ref{Tab4} explica los diferentes eventos que provocan las transicione
 \label{Tab4}
 \end{center}
 \end{table}
- \\
+
 \underline{Activación de Tareas}: 
 
 La activación de una Tarea es realizada mediante el Servicio del Sistema \textit{ActivateTask} o por \textit{ChainTask}\cite{os223}. Luego de la activación de una Tarea, ésta se encuentra lista para ejecutarse desde su primer instrucción. En el caso que se produzcan múltiples activaciones de una Tarea del tipo \textit{BASIC}, el Sistema Operativo OSEK almacena estas activaciones paralelas, siempre y cuando se haya definido sobre éste, una clase de conformidad.\\
