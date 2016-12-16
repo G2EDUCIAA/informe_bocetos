@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  16 DEC 2016 16:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  16 DEC 2016 17:10
 entering extended mode
 **./BOCETO3.tex
 (BOCETO3.tex
@@ -2346,20 +2346,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [65]
-Overfull \hbox (17.2392pt too wide) in paragraph at lines 1855--1856
+Overfull \hbox (11.36426pt too wide) in paragraph at lines 1866--1867
 []\OT1/cmr/m/n/10 http://proyecto-ciaa.com.ar/devwiki/doku.php?id=docu:fw:bm:es
 tructura$&$s[]=estructura$&$s[]=de$&$s[]=directorios
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1870--1872
-[]\OT1/cmr/m/it/12 Introduccion a RTOS \OT1/cmr/m/n/12 por Ale-jan-dro Ce-lery.
- SA-SE 2011.
- []
-
 File: figuras/unsl.png Graphic file (type png)
 <use figuras/unsl.png>
-Package pdftex.def Info: figuras/unsl.png used on input line 1877.
+Package pdftex.def Info: figuras/unsl.png used on input line 1882.
 (pdftex.def)             Requested size: 22.76228pt x 28.57912pt.
 
 
@@ -2369,14 +2363,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [66]
-Underfull \hbox (badness 10000) in paragraph at lines 1881--1882
+Underfull \hbox (badness 10000) in paragraph at lines 1904--1905
 []\OT1/cmr/m/n/10 https://groups.google.com/forum/$#$!searchin/ciaa-firmware/bo
 olean$ $%7Csort:relevance/ciaa-
  []
 
 File: figuras/unsl.png Graphic file (type png)
 <use figuras/unsl.png>
-Package pdftex.def Info: figuras/unsl.png used on input line 1888.
+Package pdftex.def Info: figuras/unsl.png used on input line 1911.
 (pdftex.def)             Requested size: 22.76228pt x 28.57912pt.
 
 
@@ -2390,10 +2384,10 @@ LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 ) ) 
 Here is how much of TeX's memory you used:
- 5725 strings out of 493634
- 79286 string characters out of 3136463
+ 5724 strings out of 493634
+ 79262 string characters out of 3136463
  155746 words of memory out of 3000000
- 8931 multiletter control sequences out of 15000+200000
+ 8930 multiletter control sequences out of 15000+200000
  16077 words of font info for 60 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  37i,18n,43p,829b,514s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2409,11 +2403,10 @@ s/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb>
 <C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 msy10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/ams
 fonts/cm/cmsy8.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmti12.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmti7.pfb>
-Output written on BOCETO3.pdf (67 pages, 4323754 bytes).
+ublic/amsfonts/cm/cmti12.pfb>
+Output written on BOCETO3.pdf (67 pages, 4316885 bytes).
 PDF statistics:
- 377 PDF objects out of 1000 (max. 8388607)
+ 373 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  391 words of extra memory for PDF output out of 10000 (max. 10000000)
 
