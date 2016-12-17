@@ -32,7 +32,7 @@ En este trabajo se pretende desarrollar un tutorial que permita al usuario poder
 Este estudio aborda en primer lugar, las características principales de la placa y la correcta instalación del software sobre Windows 7, Windows 8, y Windows 10 para permitir el desarrollo de códigos sobre ella; además se incluyen posibles problemas que puedan suceder en el proceso junto con sus soluciones.
   \\
 
-La siguiente sección comienza introduciendo al usuario en el uso de la placa a través de la librería \textit{sAPI} (realizada por Eric Pernia) ésta nos permite el desarrollo de programas utilizando lenguaje C. La idea es brindar una explicación simple de la arquitectura de los microcontroladores Cortex y a su vez brindar una base para la siguiente sección del informe.
+La siguiente sección comienza introduciendo al usuario en el uso de la placa a través de la biblioteca \textit{sAPI} (realizada por Eric Pernia) ésta nos permite el desarrollo de programas utilizando lenguaje C. La idea es brindar una explicación simple de la arquitectura de los microcontroladores Cortex y a su vez brindar una base para la siguiente sección del informe.
   \\
 
 Luego, se introduce al usuario en la programación a través de el sistema operativo \textit{OSEK OS}, el cual es el método de programación en el que se proyectó cuando se realizó el diseño de la placa. Se pretende mostrar las bases conceptuales principales de los sistemas operativos en tiempo real, e introducir al usuario a la programación de códigos simples y alentar al usuario a profundizar sobre este estudio.
@@ -281,15 +281,16 @@ Para realizar la instalación del IDE, es necesario realizar los siguientes paso
 \end{figure}
 
 \item[•]\textbf{Paso 5}: Luego de dicha configuración, se inicia automáticamente el proceso de instalación. En un momento aparecerá una ventana emergente, similar a la que se muestra en la Figura \ref{Fig8}, en donde el programa pregunta si se dispone del hardware, pues para la instalación del driver es necesario conectar la placa.
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=6 cm]{figuras/instalacion5.png}\\
 \caption{Instalación de los drivers: primera instancia.}
 \label{Fig8}
 \end{figure}
+
 \begin{enumerate}
 \item[•]\textbf{Paso 5.1}: Si se dispone de la EDU-CIAA, se debe hacer click en 'Yes', y emergerá otra ventana, como se muestra en la Figura \ref{Fig9}.
-\begin{figure}[!h]
+\begin{figure}[H]
 \centering
 \includegraphics[width=6 cm]{figuras/instalacion6.png}\\
 \caption{Instalación de drivers si se dispone del hardware.}
@@ -304,7 +305,7 @@ Para realizar la instalación del IDE, es necesario realizar los siguientes paso
 \end{figure}
 \begin{figure}[H]
 \centering
-\includegraphics[width=5 cm]{figuras/instalacion8.png}\\
+\includegraphics[width=6 cm]{figuras/instalacion8.png}\\
 \caption{Instalador de drivers FTDI parte 2.}
 \label{Fig10}
 \end{figure}
@@ -316,7 +317,7 @@ Para realizar la instalación del IDE, es necesario realizar los siguientes paso
 \end{figure}
 \begin{figure}[H]
 \centering
-\includegraphics[width=6 cm]{figuras/instalacion10.png}\\
+\includegraphics[width=8 cm]{figuras/instalacion10.png}\\
 \caption{Instalador de drivers FTDI parte 4.}
 \label{Fig12}
 \end{figure}
@@ -466,7 +467,7 @@ Utilización de biblioteca sAPI:
 \caption{Ubicación de módulo \textit{sAPI}.}
 \label{sapiuso}
 \end{figure} 
-\item[•]Al utilizar la biblioteca \textit{sAPI} para un proyecto en Baremetal, se debe modificar el makefile del mismo dentro de la carpeta mak y cambiar la última línea de: \textbf{MODS += externals \$(DS)drivers}, y reemplazarla por:  \textbf{MODS += modules \$ (DS)sapi$\_$bm}.
+\item[•]Al utilizar la biblioteca \textit{sAPI} para un proyecto en Baremetal, se puede utilizar el archivo \textit{Makefile} que se implementa sobre cualquiera de los ejemplos que se brinda al descargar el módulo.
 \item[•]Luego, sobre cada archivo fuente en la que se ejecuten instrucciones que contenga esta biblieteca, se debe realizar la inclusión del mismo mediante la instruccion: \textbf{\# include “sAPI.h”}.Debe aclararse que en la versión 0.3.0 no es necesario incluir el archivo \textit{chip.h}.
 \item[•]Para la compilación y depuración del programa mediante el IDE del Firmware, se debe colocar sobre la carpeta Firmware y mediante click derecho, el usuario debe ubicarse en \textit{Propiedades}$\rightarrow$\textit{C/C++ Build}$\rightarrow$\textit{Behaviour}. A continuación debe modificar sobre la rama \textit{Clean}, y reemplazar la palabra \textit{Clean\_ generate} por  \textit{clean}, como puede apreciarse en la Figura \ref{Fig19}.
 \begin{figure}[H]
@@ -489,7 +490,7 @@ El primer ejemplo aborda las salidas digitales, a través de los leds que provee
 \caption{Creacion de Nuevo Directorio.}
 \label{nuevodirectorio}
 \end{figure}
-\item[•]\textbf{Paso 2}: A continuación se abre una ventana como la que se muestra en la Figura \ref{nuevodirectorio2}, que permite designar el nombre del directorio donde se ubica el proyecto que se quiere implementar. El usuario debe recordar que para compilar dicho proyecto debe establecer la ruta que le corresponde sobre el archivo \textit{Makefile}. Asimismo, deben agregarse los directorios \textit{etc}, \textit{mak}, \textit{inc}, y \textit{src}, sobre el directorio creado recientemente.
+\item[•]\textbf{Paso 2}: A continuación se abre una ventana como la que se muestra en la Figura \ref{nuevodirectorio2}, que permite designar el nombre del directorio donde se ubica el proyecto que se quiere implementar. El usuario debe recordar que para compilar dicho proyecto debe establecer la ruta que le corresponde sobre el archivo \textit{Makefile}. Asimismo, deben agregarse los directorios \textit{mak}, \textit{inc}, y \textit{src} de la misma forma, sobre el directorio creado recientemente.
 \begin{figure}[H]
 \centering
 \includegraphics[width=8 cm]{figuras/f44.png}
@@ -508,20 +509,19 @@ Para generar el archivo cabecera, el usuario debe ubicarse sobre la carpeta \tex
 En ella, se debe establecer el nombre del archivo cabecera. Al terminar la escritura de su nombre, debe escribirse la terminación \textit{.h}, y oprimir el boton \textit{Finish}, para concluir la generacion de dicho archivo.
 En este caso, el archivo cabecera se define como \textit{Ejemplo$\_$1.h}.
 
-\item[•]\textbf{Paso 3}: Para generar el archivo fuente, el usuario debe ubicarse sobre la carpeta \textit{inc}, y luego oprimiendo click derecho, debe seleccionar la opción \textit{New} $\rightarrow$ \textit{Source File}. A continuación se abre una ventana cuyo aspecto es similar al de la Figura \ref{archivofuentesapi1}, en ella, se debe establecer el nombre del archivo fuente, el cual en este caso es \textit{Ejemplo$\_$1.c}. Al terminar la escritura de su nombre, debe escribirse la terminación \textit{.c}, y oprimir el boton \textit{Finish}, para concluir la generacion de dicho archivo.
+\item[•]\textbf{Paso 3}: Para generar el archivo fuente, el usuario debe ubicarse sobre la carpeta \textit{src}, y luego oprimiendo click derecho, debe seleccionar la opción \textit{New} $\rightarrow$ \textit{Source File}. A continuación se abre una ventana cuyo aspecto es similar al de la Figura \ref{archivofuentesapi1}, en ella, se debe establecer el nombre del archivo fuente, el cual en este caso es \textit{Ejemplo$\_$1.c}. Al terminar la escritura de su nombre, debe escribirse la terminación \textit{.c}, y oprimir el boton \textit{Finish}, para concluir la generacion de dicho archivo.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=8 cm]{figuras/f28.png}
 \caption{Generación de archivo fuente para implementación de proyecto.}
 \label{archivofuentesapi1}
 \end{figure}
-\item[•]\textbf{Paso 4}: Ingresar el archivo cabecera de la librería \textit{sAPI} para poder referenciar los módulos a utilizar y referenciar el archivo cabecera del proyecto en caso de que el usuario desee declarar de forma directa alguna función o algún identificador. La Figura \ref{inclusionsapi1} ilustra dicho concepto.
-
-\begin{figure}[!h]
+\item[•]\textbf{Paso 4}: Utilizar el archivo \textit{Makefile} que se utiliza en cualquiera de los ejemplos que se entregan en la descarga de la biblioteca \textit{sAPI}. La Figura \ref{correccion} ilustra el resultado de estos pasos.
+\begin{figure}[H]
 \centering
-\includegraphics[width=5 cm]{figuras/f2.png}
+\includegraphics[width=5 cm]{figuras/correccion.png}
 \caption{Generación de archivo fuente para implementación de proyecto.}
-\label{inclusionsapi1}
+\label{correccion}
 \end{figure}
 
 \item[•]\textbf{Paso 5}: Una vez declarada la función principal \textit{main()}, es importante destacar algunas funciones utilizadas:
@@ -532,8 +532,18 @@ En este caso, el archivo cabecera se define como \textit{Ejemplo$\_$1.h}.
 \item[•]\textit{digitalWrite(A,B)}: Permite el establecimiento en \textit{ALTO} o en \textit{BAJO} de un pin configurado como salida digital. Sobre el parámetro A de la funcion debe establecerse el nombre del PIN, teniendo en cuenta la definición realizada sobre el módulo \textit{sAPI$\_$PeripheralMap}. Sobre el parámetro B debe determinarse es el estado funcional \textit{ON} u \textit{OFF}.
 \item[•]\textit{delay(A)}: Permite implementar una temporización en ms sobre el parámetro A de dicha función.
 \end{enumerate}
-\item[•]\textbf{Paso 6}: Ingresar el código \textit{Ejemplo$\_$1.c} ubicado en la carpeta \textit{EJ$\_$1$\_$BM}. 
-\item[•]\textbf{Paso 7}:Para realizar la compilación debe seleccionarse el directorio \textit{Firmware} y posteriormente hacer click sobre el botón \textit{Build}.
+\item[•]\textbf{Paso 6}: Ingresar el código \textit{Ejemplo$\_$1.c} ubicado en la carpeta \textit{EJ$\_$1$\_$BM}.
+
+\item[•]\textbf{Paso 7}: Referenciar la ruta del proyecto sobre el archivo \textit{Makefile.mine} y luego guardar el archivo. Como puede verse en la Figura \ref{referenciacion}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=8 cm]{figuras/makefilemine.png}\\
+\caption{Referenciación de proyecto sobre archivo \textit{Makefile.mine}.}
+\label{referenciacion}
+\end{figure}
+
+\item[•]\textbf{Paso 8}: Para realizar la compilación debe seleccionarse el directorio \textit{Firmware},  y posteriormente hacer click sobre el botón \textit{Build}.
 \end{enumerate}
 \subsection{Implementación de ejemplo N$^{\circ}$2: Entradas y Salidas Digitales}\label{sec:ej2sapi}
 
@@ -598,10 +608,10 @@ La Figura \ref{diagramaej3} especifica el diagrama de estados del ejemplo:
 \caption{Diagrama de estados de ejemplo N$^{\circ}$3.}
 \label{diagramaej3}
 \end{figure}
-Para el manejo del display se utiliza una biblioteca. Para ello, deben generarse dos archivos los cuales pertenecen a la cabecera y a la fuente de dicha librería. Sobre la cabecera deben establecerse las inclusiones de la librería \textit{sAPI} y las declaraciones de las funciones que corresponden con el manejo del dispositivo.
+Para el manejo del display se utiliza una biblioteca. Para ello, deben generarse dos archivos los cuales pertenecen a la cabecera y a la fuente de dicha biblioteca. Sobre la cabecera deben establecerse las inclusiones de la biblioteca \textit{sAPI} y las declaraciones de las funciones que corresponden con el manejo del dispositivo.
  \\
  
-En este tutorial se realiza el manejo de un display de 7 segmentos del tipo cátodo común, de manera que para provocar el encendido de un led perteneciente al arreglo, se debe establecer en alto la salida de el pin conectado a dicho led. La librería que provee este tutorial determina el conexionado de los pines del display, sobre los correspondientes terminales GPIO ubicados en la placa EDU CIAA. La Figura \ref{Fig23} ilustra los terminales de la placa y del display utilizados para la conexión del dispositivo.
+En este tutorial se realiza el manejo de un display de 7 segmentos del tipo cátodo común, de manera que para provocar el encendido de un led perteneciente al arreglo, se debe establecer en alto la salida de el pin conectado a dicho led. La biblioteca que provee este tutorial determina el conexionado de los pines del display, sobre los correspondientes terminales GPIO ubicados en la placa EDU CIAA. La Figura \ref{Fig23} ilustra los terminales de la placa y del display utilizados para la conexión del dispositivo.
 
 
 \begin{figure}[H]
@@ -663,7 +673,7 @@ La Figura \ref{diagramaej4} especifica el diagrama de estados del ejemplo:
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=8 cm]{figuras/ejemplo-4.png}\\
+\includegraphics[width=12 cm]{figuras/ejemplo-4.png}\\
 \caption{Diagrama de estados de ejemplo N$^{\circ}$4.}
 \label{diagramaej4}
 \end{figure}
@@ -691,7 +701,7 @@ Es necesario destacar que la placa ya integra internamente el conversor digital 
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=10 cm]{figuras/f8.png}\\
+\includegraphics[width=12 cm]{figuras/f8.png}\\
 \caption{Ilustración de tensión de referencia de DAC.}
 \label{Fig26}
 \end{figure}
@@ -703,7 +713,7 @@ La instrucción \textit{analogRead()}, permite realizar la lectura de la tensió
 Este ejemplo también utiliza maquina de estado para establecer un orden sobre los eventos y las acciones que debe ejecutar el microcontrolador. La Figura \ref{tablatransicionej5} especifica la Tabla de Transiciónes de la MEF.
 \begin{figure}[H]
 \centering
-\includegraphics[width=10 cm]{figuras/IMAGEN-EJEMPLO5.png}\\
+\includegraphics[width=12 cm]{figuras/IMAGEN-EJEMPLO5.png}\\
 \caption{Tabla de Transiciónes de N$^{\circ}$5.}
 \label{tablatransicionej5}
 \end{figure}
@@ -712,7 +722,7 @@ La Figura \ref{diagramaej5} especifica el diagrama de estados del ejemplo:
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=10 cm]{figuras/f10.png}\\
+\includegraphics[width=8 cm]{figuras/f10.png}\\
 \caption{Diagrama de estados de ejemplo N$^{\circ}$5.}
 \label{diagramaej5}
 \end{figure}
@@ -747,7 +757,7 @@ Si bien ofrece distintas herramientas para la programación de sistemas embebido
 Es necesario mencionar que si existe un programa ya cargado previamente, también es posible utilizar \textit{Octoplus} de forma similar.
  \\
  
-En este apartado se verá un código base para utilizar la UART del LPC4337 mediante las funciones que incluye la librería sAPI. Las funciones provistas por esta librería son las encargadas de realizar los siguientes pasos básicos para poder utilizar la UART0.
+En este apartado se verá un código base para utilizar la UART del LPC4337 mediante las funciones que incluye la biblioteca sAPI. Las funciones provistas por esta biblioteca son las encargadas de realizar los siguientes pasos básicos para poder utilizar la UART0.
 
 \begin{enumerate}
 \item[•]Habilitar la alimentación del periférico.
@@ -783,8 +793,8 @@ El usuario debe seguir los siguientes pasos para implementar este ejemplo:
 \label{Fig30}
 \end{figure}
 
-\item[•]\textbf{Paso 5}: Debe tenerse en cuenta sobre la instrucción \textit{uartConfig()}, perteneciente a la librería \textit{sAPI}, deben asignarse dos parámetros de entrada, uno de ellos indica el módulo de la UART sobre la cual se desea trabajar, en este caso el parámetro es \textit{UART$\_$USB}. El segundo parámetro que debe asignarse a dicha instrucción es la velocidad de transmisión en baudios. El valor de la velocidad previamente configurada sobre el programa debe ser configurado sobre el menú desplegable \textit{BaudRate}, ubicado sobre el costado derecho del menú desplegable \textit{Nombre}.Por ejemplo, si la velocidad configurada es igual a 9600 baudios, entonces sobre dicho menú debe seleccionarse 9600, como lo ilustra la Figura \ref{Fig30}.
-\item[•]\textbf{Paso 6}: Al realizar la depuración, el usuario debe seleccionar el boton \textit{Abrir/Cerrar puerto COM}, el cual se encuentra sobre la derecha del menú desplegable \textit{BaudRate},como lo ilustra la Figura \ref{Fig29}.
+\item[•]\textbf{Paso 5}: Debe tenerse en cuenta sobre la instrucción \textit{uartConfig()}, perteneciente a la biblioteca \textit{sAPI}, deben asignarse dos parámetros de entrada, uno de ellos indica el módulo de la UART sobre la cual se desea trabajar, en este caso el parámetro es \textit{UART$\_$USB}. El segundo parámetro que debe asignarse a dicha instrucción es la velocidad de transmisión en baudios. El valor de la velocidad previamente configurada sobre el programa debe ser configurado sobre el menú desplegable \textit{BaudRate}, ubicado sobre el costado derecho del menú desplegable \textit{Nombre}.Por ejemplo, si la velocidad configurada es igual a 9600 baudios, entonces sobre dicho menú debe seleccionarse 9600, como lo ilustra la Figura \ref{Fig30}.
+\item[•]\textbf{Paso 6}: Al realizar la depuración, el usuario debe seleccionar el boton \textit{Abrir/Cerrar puerto COM}, el cual se encuentra sobre la derecha del menú desplegable \textit{BaudRate}, como lo ilustra la Figura \ref{Fig29}.
 \item[•]\textbf{Paso 7}: Para efectuar transmisiones sobre el puerto COM seleccionado, el usuario debe ingresar el dato sobre el cuadro de texto asociado al mismo y apretar el boton asociado a dicho cuadro.
 \item[•]\textbf{Paso 8}: Ingresar sobre el archivo fuente creado en el paso 1, el código que contiene el archivo \textit{Ejemplo$\_$6.c}, ubicado sobre la carpeta \textit{EJ$\_$6$\_$BM}.
 \item[•]\textbf{Paso 9}: Realizar la compilación y depuración del programa.
@@ -793,7 +803,7 @@ El usuario debe seguir los siguientes pasos para implementar este ejemplo:
 \subsection{Implementación de ejemplo N$^{\circ}$7: Comunicación Serial-Utilización Display LCD 16x2}
 El siguiente ejemplo utiliza los leds incorporados en la placa, de forma tal que el numero de leds encendidos corresponda al caracter enviado. Por ejemplo, si se envía el caracter '3', entonces se encienden 3 leds.
 
-En este ejemplo también se utiliza un display LCD 16x2. Para el manejo del mismo fue necesario utilizar una libreria no perteneciente a \textit{sAPI}, la cual fue diseñada por Matias Ferraro.
+En este ejemplo también se utiliza un display LCD 16x2. Para el manejo del mismo fue necesario utilizar un Driver que no se incluye sobre la biblioteca \textit{sAPI}, la cual fue diseñada por Matias Ferraro.
 \begin{enumerate}
 \item[•]\textbf{Paso 1}: Realizar la generación de los archivos cabecera y fuente como se establecen en los Pasos 1, 2 y 3 sobre la seccion \ref{sec:ej1sapi}.
 \item[•]\textbf{Paso 2}: Realizar la inclusión de los siguientes archivos cabecera y fuente para la utilización del Display LCD:
@@ -856,7 +866,7 @@ Una Tarea provee un contexto en el cual se ejecuten las funciones, mientras que 
 En algún punto del programa se produce el llamado a alguna función que produzca la ejecución de dicha tarea.
  \\
  
-En el sistema operativo OSEK las Tareas deben ser definidas en la configuración, de manera que no es posible crear Tareas de forma dinámica (a diferencia de los Sistemas Operativos de escritorio). En el momento de la compilación se genera el código del sistema operativo y se definen la cantidad de Tareas y sus características. Además deben utilizarse macros para las definiciones y las funciones (a dichas funciones se las suele denominar Servicios del Sistema ) que ofrece este Sistema Operativo, para ello, debe incluirse sobre el programa, el archivo cabecera \textit{os.h}.
+En el sistema operativo OSEK las Tareas deben ser definidas en la configuración, de manera que no es posible crear Tareas de forma dinámica (a diferencia de los Sistemas Operativos de escritorio). En el momento de la compilación se genera el código del sistema operativo y se definen la cantidad de Tareas y sus características. Además deben utilizarse macros para las definiciones y las funciones (a dichas funciones se las suele denominar Servicios del Sistema) que ofrece este Sistema Operativo, para ello, debe incluirse sobre el programa, el archivo cabecera \textit{os.h}.
  \\
  
 Este sistema operativo ofrece dos conceptos distintos de Tareas:
@@ -961,14 +971,14 @@ Esta estrictamente prohibido realizar una Tarea que no finalize con alguno de es
  
 \underline{Prioridad de las tareas}:
 
-La asignación de prioridades sobre las Tareas se realiza a través de la definición de números enteros desde 0 hasta 255. Mientras mayor es el valor del numero, mayor será la prioridad.Una Tarea que se encuentra corriendo, no puede ser interrumpida por una de menor o igual prioridad.
+La asignación de prioridades sobre las Tareas se realiza a través de la definición de números enteros desde 0 hasta 255. Mientras mayor es el valor del numero, mayor será la prioridad. Una Tarea que se encuentra corriendo, no puede ser interrumpida por una de menor o igual prioridad.
 \subsection{Scheduler}\label{sec:scheduler}
 El algoritmo del Scheduler puede ser visto fundamentalmente como un coordinador de Tareas con las prioridades ya establecidas, en el cual se define un número máximo de activaciones de las mismas. El sistema operativo OSEK define tres politicas de \textit{Scheduling}, las cuales se mencionan a continuación.
  \\
  
 \underline{\textit{Scheduling Full Preemptive}}:
 
-Esta politica de \textit{Scheduling} implica que una Tarea que se encuentra en el estado \textit{Running} puede ser interrupida sobre cualquier instrucción, como consecuencia de la ocurrencia de alguna condición o evento; que ya se encuentre definido previamente sobre el OS. \textit{Full Preemptive Scheduling} determinará que una Tarea en el estado \textit{Running} sea establecido en el estado \textit{Ready}, tan pronto como una Tarea de mayor prioridad se establezca en estado \textit{\textit{Ready}}.
+Esta politica de \textit{Scheduling} implica que una Tarea que se encuentra en el estado \textit{Running} puede ser interrupida sobre cualquier instrucción, como consecuencia de la ocurrencia de alguna condición o evento, que ya se encuentre definido previamente sobre el OS. \textit{Full Preemptive Scheduling} determinará que una Tarea en el estado \textit{Running} sea establecido en el estado \textit{Ready}, tan pronto como una Tarea de mayor prioridad se establezca en estado \textit{\textit{Ready}}.
  \\
  
 El contexto de la Tarea será almacenado de forma que la Tarea que fue interrumpida pueda continuar sobre la instancia en donde fue interrumpida.
@@ -1044,7 +1054,7 @@ El OSEK-OS de la CIAA soporta todas las conformidades. Dependiendo de esta confi
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=8 cm]{figuras/f17.png}
+\includegraphics[width=7 cm]{figuras/f17.png}
 \caption{Clases de Conformidad.}
 \label{Fig34}
 \end{figure}
@@ -1085,7 +1095,7 @@ Otro aspecto que es necesario destacar es que para la implementación de los sig
 Este ejemplo utiliza los leds de la placa y un Display 7 Segmentos, para implementar un contador de numeros decimales, a través de una sola Tarea del tipo \textit{BASIC}.
 \begin{enumerate}
 
-\item[•]\textbf{Paso 1}: En primer lugar es necesario generar el archivo OIL para configurar el Sistema Operativo OSEK. A través del \textit{Bloc de Notas} o a través de cualquier editor de texto, debe almacenarse el archivo de configuracion de tipo \textit{OIL} sobre la carpeta \textit{etc} previamente creada sobre el directorio del proyecto, en dicho archivo, debe iniciar la configuración a través de la sintaxis \textit{OSEK OSEK} y sobre los simbolos ``$\lbrace$'' y ``$\rbrace$'' ,se determinarán los restantes aspectos que tendra el OS. La Figura \ref{Fig35} ilustra lo mencionado anteriormente.
+\item[•]\textbf{Paso 1}: En primer lugar es necesario generar el archivo OIL para configurar el Sistema Operativo OSEK. A través del \textit{Bloc de Notas} o a través de cualquier editor de texto, debe almacenarse el archivo de configuracion de tipo \textit{OIL}, en dicho archivo debe iniciar la configuración a través de la sintaxis \textit{OSEK OSEK} y sobre los simbolos ``$\lbrace$'' y ``$\rbrace$'' ,se determinarán los restantes aspectos que tendra el OS. La Figura \ref{Fig35} ilustra lo mencionado anteriormente.
 \begin{figure}[H]
 \centering
 \includegraphics[width=5 cm]{figuras/f18.png}
@@ -1100,11 +1110,11 @@ Este ejemplo utiliza los leds de la placa y un Display 7 Segmentos, para impleme
 \label{Fig36}
 \end{figure}
 
-\item[•]\textbf{Paso 3}: A continuación debe definirse las siguientes configuraciones para el OS del ejemplo:
+\item[•]\textbf{Paso 3}: A continuación de la definición de OS, debe definirse las siguientes configuraciones para el OS del ejemplo:
 \begin{enumerate}
 \item[•]\textbf{Paso 3.1}: El nivel de chequeo de errores que se pueden producir. Existen dos niveles que pueden determinarse: 
 \begin{enumerate}
-\item[•]\textit{STANDARD}: Implica un chequeo mínimo de errores, se encuentra pensado para el empleo en sistemas que deben producirse en masa.La instrucción utilizada es \textit{OS = STANDARD}. 
+\item[•]\textit{STANDARD}: Implica un chequeo mínimo de errores, se encuentra pensado para el empleo en sistemas que deben producirse en masa. La instrucción utilizada es \textit{OS = STANDARD}. 
 \item[•]\textit{EXTENDED}: Implica un chequeo máximo de errores y \textit{debug hooks}. La instrucción utilizada es \textit{OS = EXTENDED}.
 \end{enumerate}
 \item[•]\textbf{Paso 3.2}: Funciones implementadas por el usuario que el OS llamará en circunstancias específicas, tales como:
@@ -1134,7 +1144,7 @@ La Figura \ref{Fig37} ilustra un OS configurado de forma que el nivel de chequeo
 La Figura \ref{paso42} ilustra las declaraciónes realizadas:
 \begin{figure}[H]
 \centering
-\includegraphics[width=4 cm]{figuras/f48.png}
+\includegraphics[width=5 cm]{figuras/f48.png}
 \caption{Definición de APPMODE, Recurso POSIXE, Recurso POSIXR.}
 \label{paso42}
 \end{figure}
@@ -1147,24 +1157,25 @@ La Figura \ref{paso42} ilustra las declaraciónes realizadas:
 \caption{Definición de Tarea sobre archivo de configuración.}
 \label{Fig38}
 \end{figure}
-Debe destacarse que la implementación de OSEK que se utiliza en este caso, nos permite realizar la asignación de memoria de programa para una Tarea a través del atributo \textit{TASK}, el valor asignado es un número entero que representa la cantidad de memoria en Bytes. Si se define una cantidad de memoria demasiado chica, es posible generar un error grave en el código dado que el contador de programa puede direccionarse sobre zonas de la memoria que no fueron designadas para la Tarea creada, dicho problema se lo denomina \textit{stack overflow}.
-
-\item[•]\textbf{Paso 6}: La tarea que se desea definir en primer lugar, necesita activarse en el momento de inicio del programa. Teniendo en cuenta los atributos explicados sobre la Figura \ref{Fig38} ,se determina que \textit{AUTOSTART} adquiera el valor \textit{TRUE}. Dado que no se prevee que dicha Tarea vuelva a ejecutarse durante el desarrollo del programa, se asigna una prioridad baja y su tipo designado es \textit{BASIC}. La Figura \ref{inicializar} ilustra la definición de dicha Tarea.
+Debe destacarse que la implementación de OSEK que se utiliza en este caso, permite realizar la asignación de memoria de programa para una Tarea a través del atributo \textit{TASK}, el valor asignado es un número entero que representa la cantidad de memoria en Bytes. Si se define una cantidad de memoria demasiado chica, es posible generar un error grave en el código dado que el contador de programa puede direccionarse sobre zonas de la memoria que no fueron designadas para la Tarea creada, dicho problema se lo denomina \textit{stack overflow}.
+ \\
+ 
+Se desea definir en primer lugar, una Tarea denominada INICIALIZAR, la cual necesita activarse en el momento de inicio del programa. Teniendo en cuenta los atributos explicados sobre la Figura \ref{Fig38} ,se determina que \textit{AUTOSTART} adquiera el valor \textit{TRUE}. Dado que no se prevee que dicha Tarea vuelva a ejecutarse durante el desarrollo del programa, se asigna una prioridad baja y su tipo designado es \textit{BASIC}. La Figura \ref{inicializar} ilustra la definición de dicha Tarea.
 \begin{figure}[H]
 \centering
 \includegraphics[width=4 cm]{figuras/f47.png}
 \caption{Definición de Tarea INICIALIZAR sobre Ejemplo N$^{\circ}$1.}
 \label{inicializar}
 \end{figure}
-\item[•]\textbf{Paso 7}: La siguiente Tarea realiza la muestra de los digitos sobre los leds incorporados en la placa (forma binaria) y sobre el Display 7 Segmentos. Es importante destacar que esta Tarea se ejecuta constantemente, debido a que no existe otra Tarea de mayor prioridad que se active e interrumpa su ejecución. Para permitir esta ejecución constante es necesario la instrucción propia del SO (también denominada Servicio del Sistema) \textit{ChainTask()} para permitir que esta Tarea se reactive a si misma. La Figura \ref{Fig39} ilustra las definiciones de las dos Tareas descriptas anteriormente.
+\item[•]\textbf{Paso 6}: La siguiente Tarea realiza la muestra de los digitos sobre los leds incorporados en la placa (forma binaria) y sobre el Display 7 Segmentos. Es importante destacar que esta Tarea se ejecuta constantemente, debido a que no existe otra de mayor prioridad que se active e interrumpa su ejecución. Para permitir esta ejecución constante es necesario la instrucción propia del SO (también denominada Servicio del Sistema) \textit{ChainTask()} para permitir que esta Tarea se reactive a si misma. La Figura \ref{Fig39} ilustra las definiciones de las dos Tareas descriptas anteriormente.
 \begin{figure}[H]
 \centering
-\includegraphics[width=8 cm]{figuras/f22.png}
+\includegraphics[width=4 cm]{figuras/f22.png}
 \caption{Ilustración de definición de Tareas de Ejemplo N$^{\circ}$1.}
 \label{Fig39}
 \end{figure}
-\item[•]\textbf{Paso 8}: A continuación debe crearse el directorio que contiene el proyecto a implementar, para ello, es posible seguir los Pasos 1, 2 y 3 de la Seccion \ref{sec:ej1sapi}. Es necesario destacar la necesidad de crear un directorio adicional sobre el proyecto, cuyo nombre debe ser \textit{etc}. Sobre dicho directorio debe almacenarse el archivo de configuración OIL. 
-\item[•]\textbf{Paso 9}: Debido a que no todos los módulos que integra la librería \textit{sAPI} son compatibles con el Sistema Operativo, debemos especificar sobre el proyecto cuáles son los módulos a utilizar. En primer lugar debemos copiar y pegar aquellos archivos cabeceras de los módulos (compatibles) sobre la carpeta \textit{inc} y sus correspondientes archivos fuentes sobre la carpeta \textit{src}. A continuación se detalla una lista (respecto la version 0.3.0) de éstos modulos:
+\item[•]\textbf{Paso 7}: A continuación debe crearse el directorio que contiene el proyecto a implementar, para ello, es posible seguir los Pasos 1, 2 y 3 de la Seccion \ref{sec:ej1sapi}. Es necesario destacar la necesidad de crear un directorio adicional sobre el proyecto, cuyo nombre debe ser \textit{etc}. Sobre dicho directorio debe almacenarse el archivo de configuración OIL. 
+\item[•]\textbf{Paso 8}: Debido a que no todos los módulos que integra la biblioteca \textit{sAPI} son compatibles con el Sistema Operativo, debemos especificar sobre el proyecto cuáles son los módulos a utilizar. En primer lugar debemos copiar y pegar aquellos archivos cabeceras de los módulos (compatibles) sobre la carpeta \textit{inc} y sus correspondientes archivos fuentes sobre la carpeta \textit{src}. A continuación se detalla una lista (respecto la version 0.3.0) de éstos modulos:
 \begin{enumerate}
 \item[•]\textit{sAPI$\_$AnalogIO.h}
 \item[•]\textit{sAPI$\_$Board.h}
@@ -1179,7 +1190,7 @@ Debe destacarse que la implementación de OSEK que se utiliza en este caso, nos 
 En particular el módulo \textit{sAPI$\_$Uart} puede ser compatible en el caso que se borren los Handler de interrupción. Para ello, el usuario puede comentar la sección del código (ilustrado sobre la Figura \ref{modificacionuart}) sobre \textit{sAPI$\_$Uart.h}.
 \begin{figure}[H]
 \centering
-\includegraphics[width=10 cm]{figuras/f29.png}
+\includegraphics[width=13 cm]{figuras/f29.png}
 \caption{Modificación para compatibilidad de módulo sAPI$\_$Uart. Parte 1.}
 \label{modificacionuart}
 \end{figure}
@@ -1187,7 +1198,7 @@ En particular el módulo \textit{sAPI$\_$Uart} puede ser compatible en el caso q
 Sobre el archivo \textit{sAPI$\_$Uart.c}, debe realizar las modificaciones que se muestran en las Figuras \ref{modificacionuart2} y \ref{modificacionuart3}.
 \begin{figure}[H]
 \centering
-\includegraphics[width=8 cm]{figuras/f30.png}
+\includegraphics[width=12 cm]{figuras/f30.png}
 \caption{Modificación para compatibilidad de módulo sAPI$\_$Uart. Parte 2.}
 \label{modificacionuart2}
 \end{figure}
@@ -1198,7 +1209,7 @@ Sobre el archivo \textit{sAPI$\_$Uart.c}, debe realizar las modificaciones que s
 \label{modificacionuart3}
 \end{figure}
 
-\item[•]\textbf{Paso 10}: Para finalizar la inclusión de dichos módulos, el usuario debe eliminar las inclusiones realizadas sobre el archivo cabecera \textit{sAPI.h}. La Figura \ref{ejemploinclusion} ejemplifica la inclusión de el módulo \textit{sAPI$\_$DigitalIO.h}.
+\item[•]\textbf{Paso 9}: Para finalizar la inclusión de dichos módulos, el usuario debe eliminar las inclusiones realizadas sobre el archivo cabecera \textit{sAPI.h}. La Figura \ref{ejemploinclusion} ejemplifica la inclusión del módulo \textit{sAPI$\_$DigitalIO.h}.
 
 \begin{figure}[H]
 \centering
@@ -1206,9 +1217,9 @@ Sobre el archivo \textit{sAPI$\_$Uart.c}, debe realizar las modificaciones que s
 \caption{Ejemplo de inclusion de módulo de entradas y salidas digitales.}
 \label{ejemploinclusion}
 \end{figure}
-Debe destacarse que es necesaria la inclusión de las librerias \textit{sAPI$\_$Board.h},\textit{sAPI$\_$DataTypes.h} y \textit{sAPI$\_$PeripheralMap.h}. En primer lugar para la definición de la placa a utilizar, en segundo lugar los tipos de datos definidos por la librería, y por último para la inclusión de las definiciónes de los terminales para los periféricos.\\
-\item[•]\textbf{Paso 11}: Realizar la inclusión de las bibliotecas \textit{dsp7seg} y \textit{digitos}, de la misma forma que se realiza sobre el paso 9.
-\item[•]\textbf{Paso 12}: Sobre el archivo fuente del proyecto, ingresar el código proporcionado en el tutorial.
+Debe destacarse que es necesaria la inclusión de las librerias \textit{sAPI$\_$Board.h},\textit{sAPI$\_$DataTypes.h} y \textit{sAPI$\_$PeripheralMap.h}. En primer lugar para la definición de la placa a utilizar, en segundo lugar los tipos de datos definidos por la biblioteca, y por último para la inclusión de las definiciónes de los terminales para los periféricos.\\
+\item[•]\textbf{Paso 10}: Realizar la inclusión de las bibliotecas \textit{dsp7seg} y \textit{digitos}, de la misma forma que se realiza sobre el paso 8.
+\item[•]\textbf{Paso 11}: Sobre el archivo fuente del proyecto, ingresar el código proporcionado en el tutorial.
 
 \end{enumerate}
 %\underline{Generación de archivo OIL}:
@@ -1308,8 +1319,8 @@ Sin embargo, al apretar la tecla correspondiente, se realiza el encendido de \te
 \item[•]Recurso: tecla$\_$recurso
 \item[•]Evento: tecla2
 \end{enumerate}
-\item[•]\textbf{Paso 8}: Realizar la creación del directorio tal como se establece sobre el paso 8 en la Sección \ref{sec:tareasOSEK}.
-\item[•]\textbf{Paso 9}: Incluir los módulos compatibles de la \textit{sAPI}, como se establece sobre los pasos 9 y 10 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 8}: Realizar la creación del directorio tal como se establece sobre el paso 7 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 9}: Incluir los módulos compatibles de la \textit{sAPI}, como se establece sobre los pasos 8 y 9 en la Sección \ref{sec:tareasOSEK}.
 \item[•]\textbf{Paso 10}: Sobre el archivo fuente del proyecto, ingresar el código proporcionado por el tutorial.
 
 \end{enumerate}
@@ -1413,8 +1424,8 @@ En caso de que haya ocurrido el Evento \textit{primersecuencia} o \textit{segsec
 
 \end{enumerate}
 
-\item[•]\textbf{Paso 12}: Realizar la creación del directorio tal como se establece sobre el paso 8 en la Sección \ref{sec:tareasOSEK}.
-\item[•]\textbf{Paso 13}: Incluir los módulos compatibles de la \textit{sAPI}, como se establece sobre los pasos 9 y 10 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 12}: Realizar la creación del directorio tal como se establece sobre el paso 7 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 13}: Incluir los módulos compatibles de la \textit{sAPI}, como se establece sobre los pasos 8 y 9 en la Sección \ref{sec:tareasOSEK}.
 \item[•]\textbf{Paso 14}: Sobre el archivo fuente del proyecto, ingresar el código proporcionado por el tutorial.
 
 \end{enumerate}
@@ -1455,8 +1466,8 @@ Se realiza la definición de la Tarea \textit{lectura$\_$periodica}, la cuál se
 \item[•]Ciclo Mínimo: 1.
 \item[•]Tipo: SOFTWARE.
 \end{enumerate}
-\item[•]\textbf{Paso 8}: Realizar la creación del directorio tal como se establece sobre el paso 8 en la Sección \ref{sec:tareasOSEK}.
-\item[•]\textbf{Paso 9}: Incluir los módulos compatibles de la \textit{sAPI}, como se establece sobre los pasos 9 y 10 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 8}: Realizar la creación del directorio tal como se establece sobre el paso 7 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 9}: Incluir los módulos compatibles de la \textit{sAPI}, como se establece sobre los pasos 8 y 9 en la Sección \ref{sec:tareasOSEK}.
 \item[•]\textbf{Paso 10}: Sobre el archivo fuente del proyecto, ingresar el código proporcionado por el tutorial.
 
 
@@ -1480,16 +1491,16 @@ interfaces para desactivar las interrupciones:
 \end{enumerate}
 
 \subsection{Implementación de ejemplo N$^{\circ}$6: Interrupciones en OSEK}
-En este ejemplo se busca ilustrar al usuario a la utilización de Interrupciones en \textit{OSEK}. En particular, este ejemplo implementa una interrupción externa, a través de la utilización de una librería creada por Pablo Ridolfi.
+En este ejemplo se busca ilustrar al usuario a la utilización de Interrupciones en \textit{OSEK}. En particular, este ejemplo implementa una interrupción externa, a través de la utilización de una biblioteca creada por Pablo Ridolfi.
  \\
  
-Sobre la Tarea \textit{Inicializar} se realiza la habilitación de la interrupción a través del GPIO0 (el cuál se encuentra configurado sobre el pin perteneciente a la tecla \textit{TEC4} incorporada a la placa) mediante la instrucción (previamente definida sobre el archivo cabecera que pertenece a la librería) \textit{ciaaGpioIntEnable(0, appIrqHandler)}.
+Sobre la Tarea \textit{Inicializar} se realiza la habilitación de la interrupción a través del GPIO0 (el cuál se encuentra configurado sobre el pin perteneciente a la tecla \textit{TEC4} incorporada a la placa) mediante la instrucción (previamente definida sobre el archivo cabecera que pertenece a la biblioteca) \textit{ciaaGpioIntEnable(0, appIrqHandler)}.
  \\
  
-Sobre el primer parámetro de dicha instrucción se especifica el canal utilizado. En este caso la librería utiliza el canal 0, el cual indica que se trabaja sobre el Registro de selección de Pines de Interrupción N$^{\circ}$0 (denominado registro \textit{PINTSEL 0}).
+Sobre el primer parámetro de dicha instrucción se especifica el canal utilizado. En este caso la biblioteca utiliza el canal 0, el cual indica que se trabaja sobre el Registro de selección de Pines de Interrupción N$^{\circ}$0 (denominado registro \textit{PINTSEL 0}).
  \\
  
-Sobre el segundo parámetro utilizado se especifica el \textit{Handler} de interrupción utilizado, en este caso la librería la denomina \textit{appIrqHandler}.
+Sobre el segundo parámetro utilizado se especifica el \textit{Handler} de interrupción utilizado, en este caso la biblioteca la denomina \textit{appIrqHandler}.
  \\
  
 Sobre el archivo de configuración del Sistema Operativo se define una Interrupción denominada \textit{GPIOINTHandler0}.
@@ -1559,8 +1570,8 @@ Cuando la interrupción externa se produce el establecimiento de una tensión de
 \label{defintej6}
 \end{figure}
 \end{enumerate}
-\item[•]\textbf{Paso 10}: Realizar la creación del directorio tal como se establece sobre el paso 8 en la Sección \ref{sec:tareasOSEK}.
-\item[•]\textbf{Paso 11}: Incluir los módulos compatibles de la \textit{sAPI}, como se establece sobre los pasos 9 y 10 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 10}: Realizar la creación del directorio tal como se establece sobre el paso 7 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 11}: Incluir los módulos compatibles de la \textit{sAPI}, como se establece sobre los pasos 8 y 9 en la Sección \ref{sec:tareasOSEK}.
 \item[•]\textbf{Paso 12}: Realizar la inclusión de las bibliotecas \textit{ciaaGPIOINT} y \textit{digitos}, de la misma forma que se realiza sobre el paso 10.
 \item[•]\textbf{Paso 13}: Sobre el archivo fuente del proyecto, ingresar el código proporcionado por el tutorial.
 
@@ -1615,8 +1626,8 @@ Es importante destacar que el nombre utilizado en la interrupción puede definir
 \end{figure}
 \end{enumerate}
 
-\item[•]\textbf{Paso 8}: Realizar la creación del directorio tal como se establece sobre el paso 8 en la Sección \ref{sec:tareasOSEK}.
-\item[•]\textbf{Paso 9}: Incluir los módulos compatibles de la \textit{sAPI}, como se establece sobre los pasos 9 y 10 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 8}: Realizar la creación del directorio tal como se establece sobre el paso 7 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 9}: Incluir los módulos compatibles de la \textit{sAPI}, como se establece sobre los pasos 8 y 9 en la Sección \ref{sec:tareasOSEK}.
 \item[•]\textbf{Paso 10}: Sobre el archivo fuente del proyecto, ingresar el código proporcionado por el tutorial.
 \end{enumerate}
 \subsection{Implementación de ejemplo N$^{\circ}$8: Interrupciones en OSEK}
@@ -1661,28 +1672,28 @@ Para efectuar la recepción del caracter se implementa una interrupción del tip
 \item[•]Prioridad:0.
 \end{enumerate}
 
-\item[•]\textbf{Paso 8}: Realizar la creación del directorio tal como se establece sobre el paso 8 en la Sección \ref{sec:tareasOSEK}.
-\item[•]\textbf{Paso 9}: Incluir los módulos compatibles de la \textit{sAPI}, como se establece sobre los pasos 9 y 10 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 8}: Realizar la creación del directorio tal como se establece sobre el paso 7 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 9}: Incluir los módulos compatibles de la \textit{sAPI}, como se establece sobre los pasos 8 y 9 en la Sección \ref{sec:tareasOSEK}.
 \item[•]\textbf{Paso 10}: Sobre el archivo fuente del proyecto, ingresar el código proporcionado por el tutorial.
 
 \end{enumerate}
 
-\subsection{Implementación de ejemplo N$^{\circ}$9: Inclusión de librería LCD y formación de librerias propias para trabajar}
-El siguiente ejemplo tiene como objetivo ilustrar al usuario como puede implementarse librerías propias para la agilización de proyectos y proveer una forma de clarificar la visualización del programa.
+\subsection{Implementación de ejemplo N$^{\circ}$9: Inclusión de Driver LCD y formación de librerias propias para trabajar}
+El siguiente ejemplo tiene como objetivo ilustrar al usuario como puede implementarse bibliotecas propias para la agilización de proyectos y proveer una forma de clarificar la visualización del programa.
  \\
  
 En este ejemplo se realiza la lectura analógica de una tensión de entrada sobre el canal 1 del puerto ADC0 de la placa. El usuario puede recurrir a la Figura \ref{Fig24} de la sección \ref{sec:ej4sapi} para repasar el diagrama de conexión.
  \\
  
-Para comenzar la implementación de una librería propia se procede de forma similar a la que se estableció para la generación de un archivo cabecera y un archivo fuente sobre la sección \ref{sec:tareasOSEK}. En este caso en particular se implemeta una librería propia que tiene como propósito configurar la placa, las teclas y los leds incorporados; facilitar el encendido de un solo Led en particular (a través de una sola instrucción creada en la librería); facilitar la conversión de la lectura analógica realizada por el ADC; simplificar la inicialización del Display LCD 16x2 mediante las instrucciones propias de la librería de Matias Ferraro ; y generar instrucciones de utilización propia en particular.
+Para comenzar la implementación de una biblioteca propia se procede de forma similar a la que se estableció para la generación de un archivo cabecera y un archivo fuente sobre la sección \ref{sec:tareasOSEK}. En este caso en particular se implemeta una biblioteca propia que tiene como propósito configurar la placa, las teclas y los leds incorporados; facilitar el encendido de un solo Led en particular (a través de una sola instrucción creada en la biblioteca); facilitar la conversión de la lectura analógica realizada por el ADC; simplificar la inicialización del Display LCD 16x2 mediante las instrucciones propias del Driver de Matias Ferraro , y generar instrucciones de utilización propia en particular.
  \\
  
-Debe tenerse en cuenta que al utilizar instrucciones propias de la librería \textit{sAPI} y la del Display LCD, sobre el archivo cabecera de la misma, debe incluirse los archivos cabecera de las librerías listadas anteriormente. La Figura \ref{Fig47} ilustra el concepto explicado.
+Debe destacarse que al utilizar instrucciones propias de la biblioteca \textit{sAPI} y la del Display LCD, sobre el archivo cabecera de la misma, se incluye los archivos cabecera de las bibliotecas listadas anteriormente. La Figura \ref{Fig47} ilustra la inclusión sobre dicha biblioteca.
 
 \begin{figure}[!h]
 \centering
 \includegraphics[width=8 cm]{figuras/f40.png}
-\caption{Inclusión de librerias \textit{sAPI} y libreria de Display LCD sobre librería propia.}
+\caption{Inclusión de librerias \textit{sAPI} y Driver de Display LCD sobre biblioteca propia.}
 \label{Fig47}
 \end{figure}
 
@@ -1742,15 +1753,15 @@ Este ejemplo en particular realiza la lectura analógica e imprime sobre la pant
 \item[•]Tipo: SOFTWARE.
 \end{enumerate}
 
-\item[•]\textbf{Paso 11}: Realizar la creación del directorio tal como se establece sobre el paso 8 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 11}: Realizar la creación del directorio tal como se establece sobre el paso 7 en la Sección \ref{sec:tareasOSEK}.
 
-\item[•]\textbf{Paso 12}: Incluir los módulos compatibles de la \textit{sAPI}, como se establece sobre los pasos 9 y 10 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 12}: Incluir los módulos compatibles de la \textit{sAPI}, como se establece sobre los pasos 8 y 9 en la Sección \ref{sec:tareasOSEK}.
 
 \item[•]\textbf{Paso 13}: Realizar la inclusión de las bibliotecas \textit{font8x16}, \textit{font8x8},\textit{lcd},\textit{puertos} y \textit{libreria$\_$propia} de la misma forma que se realiza sobre el paso 12.
 
 \item[•]\textbf{Paso 14}: Sobre el archivo fuente del proyecto, ingresar el código proporcionado por el tutorial.
 \end{enumerate}
-\subsection{Implementación de ejemplo N$^{\circ}$10: Inclusión de librería LCD y formación de librerias propias para trabajar}
+\subsection{Implementación de ejemplo N$^{\circ}$10: Inclusión de Driver LCD y formación de librerias propias para trabajar}
 
 Sobre este ejemplo se desea establecer la recepción de 3 caracteres sobre la UART mediante una interrupción. A partír de la palabra formada, se establece una tensión analógica de 1[V] utilizando el módulo DAC del microcontrolador, en caso que los caracteres recibidos formen la palabra \textit{UNO}. Mientras que para cualquier otro caso se establece una tensión de salida de 0 [V].
  \\
@@ -1826,9 +1837,9 @@ De la misma forma que en el ejemplo 8, para la recepción del caracter se implem
 \item[•]Tipo: SOFTWARE.
 \end{enumerate}
 
-\item[•]\textbf{Paso 12}: Realizar la creación del directorio tal como se establece sobre el paso 8 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 12}: Realizar la creación del directorio tal como se establece sobre el paso 7 en la Sección \ref{sec:tareasOSEK}.
 
-\item[•]\textbf{Paso 13}: Incluir los módulos compatibles de la \textit{sAPI}, como se establece sobre los pasos 9 y 10 en la Sección \ref{sec:tareasOSEK}.
+\item[•]\textbf{Paso 13}: Incluir los módulos compatibles de la \textit{sAPI}, como se establece sobre los pasos 8 y 9 en la Sección \ref{sec:tareasOSEK}.
 
 \item[•]\textbf{Paso 14}: Realizar la inclusión de las bibliotecas \textit{font8x16}, \textit{font8x8},\textit{lcd},\textit{puertos} y \textit{libreria$\_$propia} de la misma forma que se realiza sobre el paso 12.
 
@@ -1864,7 +1875,7 @@ Fecha: 15/10/16 11:00 am.
 \bibitem{estructuradedirectorios}\underline{Estructura de Directorios}: 
 
 {\footnotesize http://proyecto-ciaa.com.ar/devwiki/doku.php?id=docu:fw:bm:estructura$\&$s[]=estructura$\&$s[]=de$\&$s[]=directorios} Fecha: 15/10/16 11:00 am.
-\bibitem{sapi}\underline{\textit{sAPI} versión 0.3.0:Introducción}:
+\bibitem{sapi}\underline{\textit{sAPI} Introducción versión 0.3.0}:
 
 Documento existente sobre el repositorio ubicado en \textit{Github}.
 
@@ -1877,7 +1888,9 @@ Autor: David E. Simon
 
 Editorial: Pearson Education. Pags: 138-139.
 
-\bibitem{manuallpcuart} \textit{UM10503 LPC43xx/LPC43Sxx ARM Cortex-M4/M0 multi-core microcontroller} Capítulo 40.
+\bibitem{manuallpcuart} \underline{Módulo USART 0/2/3}:
+
+\textit{UM10503 LPC43xx/LPC43Sxx ARM Cortex-M4/M0 multi-core microcontroller} Capítulo 40.
 
 \bibitem{repositoriomatiasferraro}\underline{Repositorio Matias Ferraro}:
 
@@ -1885,15 +1898,15 @@ Editorial: Pearson Education. Pags: 138-139.
 
 Fecha: 30/10/16 16:00 pm.
 
-\bibitem{sase2011}\textit{Introduccion a RTOS} por Alejandro Celery. SASE 2011.
+\bibitem{sase2011}``\textit{Introduccion a RTOS}'' por Alejandro Celery. SASE 2011.
 
 {\footnotesize http://www.sase.com.ar/2011/files/2010/11/SASE2011-Introduccion$\_$RTOS.pdf}
 
-\bibitem{os223}\textit{OSEK/VDX Operating System Version 2.2.3}
+\bibitem{os223}\underline{\textit{OSEK/VDX Operating System Version 2.2.3}}
 
 {\footnotesize http://www.irisa.fr/alf/downloads/puaut/TPNXT/images/os223.pdf}
 
-\bibitem{libroosekcerdeiro}\textit{Introducción a OSEK OS: El Sistema Operativo del CIAA-Firmware}. Primera Edición. 
+\bibitem{libroosekcerdeiro}``\textit{Introducción a OSEK OS: El Sistema Operativo del CIAA-Firmware}''. Primera Edición. 
 
 Autor: Mariano Cerdeiro
 
@@ -1903,7 +1916,7 @@ Extraído de pagina web:
 
 {\footnotesize https://groups.google.com/forum/$\#$!searchin/ciaa-firmware/boolean\%7Csort:relevance/ciaa-firmware/SNLmTVZbIkk/iSPYr-l-EAAJ}
 
-\bibitem{enlacelibreriainterrupcion} \underline{Enlace web de repositorio de librería que implementa interrupción externa sobre GPIO0}:
+\bibitem{enlacelibreriainterrupcion} \underline{Enlace web de repositorio de biblioteca que implementa interrupción externa sobre GPIO0}:
 
 {\footnotesize https://gitlab.com/pridolfi/rtos$\_$ii$\_$ejercicios/tree/master/gpioint}
 \end{thebibliography}
