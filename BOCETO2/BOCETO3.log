@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  17 DEC 2016 00:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.25)  17 DEC 2016 00:38
 entering extended mode
 **./BOCETO3.tex
 (BOCETO3.tex
@@ -2362,14 +2362,20 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [66]
-Overfull \hbox (11.36426pt too wide) in paragraph at lines 1877--1878
+Overfull \hbox (14.1476pt too wide) in paragraph at lines 1873--1874
+[]\OT1/cmr/m/n/12 http://proyecto-ciaa.com.ar/devwiki/doku.php?id=desarrollo:fi
+rmware:instalacion$[]$sw$&$s[]=puente 
+ []
+
+
+Overfull \hbox (11.36426pt too wide) in paragraph at lines 1888--1889
 []\OT1/cmr/m/n/10 http://proyecto-ciaa.com.ar/devwiki/doku.php?id=docu:fw:bm:es
-tructura$&$s[]=estructura$&$s[]=de$&$s[]=directorios
+tructura$&$s[]=estructura$&$s[]=de$&$s[]=directorios 
  []
 
 File: figuras/unsl.png Graphic file (type png)
 <use figuras/unsl.png>
-Package pdftex.def Info: figuras/unsl.png used on input line 1893.
+Package pdftex.def Info: figuras/unsl.png used on input line 1896.
 (pdftex.def)             Requested size: 22.76228pt x 28.57912pt.
 
 
@@ -2379,14 +2385,14 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [67]
-Underfull \hbox (badness 10000) in paragraph at lines 1917--1918
+Underfull \hbox (badness 10000) in paragraph at lines 1941--1942
 []\OT1/cmr/m/n/10 https://groups.google.com/forum/$#$!searchin/ciaa-firmware/bo
 olean$ $%7Csort:relevance/ciaa-
  []
 
 File: figuras/unsl.png Graphic file (type png)
 <use figuras/unsl.png>
-Package pdftex.def Info: figuras/unsl.png used on input line 1924.
+Package pdftex.def Info: figuras/unsl.png used on input line 1957.
 (pdftex.def)             Requested size: 22.76228pt x 28.57912pt.
 
 
@@ -2395,15 +2401,27 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[68] (BOCETO3.aux
+[68]
+File: figuras/unsl.png Graphic file (type png)
+ <use figuras/unsl.png>
+Package pdftex.def Info: figuras/unsl.png used on input line 1960.
+(pdftex.def)             Requested size: 22.76228pt x 28.57912pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 32.92915pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[69] (BOCETO3.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
 ) ) 
 Here is how much of TeX's memory you used:
- 5730 strings out of 493634
- 79445 string characters out of 3136463
- 155756 words of memory out of 3000000
- 8935 multiletter control sequences out of 15000+200000
+ 5732 strings out of 493634
+ 79478 string characters out of 3136463
+ 155761 words of memory out of 3000000
+ 8937 multiletter control sequences out of 15000+200000
  16077 words of font info for 60 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  37i,18n,43p,829b,557s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2420,9 +2438,9 @@ s/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb>
 msy10.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/ams
 fonts/cm/cmsy8.pfb><C:/Users/hp/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/p
 ublic/amsfonts/cm/cmti12.pfb>
-Output written on BOCETO3.pdf (68 pages, 3680771 bytes).
+Output written on BOCETO3.pdf (69 pages, 3679741 bytes).
 PDF statistics:
- 392 PDF objects out of 1000 (max. 8388607)
+ 395 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  396 words of extra memory for PDF output out of 10000 (max. 10000000)
 
